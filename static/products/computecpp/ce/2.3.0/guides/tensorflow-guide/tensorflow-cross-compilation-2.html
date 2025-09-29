@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:44 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>TensorFlow Cross Compilation - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'TensorFlow Cross Compilation' for ComputeCpp™ Community Edition 2.3.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="TensorFlow Cross Compilation - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'TensorFlow Cross Compilation' for ComputeCpp™ Community Edition 2.3.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="tensorflow-guide-tensorflow-cross-compilation">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.3.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/tensorflow-guide/tensorflow-cross-compilation">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/tensorflow-guide/tensorflow-cross-compilation">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/tensorflow-guide/tensorflow-cross-compilation">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/frameworks-for-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.3.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#tensorflow-cross-compilation">
+                            <h1>TensorFlow Cross Compilation</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/eigen-guide" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="tensorflow-cross-compilation-guide" href="#tensorflow-cross-compilation-guide"><span class="material-icons">link</span><h1 id="tensorflow-cross-compilation-guide">﻿TensorFlow™ Cross Compilation Guide</h1></a>
+<a class="header-link" id="introduction-65658fde58ab3c2b6e5132a39fae7cb9" href="#introduction-65658fde58ab3c2b6e5132a39fae7cb9"><span class="material-icons">link</span><h2 id="introduction-65658fde58ab3c2b6e5132a39fae7cb9">Introduction</h2></a>
+<p>This guide will explain how to set up your machine to run the SYCL™ version of
+TensorFlow™ using ComputeCpp. This guide describes how to cross-compile
+TensorFlow 1.9 and run it on any device supporting SPIR or SPIR-V. To compile
+natively please read our other <a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-native-compilation">guide</a>.</p>
+<a class="header-link" id="configuration-management-5ea1649a31336092c05438df996a3e59" href="#configuration-management-5ea1649a31336092c05438df996a3e59"><span class="material-icons">link</span><h2 id="configuration-management-5ea1649a31336092c05438df996a3e59">Configuration management</h2></a>
+<p>These instructions relate to the following configuration:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Host platform</strong></td>
+<td>Ubuntu 16.04, x86_64 architecture (more recent versions of Ubuntu, or other Linux distributions, may work but are not supported)</td>
+</tr>
+<tr>
+<td><strong>Target platform</strong></td>
+<td><a href="https://www.96boards.org/product/hikey960/">HiKey 960</a> development board with an Arm Mali G71 MP8 GPU, running Debian 9, aarch64 architecture <br> Chromebook with a PowerVR Rogue GX6250 GPU, running Ubuntu 16.04, aarch64 architecture</td>
+</tr>
+<tr>
+<td><strong>TensorFlow</strong></td>
+<td><a href="https://github.com/codeplaysoftware/tensorflow/tree/master">master</a></td>
+</tr>
+<tr>
+<td><strong>ComputeCpp</strong></td>
+<td>Latest</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>3.5 (more recent versions of Python may work but are not supported)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>For older or newer versions of TensorFlow, please contact Codeplay for build
+  documentation.</li>
+<li>If you are interested in the latest features you may try our
+  <a href="https://github.com/codeplaysoftware/tensorflow/tree/experimental">experimental</a>
+  branch.</li>
+<li>OpenCL devices other than those listed above may work, but Codeplay does not
+  support them at this time.</li>
+<li>It is strongly recommended to make sure you have a working OpenCL installation
+  before building TensorFlow, see
+  <a href="http://127.0.0.1/products/computecpp/ce/tensorflow-guide/tensorflow-native-compilation#install-an-opencl-driver">here</a>.</li>
+<li>It is strongly recommended to test your ComputeCpp installation using the
+  <a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/eigen-guide/options-for-building-eigen">Eigen</a> tests
+  before building TensorFlow.</li>
+</ul>
+<a class="header-link" id="build-tensorflow-with-sycl-7bcdf75ad237b8e02e301f4091fb6bc8" href="#build-tensorflow-with-sycl-7bcdf75ad237b8e02e301f4091fb6bc8"><span class="material-icons">link</span><h2 id="build-tensorflow-with-sycl-7bcdf75ad237b8e02e301f4091fb6bc8">Build TensorFlow with SYCL</h2></a>
+<a class="header-link" id="install-dependency-packages-5737034557ef5b8c02c0e46513b98f90" href="#install-dependency-packages-5737034557ef5b8c02c0e46513b98f90"><span class="material-icons">link</span><h3 id="install-dependency-packages-5737034557ef5b8c02c0e46513b98f90">Install dependency packages</h3></a>
+<pre><code class="language-cpp">sudo dpkg --add-architecture arm64
+echo "deb [arch=arm64] http://ports.ubuntu.com/ xenial main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm.list
+echo "deb [arch=arm64] http://ports.ubuntu.com/ xenial-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm.list
+echo "deb [arch=arm64] http://ports.ubuntu.com/ xenial-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm.list
+echo "deb [arch=arm64] http://ports.ubuntu.com/ xenial-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/arm.list
+sudo sed -i 's#deb  http://gb.archive.ubuntu.com/ubuntu#deb  [arch=amd64]  http://gb.archive.ubuntu.com/ubuntu#g ' /etc/apt/sources.list
+sudo sed -i 's#deb   http://security.ubuntu.com/ubuntu#deb   [arch=amd64]   http://security.ubuntu.com/ubuntu#g   ' /etc/apt/sources.list
+sudo apt update
+sudo apt install -y git cmake libpython3-all-dev:arm64 opencl-headers openjdk-8-jdk python3 python3-pip zlib1g-dev:arm64 ocl-icd-opencl-dev:arm64
+pip install -U --user numpy==1.14.5 wheel==0.31.1 six==1.11.0 mock==2.0.0 enum34==1.1.6
+</code></pre>
+<p>Specific python package versions are added here for reference. More recent
+versions of numpy is known to break some tests in this version of TensorFlow.</p>
+<p>The rest of the guide will assume Python 3.5 is used by default. This can be
+done for example with:</p>
+<pre><code class="language-cpp">alias python=python3.5
+alias pip=pip3.5
+</code></pre>
+<a class="header-link" id="install-toolchains-9b72e31dac81715466cd580a448cf823" href="#install-toolchains-9b72e31dac81715466cd580a448cf823"><span class="material-icons">link</span><h3 id="install-toolchains-9b72e31dac81715466cd580a448cf823">Install toolchains</h3></a>
+<ul>
+<li>Register for an account on Codeplay's developer website:
+  <a href="https://developer.codeplay.com/computecppce/latest/download">https://developer.codeplay.com/computecppce/latest/download</a></li>
+<li>From that page, download the following version: Latest &gt; linux-gnu &gt; x86_64
+  <code>computecpp-ce-*-x86_64-linux-gnu.tar.gz</code></li>
+<li>From the same page, download the following version: Latest &gt; linux-gnu &gt; aarch64
+  <code>computecpp-ce-*-aarch64-linux-gnu.tar.gz</code></li>
+</ul>
+<p>Set up an environment variable with the ComputeCpp version so that you can copy
+and paste the commands below.</p>
+<p>For example:</p>
+<pre><code class="language-cpp">export CCPP_VERSION=2.2.1
+</code></pre>
+<pre><code class="language-cpp">tar -xf computecpp-ce-${CCPP_VERSION}-x86_64-linux-gnu.tar.gz
+tar -xf ComputeCpp-CE-${CCPP_VERSION}-aarch64-linux-gnu.tar.gz
+cp ComputeCpp-CE-${CCPP_VERSION}-Ubuntu-16.04-x86_64/bin/* ComputeCpp-CE-${CCPP_VERSION}-Ubuntu-16.04-ARM_64/bin/
+
+wget https://releases.linaro.org/components/toolchain/binaries/6.3-2017.05/aarch64-linux-gnu/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu.tar.xz
+tar -xf gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu.tar.xz
+mkdir -p $HOME/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu
+ln -s /usr/include/aarch64-linux-gnu/python3.5m/ $HOME/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/include/aarch64-linux-gnu/
+ln -s /usr/lib/aarch64-linux-gnu/libOpenCL.so $HOME/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/aarch64-linux-gnu/libc/usr/lib/libOpenCL.so
+
+export COMPUTECPP_TOOLKIT_PATH=$HOME/ComputeCpp-CE-${CCPP_VERSION}-Ubuntu-16.04-ARM_64
+export TF_SYCL_CROSS_TOOLCHAIN=$HOME/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu
+export TF_SYCL_CROSS_TOOLCHAIN_NAME=aarch64-linux-gnu
+</code></pre>
+<a class="header-link" id="install-bazel-16c222aa19898e5058938167c8ab6c57" href="#install-bazel-16c222aa19898e5058938167c8ab6c57"><span class="material-icons">link</span><h3 id="install-bazel-16c222aa19898e5058938167c8ab6c57">Install Bazel</h3></a>
+<pre><code class="language-cpp">wget https://github.com/bazelbuild/bazel/releases/download/0.16.0/bazel_0.16.0-linux-x86_64.deb
+sudo apt install -y ./bazel_0.16.0-linux-x86_64.deb
+bazel version
+</code></pre>
+<p>Check that the bazel version output from the above command is 0.16.0.</p>
+<a class="header-link" id="configure-tensorflow-7dcd340d84f762eba80aa538b0c527f7" href="#configure-tensorflow-7dcd340d84f762eba80aa538b0c527f7"><span class="material-icons">link</span><h3 id="configure-tensorflow-7dcd340d84f762eba80aa538b0c527f7">Configure TensorFlow</h3></a>
+<p>Configure TensorFlow as described in the native
+<a href="http://127.0.0.1/products/computecpp/ce/2.3.0/tensorflow-guide/tensorflow-native-compilation#configure-tensorflow">guide</a>.</p>
+<p><code>CC_OPT_FLAGS</code> is a set of flags to provide when compiling with <code>--config=opt</code>.
+It will vary depending on your architecture.
+The flag <code>-march=native</code> cannot be used when cross-compiling, you can set for instance:</p>
+<pre><code class="language-cpp">export CC_OPT_FLAGS="-march=armv8-a"
+</code></pre>
+<p>If you are unsure which flags to use, do not use <code>--config=opt</code>.</p>
+<a class="header-link" id="build-tensorflow-81448138f5f163ccdba4acc69819f280" href="#build-tensorflow-81448138f5f163ccdba4acc69819f280"><span class="material-icons">link</span><h3 id="build-tensorflow-81448138f5f163ccdba4acc69819f280">Build TensorFlow</h3></a>
+<pre><code class="language-cpp">./configure
+
+bazel build --verbose_failures --jobs=6 --config=sycl --config=opt //tensorflow/tools/pip_package:build_pip_package
+
+bazel-bin/tensorflow/tools/pip_package/build_pip_package $TF_WHL_DIR
+
+mv $TF_WHL_DIR/tensorflow-1.9.0-cp35-cp35m-linux_x86_64.whl $TF_WHL_DIR/tensorflow-1.9.0-cp35-cp35m-linux_aarch64.whl
+</code></pre>
+<p>The <code>.whl</code> file may have a different name depending on your architecture or the
+Python version provided by <code>PYTHON_BIN_PATH</code>. Here Python 3.5 is assumed to be
+the default version used.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Make sure to re-run <code>./configure</code> if you change any of the environment
+  variables described in this guide.</li>
+<li>It is recommended to keep the exact same environment variables when building
+  again with bazel to avoid re-building from scratch.</li>
+<li>It is recommended to provide <code>--jobs=X</code> to <code>bazel</code> with X strictly smaller
+  than your number of threads to reduce RAM usage.</li>
+</ul>
+<a class="header-link" id="bundle-and-install-the-wheel-97e8527feaf77a97fc38f34216141515" href="#bundle-and-install-the-wheel-97e8527feaf77a97fc38f34216141515"><span class="material-icons">link</span><h3 id="bundle-and-install-the-wheel-97e8527feaf77a97fc38f34216141515">Bundle and install the wheel</h3></a>
+<p>Choose an existing folder to output the TensorFlow wheel, for example:</p>
+<pre><code class="language-cpp">export TF_WHL_DIR=$HOME
+</code></pre>
+<pre><code class="language-cpp">bazel-bin/tensorflow/tools/pip_package/build_pip_package $TF_WHL_DIR
+mv $TF_WHL_DIR/tensorflow-1.9.0-cp35-cp35m-linux_x86_64.whl $TF_WHL_DIR/tensorflow-1.9.0-cp35-cp35m-linux_aarch64.whl
+</code></pre>
+<a class="header-link" id="set-up-the-development-board" href="#set-up-the-development-board"><span class="material-icons">link</span><h2 id="set-up-the-development-board">Set up the development board</h2></a>
+<p>Copy <code>ComputeCpp-CE-${CCPP_VERSION}-Ubuntu.16.04-ARM64.tar.gz</code> and
+<code>$TF_WHL_DIR/tensorflow-1.9.0-cp35-cp35m-linux_aarch64.whl</code> to your device e.g.
+using the <code>scp</code> command.</p>
+<p>All of the following commands should be run on the development board. Depending
+on how your development board's disk space has been partitioned, you may have to
+manage the available space carefully - the following requires at least 1.2GB
+free.</p>
+<a class="header-link" id="install-an-opencl-driver-ed265bc903a5a097f61d3ec064d96d2e" href="#install-an-opencl-driver-ed265bc903a5a097f61d3ec064d96d2e"><span class="material-icons">link</span><h3 id="install-an-opencl-driver-ed265bc903a5a097f61d3ec064d96d2e">Install an OpenCL driver</h3></a>
+<p>See our other <a href="http://127.0.0.1/products/computecpp/ce/tensorflow-guide/tensorflow-native-compilation#install-an-opencl-driver">guide</a>
+to install an OpenCL driver supporting SPIR or SPIR-V.</p>
+<a class="header-link" id="install-dependency-packages-c75b6f114c23a4d7ea11331e7c00e73c" href="#install-dependency-packages-c75b6f114c23a4d7ea11331e7c00e73c"><span class="material-icons">link</span><h3 id="install-dependency-packages-c75b6f114c23a4d7ea11331e7c00e73c">Install dependency packages</h3></a>
+<pre><code class="language-cpp">apt -y install git python3 python3-pip
+# The following apt packages are required to build scipy from source but can be removed later
+apt -y install gcc gfortran python3-dev libopenblas-dev liblapack-dev cython
+</code></pre>
+<p>Make Python 3.5 the default for example with:</p>
+<pre><code class="language-cpp">alias python=python3.5
+alias pip=pip3.5
+</code></pre>
+<p>Many tests and benchmarks require more pip packages than the minimal set of
+packages listed in the pre-requisites. The versions listed below are known to
+work with this build of TensorFlow:</p>
+<pre><code class="language-cpp">pip install -U --user numpy==1.14.5 wheel==0.31.1 six==1.11.0 mock==2.0.0 enum34==1.1.6 portpicker==1.2.0
+# Cython is required to build the next packages from source but can be removed later
+pip install -U --user cython==0.29.1
+pip install -U --user scipy==1.1.0
+pip install -U --user scikit-learn==0.20.2
+pip install -U --user --no-deps sklearn
+</code></pre>
+<a class="header-link" id="install-tensorflow" href="#install-tensorflow"><span class="material-icons">link</span><h3 id="install-tensorflow">Install Tensorflow</h3></a>
+<pre><code class="language-cpp">pip install --user tensorflow-1.9.0-cp35-cp35m-linux_aarch64.whl
+</code></pre>
+<a class="header-link" id="set-up-computecpp" href="#set-up-computecpp"><span class="material-icons">link</span><h3 id="set-up-computecpp">Set up ComputeCpp</h3></a>
+<pre><code class="language-cpp">tar -xf ComputeCpp-CE-${CCPP_VERSION}-Ubuntu.16.04-ARM64.tar.gz
+export LD_LIBRARY_PATH+=:$HOME/ComputeCpp-CE-${CCPP_VERSION}-Ubuntu-16.04-ARM_64/lib
+$HOME/ComputeCpp-CE-${CCPP_VERSION}-Ubuntu-16.04-ARM_64/bin/computecpp_info
+</code></pre>
+<p>The output should show that at least one OpenCL driver has been found, it may
+not support SPIR which is fine.</p>
+<a class="header-link" id="run-benchmarks" href="#run-benchmarks"><span class="material-icons">link</span><h2 id="run-benchmarks">Run benchmarks</h2></a>
+<p>To verify the installation, you can execute some of the standard TensorFlow
+benchmarks. You can find an example in our other
+<a href="http://127.0.0.1/products/computecpp/ce/2.3.0/tensorflow-guide/tensorflow-native-compilation#run-the-benchmarks">guide</a>.</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:44 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-cross-compilation" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/tensorflow-guide/tensorflow-native-compilation#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>TensorFlow Native Compilation</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/eigen-guide"
+                            >
+                            <div>
+                                <h1>Eigen Guide</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#tensorflow-cross-compilation">TensorFlow Cross Compilation</a></li>
+                        <li class="heading-1"><a href="#tensorflow-cross-compilation-guide">﻿TensorFlow™ Cross Compilation Guide</a></li>
+                        <li class="heading-2"><a href="#introduction-65658fde58ab3c2b6e5132a39fae7cb9">Introduction</a></li>
+                        <li class="heading-2"><a href="#configuration-management-5ea1649a31336092c05438df996a3e59">Configuration management</a></li>
+                        <li class="heading-2"><a href="#build-tensorflow-with-sycl-7bcdf75ad237b8e02e301f4091fb6bc8">Build TensorFlow with SYCL</a></li>
+                        <li class="heading-2"><a href="#set-up-the-development-board">Set up the development board</a></li>
+                        <li class="heading-2"><a href="#run-benchmarks">Run benchmarks</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="efcc8f5f3f2763ff32c99a7803c118c0">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

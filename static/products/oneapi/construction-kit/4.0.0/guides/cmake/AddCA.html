@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>AddCA Module - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'AddCA Module' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="AddCA Module - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'AddCA Module' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="cmake-addca">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#addca-module">
+                            <h1>AddCA Module</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/cmake/AddCA.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="addca-module">
+
+<p>A tenet of modern CMake is to avoid setting compiler flags manually, as they
+won’t work across all compilers and platforms unless guarded. Unfortunately due
+to the extensive range of toolchains which oneAPI Construction Kit supports
+utilizing bespoke compiler settings is unavoidable. We try to isolate all these
+platform specific configurations in the module <code class="docutils literal notranslate">cmake/AddCA.cmake</code> using
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">generator expressions</a> to create variables for compiler options and
+definitions, set as <span class="target" id="index-0-variable:CA_COMPILE_OPTIONS"></span><a class="reference internal" href="#variable:CA_COMPILE_OPTIONS"><code class="xref cmake cmake-variable docutils literal notranslate">CA_COMPILE_OPTIONS</code></a> and
+<span class="target" id="index-0-variable:CA_COMPILE_DEFINITIONS"></span><a class="reference internal" href="#variable:CA_COMPILE_DEFINITIONS"><code class="xref cmake cmake-variable docutils literal notranslate">CA_COMPILE_DEFINITIONS</code></a> respectively.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For guidance on when and why we use <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">generator expressions</a> see the
+<a class="reference internal" href="../cmake.html#generator-expression-usage"><span class="std std-ref">Generator Expression Usage</span></a> section.</p>
+</div>
+<p><code class="docutils literal notranslate">AddCA.cmake</code> then consumes these variables in the macros it exposes to wrap
+common CMake functions, such as <span class="target" id="index-0-command:add_ca_library"></span><a class="reference internal" href="#command:add_ca_library"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_library()</code></a>,
+<span class="target" id="index-0-command:add_ca_executable"></span><a class="reference internal" href="#command:add_ca_executable"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_executable()</code></a>, and <span class="target" id="index-0-command:add_ca_subdirectory"></span><a class="reference internal" href="#command:add_ca_subdirectory"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_subdirectory()</code></a>.
+These wrappers allow us to add the project wide compiler settings at a central
+location rather than scattered over the codebase, and to set target
+dependencies on any other targets which could be conditionally required to
+support our various
+<a class="reference internal" href="../developer-guide.html#oneapi-construction-kit-cmake-options"><span class="std std-ref">CA build options</span></a>
+for debugging and instrumentation.</p>
+<p>The <a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_options.html">target_compile_options</a> and
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_definitions.html">target_compile_definitions</a> CMake commands are the preferred
+way of adding flags in CMake, leading to the cleanest code by transitively
+passing on flags to dependent targets. Alternative
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_compile_options.html">add_compile_options</a> is based on directory properties, and
+<a class="reference external" href="https://cmake.org/cmake/help/latest/envvar/CXXFLAGS.html">CMAKE_CXX_FLAGS</a> is global and doesn’t work with <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">generator expressions</a>.</p>
+<p>Our <span class="target" id="index-1-variable:CA_COMPILE_OPTIONS"></span><a class="reference internal" href="#variable:CA_COMPILE_OPTIONS"><code class="xref cmake cmake-variable docutils literal notranslate">CA_COMPILE_OPTIONS</code></a> and
+<span class="target" id="index-1-variable:CA_COMPILE_DEFINITIONS"></span><a class="reference internal" href="#variable:CA_COMPILE_DEFINITIONS"><code class="xref cmake cmake-variable docutils literal notranslate">CA_COMPILE_DEFINITIONS</code></a> variables are added to
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_options.html">target_compile_options</a> and
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_definitions.html">target_compile_definitions</a> using a <code class="docutils literal notranslate">PRIVATE</code> scope, rather
+than <code class="docutils literal notranslate">PUBLIC</code> or <code class="docutils literal notranslate">INTERFACE</code>, meaning that the options won’t be propagated
+to any other targets which depend on the target we are modifing in the wrapper.
+This behavior is preferred over propagating the properties to the new target,
+where flags like <code class="docutils literal notranslate">-Werror</code> could get set on linked application code which
+isn’t warning clean.</p>
+<div class="section" id="argument-parsing">
+<a class="header-link" href="#argument-parsing"><h2 id="argument-parsing">Argument Parsing</h2><span class="material-icons">link</span></a>
+<p>CMake provides the useful command <a class="reference external" href="https://cmake.org/cmake/help/latest/command/cmake_parse_arguments.html">cmake_parse_arguments</a>, which
+facilitates complex argument parsing behaviors and is used to implement many of
+our <code class="docutils literal notranslate">add_ca</code> prefixed helper functions in the <code class="docutils literal notranslate">AddCA.cmake</code> module. We make
+use of it to parse single and multiple value keyword arguments, utilizing the
+first of the two available <a class="reference external" href="https://cmake.org/cmake/help/latest/command/cmake_parse_arguments.html">cmake_parse_arguments</a> function
+signatures. This returns the parsed values as variables beginning with the
+parameterized <code class="docutils literal notranslate">prefix</code>.</p>
+<pre><code class="language-cmake"># Signature AddCA.cmake helper functions invoke
+cmake_parse_arguments(&lt;prefix&gt; &lt;options&gt; &lt;one_value_keywords&gt;
+                      &lt;multi_value_keywords&gt; &lt;args&gt;...)
+</code>
+</pre>
+<p>A case study of this is our helper function <span class="target" id="index-0-command:add_ca_check"></span><a class="reference internal" href="#command:add_ca_check"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_check()</code></a>,
+generating <code class="docutils literal notranslate">check-ock</code> and <code class="docutils literal notranslate">check-ock-&lt;name&gt;</code> build targets used by
+continuous integration to verify a baseline of correctness.
+<span class="target" id="index-1-command:add_ca_check"></span><a class="reference internal" href="#command:add_ca_check"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_check()</code></a> takes a single positional argument <code class="docutils literal notranslate">name</code>, for
+the target to generate a test for. A new testing target called
+<code class="docutils literal notranslate">check-ock-${name}</code> is created from the <code class="docutils literal notranslate">name</code> argument and a dependency on
+<code class="docutils literal notranslate">check-ock-${name}</code> is added to the <code class="docutils literal notranslate">check</code> target.</p>
+<p>Additional <span class="target" id="index-2-command:add_ca_check"></span><a class="reference internal" href="#command:add_ca_check"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_check()</code></a> options to configure the testing
+target are parsed by forwarding on <code class="docutils literal notranslate">$ARGN</code> <a class="reference external" href="https://cmake.org/cmake/help/latest/command/function.html#arguments">arguments</a> to
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/cmake_parse_arguments.html">cmake_parse_arguments</a> via the <code class="docutils literal notranslate">&lt;args&gt;</code> parameter, such as
+multi-value keyword <code class="docutils literal notranslate">COMMAND</code> for defining the command to run for test
+invocation. <code class="docutils literal notranslate">NOENUMLATE</code> and <code class="docutils literal notranslate">NOGLOBAL</code> are also declared as flags via the
+<code class="docutils literal notranslate">&lt;options&gt;</code> parameter, parsed as either <code class="docutils literal notranslate">TRUE</code> or <code class="docutils literal notranslate">FALSE</code>.</p>
+<pre><code class="language-cmake"># Parse add_ca_check $ARGN arguments
+cmake_parse_arguments(args
+  "NOEMULATE;NOGLOBAL" "" "CLEAN;COMMAND;DEPENDS;ENVIRONMENT" ${ARGN})
+</code>
+</pre>
+<p>After parsing is complete the results will available as variables prefixed with
+‘<code class="docutils literal notranslate">args_</code>’, e.g <code class="docutils literal notranslate">$args_COMMAND</code>, for use in subsequent
+<span class="target" id="index-3-command:add_ca_check"></span><a class="reference internal" href="#command:add_ca_check"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_check()</code></a> logic.</p>
+</div>
+<div class="section" id="commands-and-variables">
+<a class="header-link" href="#commands-and-variables"><h2 id="commands-and-variables">Commands and Variables</h2><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">AddCA.cmake</code> exposes wrappers to common CMake functions, providing a single
+location to add ComputeAorta specific build options. These options may be
+platform dependent, or conditional on user provided build flags.</p>
+<p>Using these <code class="docutils literal notranslate">add_ca*</code> wrappers helps ensure that customer teams’ targets
+get built with the same options as ComputeAorta’s own targets.</p>
+<p>To access the following commands and variables in this module:</p>
+<pre><code class="language-cmake">include(AddCA)
+</code>
+</pre>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_COMPILE_OPTIONS">
+<span class="sig-name descname">CA_COMPILE_OPTIONS</span></dt>
+<dd><p>Compile options to be added in ComputeAorta wrapper commands as <code class="docutils literal notranslate">PRIVATE</code>
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_options.html">target_compile_options</a> for targets. Options are both
+platform and toolchain specific, and determined based on
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">generator expressions</a>.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_COMPILE_DEFINITIONS">
+<span class="sig-name descname">CA_COMPILE_DEFINITIONS</span></dt>
+<dd><p>Compile definitions to be added in ComputeAorta wrapper commands as
+<code class="docutils literal notranslate">PRIVATE</code> <a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_definitions.html">target_compile_definitions</a> for targets.
+Definitions are platform specific, and determined based on
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">generator expressions</a>.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_COMPILER_COMPILE_DEFINITIONS">
+<span class="sig-name descname">CA_COMPILER_COMPILE_DEFINITIONS</span></dt>
+<dd><p>Variable for propagating user options from root ComputeAorta
+<code class="docutils literal notranslate">CMakeLists.txt</code> as <code class="docutils literal notranslate">PRIVATE</code> compile definitions to be set using
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_compile_definitions.html">target_compile_definitions</a> inside wrapper commands.</p>
+<p>Options propagated as compile definitions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CA_RUNTIME_COMPILER_ENABLED</code></p></li>
+<li><p><code class="docutils literal notranslate">CA_ENABLE_DEBUG_SUPPORT</code></p></li>
+<li><p><code class="docutils literal notranslate">CA_ENABLE_LLVM_OPTIONS_IN_RELEASE</code></p></li>
+</ul>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_tidy">
+<span class="sig-name descname">add_ca_tidy</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_tidy()</code> function creates a tidy target which invokes
+<code class="docutils literal notranslate">clang-tidy</code> on every C or C++ file passed in. The first argument is
+assumed to be the target name. When an argument does not exist on the
+filesystem or is not a C or C++ file it is ignored, this allows passing the
+same list of arguments as <span class="target" id="index-1-command:add_ca_library"></span><a class="reference internal" href="#command:add_ca_library"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_library()</code></a> and
+<span class="target" id="index-1-command:add_ca_executable"></span><a class="reference internal" href="#command:add_ca_executable"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_executable()</code></a>.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">ARGV0</code> - Target name to tidy with <code class="docutils literal notranslate">tidy-${ARGV0}</code></p></li>
+<li><p><code class="docutils literal notranslate">ARGN</code> - C/C++ files to tidy.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>This function consumes the <code class="docutils literal notranslate">CA_CLANG_TIDY_FLAGS</code> user option.</p>
+</div>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:set_ca_target_output_directory">
+<span class="sig-name descname">set_ca_target_output_directory</span></dt>
+<dd><p>The <code class="docutils literal notranslate">set_ca_target_output_directory()</code> macro specifies the output
+directories for static or shared libraries and executables to consistent
+locations relative to the projects binary directory.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">target</code> - Named target to set output directory properties on.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_library">
+<span class="sig-name descname">add_ca_library</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_library()</code> macro acts exactly like the default CMake
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_library.html">add_library</a> command except that it automatically adds
+project wide compiler options and definitions to the target.</p>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_interface_library">
+<span class="sig-name descname">add_ca_interface_library</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_interface_library()</code> macro acts exactly like our
+<span class="target" id="index-2-command:add_ca_library"></span><a class="reference internal" href="#command:add_ca_library"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_library()</code></a> command except that it is specialised for
+<code class="docutils literal notranslate">INTERFACE</code> libraries, such as header only libraries.</p>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:ca_target_link_options">
+<span class="sig-name descname">ca_target_link_options</span></dt>
+<dd><p><code class="docutils literal notranslate">ca_target_link_options()</code> acts like a simpler
+<cite>target_link_options</cite> from CMake 3.13+, but not in its full generality. Once
+the minimum required version is 3.13, we can swap out all uses for the
+builtin command. This command ensure the linker is called with <code class="docutils literal notranslate">flags</code> for
+all build types. To specialize flags for a particular build configuration you
+must still set <cite>LINK_FLAGS_{RELEASE|MINSIZEREL|RELEASEASSERT}</cite> manually with
+<cite>set_target_properties</cite>, being mindful not to overwrite what is already
+there.</p>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_executable">
+<span class="sig-name descname">add_ca_executable</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_executable()</code> macro acts exactly like the default CMake
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_executable.html">add_executable</a> command except that it automatically adds
+project wide compiler options and definitions to the target.</p>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:target_ca_sources">
+<span class="sig-name descname">target_ca_sources</span></dt>
+<dd><p>The <code class="docutils literal notranslate">target_ca_sources</code> macro acts exactly like the default CMake
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/target_sources.html">target_sources</a> macro, but it also adds the source files to
+the tidy target as <code class="docutils literal notranslate">tidy-${target_name}</code>.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">target_name</code> - Named target.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_subdirectory">
+<span class="sig-name descname">add_ca_subdirectory</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_subdirectory</code> macro acts exactly like the default CMake
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_subdirectory.html">add_subdirectory</a> macro except that it automatically adds
+project wide compiler options and definitions to the target.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">directory</code> - Path of directory to add.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_example_subdirectory">
+<span class="sig-name descname">add_ca_example_subdirectory</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_example_subdirectory()</code> function delays inclusion of a
+subdirectory containing targets relating to OpenCL or Vulkan examples
+until after those API source directories have been added to the CMake tree.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">directory</code> - Path to example directory.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Variables:</p>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_EXAMPLE_DIRS">
+<span class="sig-name descname">CA_EXAMPLE_DIRS</span></dt>
+<dd><p>Internally cached variable holding a list of example source directories.
+Used by root ComputeAorta <code class="docutils literal notranslate">CMakeLists.txt</code> as input to
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_subdirectory.html">add_subdirectory</a> once the API dependencies have been
+satisfied.</p>
+</dd></dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:get_target_link_libraries">
+<span class="sig-name descname">get_target_link_libraries</span></dt>
+<dd><p>The <code class="docutils literal notranslate">get_target_link_libraries()</code> macro queries, optionally recursively,
+the given targets link libraries. This is useful for checking the library
+dependencies of a target.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">variable</code> - The CMake variable name to store the result in.</p></li>
+<li><p><code class="docutils literal notranslate">target</code> - The target to get the link libraries from.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">RECURSIVE</code> - Option to enable recursively getting the target link
+libraries.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:get_ock_check_name">
+<span class="sig-name descname">get_ock_check_name</span></dt>
+<dd><p>The <code class="docutils literal notranslate">get_ock_check_name</code> function returns the name of a check target or
+group defined with the provided <code class="docutils literal notranslate">$name</code> component.  This naming scheme is
+used internally for naming all such targets and thus the final targets that
+users can ‘build’ to run tests.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">check_name</code>: The name of the output variable to set the check name.</p></li>
+<li><p><code class="docutils literal notranslate">name</code>: The check name component</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_check">
+<span class="sig-name descname">add_ca_check</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_check()</code> macro takes a list of arguments which form a command
+to run a check. A new target is created and a
+dependency for that target is added to the project-level check target. The
+name of the new target is determined by calling the <code class="docutils literal notranslate">get_ock_check_name</code>
+function on the parameter <code class="docutils literal notranslate">${name}</code>. To run an individual check build the
+specific target and to run all checks build the global check target. All
+checks are executed with a working directory of <code class="docutils literal notranslate">${PROJECT_SOURCE_DIR}</code> and
+a comment of the form “Running ${name} checks” is displayed by the build
+system during execution.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If  <span class="target" id="index-0-variable:CA_ENABLE_TESTS"></span><code class="xref cmake cmake-variable docutils literal notranslate">CA_ENABLE_TESTS</code> is set to <code class="docutils literal notranslate">OFF</code> this function does
+nothing.</p>
+</div>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">name</code> - Target name suffix for the check, this will create a target
+named via <code class="docutils literal notranslate">get_ock_check_name(target ${name})</code>.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">NOEMULATE</code> - Flag to specify that the first argument of the
+<code class="docutils literal notranslate">COMMAND</code> should not be emulated using
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_CROSSCOMPILING_EMULATOR.html">CMAKE_CROSSCOMPILING_EMULATOR</a>, this should be set if
+the executable driving the check is not cross-compiled.</p></li>
+<li><p><code class="docutils literal notranslate">NOGLOBAL</code> - Flag to specify that the target check should not be added
+to the global check target.</p></li>
+<li><p><code class="docutils literal notranslate">GTEST</code> - Flag to specify that this check uses GoogleTest and that
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CA_GTEST_LAUNCHER.html">CA_GTEST_LAUNCHER</a> should be used, if set, to launch the
+check executable.</p></li>
+<li><p><code class="docutils literal notranslate">USES_TERMINAL</code> - Flag to specify that the check will be given access
+to the terminal if possible.</p></li>
+<li><p><code class="docutils literal notranslate">COMMAND</code> - Keyword after which one or more arguments should be
+specified to define the command the check target will execute.</p></li>
+<li><p><code class="docutils literal notranslate">CLEAN</code> - Keyword after which one or more filenames should be listed
+as addition files to be clean up by the <code class="docutils literal notranslate">clean</code> target.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - Keyword after which one or more target dependencies can be
+specified.</p></li>
+<li><p><code class="docutils literal notranslate">ENVIRONMENT</code> - Keyword after which one or more environment variables
+can be specified, each must be of the form: “VAR=&lt;value&gt;”</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_check_group">
+<span class="sig-name descname">add_ca_check_group</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_check_group()</code> function creates a named target for a group of
+targets and/or checks, this is useful to setup check dependencies and for
+having a single named check for a set of disparate test suites. As with
+<span class="target" id="index-4-command:add_ca_check"></span><a class="reference internal" href="#command:add_ca_check"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_check()</code></a> the name is used to generate a target named by
+calling <code class="docutils literal notranslate">get_ock_check_name(target ${name})</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If  <span class="target" id="index-1-variable:CA_ENABLE_TESTS"></span><code class="xref cmake cmake-variable docutils literal notranslate">CA_ENABLE_TESTS</code> is set to <code class="docutils literal notranslate">OFF</code> this function does
+nothing.</p>
+</div>
+<dl>
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">name</code> - Target name suffix for the check group, this will create a
+target named by calling <code class="docutils literal notranslate">get_ock_check_name(target ${name})</code>.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate">NOGLOBAL</code> - Flag to specify that the new target should not be
+added to the global check target.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - A list of targets this check group will depends on, any
+CMake target can be specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The full target name including the global check prefix should be
+specified for dependent check targets.</p>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<pre><code class="language-CMake">add_ca_check_group(foo DEPENDS bar check-ock-foo)
+</code>
+</pre>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_library_import">
+<span class="sig-name descname">add_ca_library_import</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_library_import()</code> macro adds a target referring to an external
+library not produced as part of the ComputeAorta build.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">target</code> - Target name of library.</p></li>
+<li><p><code class="docutils literal notranslate">type</code> - Type of library to be created in
+<a class="reference external" href="https://cmake.org/cmake/help/latest/command/add_library.html">add_library</a>, one of <code class="docutils literal notranslate">STATIC</code>, <code class="docutils literal notranslate">SHARED</code>, or
+<code class="docutils literal notranslate">MODULE</code>.</p></li>
+<li><p><code class="docutils literal notranslate">location</code> - Location on disk to set for the <a class="reference external" href="https://cmake.org/cmake/help/latest/prop_tgt/IMPORTED_LOCATION.html">IMPORTED_LOCATION</a>
+property.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_executable_import">
+<span class="sig-name descname">add_ca_executable_import</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_executable_import()</code> macro adds a target referring to an
+external executable not produced as part of the ComputeAorta build.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">target</code> - Target name of executable.</p></li>
+<li><p><code class="docutils literal notranslate">location</code> - Location on disk to set for <a class="reference external" href="https://cmake.org/cmake/help/latest/prop_tgt/IMPORTED_LOCATION.html">IMPORTED_LOCATION</a> property.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_configure_file">
+<span class="sig-name descname">add_ca_configure_file</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_configure_file()</code> function adds a custom command which calls
+CMake’s builtin <a class="reference external" href="https://cmake.org/cmake/help/latest/command/configure_file.html">configure_file</a> command at build time, this
+is useful when the only method of getting a path to a build target is by
+using generator expressions.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">input</code> - Input file configuration description.</p></li>
+<li><p><code class="docutils literal notranslate">output</code> - Output file to be configured.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">DEFINED</code> - Specify a list of definitions taking the form
+“VAR=${value}” these will then be passed to to CMake’s script mode as
+<code class="docutils literal notranslate">-DVAR=${value}</code>.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - Specify a list of dependencies.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Here’s an example:</p>
+<pre><code class="language-CMake">add_ca_configure_file(path/to/input path/to/output
+  DEFINED TARGET_EXECUTABLE=$&lt;TARGET_FILE:target&gt;
+  DEPENDS target)
+</code>
+</pre>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_copy_file">
+<span class="sig-name descname">add_ca_copy_file</span></dt>
+<dd></dd></dl>
+<p>This function creates a custom command to copy an input file (usually in the
+source directory) to the output file (usually in the binary directory). It’s
+effectively a simpler version of <span class="target" id="index-0-command:add_ca_configure_file"></span><a class="reference internal" href="#command:add_ca_configure_file"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_configure_file()</code></a>, as it
+does not process the file in any way.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><span class="target" id="index-1-command:add_ca_configure_file"></span><a class="reference internal" href="#command:add_ca_configure_file"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_configure_file()</code></a></p>
+</div>
+<dl class="simple">
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">INPUT</code> - The input file</p></li>
+<li><p><code class="docutils literal notranslate">OUTPUT</code> - The output file</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_cl_runtime_extension">
+<span class="sig-name descname">add_ca_cl_runtime_extension</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_cl_runtime_extension()</code> function adds a set of runtime
+extensions to the OpenCL library build.</p>
+<dl>
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">tag</code> - Unique name for this set of extensions, it is used for
+accessing the extension information later in the build, must be a valid
+CMake variable name.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">EXTENSIONS</code> - List of OpenCL extension names to be added.</p></li>
+<li><p><code class="docutils literal notranslate">HEADER</code> - Public OpenCL extension header to be installed.</p></li>
+<li><p><code class="docutils literal notranslate">INCLUDE_DIRS</code> - List of include directories required to build the
+extensions.</p></li>
+<li><p><code class="docutils literal notranslate">SOURCES</code> - List of source files required to build the extensions.</p></li>
+</ul>
+</dd>
+<dt>Variables:</dt><dd><dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_CL_RUNTIME_EXTENSION_TAGS">
+<span class="sig-name descname">CA_CL_RUNTIME_EXTENSION_TAGS</span></dt>
+<dd><p><code class="docutils literal notranslate">${tag}</code> is appended to the list, then is internally cached.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_RUNTIME_EXTENSIONS">
+<span class="sig-name descname">${tag}_RUNTIME_EXTENSIONS</span></dt>
+<dd><p>Internally cached list of <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_RUNTIME_HEADER">
+<span class="sig-name descname">${tag}_RUNTIME_HEADER</span></dt>
+<dd><p>Internally cached extension header for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_RUNTIME_INCLUDE_DIRS">
+<span class="sig-name descname">${tag}_RUNTIME_INCLUDE_DIRS</span></dt>
+<dd><p>Internally cached include directory for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_RUNTIME_SOURCES">
+<span class="sig-name descname">${tag}_RUNTIME_SOURCES</span></dt>
+<dd><p>Internally cached List of source files for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_cl_compiler_extension">
+<span class="sig-name descname">add_ca_cl_compiler_extension</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_cl_compiler_extension()</code> function adds a set of compiler
+extensions to the OpenCL library build.</p>
+<dl>
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">tag</code> - Unique name for this set of extensions, it is used to make
+accessing the other information later in the build and must be a valid
+CMake variable name.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">EXTENSIONS</code> - List of OpenCL extension names to be added.</p></li>
+<li><p><code class="docutils literal notranslate">HEADER</code> - Public OpenCL extension header to be installed.</p></li>
+<li><p><code class="docutils literal notranslate">INCLUDE_DIRS</code> - List of include directories required to build the
+extensions.</p></li>
+<li><p><code class="docutils literal notranslate">SOURCES</code> - List of source files required to build the extensions.</p></li>
+</ul>
+</dd>
+<dt>Variables:</dt><dd><dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CA_CL_COMPILER_EXTENSION_TAGS">
+<span class="sig-name descname">CA_CL_COMPILER_EXTENSION_TAGS</span></dt>
+<dd><p><code class="docutils literal notranslate">${tag}</code> is appended to the list, then internally cached.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_COMPILER_EXTENSIONS">
+<span class="sig-name descname">${tag}_COMPILER_EXTENSIONS</span></dt>
+<dd><p>Internally cached list of <code class="docutils literal notranslate">${tag}</code> compiler extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_COMPILER_HEADER">
+<span class="sig-name descname">${tag}_COMPILER_HEADER</span></dt>
+<dd><p>Internally cached extension header for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_COMPILER_INCLUDE_DIRS">
+<span class="sig-name descname">${tag}_COMPILER_INCLUDE_DIRS</span></dt>
+<dd><p>Internally cached include directory for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:${tag}_COMPILER_SOURCES">
+<span class="sig-name descname">${tag}_COMPILER_SOURCES</span></dt>
+<dd><p>Internally cached list of source files for <code class="docutils literal notranslate">${tag}</code> extensions.</p>
+</dd></dl>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_install_components">
+<span class="sig-name descname">add_ca_install_components</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_install_components()</code> function creates a custom install target
+that will install all the specified components in the specified install
+directory.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">ARGN</code> - Target name for custom install target.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">INSTALL_DIR</code> - Directory to set for
+<a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html">CMAKE_INSTALL_PREFIX</a>.</p></li>
+<li><p><code class="docutils literal notranslate">COMPONENTS</code> - One of more components to set for
+<code class="docutils literal notranslate">CMAKE_INSTALL_COMPONENT</code>.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - One or more target dependencies.</p></li>
+</ul>
+</dd>
+</dl>
+<p>For example to install only the OpenCL library and <code class="docutils literal notranslate">clVectorAddition</code> in a
+directory called <code class="docutils literal notranslate">pkg</code>:</p>
+<pre><code class="language-CMake">add_ca_install_components(install-cl-clVectorAdd
+  INSTALL_DIR ${CMAKE_BINARY_DIR}/pkg
+  COMPONENTS OCL OCLExamples
+  DEPENDS CL clVectorAddition)
+</code>
+</pre>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_force_header">
+<span class="sig-name descname">add_ca_force_header</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_force_header()</code> function adds a per-device force-header into
+the CA build.</p>
+<dl>
+<dt>Keyword Arguments:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate">PREFIX</code> - A unique prefix for the internally generated files and
+variables</p></li>
+<li><p><code class="docutils literal notranslate">DEVICE_NAME</code> - The name of the core device.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate">DEVICE_NAME</code> must match <code class="docutils literal notranslate">device_name</code> from <code class="docutils literal notranslate">add_core_target</code>
+in <code class="docutils literal notranslate">modules/core/source/CMakeLists.txt</code>.</p>
+</div>
+
+</li>
+<li><p><code class="docutils literal notranslate">PATH</code> - The file path of the force-include header</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_configure_lit_site_cfg">
+<span class="sig-name descname">add_ca_configure_lit_site_cfg</span></dt>
+<dd><p>This function provides an automatic way to ‘configure’-like generate a file
+based on a set of common and custom variables, specifically targeting the
+variables needed for the ‘lit.site.cfg’ files. This function bundles the
+common variables that any Lit instance is likely to need, and custom
+variables can be passed in.</p>
+<p>On success, a custom target called <code class="docutils literal notranslate">name</code>-lit will be created. This
+function may fail if certain required key LLVM tool components are not found,
+in which case the custom target will not have been created.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copied and stripped down from LLVM’s <code class="docutils literal notranslate">configure_lit_site_cfg</code>, found in
+AddLLVM.cmake.</p>
+</div>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">name</code> - The name of the test suite.</p></li>
+<li><p><code class="docutils literal notranslate">site_in</code> - The input path to the lit.site.cfg.in-like file</p></li>
+<li><p><code class="docutils literal notranslate">site_out</code> - The output path to the generated lit.site.cfg file</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">MAIN_CONFIG</code> - Path to the main lit.cfg to load. Can be empty, in
+which case a lit.cfg sourced from the same directory as <code class="docutils literal notranslate">site_in</code> is
+used.</p></li>
+<li><p><code class="docutils literal notranslate">DEFINED</code> - Extra defines, passed to <code class="docutils literal notranslate">add_ca_configure_file</code>.</p></li>
+<li><p><code class="docutils literal notranslate">PATHS</code> - The keyword PATHS is followed by a list of cmake variable
+names that are mentioned as <cite>path(“@varname@”)</cite> in the lit.cfg.py.in
+file. Variables in that list are treated as paths that are relative to
+the directory the generated lit.cfg.py file is in, and the <cite>path()</cite>
+function converts the relative path back to absolute form. This makes it
+possible to move a build directory containing lit.cfg.py files from one
+machine to another.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_lit_check">
+<span class="sig-name descname">add_ca_lit_check</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_lit_check(target comment)</code> raw function provides an automatic
+way to set up a check target to run a suite of LIT tests. Note that users are
+advised to use <code class="docutils literal notranslate">add_ca_lit_testsuite</code> instead.</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">target</code> - Named target to set output directory properties on. A target
+named by calling <code class="docutils literal notranslate">get_ock_check_name(check_target ${target}-lit)</code> will
+be created which runs LIT tests producing XML results in
+<code class="docutils literal notranslate">${target}-lit.xml</code>.</p></li>
+<li><p><code class="docutils literal notranslate">comment</code> - A comment to display to the terminal when running the check
+target.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">NOGLOBAL</code> - Flag to specify that the new target should not be
+added to the global check target.</p></li>
+<li><p><code class="docutils literal notranslate">PARAMS</code> - Keyword after which one or more additional parameters to the
+llvm-lit command can be specified. Each parameter is automatically
+prepended with –param.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - Keyword after which one or more target dependencies can be
+specified.</p></li>
+<li><p><code class="docutils literal notranslate">ARGS</code> - Keyword after which one or more arguments to the llvm-lit
+command can be specified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:add_ca_lit_testsuite">
+<span class="sig-name descname">add_ca_lit_testsuite</span></dt>
+<dd><p>The <code class="docutils literal notranslate">add_ca_lit_testsuite(name)</code> function creates a new lit test suite. A
+new target, named by calling <code class="docutils literal notranslate">get_ock_check_name(target ${name}-lit)</code>, is
+created and a dependency for that new target is added to the global check
+target. To run an individual check build the new target and to run all checks
+build the global check target. All checks are executed with a working
+directory of <code class="docutils literal notranslate">${PROJECT_SOURCE_DIR}</code> and a comment of the form “Running
+${name} checks” is displayed by the build system during execution.</p>
+<p>If <code class="docutils literal notranslate">EXCLUDE_FROM_UMBRELLAS</code> is not set, the test suite will also be added
+to all open umbrella targets (see <code class="docutils literal notranslate">ca_umbrella_lit_testsuite_open()</code> and
+<code class="docutils literal notranslate">ca_umbrella_lit_testsuite_close()</code>).</p>
+<dl class="simple">
+<dt>Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">name</code> - Target name suffix for the check, this will create a target
+named as described above.</p></li>
+</ul>
+</dd>
+<dt>Keyword Arguments:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate">NOGLOBAL</code> - Flag to specify that the new target should not be
+added to the global check target.</p></li>
+<li><p><code class="docutils literal notranslate">EXCLUDE_FROM_UMBRELLAS</code> - Flag to specify that <code class="docutils literal notranslate">${name}</code>
+should not be added to any currently open test-suite umbrellas.</p></li>
+<li><p><code class="docutils literal notranslate">TARGET</code> - Keyword after which a target name can be specified. If
+set, the test suite will be appended to a global set of test suites
+relating to that target. A global target will be created, comprised of
+all test suites relating to <code class="docutils literal notranslate">target</code>. Has no effect if
+<code class="docutils literal notranslate">EXCLUDE_FROM_UMBRELLAS</code> is set.</p></li>
+<li><p><code class="docutils literal notranslate">PARAMS</code> - Keyword after which one or more additional parameters to the
+llvm-lit command can be specified. Each parameter is automatically
+prepended with –param.</p></li>
+<li><p><code class="docutils literal notranslate">DEPENDS</code> - Keyword after which one or more target dependencies can be
+specified.</p></li>
+<li><p><code class="docutils literal notranslate">ARGS</code> - Keyword after which one or more arguments to the llvm-lit
+command can be specified.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:ca_umbrella_lit_testsuite_open">
+<span class="sig-name descname">ca_umbrella_lit_testsuite_open</span></dt>
+<dd><p>The <code class="docutils literal notranslate">ca_umbrella_lit_testsuite_open(target)</code> function opens a new umbrella
+lit test suite.</p>
+<p>All subsequent calls to <code class="docutils literal notranslate">add_ca_lit_testsuite</code> (which don’t pass
+<code class="docutils literal notranslate">EXCLUDE_FROM_UMBRELLAS</code>) are implicitly added to this umbrella suite. The
+umbrella suite is open until a corresponding call to
+<code class="docutils literal notranslate">ca_umbrella_lit_testsuite_close</code> is made with the same <code class="docutils literal notranslate">target</code>.</p>
+<p>For example, given:</p>
+<p><code class="docutils literal notranslate">ca_umbrella_lit_testsuite_open(all)</code></p>
+<p><code class="docutils literal notranslate">*  add_ca_lit_testsuite(foo)</code></p>
+<p><code class="docutils literal notranslate">*  ca_umbrella_lit_testsuite_open(compiler)</code></p>
+<p><code class="docutils literal notranslate">*  - add_ca_lit_testsuite(bar)</code></p>
+<p><code class="docutils literal notranslate">*  - add_ca_lit_testsuite(baz)</code></p>
+<p><code class="docutils literal notranslate">*  - add_ca_lit_testsuite(special EXCLUDE_FROM_UMBRELLAS)</code></p>
+<p><code class="docutils literal notranslate">*  ca_umbrella_lit_testsuite_close(compiler)</code></p>
+<p><code class="docutils literal notranslate">ca_umbrella_lit_testsuite_close(all)</code></p>
+<p>Produces the following check targets, from most outermost to innermost:</p>
+<p><code class="docutils literal notranslate">check-ock-all-lit:      foo, bar, baz</code></p>
+<p><code class="docutils literal notranslate">check-ock-compiler-lit: bar, baz</code></p>
+<p><code class="docutils literal notranslate">check-ock-foo-lit:      foo</code></p>
+<p><code class="docutils literal notranslate">check-ock-bar-lit:      bar</code></p>
+<p><code class="docutils literal notranslate">check-ock-baz-lit:      baz</code></p>
+<p><code class="docutils literal notranslate">check-ock-special-lit:  special</code></p>
+</dd></dl>
+<dl class="cmake command">
+<dt class="sig sig-object cmake" id="command:ca_umbrella_lit_testsuite_close">
+<span class="sig-name descname">ca_umbrella_lit_testsuite_close</span></dt>
+<dd><p>The <code class="docutils literal notranslate">ca_umbrella_lit_testsuite_close(target)</code> function closes an open umbrella
+lit test suite.</p>
+<p>A new check target named by calling <code class="docutils literal notranslate">get_ock_check_name(check_target
+${target}-lit)</code> will be created using test suites previously registered with
+<code class="docutils literal notranslate">add_ca_lit_testsuite</code> while the umbrella was open.</p>
+<p>See <code class="docutils literal notranslate">ca_umbrella_lit_testsuite_open</code> for more details.</p>
+</dd></dl>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:56 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1></h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <h1></h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#addca-module">AddCA Module</a></li>
+                        <li class="heading-2"><a href="#argument-parsing">Argument Parsing</a></li>
+                        <li class="heading-2"><a href="#commands-and-variables">Commands and Variables</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="892d66b518a1ab3aa6720956f3a54420">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

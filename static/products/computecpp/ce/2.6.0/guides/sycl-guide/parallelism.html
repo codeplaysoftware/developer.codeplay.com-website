@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/parallelism.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:38:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Parallelism - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Parallelism' for ComputeCpp™ Community Edition 2.6.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Parallelism - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Parallelism' for ComputeCpp™ Community Edition 2.6.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../api-reference/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../download/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home/index.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="../../../api-reference/index.html"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="../../../download/index.html"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="sycl-guide-parallelism">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.6.0</div>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="../release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="../platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="../platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="../platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="../platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="../platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="../sycl-2020-feature-support.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL 2020 Feature Support</a><ol></ol></li>               <li class=""><a href="../what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class="selected"><a href="../sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class="selected focused"><a href="parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="../computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="../anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="../frameworks-for-computecpp-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="../sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="../compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="../error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="../logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="../configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="../computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="../computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="../computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="../integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="../sycl-for-cuda-developers-2.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="../sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="../tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="../tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="../tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="../eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="../eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="../ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.6.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#parallelism">
+                            <h1>Parallelism</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="memory-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="parallelism-and-performance" href="#parallelism-and-performance"><span class="material-icons">link</span><h1 id="parallelism-and-performance">Parallelism and performance</h1></a>
+<p>So far, we have defined several important concepts and performed a few simple operations on the device side. However, the way in which we have been executing kernels so far was quite ignorant of a parallel device's architecture and thus wasteful. It is now time to unleash the full power of device parallelism. To do that, we first have to understand roughly how a GPU is structured.</p>
+<p>A modern GPU has a few more "cores" than the typical CPU - around 16 or 32. These are sometimes called 'compute units'. Moreover, a compute unit is not quite like a CPU core. While CPUs are general-purpose and can easily execute a wide variety of instructions, GPUs are really only fit for large numeric computations. That is because unlike a CPU core, a compute unit is kind of like a very wide SIMD unit. It can execute the same operation over a large array of elements in a vectorized manner. When we multiply the SIMD width of every compute unit by their amount, we get around 2048 operations that can execute in parallel - much more than on a CPU.</p>
+<p>Of course, SYCL code can run on many more kinds of devices than just GPUs. In order to support this, it provides an abstraction over the design of parallel hardware. A single execution of a given kernel is organised into <strong>work-groups</strong> and <strong>work-items</strong>.</p>
+<p>A <strong>work-item</strong> is a single instance of a running kernel, kind of (but not quite) like a CPU thread. Each work-item is uniquely identified by a <strong>global id</strong>. Ids are not necessarily single values - they might be one, two, or three-dimensional. In the multi-dimensional cases, an id is a 'point' in an index space, with each point corresponding to a work-item.</p>
+<p>Work-items are then organised into <strong>work-groups</strong>. Each work-group contains the same number of work-items and is uniquely identified by a <strong>work-group id</strong>. Additionally, within a work-group a work-item can be identified by its <strong>local id</strong>, and the combination of a local id with a work-group id is equivalent to the global id. The number of work-items is the <strong>global size</strong> and the number of work-items within a work-group is the <strong>local size</strong>.</p>
+<p>Roughly speaking, a work-group corresponds to a single parallel device core (e.g. GPU compute unit), while the work-items within it correspond to elements in the per-core SIMD array. This has huge implications on how we should write our code to achieve best performance. The vectorized unit performs best when all elements are inputs to the same computation. For example, multiplying the entire array by a constant is blazing fast. On the other hand, divergent computation might be slower than on a CPU. For example, if the kernel contains an <code>if</code> statement that causes some number of work-items within a work-group to take one branch and the rest to take another, the parallel device will have to deal with the divergence in a non-optimal way. A GPU, for example, might execute the same bit of code twice, first with all SIMD units taking one branch and then with all of them taking the other branch. The results would be masked to only store the correct version for a given SIMD unit. We don't want this to happen, since it effectively doubles the runtime of a particular path.</p>
+<p>Another way to think about it is to imagine that a work-group is a squad of work-item soldiers marching in a single direction. As long as they are in sync, the march progresses correctly. However, as soon as some of the soldiers change direction, the others will run into them and cause everyone to fall over.</p>
+<p>On the other hand, it's okay for different work-groups to take different paths through the kernel, since they are independent. For this reason, if we need to have divergent computation, it is best if we can pick our work-groups such that the divergence is on the level of work-groups rather than work-items.</p>
+<p><img alt="" src="data:image/png;base64,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"></p>
+<p>In this chapter we will encrypt a string with ROT-13 (do not actually do this if you need proper encryption) in parallel.</p>
+<p><strong>Parallel encrypt</strong></p>
+<pre><code class="language-cpp">   #include &lt;iostream&gt;
+   #include &lt;cstring&gt;
+   #include &lt;vector&gt;
+   #include &lt;CL/sycl.hpp&gt;
+
+   namespace sycl = cl::sycl;
+
+   int main(int, char**) {
+    char text[] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum in erat non scelerisque.";
+    const size_t len = sizeof(text);
+
+    sycl::queue queue(sycl::default_selector{});
+
+    {
+      &lt;&lt;Submit kernel&gt;&gt;
+    }
+
+    std::cout &lt;&lt; text &lt;&lt; std::endl;
+
+    return 0;
+  }
+</code></pre>
+<p>For data storage, we initialize an array with the string that we want to encrypt.</p>
+<p><strong>Submit kernel</strong></p>
+<pre><code class="language-cpp">  sycl::buffer&lt;char, 1&gt; buf(text, sycl::range&lt;1&gt;(len));
+  queue.submit([&amp;] (sycl::handler&amp; cgh) {
+      auto acc = buf.get_access&lt;sycl::access::mode::read_write&gt;(cgh);
+
+      cgh.parallel_for&lt;class parrot13&gt;(
+    sycl::range&lt;1&gt;(len - 1),
+    [=] (sycl::item&lt;1&gt; item) {
+      size_t id = item.get_linear_id();
+      // reference https://en.wikipedia.org/wiki/ROT13
+      auto const c = acc[id];
+      acc[id] = (c-1/(~(~c|32)/13*2-11)*13);
+    } );
+    } );
+</code></pre>
+<p>After the typical queue setup, in our command group we submit a kernel using <code>parallel_for</code>. As the name suggests, this function will execute the kernel in parallel on a number of work-items. There are several variants of this function. Here, we use the one with a single <code>range&lt;n&gt;</code> parameter. The range specifies the global size (we use <code>len - 1</code> since we don't want to flip the newline character), but the local size is left unspecified. The data we are manipulating is not grouped in any significant way. For this reason, it is best to leave the choice of local size up to the runtime, which should find an optimal value. As a rule of thumb, only specify the local size if you need to control behaviour on the work-group level (e.g. for divergence) or when you know the best performing values for a particular piece of hardware.</p>
+<p>Corresponding to the <code>range&lt;n&gt;</code> parameter is the <code>item&lt;n&gt;</code> argument we receive in the kernel lambda. It makes only the global id available. The method <code>item::get_linear_id</code> combines an id in index space into a single <code>size_t</code> value. In the one-dimensional case, these values are the same. We then transform each letter with the encryption algorithm and write that back into the buffer.</p>
+<p>And the result is our secret code:</p>
+<p>Yberz vcfhz qbybe fvg nzrg, pbafrpgrghe nqvcvfpvat ryvg. Ahap vagreqhz va reng aba fpryrevfdhr.</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/parallelism.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:38:08 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="parallelism.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="template-functions-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Template Functions</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="memory-2.html"
+                            >
+                            <div>
+                                <h1>Memory</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#parallelism">Parallelism</a></li>
+                        <li class="heading-1"><a href="#parallelism-and-performance">Parallelism and performance</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="62636c77eecaa2e3c528c4b92dace422">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../../oneapi/construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

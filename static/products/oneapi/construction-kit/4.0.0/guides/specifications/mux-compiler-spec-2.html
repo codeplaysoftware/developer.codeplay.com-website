@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>ComputeMux Compiler Specification - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'ComputeMux Compiler Specification' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="ComputeMux Compiler Specification - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'ComputeMux Compiler Specification' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="specifications-mux-compiler-spec">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/specifications/mux-compiler-spec">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/specifications/mux-compiler-spec">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/specifications/mux-compiler-spec">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/specifications/mux-compiler-spec">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/specifications/mux-compiler-spec">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/specifications/mux-compiler-spec">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#computemux-compiler-specification">
+                            <h1>ComputeMux Compiler Specification</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/specifications/mux-compiler-spec.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="computemux-compiler-specification">
+
+<blockquote>
+<div><p>This is version 0.80.0 of the specification.</p>
+</div></blockquote>
+<p>ComputeMux is Codeplay’s proprietary API for executing compute workloads across
+heterogeneous devices. ComputeMux is an extremely lightweight,
+bare-to-the-metal abstraction on modern hardware, and is used to power a suite
+of open source standards. ComputeMux consists of a <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><span class="doc">Runtime Specification</span></a> and <a class="reference internal" href="#"><span class="doc">Compiler Specification</span></a>. This document refers to the Compiler
+component.</p>
+<p>Throughout this specification, ComputeMux has been shortened to Mux for brevity,
+but for the avoidance of all doubt, “Mux” refers to “ComputeMux”.</p>
+<div class="section" id="glossary">
+<a class="header-link" href="#glossary"><h2 id="glossary">Glossary</h2><span class="material-icons">link</span></a>
+<p>The key statements <strong>must</strong>, <strong>must not</strong>, <strong>shall</strong>, <strong>shall not</strong>,
+<strong>should</strong>, <strong>should not</strong>, <strong>may</strong>, in this document are to be
+interpreted as described in <a class="reference external" href="http://www.ietf.org/rfc/rfc2119.txt">IETF RFC
+2119</a>.</p>
+<ul class="simple">
+<li><p><strong>must</strong> or <strong>shall</strong> - means that the definition is an absolute
+requirement of the specification.</p></li>
+<li><p><strong>must not</strong> or <strong>shall not</strong> - means that the definition is an
+absolute prohibition of the specification.</p></li>
+<li><p><strong>should</strong> - means that the definition is highly likely to occur, but
+there are extraneous circumstances that could result in it not
+occurring.</p></li>
+<li><p><strong>should not</strong> - means that the definition is highly likely to not
+occur, but there are extraneous circumstances that could result in it
+occurring.</p></li>
+<li><p><strong>may</strong> - means that an item is optional.</p></li>
+</ul>
+</div>
+<div class="section" id="introduction">
+<a class="header-link" href="#introduction"><h2 id="introduction">Introduction</h2><span class="material-icons">link</span></a>
+<p>This document describes the Mux compiler API, how it is used, and requirements
+to follow on its usage. The Mux compiler API is a C++ API that provides the
+compiler implementation used by a particular customer target (specified by a
+<code class="docutils literal notranslate">mux_device_info_t</code> from the <a class="reference external" href="#runtime">Runtime Specification</a>).</p>
+<p>This specification describes a number of C++ classes with methods that a customer
+compiler must implement. Some entry points are pure virtual methods and are
+therefore mandatory, but others already have base implementations which must be
+called if the function is overridden by a customer compiler. Note that
+the oneAPI Construction Kit does not use exceptions, and therefore there are no
+exception guarantee requirements.</p>
+</div>
+<div class="section" id="cargo">
+<a class="header-link" href="#cargo"><h2 id="cargo">Cargo</h2><span class="material-icons">link</span></a>
+<p>Cargo is the oneAPI Construction Kit’s STL like container library used by a
+number of compiler API methods that conforms to stricter memory requirements
+than the C++ STL e.g. constructors do not allocate memory and exceptions are
+never thrown from any container.</p>
+</div>
+<div class="section" id="context">
+<a class="header-link" href="#context"><h2 id="context">Context</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">Context</code> object serves as an opaque wrapper over the LLVM context
+object. This object satisfies the C++ named requirement ‘Lockable’, and <em>must</em>
+be locked when the compiler is interacting with a specific instance of LLVM.
+<code class="docutils literal notranslate">Context</code> exposes the following interface:</p>
+<pre><code class="language-cpp">namespace compiler {
+class Context {
+public:
+  bool isValidSPIRV(cargo::array_view&lt;const uint32_t&gt; code);
+
+  cargo::expected&lt;spirv::SpecializableConstantsMap, std::string&gt;
+  getSpecializableConstants(cargo::array_view&lt;const uint32_t&gt; code);
+
+  void lock();
+
+  bool try_lock();
+
+  void unlock();
+};
+}
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">compiler::Context</code> object is fully implemented by the Mux compiler
+library, and customer targets are not required to implement it.</p>
+</div>
+<div class="section" id="info">
+<a class="header-link" href="#info"><h2 id="info">Info</h2><span class="material-icons">link</span></a>
+<p>An <code class="docutils literal notranslate">Info</code> object is a description of a particular compiler implementation
+that can be used to compile programs for a particular <code class="docutils literal notranslate">mux_device_info_t</code>.
+<code class="docutils literal notranslate">Info</code> objects are expected to have a static <code class="docutils literal notranslate">get</code> method that returns a
+singleton instance containing information about the compiler capabilities and
+metadata, similar to <code class="docutils literal notranslate">mux_device_info_t</code> objects in the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><span class="doc">Runtime
+Specification</span></a>.</p>
+<pre><code class="language-cpp">namespace compiler {
+struct Info {
+ public:
+  virtual std::unique_ptr&lt;compiler::Target&gt; createTarget(
+    compiler::Context *context,
+    cargo::optional&lt;mux_device_t&gt; device,
+    mux_allocator_info_t allocator_info) = 0;
+
+  builtins::file::capabilities_bitfield getBuiltinCapabilities();
+
+  mux_device_info_t device_info;
+  bool supports_deferred_compilation;
+  const char *compilation_options;
+  bool vectorizable;
+  bool dma_optimizable;
+  bool scalable_vector_support;
+};
+}
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">device_info</code> - The singleton instance of <code class="docutils literal notranslate">mux_device_info_t</code> which this
+compiler targets.</p></li>
+<li><p><code class="docutils literal notranslate">supports_deferred_compilation</code> - Is true if this compiler supports
+deferred compilation by implementing <code class="docutils literal notranslate">compiler::Module::createKernel</code> and
+the <code class="docutils literal notranslate">compiler::Kernel</code> class, otherwise false.</p></li>
+<li><p><code class="docutils literal notranslate">compilation_options</code> - A null-terminated C string of
+semicolon-separated compilation options specific to this compiler.</p></li>
+<li><p><code class="docutils literal notranslate">vectorizable</code> - Is true if the device supports vectorization
+otherwise false.</p></li>
+<li><p><code class="docutils literal notranslate">dma_optimizable</code> - Is true if the device supports DMA
+optimizations otherwise false.</p></li>
+<li><p><code class="docutils literal notranslate">scalable_vector_support</code> - Is true if the device supports scalable vectors
+otherwise false.</p></li>
+</ul>
+<p class="rubric">Valid Usage</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">compilation_options</code> <strong>must</strong> conform to the <a class="reference external" href="#compilation-options-syntax">compilation options
+syntax</a>, defined below.</p></li>
+</ul>
+<div class="section" id="info-createtarget">
+<a class="header-link" href="#info-createtarget"><h3 id="info-createtarget"><a class="reference external" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/Info::createTarget">Info::createTarget</a></h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">Info::createTarget</code> creates a new instance of a subclass of
+<code class="docutils literal notranslate">compiler::Target</code>.</p>
+<pre><code class="language-cpp">std::unique_ptr&lt;compiler::Target&gt; createTarget(
+    compiler::Context *context);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">context</code> - an instance of <code class="docutils literal notranslate">compiler::Context</code>.</p></li>
+<li><p><code class="docutils literal notranslate">callback</code> - an optional callback used to provide a message back to the user.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">nullptr</code> <strong>must</strong> be returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">context</code> is <code class="docutils literal notranslate">nullptr</code>, <code class="docutils literal notranslate">nullptr</code> <strong>must</strong> be returned.</p></li>
+<li><p>Otherwise an instance of <code class="docutils literal notranslate">compiler::Target</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="info-getbuiltincapabilities">
+<a class="header-link" href="#info-getbuiltincapabilities"><h3 id="info-getbuiltincapabilities"><a class="reference external" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/Info::getBuiltinCapabilities">Info::getBuiltinCapabilities</a></h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">Info::getBuiltinCapabilities</code> retrieves a bitfield describing the builtin
+capabilities of the target device, based on <code class="docutils literal notranslate">Info::device_info</code>.</p>
+<pre><code class="language-cpp">builtins::file::capabilities_bitfield getBuiltinCapabilities();
+</code>
+</pre>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>A bitfield describing the builtin capabilities should be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="compilation-options-syntax">
+<a class="header-link" href="#compilation-options-syntax"><h3 id="compilation-options-syntax">Compilation Options Syntax</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">compilation_options</code> <strong>must</strong> follow the syntax of a comma separated
+tuple of (name, [1|0], help) with the following rules:</p>
+<ol class="arabic simple">
+<li><p>Argument name in the first tuple entry <strong>must</strong> start with a double
+hyphen and not contain whitespace characters.</p></li>
+<li><p>The second element <strong>must</strong> be a ‘1’ or a ‘0’ denoting if a value
+needs to be provided for the option.</p></li>
+<li><p>The final tuple entry is a help message to be displayed by compiler
+tools. All help whitespace <strong>must</strong> only be `` `` characters; other
+whitespace characters (<code class="docutils literal notranslate">\t</code>, <code class="docutils literal notranslate">\n</code>, etc.) <strong>must not</strong> be used.</p></li>
+<li><p>If multiple options are reported then each tuple <strong>must</strong> be
+separated by a semi-colon.</p></li>
+</ol>
+<p>Example of valid options reported by a device, including both an option
+which requires a value and an option which is just a build flag.</p>
+<pre><code class="language-c">info_ptr-&gt;compilation_options =
+  "--dummy-device-option,1,takes an integer value;"
+  "--dummy-device-flag,0,enables device optimization";
+</code>
+</pre>
+</div>
+<div class="section" id="enumerating-compiler-info-s">
+<a class="header-link" href="#enumerating-compiler-info-s"><h3 id="enumerating-compiler-info-s">Enumerating <code class="docutils literal notranslate">compiler::Info</code>’s</h3><span class="material-icons">link</span></a>
+<p>Compiler targets are required to provide a free-standing function that lists one
+or more static instances of the <code class="docutils literal notranslate">compiler::Info</code> object for each compiler
+configuration that this target supports. The name of this function does not
+matter, but it is named <code class="docutils literal notranslate">getCompilers</code> in this example.</p>
+<pre><code class="language-cpp">void getCompilers(compiler::AddCompilerFn add_compiler);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">add_compiler</code> - an object that overloads <code class="docutils literal notranslate">operator()</code> which informs
+the oneAPI Construction Kit about a static instance of <code class="docutils literal notranslate">compiler:Info</code>.
+Used to register a specific compiler configuration.</p></li>
+</ul>
+<p>One way of implementing this requirement is to add a static function to the
+<code class="docutils literal notranslate">compiler::Info</code> object:</p>
+<pre><code class="language-cpp">struct MyCompilerInfo : public compiler::Info {
+  // ...
+  static void get(compiler::AddCompilerFn add_compiler) {
+    static MyCompilerInfo info;
+    add_compiler(&amp;info);
+  }
+};
+</code>
+</pre>
+<p>Then, provide the fully qualified name to this function in CMake:</p>
+<pre><code class="language-cmake">add_mux_compiler_target(MyCompiler
+  COMPILER_INFO MyCompilerInfo::get
+  HEADER_DIR my_compiler/info.h)
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="target">
+<a class="header-link" href="#target"><h2 id="target">Target</h2><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Target</code> object is an instance of the compiler which “targets” a particular
+Mux device. It is used as the entry point into customer code from the compiler
+library.</p>
+<pre><code class="language-cpp">namespace compiler {
+class BaseTarget {
+ public:
+  BaseTarget(
+      const compiler::Info *compiler_info,
+      compiler::Context *context,
+      compiler::NotifyCallbackFn callback);
+
+  virtual Result initWithBuiltins(std::unique_ptr&lt;llvm::Module&gt; builtins) = 0;
+
+  virtual std::unique_ptr&lt;compiler::Module&gt; createModule(
+      uint32_t &amp;num_errors,
+      std::string &amp;log) = 0;
+
+  const compiler::Info *getCompilerInfo() const;
+};
+}
+</code>
+</pre>
+<div class="section" id="basetarget-constructor">
+<a class="header-link" href="#basetarget-constructor"><h3 id="basetarget-constructor">BaseTarget Constructor</h3><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Target</code> object which extends <code class="docutils literal notranslate">BaseTarget</code> <strong>must</strong> have a constructor
+which calls <code class="docutils literal notranslate">BaseTarget</code>’s constructor with the following arguments</p>
+<pre><code class="language-cpp">BaseTarget(
+    const compiler::Info *compiler_info,
+    compiler::Context *context,
+    compiler::NotifyCallbackFn callback);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">compiler_info</code> - the compiler info used to create this object.</p></li>
+<li><p><code class="docutils literal notranslate">context</code> - an instance of <code class="docutils literal notranslate">compiler::Context</code>.</p></li>
+<li><p><code class="docutils literal notranslate">callback</code> - an optional callback used to provide a message back to the user.</p></li>
+</ul>
+</div>
+<div class="section" id="basetarget-initwithbuiltins">
+<a class="header-link" href="#basetarget-initwithbuiltins"><h3 id="basetarget-initwithbuiltins">BaseTarget::initWithBuiltins</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseTarget::initWithBuiltins</code> initializes the given target object after
+loading builtins.</p>
+<pre><code class="language-cpp">compiler::Result initWithBuiltins(
+    std::unique_ptr&lt;llvm::Module&gt; builtins);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">builtins</code> - an LLVM module containing the embedded builtins provided by
+the oneAPI Construction Kit.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>Otherwise <code class="docutils literal notranslate">compiler::Result::SUCCESS</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="basetarget-createmodule">
+<a class="header-link" href="#basetarget-createmodule"><h3 id="basetarget-createmodule">BaseTarget::createModule</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseTarget::createModule</code> creates a new instance of a subclass of
+<code class="docutils literal notranslate">compiler::BaseModule</code> that supports this target.</p>
+<pre><code class="language-cpp">std::unique_ptr&lt;compiler::Module&gt; createModule(
+    uint32_t &amp;num_errors,
+    std::string &amp;log);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">num_errors</code> - a reference to an integer that will contain the number of
+errors reported by the Module object during compilation.</p></li>
+<li><p><code class="docutils literal notranslate">log</code> - a reference to a <code class="docutils literal notranslate">std::string</code> that will contain errors reported
+by the Module object during compilation.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">nullptr</code> <strong>must</strong> be returned.</p></li>
+<li><p>Otherwise an instance of <code class="docutils literal notranslate">compiler::Module</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="module">
+<a class="header-link" href="#module"><h2 id="module">Module</h2><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Module</code> object is the top level container for a device program compiled
+from one of the supported source types. A Module <strong>may</strong> contain multiple entry
+points and <strong>may</strong> have one or more named kernels unless it is a library module.</p>
+<p><code class="docutils literal notranslate">Module</code> is used to drive the compilation process, starting with the OpenCL C
+or SPIR-V front-ends, optionally linking against other Modules, then applying
+further optimizations before passing it to the back-end.</p>
+<p><code class="docutils literal notranslate">BaseModule</code> implements all of the front-end functionality, and it is left to
+the Mux target implementation to implement the remaining pure virtual methods
+that handle the back-end and code generation.</p>
+<pre><code class="language-cpp">namespace compiler {
+class BaseModule {
+ public:
+  BaseModule(compiler::BaseTarget &amp;target,
+             compiler::ContextImpl &amp;context,
+             uint32_t &amp;num_errors,
+             std::string &amp;log);
+
+  virtual Result createBinary(cargo::array_view&lt;std::uint8_t&gt; &amp;buffer) = 0;
+
+  virtual std::unique_ptr&lt;compiler::utils::PassMachinery&gt; createPassMachinery();
+
+ protected:
+  virtual Kernel *createKernel(const std::string &amp;name) = 0;
+
+ public:
+  virtual void clear();
+
+  virtual cargo::expected&lt;spirv::ModuleInfo, Result&gt; compileSPIRV(
+      cargo::array_view&lt;const std::uint32_t&gt; buffer,
+      const spirv::DeviceInfo &amp;spirv_device_info,
+      cargo::optional&lt;const spirv::SpecializationInfo &amp;&gt; spirv_spec_info);
+
+  virtual Result compileOpenCLC(
+      cargo::string_view device_profile,
+      cargo::string_view source,
+      cargo::array_view&lt;compiler::InputHeader&gt; input_headers);
+
+  virtual Result link(cargo::array_view&lt;Module *&gt; input_modules);
+
+  virtual Result finalize(
+      ProgramInfo *kernel_info,
+      std::vector&lt;builtins::printf::descriptor&gt; &amp;printf_calls);
+
+  virtual Kernel *getKernel(const std::string &amp;name);
+
+  virtual std::size_t size();
+
+  virtual std::size_t serialize(std::uint8_t *output_buffer);
+
+  virtual bool deserialize(cargo::array_view&lt;const std::uint8_t&gt; buffer);
+
+  virtual std::unique_ptr&lt;compiler::utils::PassMachinery&gt; createPassMachinery();
+
+  virtual void initializePassMachineryForFrontend(
+      compiler::utils::PassMachinery &amp;,
+      const clang::CodeGenOptions &amp;) const;
+
+  virtual void initializePassMachineryForFinalize(
+      compiler::utils::PassMachinery &amp;) const;
+
+ protected:
+  // Utility functions.
+  virtual llvm::ModulePassManager getLateTargetPasses(
+      compiler::utils::PassMachinery &amp;) = 0;
+
+  virtual Kernel *createKernel(const std::string &amp;name) = 0;
+
+  void addDiagnostic(cargo::string_view message);
+
+  void addBuildError(cargo::string_view message);
+
+  // Member variables.
+
+  std::unique_ptr&lt;llvm::Module&gt; finalized_llvm_module;
+
+  compiler::BaseContext &amp;context;
+
+  compiler::BaseTarget &amp;target;
+
+  compiler::Options options;
+
+ private:
+  std::unique_ptr&lt;llvm::Module&gt; llvm_module;
+};
+}
+</code>
+</pre>
+<div class="section" id="basemodule-constructor">
+<a class="header-link" href="#basemodule-constructor"><h3 id="basemodule-constructor">BaseModule Constructor</h3><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Module</code> object which extends <code class="docutils literal notranslate">BaseModule</code> <strong>must</strong> have a constructor
+which calls <code class="docutils literal notranslate">BaseModule</code>’s constructor with the following arguments:</p>
+<pre><code class="language-cpp">BaseModule(
+    compiler::BaseTarget &amp;target,
+    compiler::ContextImpl &amp;context,
+    uint32_t &amp;num_errors,
+    std::string &amp;log);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">target</code> - the <code class="docutils literal notranslate">compiler::Target</code> object used to create this module.</p></li>
+<li><p><code class="docutils literal notranslate">context</code> - an instance of <code class="docutils literal notranslate">compiler::Context</code>.</p></li>
+<li><p><code class="docutils literal notranslate">num_errors</code> - a reference to an integer that will contain the number of
+errors reported by the Module object during compilation.</p></li>
+<li><p><code class="docutils literal notranslate">log</code> - a reference to a <code class="docutils literal notranslate">std::string</code> that will contain errors reported
+by the Module object during compilation.</p></li>
+</ul>
+</div>
+<div class="section" id="basemodule-finalize">
+<a class="header-link" href="#basemodule-finalize"><h3 id="basemodule-finalize">BaseModule::finalize</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::finalize</code> runs IR passes on the <code class="docutils literal notranslate">llvm_module</code> which prepare it
+for binary creation.</p>
+<p>The passes run by the default implementation are a mixture of LLVM middle-end
+optimizations and ComputeMux-specific passes that lower the incoming
+<code class="docutils literal notranslate">llvm_module</code> from a higher-level form dependent on the original kernel
+source-language (e.g., being produced by <code class="docutils literal notranslate">BaseModule::compileOpenCLC</code> or
+<code class="docutils literal notranslate">BaseModule::compileSPIRV</code>) into a canonical “ComputeMux” form.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>Note that most of the lower-level target-specific passes are left to</dt><dd><p><code class="docutils literal notranslate">BaseModule::getLateTargetPasses</code> which <strong>must</strong> be implemented.</p>
+</dd>
+</dl>
+</div>
+<p>Targets may override this method to customize the pipeline.</p>
+</div>
+<div class="section" id="basemodule-getlatetargetpasses">
+<a class="header-link" href="#basemodule-getlatetargetpasses"><h3 id="basemodule-getlatetargetpasses">BaseModule::getLateTargetPasses</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::getLateTargetPasses</code> is an internal method called at the end of
+<code class="docutils literal notranslate">BaseModule::finalize</code>, and is reponsible for adding any final
+target-specific IR passes to the pipeline, in preparation for the creation of
+the final binary in <code class="docutils literal notranslate">BaseModule::createBinary</code>. Note that no
+<code class="docutils literal notranslate">BaseModule::finalize</code> passes have actually been run by the time at which
+this method is called, neither is the <code class="docutils literal notranslate">llvm::Module</code> that the passes will be
+run on exposed.</p>
+<p>This method receives the same <code class="docutils literal notranslate">PassMachinery</code> used throughout the
+<code class="docutils literal notranslate">BaseModule::finalize</code> pipeline, that has been initialized with
+<code class="docutils literal notranslate">BaseModule::initializePassMachineryForFinalize</code>. Targets may therefore rely
+on any analyses they’ve previously registered.</p>
+</div>
+<div class="section" id="basemodule-createpassmachinery">
+<a class="header-link" href="#basemodule-createpassmachinery"><h3 id="basemodule-createpassmachinery">BaseModule::createPassMachinery</h3><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">PassMachinery</code> class manages the lifetime and initialization of all
+components required to set up a new-style LLVM pass manager. It includes
+various methods for registering debug information and parsing pipeline text
+(for <code class="docutils literal notranslate">PassBuilder.parsePassPipeline</code>) and initalizing of state. The default
+implementation will cover common passes, but if a user wants to register their
+own for debug and parse they can create their own by deriving from
+<code class="docutils literal notranslate">BasePassMachinery</code>.</p>
+<p>The <code class="docutils literal notranslate">PassMachinery</code> class takes an <code class="docutils literal notranslate">llvm TargetMachine</code> pointer in the
+constructor. By default this can only be known in the derived class, and so to
+support the <code class="docutils literal notranslate">TargetMachine</code> being known throughout the compilation pipeline, it
+is advised to override the <code class="docutils literal notranslate">BaseModule::createPassMachinery</code>, even if only to
+create the <code class="docutils literal notranslate">BaseModulePassMachinery</code> with a known <code class="docutils literal notranslate">TargetMachine</code>. A derived
+version of <code class="docutils literal notranslate">PassMachinery</code> is also advised to support parsing and debugging of
+target specific passes. This should generally be derived from
+<code class="docutils literal notranslate">BaseModulePassMachinery</code> and the various <code class="docutils literal notranslate">register*</code> methods of
+<code class="docutils literal notranslate">BaseModulePassMachinery</code> called from the derived class.</p>
+</div>
+<div class="section" id="basemodule-initializepassmachineryforfrontend">
+<a class="header-link" href="#basemodule-initializepassmachineryforfrontend"><h3 id="basemodule-initializepassmachineryforfrontend">BaseModule::initializePassMachineryForFrontend</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::initializePassMachineryForFrontend</code> sets up a <code class="docutils literal notranslate">PassMachinery</code>
+for use in the pipelines run by <code class="docutils literal notranslate">BaseModule::compileOpenCLC</code> and
+<code class="docutils literal notranslate">BaseModule::compileSPIRV</code>. A default implementation is provided, though
+targets may override this method to register custom analyses or tune the
+pipeline.</p>
+</div>
+<div class="section" id="basemodule-initializepassmachineryforfinalize">
+<a class="header-link" href="#basemodule-initializepassmachineryforfinalize"><h3 id="basemodule-initializepassmachineryforfinalize">BaseModule::initializePassMachineryForFinalize</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::initializePassMachineryForFinalize</code> sets up a <code class="docutils literal notranslate">PassMachinery</code>
+for use in the pipeline run by <code class="docutils literal notranslate">BaseModule::finalize</code> (and by extension
+<code class="docutils literal notranslate">BaseModule::getLateTargetPasses</code>). A default implementation is provided,
+though targets may override this method to register
+custom analyses or tune the pipeline.</p>
+</div>
+<div class="section" id="basemodule-createbinary">
+<a class="header-link" href="#basemodule-createbinary"><h3 id="basemodule-createbinary">BaseModule::createBinary</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::createBinary</code> creates a compiled binary which can be loaded by
+the corresponding Mux implementation using <code class="docutils literal notranslate">muxCreateExecutable</code>.</p>
+<pre><code class="language-cpp">compiler::Result createBinary(cargo::array_view&lt;std::uint8_t&gt; &amp;buffer);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">buffer</code> - an array view over the binary buffer. This array view is valid
+until the next call to <code class="docutils literal notranslate">createBinary</code>.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>Otherwise <code class="docutils literal notranslate">compiler::Result::SUCCESS</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="basemodule-createkernel">
+<a class="header-link" href="#basemodule-createkernel"><h3 id="basemodule-createkernel">BaseModule::createKernel</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseModule::createKernel</code> creates a deferred kernel, an object which
+represents a specific kernel function within the Module which can have its
+compilation deferred. Note that this function should not create a new kernel
+function in the module, but instead creates a new <code class="docutils literal notranslate">compiler::Kernel</code> object
+that represents an existing kernel in the module.</p>
+<p>This method <strong>must</strong> return <code class="docutils literal notranslate">nullptr</code> if the <code class="docutils literal notranslate">compiler::Module</code> does not
+support deferred compilation of kernels and
+<code class="docutils literal notranslate">compiler::Info::supports_deferred_compilation</code> is <code class="docutils literal notranslate">false</code>.</p>
+<p><code class="docutils literal notranslate">BaseModule::getKernel</code> will either look up <code class="docutils literal notranslate">compiler::Kernel</code> objects by
+kernel name, or call <code class="docutils literal notranslate">BaseModule::createKernel</code> to create <code class="docutils literal notranslate">compiler::Kernel</code>
+objects lazily.</p>
+<pre><code class="language-cpp">compiler::Kernel *createKernel(
+    const std::string &amp;name);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">name</code> - the name of the kernel function to select from the module.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">nullptr</code> <strong>must</strong> be returned.</p></li>
+<li><p>If this module does not support deferred compilation, <code class="docutils literal notranslate">nullptr</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>Otherwise an instance of <code class="docutils literal notranslate">compiler::Kernel</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="kernel">
+<a class="header-link" href="#kernel"><h2 id="kernel">Kernel</h2><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Kernel</code> object represents a single kernel function inside a Module whose
+compilation into a <code class="docutils literal notranslate">mux_kernel_t</code> can be deferred at any point up to the point
+we enqueue the kernel into a command buffer. The <code class="docutils literal notranslate">Kernel</code> class is not
+required to be implemented if the compiler implementation does not support
+deferred compilation.</p>
+<p><code class="docutils literal notranslate">Kernel</code> <strong>may</strong> be used to perform further optimizations to specific kernels
+once additional information is provided, such as local or global work-group
+sizes, and/or descriptors.</p>
+<pre><code class="language-cpp">namespace compiler {
+class BaseKernel {
+ public:
+  BaseKernel(size_t preferred_local_size_x,
+             size_t preferred_local_size_y,
+             size_t preferred_local_size_z,
+             size_t local_memory_size);
+
+  virtual Result precacheLocalSize(size_t local_size_x,
+                                   size_t local_size_y,
+                                   size_t local_size_z) = 0;
+
+  virtual cargo::expected&lt;uint32_t, Result&gt; getDynamicWorkWidth(
+      size_t local_size_x,
+      size_t local_size_y,
+      size_t local_size_z) = 0;
+
+  virtual cargo::expected&lt;cargo::dynamic_array&lt;uint8_t&gt;, Result&gt; createSpecializedKernel(
+      const mux_ndrange_options_t &amp;specialization_options) = 0;
+
+  virtual cargo::expected&lt;uint32_t, Result&gt; getSubGroupSize() = 0;
+
+  virtual cargo::expected&lt;uint32_t, Result&gt; querySubGroupSizeForLocalSize(
+      size_t local_size_x, size_t local_size_y, size_t local_size_z) = 0;
+
+  virtual cargo::expected&lt;std::array&lt;size_t, 3&gt;, Result&gt;
+  queryLocalSizeForSubGroupCount(size_t sub_group_count) = 0;
+
+  virtual cargo::expected&lt;size_t, Result&gt; queryMaxSubGroupCount() = 0;
+};
+}
+</code>
+</pre>
+<div class="section" id="constructor">
+<a class="header-link" href="#constructor"><h3 id="constructor">Constructor</h3><span class="material-icons">link</span></a>
+<p>A <code class="docutils literal notranslate">Kernel</code> object which extends <code class="docutils literal notranslate">BaseKernel</code> <strong>must</strong> have a constructor
+which calls <code class="docutils literal notranslate">BaseKernel</code>’s constructor with the following arguments:</p>
+<pre><code class="language-cpp">BaseKernel(
+    size_t preferred_local_size_x,
+    size_t preferred_local_size_y,
+    size_t preferred_local_size_z,
+    size_t local_memory_size);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">preferred_local_size_x</code> - the preferred local size in the x dimension for
+this kernel object.</p></li>
+<li><p><code class="docutils literal notranslate">preferred_local_size_y</code> - the preferred local size in the y dimension for
+this kernel object.</p></li>
+<li><p><code class="docutils literal notranslate">preferred_local_size_z</code> - the preferred local size in the z dimension for
+this kernel object.</p></li>
+<li><p><code class="docutils literal notranslate">local_memory_size</code> - the amount of local memory used by this kernel
+object.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-precachelocalsize">
+<a class="header-link" href="#basekernel-precachelocalsize"><h3 id="basekernel-precachelocalsize">BaseKernel::precacheLocalSize</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::precacheLocalSize</code> signals to the compiler to <em>optionally</em>
+pre-cache a specific local work-group size configuration that <strong>may</strong> be required
+later by <code class="docutils literal notranslate">BaseKernel::createSpecializedKernel</code>.</p>
+<pre><code class="language-cpp">compiler::Result precacheLocalSize(
+    size_t local_size_x,
+    size_t local_size_y,
+    size_t local_size_z);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">local_size_x</code> - the size of the <em>x</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_y</code> - the size of the <em>y</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_z</code> - the size of the <em>z</em> dimension of the local work-group.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_x</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_y</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_z</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be returned.</p></li>
+<li><p>Otherwise <code class="docutils literal notranslate">compiler::Result::SUCCESS</code> <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-getdynamicworkwidth">
+<a class="header-link" href="#basekernel-getdynamicworkwidth"><h3 id="basekernel-getdynamicworkwidth">BaseKernel::getDynamicWorkWidth</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::getDynamicWorkWidth</code> obtains the dynamic work width of this
+kernel for a given local work-group size.</p>
+<p>The work width indicates the number of work-items in a work-group that will
+execute together. Note that the work width may be less than the size of the
+work-group but never greater than, and may be 1.</p>
+<p>Commonly the work width will relate to the hardware vector/wave-front/warp
+width (likely the device’s <code class="docutils literal notranslate">max_work_width</code>), but may be lowered if a
+particular kernel cannot fully exploit the hardware. The work width may be less
+than or greater than the hardware width, depending on factors such as what data
+types are used in the kernel.</p>
+<pre><code class="language-cpp">cargo::expected&lt;uint32_t, compiler::Result&gt; getDynamicWorkWidth(
+    size_t local_size_x,
+    size_t local_size_y,
+    size_t local_size_z);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">local_size_x</code> - the size of the <em>x</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_y</code> - the size of the <em>y</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_z</code> - the size of the <em>z</em> dimension of the local work-group.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::OUT_OF_MEMORY)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_x</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_y</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">local_size_z</code> is 0, <code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>Otherwise, a work width <strong>should</strong> be returned. The work width <strong>must</strong> be
+greater than 0.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-createspecializedkernel">
+<a class="header-link" href="#basekernel-createspecializedkernel"><h3 id="basekernel-createspecializedkernel">BaseKernel::createSpecializedKernel</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::createSpecializedKernel</code> creates a compiled binary containing (at least)
+the kernel represented by this <code class="docutils literal notranslate">compiler::Kernel</code> object, which <strong>may</strong> have
+been cloned and optimized further from the original module given all the
+information required to execute. This binary should be loadable by the
+corresponding Mux implementation using <code class="docutils literal notranslate">muxCreateExecutable</code></p>
+<p>Parameter information consists of descriptions of each parameter passed to the
+kernel function. Execution information consists of information on the number of
+work-groups to execute, and a work-group offset.</p>
+<p>The <code class="docutils literal notranslate">compiler::Kernel</code> object used to create this binary is guaranteed to
+be destroyed <strong>after</strong> the <code class="docutils literal notranslate">mux_executable_t</code> created from this binary is
+destroyed.</p>
+<pre><code class="language-cpp">cargo::expected&lt;cargo::dynamic_array&lt;uint8_t&gt;, Result&gt; createSpecializedKernel(
+    const mux_ndrange_options_t &amp;options);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">options</code> - the execution options that will be used when the
+kernel is executed by <code class="docutils literal notranslate">muxCommandNDRange</code>.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::OUT_OF_MEMORY)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.descriptors</code> is not NULL and <code class="docutils literal notranslate">descriptors_length</code> is 0,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.descriptors</code> is NULL and <code class="docutils literal notranslate">descriptors_length</code> is not 0,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If any element in <code class="docutils literal notranslate">options.local_size</code> is 0,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.global_offset</code> is NULL,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.global_size</code> is NULL,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.length</code> is 0 or greater than 3,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If <code class="docutils literal notranslate">options.descriptors</code> contains an element where the <code class="docutils literal notranslate">type</code> data member
+is <code class="docutils literal notranslate">mux_descriptor_info_type_custom_buffer</code> and
+<code class="docutils literal notranslate">device-&gt;info-&gt;custom_buffer_capabilities</code> is <code class="docutils literal notranslate">0</code>,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::INVALID_VALUE)</code> <strong>must</strong> be
+returned.</p></li>
+<li><p>If there was a failure during any code generation,
+<code class="docutils literal notranslate">cargo::make_unexpected(compiler::Result::FINALIZE_PROGRAM_FAILURE)</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>Otherwise an instance of <code class="docutils literal notranslate">cargo::dynamic_array&lt;uint8_t&gt;</code> containing a valid
+binary <strong>should</strong> be returned.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-querysubgroupsizeforlocalsize">
+<a class="header-link" href="#basekernel-querysubgroupsizeforlocalsize"><h3 id="basekernel-querysubgroupsizeforlocalsize">BaseKernel::querySubGroupSizeForLocalSize</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::querySubGroupSizeForLocalSize</code> calculates the maximum sub-group
+size that would result from enqueing the kernel with the given local size.
+Enqueuing the kernel with the specified local size <strong>shall</strong> result in at least
+one sub-group of the size returned in <code class="docutils literal notranslate">out_sub_group_size</code> and <strong>may</strong>
+additionally result in exactly one sub-group of size less than that returned
+when the local size is not evenly divisible by the sub-group size.</p>
+<pre><code class="language-cpp">virtual cargo::expected&lt;uint32_t, Result&gt; querySubGroupSizeForLocalSize(
+    size_t local_size_x, size_t local_size_y, size_t local_size_z);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">local_size_x</code> - the size of the <em>x</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_y</code> - the size of the <em>y</em> dimension of the local work-group.</p></li>
+<li><p><code class="docutils literal notranslate">local_size_z</code> - the size of the <em>z</em> dimension of the local work-group.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>If any of <code class="docutils literal notranslate">local_size_x</code>, <code class="docutils literal notranslate">local_size_y</code> or <code class="docutils literal notranslate">local_size_z</code> are zero,
+<code class="docutils literal notranslate">compiler::Result::INVALID_VALUE</code> <strong>must</strong> be returned.</p></li>
+<li><p>If the device targeted by this kernel does not support sub-groups,
+<code class="docutils literal notranslate">compiler::Result::FEATURE_UNSUPPORTED</code> <strong>must</strong> be returned.  ``</p></li>
+<li><p>Otherwise, a sub-group size <strong>should</strong> be returned. The sub-group size
+<strong>must</strong> be greater than 0.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-querylocalsizeforsubgroupcount">
+<a class="header-link" href="#basekernel-querylocalsizeforsubgroupcount"><h3 id="basekernel-querylocalsizeforsubgroupcount">BaseKernel::queryLocalSizeForSubGroupCount</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::queryLocalSizeForSubGroupCount</code> calculates the local size that
+when enqueued with the kernel would result in the specified number of
+sub-groups.</p>
+<pre><code class="language-cpp">virtual cargo::expected&lt;std::array&lt;size_t, 3&gt;, Result&gt;
+queryLocalSizeForSubGroupCount(size_t sub_group_count);
+</code>
+</pre>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">sub_group_count</code> - the requested number of sub-groups.</p></li>
+</ul>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>If the device targeted by this kernel does not support sub-groups,
+<code class="docutils literal notranslate">compiler::Result::FEATURE_UNSUPPORTED</code> <strong>must</strong> be returned.</p></li>
+<li><p>Otherwise, a local size <strong>should</strong> be returned. The local size <strong>must</strong> be 1
+dimensional, that is, at least two of the elements in the array must be 1.
+The local size <strong>must</strong> be evenly divisible by the sub-group size in the
+kernel. If no local size would result in the requested number of sub-groups
+this function may return a local size of zero.</p></li>
+</ul>
+</div>
+<div class="section" id="basekernel-querymaxsubgroupcount">
+<a class="header-link" href="#basekernel-querymaxsubgroupcount"><h3 id="basekernel-querymaxsubgroupcount">BaseKernel::queryMaxSubGroupCount</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">BaseKernel::queryMaxSubGroupCount</code> calculates the maximum number of
+sub-groups that can be supported by the kernel for any local size.</p>
+<pre><code class="language-cpp">virtual cargo::expected&lt;size_t, Result&gt; queryMaxSubGroupCount();
+</code>
+</pre>
+<p class="rubric">Return Value</p>
+<ul class="simple">
+<li><p>If there was an allocation failure, <code class="docutils literal notranslate">compiler::Result::OUT_OF_MEMORY</code>
+<strong>must</strong> be returned.</p></li>
+<li><p>If the device targeted by this kernel does not support sub-groups,
+<code class="docutils literal notranslate">compiler::Result::FEATURE_UNSUPPORTED</code> <strong>must</strong> be returned.  ``</p></li>
+<li><p>Otherwise, a sub-group count <strong>should</strong> be returned. The sub-group count
+<strong>must</strong> be greater than zero.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="llvm-intermediate-representation">
+<a class="header-link" href="#llvm-intermediate-representation"><h2 id="llvm-intermediate-representation">LLVM intermediate representation</h2><span class="material-icons">link</span></a>
+</div>
+<div class="section" id="mangling">
+<a class="header-link" href="#mangling"><h2 id="mangling">Mangling</h2><span class="material-icons">link</span></a>
+<p>Mangling is used by the vectorizer to declare, define and use internal
+overloaded builtin functions. In general, the mangling scheme follows
+<a class="reference external" href="https://www.khronos.org/registry/SPIR/specs/spir_spec-1.2.pdf">Appendix A of the SPIR 1.2 specification</a>,
+itself an extension of the Itanium C++ mangling scheme.</p>
+<div class="section" id="vector-types">
+<a class="header-link" href="#vector-types"><h3 id="vector-types">Vector Types</h3><span class="material-icons">link</span></a>
+<p>The Itanium specification under-specifies vector types in general, so vendors
+are left to establish their own system. In the vectorizer, fixed-length vector
+types follow the convention that LLVM, GCC, ICC and others use. The first
+component is <code class="docutils literal notranslate">Dv</code> followed by the number of elements in the vector, followed by
+an underscore (<code class="docutils literal notranslate">_</code>) and then the mangled element type:</p>
+<pre><code class="language-default">&lt;2 x i32&gt; -&gt; Dv2_i
+&lt;32 x double&gt; -&gt; Dv32_d
+</code>
+</pre>
+<p>Scalable-vector IR types do not have an established convention. Certain vendors
+such as ARM SVE2 provide scalable vector types at the C/C++ language level, but
+those are mangled in a vendor-specific way.</p>
+<p>The vectorizer chooses its own mangling scheme using the Itanium
+vendor-extended type syntax, which is <code class="docutils literal notranslate">u</code>, followed by the length of the
+mangled type, then the mangled type itself.</p>
+<p>Scalable-vectors are first mangled with <code class="docutils literal notranslate">nx</code> to indicate the scalable
+component. The next part is an integer describing the known multiple of the
+scalable component. Lastly, the element type is mangled according to the
+established vectorizer mangling scheme (i.e. Itanium).</p>
+<p>Example:</p>
+<pre><code class="language-default">&lt;vscale x 1 x i32&gt;               -&gt; u5nxv1j
+&lt;vscale x 2 x float&gt;             -&gt; u5nxv2f
+&lt;vscale x 16 x double&gt;            -&gt; u6nxv16d
+&lt;vscale x 4 x i32 addrspace(1)*&gt; -&gt; u11nxv4PU3AS1j
+
+define void @__vecz_b_interleaved_storeV_Dv16_dPU3AS1d(&lt;16 x double&gt; %0, double addrspace(1)* %1, i64 %2) {
+define void @__vecz_b_interleaved_storeV_u6nxv16dPU3AS1d(&lt;vscale x 16 x double&gt; %0, double addrspace(1)* %1, i64 %2) {
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="builtins">
+<a class="header-link" href="#builtins"><h2 id="builtins">Builtins</h2><span class="material-icons">link</span></a>
+<p>The ComputeMux specification defines the following builtin functions. Any of
+these functions <strong>may</strong> be declared and/or called in the LLVM intermediate
+representation stored in <code class="docutils literal notranslate">compiler::BaseModule::finalized_llvm_module</code>.</p>
+<p>A Mux implementation <strong>shall</strong> provide definitions for these builtin functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the list of functions below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">size_t</code> represents either <code class="docutils literal notranslate">i32</code> or <code class="docutils literal notranslate">i64</code>, depending on the pointer
+size in bytes of the target.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t</code> represents an event object and may be defined as
+<em>any</em> type chosen by the Mux implementation, as long as it is consistently
+used across the module at any given time. For example, it may be a
+structure type, an a target extension type, an integer type, a pointer
+type, etc. This type <strong>may</strong> change throughout the compilation process.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">i1 __mux_isftz()</code> - Returns whether the device flushes
+floating-point values to 0.</p></li>
+<li><p><code class="docutils literal notranslate">i1 __mux_usefast()</code> - Returns whether we should use faster, but
+less accurate, algorithms for maths builtins used in the LLVM module.</p></li>
+<li><p><code class="docutils literal notranslate">i1 __mux_isembeddedprofile()</code> - Returns whether the device
+implements OpenCL 1.2 Embedded Profile.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_global_size(i32 %i)</code> - Returns the number of global
+invocations for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_global_id(i32 %i)</code> - Returns the unique global
+invocation identifier for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_global_offset(i32 %i)</code> - Returns the global offset (in
+invocations) for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_local_size(i32 %i)</code> - Returns the number of local
+invocations within a work-group for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_local_id(i32 %i)</code> - Returns the unique local invocation
+identifier for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_sub_group_id()</code> - Returns the sub-group ID.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_num_groups(i32 %i)</code> - Returns the number of work-groups
+for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_num_sub_groups()</code> - Returns the number of sub-groups for
+the current work-group.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_max_sub_group_size()</code> - Returns the maximum sub-group size
+in the current kernel.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_sub_group_size()</code> - Returns the number of invocations in the
+sub-group.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_sub_group_local_id()</code> - Returns the unique invocation ID
+within the current sub-group.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_group_id(i32 %i)</code> - Returns the unique work-group
+identifier for the <code class="docutils literal notranslate">%i</code>’th dimension.</p></li>
+<li><p><code class="docutils literal notranslate">i32 __mux_get_work_dim()</code> - Returns the number of dimensions in
+use.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_read_1D(ptr address_space(3) %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(1) %src, size_t %width, __mux_dma_event_t %event)</code> - DMA
+1D read from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of <code class="docutils literal notranslate">%width</code> bytes. May use <code class="docutils literal notranslate">%event</code>
+from previous DMA call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_read_2D(ptr address_space(3) %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(1) %src, size_t %width, size_t %dst_stride,</code>
+<code class="docutils literal notranslate">size_t %src_stride, size_t %height __mux_dma_event_t %event)</code> - DMA 2D
+read from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of <code class="docutils literal notranslate">%width</code> bytes and <code class="docutils literal notranslate">%height</code> rows, with
+<code class="docutils literal notranslate">%dst_stride</code> bytes between dst rows and <code class="docutils literal notranslate">%src_stride</code> bytes between src
+rows. May use <code class="docutils literal notranslate">%event</code> from previous DMA call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_read_3D(ptr address_space(3) %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(1) %src, size_t %width, size_t %dst_line_stride,</code>
+<code class="docutils literal notranslate">size_t %src_line_stride, size_t %height, size_t %dst_plane_stride,</code>
+<code class="docutils literal notranslate">size_t %src_plane_stride, size_t %depth, __mux_dma_event_t %event)</code> - DMA
+3D read from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of <code class="docutils literal notranslate">%width</code> bytes, <code class="docutils literal notranslate">%height</code> rows, and
+<code class="docutils literal notranslate">%depth</code> planes, with <code class="docutils literal notranslate">%dst_line_stride</code> bytes between dst rows,
+<code class="docutils literal notranslate">%src_line_stride</code> bytes between src rows, <code class="docutils literal notranslate">%dst_plane_stride</code> bytes
+between dst planes, and <code class="docutils literal notranslate">%src_plane_stride</code> between src planes. May use
+<code class="docutils literal notranslate">%event</code> from previous DMA call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_write_1D(ptr address_space(1) ptr %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(3) %src, size_t %width, __mux_dma_event_t %event)</code> - DMA
+1D write from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of <code class="docutils literal notranslate">%width</code> bytes. May use <code class="docutils literal notranslate">%event</code>
+from previous DMA call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_write_2D(ptr address_space(1) %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(1) %src, size_t %width, size_t %dst_stride,</code>
+<code class="docutils literal notranslate">size_t %src_stride, size_t %height __mux_dma_event_t %event)</code> - DMA 2D
+write from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of <code class="docutils literal notranslate">%width</code> bytes and <code class="docutils literal notranslate">%height</code> rows,
+with <code class="docutils literal notranslate">%dst_stride</code> bytes between dst rows and <code class="docutils literal notranslate">%src_stride</code> bytes between
+src rows. May use <code class="docutils literal notranslate">%event</code> from previous DMA call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_dma_event_t __mux_dma_write_3D(ptr address_space(3) %dst,</code>
+<code class="docutils literal notranslate">ptr address_space(1) %src, size_t %width, size_t %dst_line_stride,</code>
+<code class="docutils literal notranslate">size_t %src_line_stride, size_t %height, size_t %dst_plane_stride,</code>
+<code class="docutils literal notranslate">size_t %src_plane_stride, size_t %depth,
+``__mux_dma_event_t %event)</code> - DMA 3D write from <code class="docutils literal notranslate">%src</code> to <code class="docutils literal notranslate">%dst</code> of
+<code class="docutils literal notranslate">%width</code> bytes, <code class="docutils literal notranslate">%height</code> rows, and <code class="docutils literal notranslate">%depth</code> planes, with
+<code class="docutils literal notranslate">%dst_line_stride</code> bytes between dst rows, <code class="docutils literal notranslate">%src_line_stride</code> bytes
+between src rows, <code class="docutils literal notranslate">%dst_plane_stride</code> bytes between dst planes, and
+<code class="docutils literal notranslate">src_plane_stride</code> between src planes. May use <code class="docutils literal notranslate">%event</code> from previous DMA
+call. Returns event used.</p></li>
+<li><p><code class="docutils literal notranslate">void __mux_dma_wait(i32 %num_events, __mux_dma_event_t*)</code> - Wait on
+events initiated by a DMA read or write.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_global_linear_id()</code> - Returns a linear ID equivalent
+to <code class="docutils literal notranslate">(__mux_get_global_id(2) - __mux_get_global_offset(2)) *</code>
+<code class="docutils literal notranslate">__mux_get_global_size(1) * __mux_get_global_size(0) +</code>
+<code class="docutils literal notranslate">(__mux_get_global_id(1) - __mux_get_global_offset(1)) *</code>
+<code class="docutils literal notranslate">__mux_get_global_size(0) + (__mux_get_global_id(0) -</code>
+<code class="docutils literal notranslate">__mux_get_global_offset(0))</code>.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_local_linear_id(void)</code> - Returns a linear ID equivalent
+to <code class="docutils literal notranslate">__mux_get_local_id(2) * __mux_get_local_size(1) *</code>
+<code class="docutils literal notranslate">__mux_get_local_size(0) + __mux_get_local_id(1) * __mux_get_local_size(0)</code>
+<code class="docutils literal notranslate">+ __mux_get_local_id(0)</code>.</p></li>
+<li><p><code class="docutils literal notranslate">size_t __mux_get_enqueued_local_size(i32 i)</code> - Returns the enqueued
+work-group size in the <code class="docutils literal notranslate">i</code>’th dimension, for uniform work-groups this is
+equivalent to <code class="docutils literal notranslate">size_t __mux_get_local_size(i32 %i)</code>.</p></li>
+<li><p><code class="docutils literal notranslate">void __mux_mem_barrier(i32 %scope, i32 %semantics)</code> - Controls the order
+that memory accesses are observed (serves as a fence instruction). This
+control is only ensured for memory accesses issued by the invocation calling
+the barrier and observed by another invocation executing within the memory
+<code class="docutils literal notranslate">%scope</code>. Additional control over the kind of memory controlled and what
+kind of control to apply is provided by <code class="docutils literal notranslate">%semantics</code>. See <a class="reference external" href="#memory-and-control-barriers">below</a> for more information.</p></li>
+<li><p><code class="docutils literal notranslate">void __mux_work_group_barrier(i32 %id, i32 %scope, i32 %semantics)</code> and
+<code class="docutils literal notranslate">void __mux_sub_group_barrier(i32 %id, i32 %scope, i32 %semantics)</code> - Wait
+for other invocations of the work-group/sub-group to reach the current point
+of execution (serves as a control barrier). A barrier identifier is provided
+by <code class="docutils literal notranslate">%id</code> (note that implementations <strong>must</strong> ensure uniqueness themselves,
+e.g., by running the <code class="docutils literal notranslate">compiler::utils::PrepareBarriersPass</code>). These
+builtins may also atomically provide a memory barrier with the same semantics
+as <code class="docutils literal notranslate">__mux_mem_barrier(i32 %scope, i32 %semantics)</code>. See <a class="reference external" href="#memory-and-control-barriers">below</a> for more information.</p></li>
+</ul>
+<div class="section" id="group-operation-builtins">
+<a class="header-link" href="#group-operation-builtins"><h3 id="group-operation-builtins">Group operation builtins</h3><span class="material-icons">link</span></a>
+<p>ComputeMux defines a variety of builtins to handle operations across a
+sub-group, work-group, or <em>vector group</em>.</p>
+<p>The builtin functions are overloadable and are mangled according to the type of
+operand they operate on.</p>
+<p>Each <em>work-group</em> operation takes as its first parameter a 32-bit integer
+barrier identifier (<code class="docutils literal notranslate">i32 %id</code>). Note that if barriers are used to implement
+these operations, implementations <strong>must</strong> ensure uniqueness of these IDs
+themselves, e.g., by running the <code class="docutils literal notranslate">compiler::utils::PrepareBarriersPass</code>. The
+barrier identifier parameter is not mangled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The sub-group and work-group builtins are all <strong>uniform</strong>, that is, the
+behaviour is undefined unless all invocations in the group reach this point
+of execution.</p>
+<p>Future versions of ComputeMux <strong>may</strong> add <strong>non-uniform</strong> versions of these
+builtins.</p>
+</div>
+<p>The groups are defined as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">work-group</code> - a group of invocations running together as part of an ND
+range. These builtins <strong>must</strong> only take scalar values.</p></li>
+<li><p><code class="docutils literal notranslate">sub-group</code> - a subset of invocations in a work-group which can synchronize
+and share data efficiently. ComputeMux leaves the choice of sub-group size
+and implementation to the target; ComputeMux only defines these builtins with
+a “trivial” sub-group size of 1. These builtins <strong>must</strong> only take scalar
+values.</p></li>
+<li><p><code class="docutils literal notranslate">vec-group</code> - a software level group of invocations processing data in
+parallel <em>on a single invocation</em>. This allows the compiler to simulate a
+sub-group without any hardware sub-group support (e.g., through
+vectorization). These builtins <strong>may</strong> take scalar <em>or vector</em> values. The
+scalar versions of these builtins are essentially identical to the
+corresponding <code class="docutils literal notranslate">sub-group</code> builtins with a sub-group size of 1.</p></li>
+</ul>
+<div class="section" id="any-all-builtins">
+<a class="header-link" href="#any-all-builtins"><h4 id="any-all-builtins"><code class="docutils literal notranslate">any</code>/<code class="docutils literal notranslate">all</code> builtins</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">any</code> and <code class="docutils literal notranslate">all</code> builtins return <code class="docutils literal notranslate">true</code> if any/all of their operands
+are <code class="docutils literal notranslate">true</code> and <code class="docutils literal notranslate">false</code> otherwise.</p>
+<pre><code class="language-llvm">i1 @__mux_sub_group_any_i1(i1 %x)
+i1 @__mux_work_group_any_i1(i32 %id, i1 %x)
+i1 @__mux_vec_group_any_v4i1(&lt;4 x i1&gt; %x)
+</code>
+</pre>
+</div>
+<div class="section" id="broadcast-builtins">
+<a class="header-link" href="#broadcast-builtins"><h4 id="broadcast-builtins"><code class="docutils literal notranslate">broadcast</code> builtins</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">broadcast</code> builtins broadcast the value corresponding to the local ID to
+the result of all invocations in the group. The sub-group version of this
+builtin takes an <code class="docutils literal notranslate">i32</code> sub-group linear ID to identify the invocation to
+broadcast, and the work-group version take three <code class="docutils literal notranslate">size_t</code> indices to locate
+the value to broadcast. Unused indices (e.g., in lower-dimension kernels)
+<strong>must</strong> be set to zero - this is the same value returned by
+<code class="docutils literal notranslate">__mux_get_global_id</code> for out-of-range dimensions.</p>
+<pre><code class="language-llvm">i64 @__mux_sub_group_broadcast_i64(i64 %val, i32 %sg_lid)
+i32 @__mux_work_group_broadcast_i32(i32 %id, i32 %val, i64 %lidx, i64 %lidy, i64 %lidz)
+i64 @__mux_vec_group_broadcast_v2i64(&lt;2 x i64&gt; %val, i32 %vec_id)
+</code>
+</pre>
+</div>
+<div class="section" id="reduce-and-scan-builtins">
+<a class="header-link" href="#reduce-and-scan-builtins"><h4 id="reduce-and-scan-builtins"><code class="docutils literal notranslate">reduce</code> and <code class="docutils literal notranslate">scan</code> builtins</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">reduce</code> and <code class="docutils literal notranslate">scan</code> builtins return the result of the group operation
+for all values of their parameters specified by invocations in the group.</p>
+<p>Scans may be either <code class="docutils literal notranslate">inclusive</code> or <code class="docutils literal notranslate">exclusive</code>. Inclusive scans perform the
+operation over all invocations in the group. Exclusive scans perform the
+operation over the operation’s identity value and all but the final invocation
+in the group.</p>
+<p>The group operation may be specified as one of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">add</code>/<code class="docutils literal notranslate">fadd</code> - integer/floating-point addition.</p></li>
+<li><p><code class="docutils literal notranslate">mul</code>/<code class="docutils literal notranslate">fmul</code> - integer/floating-point multiplication.</p></li>
+<li><p><code class="docutils literal notranslate">smin</code>/<code class="docutils literal notranslate">umin</code>/<code class="docutils literal notranslate">fmin</code> - signed integer/unsigned integer/floating-point minimum.</p></li>
+<li><p><code class="docutils literal notranslate">smax</code>/<code class="docutils literal notranslate">umax</code>/<code class="docutils literal notranslate">fmax</code> - signed integer/unsigned integer/floating-point maximum.</p></li>
+<li><p><code class="docutils literal notranslate">and</code>/<code class="docutils literal notranslate">or</code>/<code class="docutils literal notranslate">xor</code> - bitwise <code class="docutils literal notranslate">and</code>/<code class="docutils literal notranslate">or</code>/<code class="docutils literal notranslate">xor</code>.</p></li>
+<li><p><code class="docutils literal notranslate">logical_and</code>/<code class="docutils literal notranslate">logical_or</code>/<code class="docutils literal notranslate">logical_xor</code> - logical <code class="docutils literal notranslate">and</code>/<code class="docutils literal notranslate">or</code>/<code class="docutils literal notranslate">xor</code>.</p></li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-llvm">i32 @__mux_sub_group_reduce_add_i32(i32 %val)
+i32 @__mux_work_group_reduce_add_i32(i32 %id, i32 %val)
+float @__mux_work_group_reduce_fadd_f32(i32 %id, float %val)
+
+i32 @__mux_sub_group_scan_inclusive_mul_i32(i32 %val)
+i32 @__mux_work_group_scan_inclusive_mul_i32(i32 %id, i32 %val)
+float @__mux_work_group_scan_inclusive_fmul_f32(i32 %id, float %val)
+
+i64 @__mux_sub_group_scan_exclusive_mul_i64(i64 %val)
+i64 @__mux_work_group_scan_exclusive_mul_i64(i32 %id, i64 %val)
+double @__mux_work_group_scan_exclusive_fmul_f64(i32 %id, double %val)
+
+i64 @__mux_vec_group_scan_exclusive_mul_nxv1i64(&lt;vscale x 1 x i64&gt; %val)
+</code>
+</pre>
+</div>
+<div class="section" id="sub-group-shuffle-builtin">
+<a class="header-link" href="#sub-group-shuffle-builtin"><h4 id="sub-group-shuffle-builtin">Sub-group <code class="docutils literal notranslate">shuffle</code> builtin</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">sub_group_shuffle</code> builtin allows data to be arbitrarily transferred
+between invocations in a sub-group. The data that is returned for this
+invocation is the value of <code class="docutils literal notranslate">%val</code> for the invocation identified by <code class="docutils literal notranslate">%lid</code>.</p>
+<p><code class="docutils literal notranslate">%lid</code> need not be the same value for all invocations in the sub-group.</p>
+<pre><code class="language-llvm">i32 @__mux_sub_group_shuffle_i32(i32 %val, i32 %lid)
+</code>
+</pre>
+</div>
+<div class="section" id="sub-group-shuffle-up-builtin">
+<a class="header-link" href="#sub-group-shuffle-up-builtin"><h4 id="sub-group-shuffle-up-builtin">Sub-group <code class="docutils literal notranslate">shuffle_up</code> builtin</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">sub_group_shuffle_up</code> builtin allows data to be transferred from an
+invocation in the sub-group with a lower sub-group local invocation ID up to an
+invocation in the sub-group with a higher sub-group local invocation ID.</p>
+<p>The builtin has two operands: <code class="docutils literal notranslate">%prev</code> and <code class="docutils literal notranslate">%curr</code>. To determine the result
+of this builtin, first let <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> be equal to
+<code class="docutils literal notranslate">__mux_get_sub_group_local_id()</code>, let the signed shuffle index be equivalent
+to this invocation’s <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> minus the specified
+<code class="docutils literal notranslate">%delta</code>, and <code class="docutils literal notranslate">MaxSubgroupSize</code> be equal to
+<code class="docutils literal notranslate">__mux_get_max_sub_group_size()</code> for the current kernel.</p>
+<ul class="simple">
+<li><p>If the shuffle index is greater than or equal to zero and less than the
+<code class="docutils literal notranslate">MaxSubgroupSize</code>, the result of this builtin is the value of the <code class="docutils literal notranslate">%curr</code>
+operand for the invocation with <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> equal to the
+shuffle index.</p></li>
+<li><p>If the shuffle index is less than zero but greater than or equal to the
+negative <code class="docutils literal notranslate">MaxSubgroupSize</code>, the result of this builtin is the value of the
+<code class="docutils literal notranslate">%prev</code> operand for the invocation with <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> equal
+to the shuffle index plus the <code class="docutils literal notranslate">MaxSubgroupSize</code>.</p></li>
+</ul>
+<p>All other values of the shuffle index are considered to be out-of-range.</p>
+<p><code class="docutils literal notranslate">%delta</code> need not be the same value for all invocations in the sub-group.</p>
+<pre><code class="language-llvm">i8 @__mux_sub_group_shuffle_up_i8(i8 %prev, i8 %curr, i32 %delta)
+</code>
+</pre>
+</div>
+<div class="section" id="sub-group-shuffle-down-builtin">
+<a class="header-link" href="#sub-group-shuffle-down-builtin"><h4 id="sub-group-shuffle-down-builtin">Sub-group <code class="docutils literal notranslate">shuffle_down</code> builtin</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">sub_group_shuffle_down</code> builtin allows data to be transferred from an
+invocation in the sub-group with a higher sub-group local invocation ID down to
+a invocation in the sub-group with a lower sub-group local invocation ID.</p>
+<p>The builtin has two operands: <code class="docutils literal notranslate">%curr</code> and <code class="docutils literal notranslate">%next</code>. To determine the result
+of this builtin , first let <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> be equal to
+<code class="docutils literal notranslate">__mux_get_sub_group_local_id()</code>, the unsigned shuffle index be equivalent to
+the sum of this invocation’s <code class="docutils literal notranslate">SubgroupLocalInvocationId</code> plus the specified
+<code class="docutils literal notranslate">%delta</code>, and <code class="docutils literal notranslate">MaxSubgroupSize</code> be equal to
+<code class="docutils literal notranslate">__mux_get_max_sub_group_size()</code> for the current kernel.</p>
+<ul class="simple">
+<li><p>If the shuffle index is less than the <code class="docutils literal notranslate">MaxSubgroupSize</code>, the result of this
+builtin is the value of the <code class="docutils literal notranslate">%curr</code> operand for the invocation with
+<code class="docutils literal notranslate">SubgroupLocalInvocationId</code> equal to the shuffle index.</p></li>
+<li><p>If the shuffle index is greater than or equal to the <code class="docutils literal notranslate">MaxSubgroupSize</code> but
+less than twice the <code class="docutils literal notranslate">MaxSubgroupSize</code>, the result of this builtin is the
+value of the <code class="docutils literal notranslate">%next</code> operand for the invocation with
+<code class="docutils literal notranslate">SubgroupLocalInvocationId</code> equal to the shuffle index minus the
+<code class="docutils literal notranslate">MaxSubgroupSize</code>. All other values of the shuffle index are considered to
+be out-of-range.</p></li>
+</ul>
+<p>All other values of the shuffle index are considered to be out-of-range.</p>
+<p><code class="docutils literal notranslate">%delta</code> need not be the same value for all invocations in the sub-group.</p>
+<pre><code class="language-llvm">float @__mux_sub_group_shuffle_down_f32(float %curr, float %next, i32 %delta)
+</code>
+</pre>
+</div>
+<div class="section" id="sub-group-shuffle-xor-builtin">
+<a class="header-link" href="#sub-group-shuffle-xor-builtin"><h4 id="sub-group-shuffle-xor-builtin">Sub-group <code class="docutils literal notranslate">shuffle_xor</code> builtin</h4><span class="material-icons">link</span></a>
+<p>These <code class="docutils literal notranslate">sub_group_shuffle_xor</code> builtin allows for efficient sharing of data
+between items within a sub-group.</p>
+<p>The data that is returned for this invocation is the value of <code class="docutils literal notranslate">%val</code> for the
+invocation with sub-group local ID equal to this invocation’s sub-group local
+ID XOR’d with the specified <code class="docutils literal notranslate">%xor_val</code>. If the result of the XOR is greater
+than the current kernel’s maximum sub-group size, then it is considered
+out-of-range.</p>
+<pre><code class="language-llvm">double @__mux_sub_group_shuffle_xor_f64(double %val, i32 %xor_val)
+</code>
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="memory-and-control-barriers">
+<a class="header-link" href="#memory-and-control-barriers"><h2 id="memory-and-control-barriers">Memory and Control Barriers</h2><span class="material-icons">link</span></a>
+<p>The mux barrier builtins synchronize both memory and execution flow.</p>
+<p>The specific semantics with which they synchronize are defined using the
+following enums.</p>
+<p>The <code class="docutils literal notranslate">%scope</code> parameter defines which other invocations observe the memory
+ordering provided by the barrier. Only one of the values may be chosen
+simultaneously.</p>
+<pre><code class="language-cpp">enum MemScope : uint32_t {
+  MemScopeCrossDevice = 0,
+  MemScopeDevice = 1,
+  MemScopeWorkGroup = 2,
+  MemScopeSubGroup = 3,
+  MemScopeWorkItem = 4,
+};
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">%semantics</code> parameter defines the kind of memory affected by the
+barrier, as well as the ordering constraints. Only one of the possible
+<strong>ordering</strong>s may be chosen simultaneously. The <strong>memory</strong> field is a
+bitfield.</p>
+<pre><code class="language-cpp">enum MemSemantics : uint32_t {
+  // The 'ordering' to apply to a barrier. A barrier may only set one of the
+  // following at a time:
+  MemSemanticsRelaxed = 0x0,
+  MemSemanticsAcquire = 0x2,
+  MemSemanticsRelease = 0x4,
+  MemSemanticsAcquireRelease = 0x8,
+  MemSemanticsSequentiallyConsistent = 0x10,
+  MemSemanticsMask = 0x1F,
+  // What kind of 'memory' is controlled by a barrier. Acts as a bitfield, so
+  // a barrier may, e.g., synchronize both sub-group, work-group and cross
+  // work-group memory simultaneously.
+  MemSemanticsSubGroupMemory = 0x80,
+  MemSemanticsWorkGroupMemory = 0x100,
+  MemSemanticsCrossWorkGroupMemory = 0x200,
+};
+</code>
+</pre>
+</div>
+<div class="section" id="atomics-and-fences">
+<a class="header-link" href="#atomics-and-fences"><h2 id="atomics-and-fences">Atomics and Fences</h2><span class="material-icons">link</span></a>
+<p>The LLVM intermediate representation stored in
+<code class="docutils literal notranslate">compiler::BaseModule::finalized_llvm_module</code> <strong>may</strong> contain any of the
+following atomic instructions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#cmpxchg-instruction">cmpxchg</a> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">monotonic ordering</a> with <em>strong</em> semantics only</p></li>
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#atomicrmw-instruction">atomicrmw</a> for the following opcodes: <code class="docutils literal notranslate">add</code>, <code class="docutils literal notranslate">and</code>, <code class="docutils literal notranslate">sub</code>, <code class="docutils literal notranslate">min</code>,
+<code class="docutils literal notranslate">max</code>, <code class="docutils literal notranslate">umin</code>, <code class="docutils literal notranslate">umax</code>, <code class="docutils literal notranslate">or</code>, <code class="docutils literal notranslate">xchg</code>, <code class="docutils literal notranslate">xor</code> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">monotonic
+ordering</a> only</p></li>
+</ul>
+<p>A compiler <strong>shall</strong> correctly legalize or select these instructions to ISA
+specific operations.</p>
+<p>The LLVM intermediate representation stored in
+<code class="docutils literal notranslate">compiler::BaseModule::finalized_llvm_module</code> <strong>may</strong> also contain any of the
+following atomic instructions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#cmpxchg-instruction">cmpxchg</a> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">monotonic ordering</a> with <em>weak</em> semantics</p></li>
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#load-instruction">load</a> with the instruction marked as <em>atomic</em> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">monotonic ordering</a>
+only</p></li>
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#store-instruction">store</a> with the instruction marked as <em>atomic</em> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">monotonic ordering</a>
+only</p></li>
+<li><p><a class="reference external" href="https://llvm.org/docs/LangRef.html#fence-instruction">fence</a> for the <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">acquire ordering</a>, <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">release ordering</a> and <a class="reference external" href="https://llvm.org/docs/LangRef.html#ordering">acq_rel ordering</a>
+only</p></li>
+</ul>
+<p>A compiler <strong>may</strong> choose not to support these instructions depending on which
+open standards it wishes to enable through the oneAPI Construction Kit. For example;
+support for the OpenCL C 3.0 standard requires support for these instructions.</p>
+<p>The atomic instructions listed above <strong>shall not</strong> have a <a class="reference external" href="https://llvm.org/docs/LangRef.html#syncscope">syncscope</a>
+argument.</p>
+<p>No lock free requirements are made on the above atomic instructions. A target
+<strong>may</strong> choose to provide a software implementation of the atomic instructions
+via some other mechanism such as a hardware mutex.</p>
+</div>
+<div class="section" id="metadata">
+<a class="header-link" href="#metadata"><h2 id="metadata">Metadata</h2><span class="material-icons">link</span></a>
+<p>The following table describes metadata which can be introduced at different stages of the
+pipeline:</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default" id="id1">
+<caption id="id1"><span class="caption-text">Function Metadata</span></caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Fields</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">!reqd_work_group_size</code></p></td>
+<td><p>i32, i32, i32</p></td>
+<td><p>Required work-group size encoded as <em>X</em>, <em>Y</em>, <em>Z</em>. If not present, no
+required size is assumed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">!max_work_dim</code></p></td>
+<td><p>i32</p></td>
+<td><p>Maximum dimension used for work-items. If not present, <code class="docutils literal notranslate">3</code> is assumed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">!codeplay_ca_wrapper</code></p></td>
+<td><p>various (incl. <em>vectorization options</em>)</p></td>
+<td><p>Information about a <em>kernel entry point</em> regarding its work-item
+iteration over <em>sub-kernels</em> as stitched together by the
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> pass in the <code class="docutils literal notranslate">compiler::utils</code> module. Typically
+this involves the loop structure, the vectorization width and options of
+each loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">!codeplay_ca_vecz.base</code></p></td>
+<td><p><em>vectorization options</em>, <code class="docutils literal notranslate">Function*</code></p></td>
+<td><p>Links one function to another, indicating that the function acts as the
+<em>base</em> - or <em>source</em> - of vectorization with the given vectorization
+options, and the linked function is the result of a <em>successful</em>
+vectorization. A function may have <em>many</em> such pieces of metadata, if it
+was vectorized multiple times.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">!codeplay_ca_vecz.derived</code></p></td>
+<td><p><em>vectorization options</em>, <code class="docutils literal notranslate">Function*</code></p></td>
+<td><p>Links one function to another, indicating that the function is the
+result of a <em>successful</em> vectorization with the given vectorization
+options, using the linked function as the <em>base</em> - or <em>source</em> - of
+vectorization. A function may only have <strong>one</strong> such piece of metadata.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">!codeplay_ca_vecz.base.fail</code></p></td>
+<td><p><em>vectorization options</em></p></td>
+<td><p>Metadata indicating a <em>failure</em> to vectorize with the provided
+vectorization options.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">!mux_scheduled_fn</code></p></td>
+<td><p>i32, i32(, i32, i32)?</p></td>
+<td><p>Metadata indicating the function parameter indices of the pointers to
+MuxWorkItemInfo and MuxWorkGroupInfo structures, respectively. A
+negative value (canonicalized as -1) indicates the function has no such
+parameter. Up to two additional custom parameter indices can be used by
+targets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">!intel_reqd_sub_group_size</code></p></td>
+<td><p>i32</p></td>
+<td><p>Required sub-group size encoded as a 32-bit integer. If not present, no
+required sub-group size is assumed.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Users <strong>should not</strong> rely on the name, format, or operands of these metadata.
+Instead, utility functions are provided by the <code class="docutils literal notranslate">utils</code> module to work with
+accessing, setting, or updating each piece of metadata.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The metadata above which refer to <em>vectorization options</em> have no concise
+metadata form as defined by the specification and <strong>are not</strong> guaranteed to
+be backwards compatible. See the C++ utility APIs in the <code class="docutils literal notranslate">utils</code> module as
+described above for the specific information encoded/decoded by
+vectorization.</p>
+</div>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default" id="id2">
+<caption id="id2"><span class="caption-text">Module Metadata</span></caption>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Fields</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">!opencl.ocl.version</code></p></td>
+<td><p>A single operand, itself containing !{i32, i32}</p></td>
+<td><p>The major/minor OpenCL C version that this module is compatible with. If
+unset the compiler assumes 1.2. The compiler will infer different
+semantics and supported builtin functions depending on this metadata.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">!mux-scheduling-params</code></p></td>
+<td><p>string, string, …</p></td>
+<td><p>A list of scheduling parameter names used by this target. Emitted into
+the module at the time scheduling parameters are added to functions that
+requires them (see <code class="docutils literal notranslate">AddSchedulingParametersPass</code>). The indices found
+in <code class="docutils literal notranslate">!mux_scheduled_fn</code> function metadata are indices into this list.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="function-attributes">
+<a class="header-link" href="#function-attributes"><h2 id="function-attributes">Function Attributes</h2><span class="material-icons">link</span></a>
+<p>The following table describes function attributes which can be introduced at
+different stages of the pipeline:</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default" id="id3">
+<caption id="id3"><span class="caption-text">Function Attributes</span></caption>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">"mux-kernel"/"mux-kernel"="x"</code></p></td>
+<td><p>Denotes a <em>“kernel”</em> function. Additionally denotes a
+<em>“kernel entry point”</em> if the value is <code class="docutils literal notranslate">"entry-point"</code>. <a class="reference external" href="#mux-kernel-attribute">See below</a> for more details.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">"mux-orig-fn"="val"</code></p></td>
+<td><p>Denotes the name of the <em>“original function”</em> of a function. This
+original function may or may not exist in the module. The original
+function name is propagated through the compiler pipeline each time
+ComputeMux creates a new function to wrap or replace a function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">"mux-base-fn-name"="val"</code></p></td>
+<td><p>Denotes the <em>“base name component”</em> of a function. Used by several
+passes when creating new versions of a kernel, rather than appending
+suffix upon suffix.</p>
+<p>For example, a pass that suffixes newly-created functions with
+<code class="docutils literal notranslate">".pass2"</code> will generate <code class="docutils literal notranslate">@foo.pass1.pass2</code> when given function
+<code class="docutils literal notranslate">@foo.pass1</code>, but will generate simply <code class="docutils literal notranslate">@foo.pass2</code> if the same
+function has <code class="docutils literal notranslate">"mux-base-name"="foo"</code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">"mux-local-mem-usage"="val"</code></p></td>
+<td><p>Estimated local-memory usage for the function. Value must be a positive
+integer.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">"mux-work-item-order"="val"</code></p></td>
+<td><p>Work-item order (the dimensions over which work-items are executed from
+innermost to outermost) as defined by the <code class="docutils literal notranslate">utils_work_item_order_e</code>
+enum. If not present, <code class="docutils literal notranslate">"xyz"</code> may be assumed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">"mux-barrier-schedule"="val"</code></p></td>
+<td><p>Typically found on call sites. Determines the ordering of work-item
+execution after a berrier. See the <cite>BarrierSchedule</cite> enum.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">"mux-no-subgroups"</code></p></td>
+<td><p>Marks the function as not explicitly using sub-groups (e.g., identified
+by the use of known mux sub-group builtins). If a pass introduces the
+explicit use of sub-groups to a function, it should remove this
+attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">"mux-degenerate-subgroups"</code></p></td>
+<td><p>Marks the function has using degenerate sub-groups (i.e. one sub-group
+for the entire local work-group).</p></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="mux-kernel-attribute">
+<a class="header-link" href="#mux-kernel-attribute"><h3 id="mux-kernel-attribute"><code class="docutils literal notranslate">mux-kernel</code> attribute</h3><span class="material-icons">link</span></a>
+<p>ComputeMux programs generally consist of a number of <em>kernel functions</em>, which
+have a certain programming model and may be a subset of all functions in the
+<em>module</em>.</p>
+<p>ComputeMux compiler passes often need to identity kernel functions amongst
+other functions in the module. Further to this, a ComputeMux implementation may
+know that an even smaller subset of kernels are in fact considered <em>kernels
+under compilation</em>. In the interests of compile-time it is not desirable to
+optimize kernels that are known to never run.</p>
+<p>Under this scheme, it is further possible to distinguish between kernels that
+are <em>entry points</em> and those that aren’t. Entry points are kernels which may be
+invoked from the runtime. Other kernels in the module may only be run when
+invoked indirectly: called from kernel entry points.</p>
+<p>The <code class="docutils literal notranslate">mux-kernel</code> function attribute is used to communicate <em>kernels under
+compilation</em> and <em>kernel entry points</em> (a subset of those) between passes. This
+approach has a myriad of advantages. It provides a stable, consistent, kernel
+identification method which other data do not: names cannot easily account for
+new kernels introduced by optimizations like vectorization; calling conventions
+are often made target-specific at some point in the pipeline; pointers to
+functions are unstable when kernels are replaced/removed.</p>
+<p>Passes provided by ComputeMux ensure this attribute is updated when adding,
+removing, or replacing kernel functions. Each ComputeMux pass in its
+documentation lists whether it operates on <em>kernels</em> or <em>kernel entry points</em>,
+if applicable.</p>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>ComputeMux Runtime Specification</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide"
+                            >
+                            <div>
+                                <h1>Developer Guide</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#computemux-compiler-specification">ComputeMux Compiler Specification</a></li>
+                        <li class="heading-2"><a href="#glossary">Glossary</a></li>
+                        <li class="heading-2"><a href="#introduction">Introduction</a></li>
+                        <li class="heading-2"><a href="#cargo">Cargo</a></li>
+                        <li class="heading-2"><a href="#context">Context</a></li>
+                        <li class="heading-2"><a href="#info">Info</a></li>
+                        <li class="heading-2"><a href="#target">Target</a></li>
+                        <li class="heading-2"><a href="#module">Module</a></li>
+                        <li class="heading-2"><a href="#kernel">Kernel</a></li>
+                        <li class="heading-2"><a href="#llvm-intermediate-representation">LLVM intermediate representation</a></li>
+                        <li class="heading-2"><a href="#mangling">Mangling</a></li>
+                        <li class="heading-2"><a href="#builtins">Builtins</a></li>
+                        <li class="heading-2"><a href="#memory-and-control-barriers">Memory and Control Barriers</a></li>
+                        <li class="heading-2"><a href="#atomics-and-fences">Atomics and Fences</a></li>
+                        <li class="heading-2"><a href="#metadata">Metadata</a></li>
+                        <li class="heading-2"><a href="#function-attributes">Function Attributes</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="8e460bf45405458248b11b476355634b">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

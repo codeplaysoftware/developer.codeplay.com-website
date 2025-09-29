@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Compiler Utilities - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Compiler Utilities' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Compiler Utilities - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Compiler Utilities' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="modules-compiler-utils">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/modules/compiler/utils">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/modules/compiler/utils">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/modules/compiler/utils">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/modules/compiler/utils">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/modules/compiler/utils">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/modules/compiler/utils">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#compiler-utilities">
+                            <h1>Compiler Utilities</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/modules/compiler/utils.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="compiler-utilities">
+
+<p>The <code class="docutils literal notranslate">compiler::utils</code> module provides a number of utility functions and LLVM
+passes inside the <code class="docutils literal notranslate">compiler::utils</code> namespace. These are designed to be
+reusable across multiple ComputeMux implementations to reduce code duplication.
+Some of these utilities are described below.</p>
+<div class="section" id="transferkernelmetadatapass-encodekernelmetadatapass">
+<span id="encodekernelmetadatapass"></span><a class="header-link" href="#transferkernelmetadatapass-encodekernelmetadatapass"><h2 id="transferkernelmetadatapass-encodekernelmetadatapass">TransferKernelMetadataPass &amp; EncodeKernelMetadataPass</h2><span class="material-icons">link</span></a>
+<p>These passes are responsible for setting up metadata on kernels under
+compilation. Many other passes implicitly rely on the metadata and attributes
+added by these passes, so it is recommended to run them first, if possible.</p>
+<p>The difference between the two passes concerns the list of kernels it runs
+over:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate">TransferKernelMetadataPass</code> runs over multiple kernels in the module,
+using <code class="docutils literal notranslate">!opencl.kernels</code> metadata if present, else all functions in the
+module with the <code class="docutils literal notranslate">llvm::CallingConv::SPIR_KERNEL</code> calling convention.</p></li>
+<li><p>The <code class="docutils literal notranslate">EncodeKernelMetadataPass</code> runs on <em>one</em> kernel, supplied by name to
+the pass upon construction.</p></li>
+</ul>
+<p>Their job is three-fold:</p>
+<ul>
+<li><p>To add <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a> entry-point function attributes to the kernels covered by each
+pass.</p></li>
+<li><p>To add <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">!reqd_work_group_size</span></a> function metadata if not already
+attached. It sets this information based on local work-group size information
+which is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>(<code class="docutils literal notranslate">TransferKernelMetadataPass</code>) - taken from the kernel’s entry in the
+<code class="docutils literal notranslate">!opencl.kernels</code> module-level metadata.</p></li>
+<li><p>(<code class="docutils literal notranslate">EncodeKernelMetadataPass</code>) - optionally passed to the pass on
+construction. The local sizes passed to the pass should either be empty
+or correspond 1:1 with the list of kernels provided.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To add <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-work-item-order</span></a> work-item order function attributes. It uses optional data
+supplied to either pass on construction to encode this metadata. If not set,
+the default <code class="docutils literal notranslate">xyz</code> order is used.</p></li>
+</ul>
+</div>
+<div class="section" id="lowertomuxbuiltinspass">
+<a class="header-link" href="#lowertomuxbuiltinspass"><h2 id="lowertomuxbuiltinspass">LowerToMuxBuiltinsPass</h2><span class="material-icons">link</span></a>
+<p>This pass replaces calls to the language implementation’s builtin functions
+with alternative sequences of instructions involving ComputeMux builtins.</p>
+<p>Not all builtins <strong>must</strong> be lowered, but any builtins which can be
+re-expressed in the terms of the following ComputeMux builtins <strong>should</strong> be
+lowered:</p>
+<ul class="simple">
+<li><p>Sync builtins: <code class="docutils literal notranslate">__mux_mem_barrier</code>, <code class="docutils literal notranslate">__mux_(sub|work)_group_barrier</code>.</p></li>
+<li><p>Work-item builtins: <code class="docutils literal notranslate">__mux_get_local_id</code>, <code class="docutils literal notranslate">__mux_get_group_id</code>, etc.</p></li>
+<li><p>Group builtins: <code class="docutils literal notranslate">__mux_(sub|work)_group_(any|all|scan|reduce|broadcast)</code>.</p></li>
+<li><p>DMA builtins: <code class="docutils literal notranslate">__mux_dma_(read|write)_(1D|2D|3D)</code> and <code class="docutils literal notranslate">__mux_dma_wait</code>.</p></li>
+</ul>
+<p>Targets <strong>must</strong> lower any language builtins which <strong>can</strong> be expressed in
+terms of these ComputeMux builtins in order for other ComputeMux compiler
+passes to corectly recognise the program semantics.</p>
+<p>This is because these builtins have special semantics that the compiler and
+LLVM are generally unable to intuit using built-in properties of functions in
+LLVM (e.g., attributes). They generally have some meaning “across” other
+invocations of the same program or that influence the behaviour of other
+invocations running in parallel.</p>
+<p>In the case of DMA builtins, the pass assumes that the language builtins are
+already using the target’s intended ‘event’ type - that type is forwarded on
+directly to the <code class="docutils literal notranslate">__mux</code> builtins. If the target wishes to replace these event
+types across the module, they <strong>may</strong> use the <code class="docutils literal notranslate">ReplaceTargetExtTysPass</code> to do
+so (for LLVM 17 onwards). The target <strong>may</strong> also directly replace the event
+types used by the <code class="docutils literal notranslate">__mux</code> DMA builtins at a later stage.</p>
+<p>See the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#builtins"><span class="std std-ref">full list of builtins</span></a> for more information.</p>
+</div>
+<div class="section" id="alignmodulestructspass">
+<a class="header-link" href="#alignmodulestructspass"><h2 id="alignmodulestructspass">AlignModuleStructsPass</h2><span class="material-icons">link</span></a>
+<p>In LLVM, padding is usually enforced in the compiler frontend. However, because
+the frontends used by ComputeMux often generates code for a target-agnostic
+intermediate triple such as <code class="docutils literal notranslate">spir64</code> or <code class="docutils literal notranslate">spir32</code>, the alignment will have
+been enforced and assumed valid according to that.</p>
+<p>However, the final target data layout used by the code generator may have
+looser requirements than the SPIR ABI, in which case the final generated code
+may inadvertently break the higher-level language specification.</p>
+<p>As a concrete example, the SPIR ABI requires that vector types are aligned to
+their own byte size. However, 32-bit arm  targets have 128-bit vectors aligned
+to only 64 bits. So when generating code for something like:</p>
+<pre><code class="language-c">struct S {
+  int4 a;
+  int4 b;
+};
+</code>
+</pre>
+<p>The incoming <code class="docutils literal notranslate">spir32</code> IR will have generated a structure type assuming its
+own data layout’s alignment requirements:</p>
+<pre><code class="language-llvm">target datalayout = "e-i64:64-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
+
+%struct.S = type { &lt;4 x i32&gt;, &lt;4 x i32&gt; }
+</code>
+</pre>
+<p>Once the compiler has switched the triple to <code class="docutils literal notranslate">arm32</code> and its corresponding
+datalayout, the elements of the structure type will be aligned to only 64 bits.</p>
+<p>For this reason, the <code class="docutils literal notranslate">AlignModuleStructsPass</code> adds explicit padding to match
+the higher-level alignment requirements:</p>
+<pre><code class="language-llvm">%struct.S = type { &lt;4 x i32&gt;, [8 x i8], &lt;4 x i32&gt;, [8 x i8] }
+</code>
+</pre>
+<p>The job of <code class="docutils literal notranslate">AlignModuleStructsPass</code> is thus to find all the struct types
+which need alignment padding and create matching types with the padded variant.
+Once we have generated these we need to substitute all the references, which is
+performed in <code class="docutils literal notranslate">replaceModuleTypes()</code>. Since the types differ we cannot simply
+use <code class="docutils literal notranslate">llvm::ReplaceAllUsesWith()</code>, and as a result we need to use
+<code class="docutils literal notranslate">llvm::CloneFunctionInto()</code> with the type map parameter to do the job of
+replacing types. One particular instruction we need to manually modify however
+is GEP, since the indices into the struct will have changed with the addition
+of padding members.</p>
+<p>All kernels which are cloned and replaced in order to replace struct types
+steal the <code class="docutils literal notranslate">mux-kernel</code> function attributes from their source function.</p>
+</div>
+<div class="section" id="replaceatomicfuncspass">
+<a class="header-link" href="#replaceatomicfuncspass"><h2 id="replaceatomicfuncspass">ReplaceAtomicFuncsPass</h2><span class="material-icons">link</span></a>
+<p>The module pass <cite>ReplaceAtomicFuncsPass</cite> changes any calls to atomic functions
+made in the module into atomic LLVM instructions. This is performed by
+iterating over all the instructions looking for <code class="docutils literal notranslate">llvm::CallInst</code> calls, and
+for each checking the mangled name of the called function. The SPIR mangling
+validated against includes the address space (<cite>AS&lt;n&gt;</cite>) which is not part of
+Itanium.</p>
+<p>If the mangling matches any of the overloaded variants of the OpenCL atomic
+functions we use a mapping of mangled functions to
+<code class="docutils literal notranslate">llvm::AtomicRMWInst::BinOp</code> operators to find the operator to use when
+creating the atomic instruction. When the operator is an <code class="docutils literal notranslate">atomic_cmpxchg</code> we
+build a <code class="docutils literal notranslate">llvm::AtomicCmpXchgInst</code> instruction, otherwise a
+<code class="docutils literal notranslate">llvm::AtomicRMWInst</code> instruction is generated. Finally the call instruction
+is replaced with our atomic instruction using <code class="docutils literal notranslate">ReplaceAllUsesWith</code> and then
+erased.</p>
+</div>
+<div class="section" id="fixupcallingconventionpass">
+<a class="header-link" href="#fixupcallingconventionpass"><h2 id="fixupcallingconventionpass">FixupCallingConventionPass</h2><span class="material-icons">link</span></a>
+<p>To make sure that the calling convention of functions in the module are
+understood by the target code generator, the <code class="docutils literal notranslate">FixupCallingConventionPass</code> can
+be run as a module pass.</p>
+<p>This is often required as most LLVM backends aren’t able to generate code for
+the <code class="docutils literal notranslate">llvm::CallingConv::SPIR_FUNC</code> or <code class="docutils literal notranslate">llvm::CallingConv::SPIR_KERNEL</code>
+calling conventions used by SPIR-V.</p>
+<p>The pass accepts a <em>single</em> calling convention to be used across the entire
+module. Note that it does not perform any other transformations of the function
+or callees, meaning this pass is only valid when the target calling conventions
+are ABI compatible.</p>
+<p>The <code class="docutils literal notranslate">FixupCallingConventionPass</code> iterates over all the functions in the
+executable module and, if that function is not an intrinsic, updates the
+calling convention of the function and all its call instruction callees.</p>
+<p>If the pass is given either the <code class="docutils literal notranslate">SPIR_FUNC</code> or <code class="docutils literal notranslate">SPIR_KERNEL</code> calling
+convention, the pass will automatically fix up any mismatches between
+<code class="docutils literal notranslate">llvm::CallingConv::SPIR_FUNC</code> and <code class="docutils literal notranslate">llvm::CallingConv::SPIR_KERNEL</code>, using
+functions with <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a> attributes as a source of truth to distinguish between kernels and
+other functions.</p>
+</div>
+<div class="section" id="workitemloopspass">
+<a class="header-link" href="#workitemloopspass"><h2 id="workitemloopspass">WorkItemLoopsPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">WorkItemLoopsPass</code> is responsible for adding explicit parallelism to
+implicitly parallel SIMT kernels. It does so by wrapping each kernel up in a
+triple-nested loop over all work-items in the work-group. Thus, kernels
+scheduled by this pass can be invoked once per work-group.</p>
+<p>The order in which work-items are executed is fairly flexible as per the
+programming models the oneAPI Construction Kit supports, but generally in
+ascending order from <cite>0</cite> to <cite>N-1</cite> through the innermost <cite>X</cite> dimension, followed
+by the <cite>Y</cite> dimension, and lastly the <cite>Z</cite> dimension.</p>
+<p>Conceptually, the pass transforms <code class="docutils literal notranslate">old_kernel</code> into <code class="docutils literal notranslate">new_kernel</code> in the
+example below:</p>
+<pre><code class="language-cpp">void old_kernel(int *in, int *out) {
+  size_t id = get_local_linear_id(0);
+  out[id] = in[id] * 4;
+}
+
+void new_kernel(int *in, int *out) {
+  for (size_t z = 0, sizeZ = get_local_size(2); z != sizeZ; z++) {
+    for (size_t y = 0, sizeY = get_local_size(1); y != sizeY; y++) {
+      for (size_t x = 0, sizeX = get_local_size(0); x != sizeX; x++) {
+        size_t id = (z * sizeY * sizeX) + (y * sizeX) + x;
+        out[id] = in[id] * 4;
+      }
+    }
+  }
+}
+</code>
+</pre>
+<p>To satisfy the programming model, the pass must be careful around control
+barriers and <em>barrier-like</em> functions. The <code class="docutils literal notranslate">WorkItemLoopsPass</code> splits a
+kernel into separately executing kernel functions using barrier calls as
+boundaries. Each section of the kernel split by these barriers is known as a
+<em>barrier region</em>.</p>
+<pre><code class="language-cpp">void old_kernel(int *in, int *out) {
+  size_t id = get_local_linear_id(0);
+  out[id * 2] = in[id];
+  // All work-items in the work-group must encounter the barrier before any
+  // are allowed to continue execution beyond the barrier.
+  work_group_barrier(CLK_GLOBAL_MEM_FENCE);
+  out[id * 2 + 1] = in[id] * 4;
+}
+
+void new_kernel(int *in, int *out) {
+  // Barrier region #0
+  for (size_t z = 0, sizeZ = get_local_size(2); z != sizeZ; z++) {
+    for (size_t y = 0, sizeY = get_local_size(1); y != sizeY; y++) {
+      for (size_t x = 0, sizeX = get_local_size(0); x != sizeX; x++) {
+        size_t id = (z * sizeY * sizeX) + (y * sizeX) + x;
+        out[id * 2] = in[id];
+      }
+    }
+  }
+
+  // The control aspect of the barrier has been satisfied by the loops, so
+  // it has been decomposed to just a memory barrier.
+  mem_fence(CLK_GLOBAL_MEM_FENCE);
+
+  // Barrier region #1
+  for (size_t z = 0, sizeZ = get_local_size(2); z != sizeZ; z++) {
+    for (size_t y = 0, sizeY = get_local_size(1); y != sizeY; y++) {
+      for (size_t x = 0, sizeX = get_local_size(0); x != sizeX; x++) {
+        size_t id = (z * sizeY * sizeX) + (y * sizeX) + x;
+        out[id * 2 + 1] = in[id] * 4;
+      }
+    }
+  }
+}
+</code>
+</pre>
+<p>To propagate data dependencies between these <em>barrier regions</em>, an analysis is
+performed to create a struct of live variables which is passed as an argument
+to each kernel. Generated kernels then reference this struct rather than the
+original values. A simplified example follows:</p>
+<pre><code class="language-cpp">void old_kernel(int *in, int *out) {
+  size_t id = get_local_linear_id(0);
+  // X is a barrier-carried dependency: produced in one barrier region and
+  // accessed in another.
+  int x = in[id] * 4;
+  // All work-items in the work-group must encounter the barrier before any
+  // are allowed to continue execution beyond the barrier.
+  work_group_barrier(CLK_GLOBAL_MEM_FENCE);
+  // Use X, produced by the previous barrier region.
+  out[id] = x;
+}
+
+void new_kernel(int *in, int *out) {
+  struct kernel_live_vars {
+    int x;
+  };
+  // Illustrative purposes: this is in reality a stack allocation.
+  kernel_live_vars *live_vars =
+      malloc(get_local_size(0) * get_local_size(1)
+             * get_local_size(2) * sizeof(live_vars));
+
+  for (size_t z = 0, sizeZ = get_local_size(2); z != sizeZ; z++) {
+    for (size_t y = 0, sizeY = get_local_size(1); y != sizeY; y++) {
+      for (size_t x = 0, sizeX = get_local_size(0); x != sizeX; x++) {
+        size_t id = (z * sizeY * sizeX) + (y * sizeX) + x;
+        live_vars[id] = in[id] * 4;
+      }
+    }
+  }
+
+  mem_fence(CLK_GLOBAL_MEM_FENCE);
+
+  for (size_t z = 0, sizeZ = get_local_size(2); z != sizeZ; z++) {
+    for (size_t y = 0, sizeY = get_local_size(1); y != sizeY; y++) {
+      for (size_t x = 0, sizeX = get_local_size(0); x != sizeX; x++) {
+        size_t id = (z * sizeY * sizeX) + (y * sizeX) + x;
+        out[id] = live_vars[id];
+      }
+    }
+  }
+}
+</code>
+</pre>
+<p>The loop that reconstructs the kernels in the wrapper function uses the
+vectorization dimension as innermost cycle, and it relies on
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-work-item-order</span></a> function attributes for the outermost loops. The logic for the
+dimension unmarshalling lies in
+<code class="docutils literal notranslate">modules/compiler/utils/include/utils/vecz_order.h</code>.</p>
+<p>Preserving debug info is a problem for the <code class="docutils literal notranslate">WorkItemLoopsPass</code> due to live
+variables getting stored in a struct passed as an argument to each of the
+generated kernels. As a result the memory locations pointed to by the debug
+info are out of date with respect to newly written values. By specifying the
+<code class="docutils literal notranslate">IsDebug</code> flag when creating the pass we can resolve this problem at the
+expense of performance.</p>
+<p>When the <code class="docutils literal notranslate">IsDebug</code> flag is set the pass adds a new <code class="docutils literal notranslate">alloca</code> which contains a
+pointer to the live variables struct of the currently executing work-item, since
+there is a separate struct for each work-item in a work-group. A new <code class="docutils literal notranslate">store</code>
+instruction to this <code class="docutils literal notranslate">alloca</code> is also inserted before calls to each of the
+separated kernels with the new address of the live variables struct for the
+work-item about to be executed. These extra writes to the stack have a runtime
+cost which is why this transformation is only done when compiling for debug.</p>
+<p>The benefit of adding the extra <code class="docutils literal notranslate">alloca</code> is that it forces the address to be
+placed on the stack, where we can point to it with <code class="docutils literal notranslate">llvm.dbg.declare()</code>
+intrinsics, rather than reading the address from a register where it won’t
+persist. Not all source variables are classed as live however if they are not
+used past the first barrier, so when the <code class="docutils literal notranslate">IsDebug</code> flag is set we also modify
+the algorithm for finding live variables to mark these <code class="docutils literal notranslate">alloca</code> instructions
+as live. Otherwise their values won’t be updated for the current work item past
+the first barrier and the debugger will print incorrect values.</p>
+<p>To point to the location in the live variables struct where each source
+variable lives we use DWARF expressions, represented in LLVM by a
+<code class="docutils literal notranslate">DIExpression</code> metadata node. In our expression we first use a
+<code class="docutils literal notranslate">DW_OP_deref</code> DWARF operation to dereference the pointer in our debugging
+<code class="docutils literal notranslate">alloca</code> to find the start of the live variables struct. Then next in the
+expression we have a <code class="docutils literal notranslate">DW_OP_plus</code> operation taking an integer operand for the
+byte offset into the struct for that particular variable.</p>
+<p>In order to establish which values actually cross a barrier, we traverse the CFG
+and build inter-barrier regions. We start traversal at the beginning of the
+function, and at the barriers, and we end whenever we encounter another barrier
+or a return statement. We collect all values that are defined within one region,
+which have uses in any other region, which are called “external uses”. We also
+collect values that are defined within one region and used in the same region,
+but where the definition does not dominate the use. These are “internal uses”
+and can occur where a barrier is present in a loop, such that the same barrier
+that begins the inter-barrier region can also be hit at the end of that region.
+(The definition must have dominated all its uses in the original function, but
+a barrier inside a loop can result in the second part of the loop body preceding
+the first within the inter-barrier region.)</p>
+<p>We also implement a “Barrier Tidying” optimization that posts-processes the
+set of live values to remove certain values where it is expected that loading
+and storing these values will incur more overhead than simply recalculating them
+from other available values (including other barrier-stored values and kernel
+parameters). Values considered removable are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NOP casts,</p></li>
+<li><p>Casts from a narrow type to a wider type,</p></li>
+<li><p>All other casts where the source operand is already in the barrier,</p></li>
+<li><p>Vector splats,</p></li>
+<li><p>Calls to “rematerializable” builtins - see
+<code class="docutils literal notranslate">compiler::utils::eBuiltinPropertyRematerializable</code></p></li>
+</ul>
+</div></blockquote>
+<p>If the barrier contains scalable vectors, the size of the struct is dependent
+on the value of <code class="docutils literal notranslate">vscale</code>, and so is the total number of struct instances for
+a given work group size. In this case we create the barrier memory area as a
+byte buffer (i.e. an array of <code class="docutils literal notranslate">i8</code>), instead of an array of barrier structs.
+The address of the barrier struct for the subkernel invocations have to be
+computed knowing the vscale, and pointer-cast to the barrier struct type. Any
+scalable vector members of the barrier struct are put into a flexible array
+member (of type <code class="docutils literal notranslate">i8</code>) at the end, so that GEPs to individual members can be
+constructed by calculating their byte offsets into this array and the results
+cast to pointers of the needed type. The position of individual scalable vector
+members is calculated by multiplying their equivalent “fixed width” offset
+(i.e. the same as if vscale were equal to 1) by the actual vscale.</p>
+<p>Once we know which values are to be included in the barrier struct, we can split
+the kernel proper, creating a new function for each of the inter-barrier
+regions, cloning the Basic Blocks of the original function into it. We apply the
+barrier in the following order: external uses are remapped into loads from the
+barrier struct, then any barrier-resident values are stored into the barrier,
+and finally, internal uses are remapped into the barrier. External and internal
+uses are dealt with separately, since external uses can always be safely loaded
+only once at the beginning of the new function, where as internal uses may or
+may not need to load the loop-updated value. For this reason, stores are always
+created immediately after the definitions of the relevant values, rather than at
+the barrier at the end of the region. (This may have some scope for further
+optimization work.) When tidying has removed a value from the barrier, we have
+to also clone those values as well, in order to re-compute these values from the
+value actually stored in the barrier struct. Each subkernel returns an integer
+ID that maps to the barriers, corresponding to the barrier that was encountered
+at the end of the subkernel. There is a special barrier ID that represents the
+return statement of the original kernel, and also one that represents the kernel
+entry point.</p>
+<p>This pass runs over all functions in the module which have <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a> entry-point attributes.</p>
+<p>The new wrappers take the name of either the ‘tail’ or ‘main’ kernels –
+whichever is present – suffixed by “.mux-barrier-wrapper”. The wrappers call
+either the original kernel(s) if no barriers are present, or the newly-created
+barrier regions if barriers are present. The original kernels are left in the
+module in either case but are marked as internal so that later passes can
+optimize them if they are no longer called once inlined.</p>
+<p>Newly-created functions preserve the original calling convention, unless they
+are kernels. In that case, the new functions will have <code class="docutils literal notranslate">SPIR_FUNC</code> calling
+convention. Newly-created functions steal the <code class="docutils literal notranslate">mux-kernel</code> attributes from
+the original functions.</p>
+<p>Once we have all of our subkernels, we apply the 3-dimensional work item loops
+individually to each subkernel. The return value of a subkernel is used to
+determine which subkernel loop to branch to next, or to exit the wrapper
+function, as appropriate.</p>
+<div class="section" id="work-group-scheduling-vectorized-and-scalar-loops">
+<a class="header-link" href="#work-group-scheduling-vectorized-and-scalar-loops"><h3 id="work-group-scheduling-vectorized-and-scalar-loops">Work-group scheduling (vectorized and scalar loops)</h3><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> is responsible for stitching together multiple kernels
+to make a single kernel capable of correctly executing all work-items in the
+work-group.</p>
+<p>In particular, when a kernel has been vectorized with <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><span class="doc">Vecz</span></a> it
+executes multiple work-items at once. Unless the work-group size in the
+vectorized dimension is known to be a multiple of the vectorization factor,
+there exists the possibility that some work-items will not be executed by the
+vectorized loop.</p>
+<p>As such, the <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> is able to stitch together kernels in several
+different configurations:</p>
+<ul class="simple">
+<li><p>Vector + scalar loop</p></li>
+<li><p>Vector loop + vector-predicated tail</p></li>
+<li><p>Vector loop only</p></li>
+<li><p>Scalar loop only</p></li>
+</ul>
+</div>
+<div class="section" id="vector-scalar">
+<a class="header-link" href="#vector-scalar"><h3 id="vector-scalar">Vector + Scalar</h3><span class="material-icons">link</span></a>
+<p>The vector + scalar kernel combination is considered the default behaviour.
+Most often the work-group size is unknown at compile time and thus it must be
+assumed that the vector loop may not execute all work-items.</p>
+<p>This configuration is used if the <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> is asked to run on a
+vectorized function which has <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">!codeplay_ca_vecz.derived</span></a> function metadata linking it back
+to its scalar progenitor. In this case, both the vector and scalar kernel
+functions are identified and are used. The vector work-items are executed
+first, followed by the scalar work-items.</p>
+<pre><code class="language-cpp">const size_t peel = group_size_x % vec_width;
+const size_t peel_limit = group_size_x - peel;
+
+if (group_size_x &gt;= vector_width) {
+  for (size_t z = 0; z &lt; group_size_z; ++z) {
+    for (size_t y = 0; y &lt; group_size_y; ++y) {
+      for (size_t wi = 0; wi &lt; peel_limit; wi += vec_width) {
+        // run vectorized kernel if vec_width &gt; 1,
+        // otherwise the scalar kernel.
+      }
+    }
+  }
+}
+if (group_size_x &lt; vector_width || group_size_x % vector_width != 0) {
+  for (size_t z = 0; z &lt; group_size_z; ++z) {
+    for (size_t y = 0; y &lt; group_size_y; ++y) {
+      // peeled loop running remaining work-items (if any) on the scalar
+      // kernel
+      for (size_t wi = peel_limit; wi &lt; group_size_x; ++wi) {
+        // run scalar kernel
+      }
+    }
+  }
+}
+</code>
+</pre>
+<p>Barriers are supported in this mode by creating a separate barrier struct for
+both the vector and scalar versions of the kernel.</p>
+<p>There are circumstances in which this mode is skipped in favour of “vector
+only” mode:</p>
+<ul>
+<li><p>If the local work-group size is known to be a multiple of the vectorization
+factor.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This is identified through the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">!reqd_work_group_size</span></a> function metadata. This is
+often automatically added to functions by compiler frontends if kernels
+are supplied with attributes (e.g., <code class="docutils literal notranslate">reqd_work_group_size</code> in OpenCL).
+Alternatively, if the work-group size is known at compile time, use the
+<a class="reference internal" href="#encodekernelmetadatapass"><span class="std std-ref">TransferKernelMetadataPass or EncodeKernelMetadataPass</span></a> to encode functions with this information.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If the <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> has been created with the <cite>ForceNoTail</cite> option.
+* This is a global toggle for <em>all</em> kernels in the program.</p></li>
+<li><p>If the kernel has been vectorized with vector predication. In this case the
+vector loop is known to handle scalar iterations itself.</p></li>
+</ul>
+<p>If any of these conditions are true, the “vector only” mode is used.</p>
+</div>
+<div class="section" id="vector-vector-predicated">
+<a class="header-link" href="#vector-vector-predicated"><h3 id="vector-vector-predicated">Vector + Vector-predicated</h3><span class="material-icons">link</span></a>
+<p>The vector + vector-predicated kernel combination is a special case
+optimization of the default behaviour.</p>
+<p>If the pass detects both a vector and vector-predicated kernel linked to the
+same original kernel with the same vectorization width, the scalar tail loop is
+replaced with a straight-line call to the vector-predicated kernel, which will
+perform all of the scalar iterations at once.</p>
+<pre><code class="language-cpp">const size_t peel = group_size_x % vec_width;
+const size_t peel_limit = group_size_x - peel;
+
+if (group_size_x &gt;= vector_width) {
+  for (size_t z = 0; z &lt; group_size_z; ++z) {
+    for (size_t y = 0; y &lt; group_size_y; ++y) {
+      for (size_t wi = 0; wi &lt; peel_limit; wi += vec_width) {
+        // run vectorized kernel if vec_width &gt; 1,
+      }
+      if (peel) {
+        // run vector-predicated kernel
+      }
+    }
+  }
+}
+</code>
+</pre>
+</div>
+<div class="section" id="vector-only">
+<a class="header-link" href="#vector-only"><h3 id="vector-only">Vector only</h3><span class="material-icons">link</span></a>
+<p>If the <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> is run on a vectorized kernel for which no <cite>vecz</cite>
+linking metadata is found to identify the scalar kernel, or if a scalar kernel
+is found but one of the conditions listed above hold, then the kernel is
+emitted using the vector kernel only. It is assumed that if no scalar kernel is
+found it is because targets know that one is not required.</p>
+</div>
+<div class="section" id="scalar-only">
+<a class="header-link" href="#scalar-only"><h3 id="scalar-only">Scalar only</h3><span class="material-icons">link</span></a>
+<p>If the <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> is run on a scalar kernel then only the scalar
+kernel is used.</p>
+</div>
+</div>
+<div class="section" id="optimalbuiltinreplacementpass">
+<a class="header-link" href="#optimalbuiltinreplacementpass"><h2 id="optimalbuiltinreplacementpass">OptimalBuiltinReplacementPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">OptimalBuiltinReplacementPass</code> is an optimization call-graph pass designed
+to replace calls to builtin functions with optimal equivalents.</p>
+<p>The <code class="docutils literal notranslate">OptimalBuiltinReplacementPass</code> iterates over the call graph from kernels
+inwards to their called functions, and visits all call sites in the caller
+functions. If a call is made to a function that the pass is interested in, the
+call is deleted and is replaced with a series of inline IR instructions. Using
+the call graph guarantees that replacements are made on a priority basis;
+outermost functions are replaced before any functions they themselves call.</p>
+<p>Replacements are optionally made according to a specific <code class="docutils literal notranslate">BuiltinInfo</code>
+object, which may be passed to this pass. It defaults to <code class="docutils literal notranslate">nullptr</code>. If this
+<code class="docutils literal notranslate">BuiltinInfo</code> is present then it is asked whether it recognizes any builtin
+functions and is tasked with inlining a suitable sequence of instructions.</p>
+<p>Replacements are also performed on two abacus-internal builtins: <code class="docutils literal notranslate">__abacus_clz</code>
+and <code class="docutils literal notranslate">__abacus_mul_hi</code>. Replacing these rather than their OpenCL user-facing
+builtins allows replacements in more cases, as the abacus versions are used to
+implement several other builtin functions.</p>
+<p>The <code class="docutils literal notranslate">__abacus_clz</code> builtin – count leading zeros – can be exchanged for a
+hardware intrinsic: <code class="docutils literal notranslate">llvm.ctlz</code>. However, some variants are skipped: 64-bit
+scalar and vector variants are skipped, since Arm uses calls to an external
+function to help it implement this case.</p>
+<p>The <code class="docutils literal notranslate">__abacus_mul_hi</code> builtin – multiplication returning the “high” part of
+the product – can be exchanged for a shorter series of LLVM instructions which
+perform the multiplication in a wider type before shifting it down. This is
+desirable because abacus has a rule that it never introduces larger types in
+its calculations. LLVM, however, is able to match a specific sequence of
+instructions against a “mul hi” node, which is canonical, well-optimized, and
+many targets directly lower that node to a single instruction. 64-bit versions
+(scalar and vector) are skipped since 64-bit “mul hi” and 128-bit integers are
+not well supported on all targets.</p>
+<p>The <code class="docutils literal notranslate">__abacus_fmin</code> and <code class="docutils literal notranslate">__abacus_fmax</code> builtins can be exchanged for
+hardware intrinsics: <code class="docutils literal notranslate">llvm.minnum</code> and <code class="docutils literal notranslate">llvm.maxnum</code>. This is not performed
+on ARM targets due to LLVM backend compiler bugs.</p>
+</div>
+<div class="section" id="linkbuiltinspass">
+<a class="header-link" href="#linkbuiltinspass"><h2 id="linkbuiltinspass">LinkBuiltinsPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">LinkBuiltinsPass</code> will manually link in any functions required from a
+given <cite>builtins</cite> module, into the current module. This pass allows us to strip
+out unnecessary symbols whilst performing our link step resulting in the
+equivalent of a simple global DCE pass with no overhead. Previously, we would
+link our kernel module into the lazily-loaded builtins module (the recommended
+way to link between a small and a large LLVM module), which we would not be
+able to do in a pass (as the Module the pass refers to effectively dies as the
+linking would occur).</p>
+<p>LLVM’s <code class="docutils literal notranslate">LinkModules</code> function is destructive to the source module - it will
+happily destroy the source module as it links it into the destination. This is
+fine for most cases, but not ours. In our case, we want to load the builtins
+module once (in our finalizer) and then re-use that loaded module multiple
+times (saves significant memory &amp; processing requirements on our hot path).</p>
+<p>Note that in some cases linking builtins before vectorization is desirable,
+except for special builtins such as <code class="docutils literal notranslate">get_global_id()</code>. This is particularly
+the case for scalable vector support where there is no equivalent in the
+builtins. To enable early linking, pass <code class="docutils literal notranslate">EarlyLinking = true</code> when
+constructing the pass.</p>
+</div>
+<div class="section" id="makefunctionnameuniquepass">
+<a class="header-link" href="#makefunctionnameuniquepass"><h2 id="makefunctionnameuniquepass">MakeFunctionNameUniquePass</h2><span class="material-icons">link</span></a>
+<p>The module pass <code class="docutils literal notranslate">MakeFunctionNameUniquePass</code> is used to give distinct names
+to scheduled kernels. This is necessary since a single kernel can be run more
+than once across different work sizes and we want to be able differentiate
+them.</p>
+<p>When creating the pass, one string parameter needs to be passed for for the new
+unique kernel name. <code class="docutils literal notranslate">MakeFunctionNameUniquePass</code> then simply looks for all
+functions with <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a> entry-point attributes and sets the function’s name to be the
+first string argument.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This pass is only used in-tree by the host target. When doing just-in-time
+compilation at execution time, only one kernel is under compilation.</p>
+<p>This pass is not useful when doing ahead-of-time compilation, when many
+kernels may be in the same module.</p>
+</div>
+</div>
+<div class="section" id="reducetofunctionpass">
+<a class="header-link" href="#reducetofunctionpass"><h2 id="reducetofunctionpass">ReduceToFunctionPass</h2><span class="material-icons">link</span></a>
+<p>The LLVM module when passed to scheduled kernel can contain multiple kernel
+functions present in the device-side program, however by this stage of
+compilation we are only interested in running a subset of these kernels. In order to
+improve the speed of subsequent passes and reduce code size we therefore have
+module pass <code class="docutils literal notranslate">ReduceToFunctionPass</code>, which removes dead functions not used by the
+target kernels. The <code class="docutils literal notranslate">ReduceToFunction</code> pass runs over all functions with
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a>
+attributes by default. All top-level kernel functions that are required to be
+preserved by this pass should have this attribute set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Like the <a class="reference internal" href="#makefunctionnameuniquepass">MakeFunctionNameUniquePass</a>, this is only used in-tree by
+<code class="docutils literal notranslate">host</code> which does just-in-time compilation, when one kernel entry point
+can be singled out.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A deprecated version of this pass takes a string list of functions names to
+preserve, which should include the name of our enqueued kernel and any
+internal functions needed for later passes.</p>
+</div>
+<p>When <code class="docutils literal notranslate">ReduceToFunctionPass</code> is then run it iterates over the list of
+preserved functions (obtained either through metadata or the deprecated list of
+kernel names). Those functions are then marked to keep, and so are any
+functions called inside it. Afterwards the pass looks through all the functions
+in the module and erases any not marked for keeping.</p>
+</div>
+<div class="section" id="runveczpass">
+<a class="header-link" href="#runveczpass"><h2 id="runveczpass">RunVeczPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">RunVeczPass</code> module pass provides a wrapper for using our
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><span class="doc">Vecz</span></a> oneAPI Construction Kit IR vectorizer. This vectorizes
+the kernel to a SIMD width specified when the pass is created. In our case
+this is typically local size in the first dimension but there are other
+factors to consider when picking the width, like being a power of 2.</p>
+<p>We only enable the vectorizer in host when the <code class="docutils literal notranslate">-cl-wfv={always|auto}</code> option
+is provided, a condition check which is the first thing this pass does. If this
+check fails, the pass exits early, otherwise the vectorizer is invoked through
+top level API <code class="docutils literal notranslate">vecz::Vectorizer::vectorize</code>. If the passed option is
+<code class="docutils literal notranslate">-cl-wfv=auto</code>, then we first have to check the layout of the input kernel to
+find out if it is advantageous to vectorize it, and only do so if it is the
+case. If the passed option is <code class="docutils literal notranslate">-cl-wfv=always</code>, then we will try to vectorize
+the kernel in any case. If successful, this will return a new vectorized kernel
+function created in the LLVM module so that this vectorized kernel is used
+instead of our scalar kernel from here on.</p>
+<div class="section" id="cost-model-interface">
+<a class="header-link" href="#cost-model-interface"><h3 id="cost-model-interface">Cost Model Interface</h3><span class="material-icons">link</span></a>
+<p>User cost-modelling in vecz can be handled by the
+<code class="docutils literal notranslate">vecz::VeczPassOptionsAnalsis</code> which takes a user defined query function on
+construction. This pass is a required analysis pass for vecz, so be sure to add
+it to your analysis manager.</p>
+<p>Vecz queries the result of this analysis before operating on a kernel, and the
+user function may fill an array of <code class="docutils literal notranslate">VeczPassOptions</code> which contain suitably
+modelled widths, vectorization factors, and scalability options determined
+suitable for the target.</p>
+<p>The <code class="docutils literal notranslate">VeczPassOptionsAnalysis</code> pass can be default-constructed - in which case
+vecz makes a conservative decision about kernel vectorization - or be
+constructed passing in a user callback function. The function takes as its
+parameters a reference to the function to be optionally vectorized, and a
+reference to a vector of <code class="docutils literal notranslate">VeczPassOptions</code> which it is expected to fill in.</p>
+<p>If it’s not interested in seeing the function vectorized, it returns false;
+otherwise it fills in the <code class="docutils literal notranslate">VeczPassOptions</code> array with the choicest
+vectorization options it can muster for the target. For example:</p>
+<pre><code class="language-cpp">void InitMyAnalysisManager(llvm::ModuleAnalysisManager &amp;MAM) {
+  MyCostModel CM;
+  MAM.registerPass([CM] {
+  return vecz::VeczPassOptionsAnalysis(
+    [CM](llvm::Function &amp;F,
+       llvm::SmallVectorImpl&lt;vecz::VeczPassOptions&gt; &amp;Opts) {
+       if (CM-&gt;getCostWFV(&amp;F) &gt; 0) {
+         // Vectorizing will make things worse, so don't
+         return false;
+       }
+       VeczPassOptions O;
+       vecz::VectorizationChoices &amp;choices = O.choices;
+       if (!MyCostModel-&gt;hasDoubles()) {
+         choices.enable(eCababilityNoDoubleSupport);
+       }
+       if (CM-&gt;getCostPartialScalarization(&amp;F) &lt; 0) {
+         choices.enable(vecz::VectorizationChoices::ePartialScalarization);
+       }
+       if (CM-&gt;getCostBOSCC(&amp;F) &lt; 0) {
+         choices.enable(vecz::VectorizationChoices::eLinearizeBOSCC);
+       }
+      // Our silly target only has 42-wide SIMD units!
+      opts.factor = Vectorization::getFixedWidth(42);
+      Opts.emplace_back(std::move(O));
+      return true;
+    });
+  });
+}
+</code>
+</pre>
+<p>To access the <code class="docutils literal notranslate">VeczPassOptionsAnalysis</code> from inside any other pass in the
+same pass manager, do the following:</p>
+<pre><code class="language-cpp">auto queryPassOpts = getAnalysis&lt;vecz::VeczPassOptionsAnalysis&gt;();
+</code>
+</pre>
+<p>The above returns a pointer to the cost model the wrapper pass was constructed
+with, and may return <code class="docutils literal notranslate">nullptr</code> if no cost model was provided.</p>
+<p>The Cost Model header file resides at <code class="docutils literal notranslate">utils/cost_model.h</code>.</p>
+</div>
+</div>
+<div class="section" id="scheduling-parameters">
+<a class="header-link" href="#scheduling-parameters"><h2 id="scheduling-parameters">Scheduling Parameters</h2><span class="material-icons">link</span></a>
+<p>Certain ComputeMux builtin functions may require extra-function data passed to
+them to be lowered. The <a class="reference internal" href="#addschedulingparameterspass">AddSchedulingParametersPass</a> can help to achieve this
+by modifying functions with extra parameters, known as “scheduling parameters”,
+to functions that require them.</p>
+<div class="section" id="target-scheduling-parameters">
+<a class="header-link" href="#target-scheduling-parameters"><h3 id="target-scheduling-parameters">Target Scheduling Parameters</h3><span class="material-icons">link</span></a>
+<p>Scheduling parameters are ultimately up to the ComputeMux target to define, but
+a default set of two pointer-to-struct parameters is used to achieve the
+default lowering of ComputeMux builtins:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">MuxWorkItemInfo</code>:</p>
+<ul>
+<li><p>The 3-dimensional local ID: an array of 3 natural-width integers (e.g.,
+<code class="docutils literal notranslate">[3 x i64]</code> when compiling for a 64-bit device).</p></li>
+<li><p>The sub-group ID: a 32-bit integer (<code class="docutils literal notranslate">i32</code>).</p></li>
+<li><p>The kernel width: a 32-bit integer (<code class="docutils literal notranslate">i32</code>). The kernel width represents how
+many work-items are being executed in parallel. This is <code class="docutils literal notranslate">1</code> by default,
+unless the kernel is vectorized, in which case the width is the
+vectorization factor.</p></li>
+<li><p>The number of sub-groups: a 32-bit integer (<code class="docutils literal notranslate">i32</code>).</p></li>
+<li><p>The maximum sub-group size: a 32-bit integer (<code class="docutils literal notranslate">i32</code>).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">MuxWorkGroupInfo</code>:</p>
+<ul>
+<li><p>The group id: a 3-dimensional array of natural-width integers (<code class="docutils literal notranslate">[3 x
+iN]</code>).</p></li>
+<li><p>The number of groups: a 3-dimensional array of natural-width integers (<code class="docutils literal notranslate">[3
+x iN]</code>).</p></li>
+<li><p>The global offset: a 3-dimensional array of natural-width integers (<code class="docutils literal notranslate">[3 x
+iN]</code>).</p></li>
+<li><p>The local work-group size: a 3-dimensional array of natural-width integers
+(<code class="docutils literal notranslate">[3 x iN]</code>).</p></li>
+<li><p>The number of work dimensions: a 32-bit integer (<code class="docutils literal notranslate">i32</code>).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="addschedulingparameterspass">
+<a class="header-link" href="#addschedulingparameterspass"><h3 id="addschedulingparameterspass">AddSchedulingParametersPass</h3><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">AddSchedulingParametersPass</code> pass requests the target-specific list of
+scheduling parameters via <code class="docutils literal notranslate">BuiltinInfo::getMuxSchedulingParameters</code>. This
+list is added to all kernel entry points and to all mux builtins that require
+them; this is determined by <code class="docutils literal notranslate">BuiltinInfo::requiresSchedulingParameters</code>.</p>
+<p><code class="docutils literal notranslate">BuiltinInfo::getMuxSchedulingParameters</code> is virtual and thus may be overridden
+by targets. See <code class="docutils literal notranslate">BuiltinInfo::SchedParamInfo</code> for the data that must be filled
+in to communicate this information.</p>
+<p>The pass starts by identifying which builtins require scheduling parameters. It
+then propagates this initial list of functions to all functions calling those
+functions, all functions calling those functions, and on in this fashion until
+the entire call graph is covered.</p>
+<p>The list of scheduling parameters is emitted to the module under
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">!mux-scheduling-params</span></a>.</p>
+<p>Once the list of functions to add scheduling parameters has been calculated,
+each function is cloned in order to amend the functions’ type with new
+scheduling parameters. All scheduling parameters are added to all functions
+that require them. This is for ease of implementation and to reduce pass
+interdependencies: any subsequent pass can know that scheduling parameters are
+entirely present or entirely not present, without in-depth analysis. Unused
+function parameters on functions with internal linkage are later pruned by
+LLVM’s <code class="docutils literal notranslate">DeadArgumentEliminationPass</code>.</p>
+<p>Functions for which <code class="docutils literal notranslate">BuiltinInfo::requiresSchedulingParameters</code> returns true
+are cloned taking their old names with them. Old uses are suffixed <code class="docutils literal notranslate">.old</code>.
+Other functions are cloned and given the suffix <code class="docutils literal notranslate">.mux-sched-wrapper</code>.</p>
+<p>By way of an example, given a module with the following functions:</p>
+<pre><code class="language-llvm">; Requires scheduling parameters
+declare void @foo()
+
+; Requires scheduling parameters only transitively
+define void @bar() #0 {
+  call void @foo()
+  ret void
+}
+
+attributes #0 = { "mux-kernel" }
+</code>
+</pre>
+<p>With the default set of scheduling parameters, the
+<code class="docutils literal notranslate">AddSchedulingParametersPass</code> would produce:</p>
+<pre><code class="language-default">; Old version of @foo - no scheduling parameters
+declare void @foo.old()
+
+; Old version of @bar - no longer a kernel - can be cleaned up later
+define void @bar(i32) {
+  call void @foo.old()
+  ret void
+}
+
+; New version of @foo with scheduling parameters
+declare !mux_scheduled_fn !1 void @foo(ptr %wi, ptr %wg)
+
+; New version of @bar with scheduling parameters - the new kernel
+define void @bar.mux-sched-wrapper(i32, ptr %wi, ptr %wg) #0 !mux_scheduled_fn !2 {
+  call void @foo(ptr %wi, ptr %wg)
+  ret void
+}
+
+attributes #0 = { "mux-kernel" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{!"MuxWorkItemInfo", !"MuxWorkGroupInfo"}
+!1 = !{i32 0, i32 1}
+!2 = !{i32 1, i32 2}
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="definemuxbuiltinspass">
+<a class="header-link" href="#definemuxbuiltinspass"><h2 id="definemuxbuiltinspass">DefineMuxBuiltinsPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">DefineMuxBuiltinsPass</code> performs a scan over all functions in the module,
+calling <code class="docutils literal notranslate">BuiltinInfo::defineMuxBuiltin</code> on all mux builtin function
+declarations.</p>
+<p>There is a soft dependency on the <a class="reference internal" href="#addschedulingparameterspass">AddSchedulingParametersPass</a> if the default
+set of mux scheduling parameters is used. This is because the default lowering
+of many work-item builtins requires data stored in the structure parameters. If
+the target provides a custom implementation of
+<code class="docutils literal notranslate">BuiltinInfo::defineMuxBuiltin</code>, the <code class="docutils literal notranslate">AddSchedulingParametersPass</code> may not
+be required.</p>
+<p>If a definition of a mux builtin requires calls to other mux builtins which
+themselves need defining, such dependencies can be added to the end of the
+module’s list of functions so that the <code class="docutils literal notranslate">DefineMuxBuiltinsPass</code> will visit
+those in turn. One example of this is the lowering of <code class="docutils literal notranslate">__mux_get_global_id</code>
+which calls <code class="docutils literal notranslate">__mux_get_local_id</code>, among other functions.</p>
+</div>
+<div class="section" id="addkernelwrapperpass">
+<a class="header-link" href="#addkernelwrapperpass"><h2 id="addkernelwrapperpass">AddKernelWrapperPass</h2><span class="material-icons">link</span></a>
+<p>To encapsulate all the original parameters of the kernel as a single struct
+argument we use the pass <code class="docutils literal notranslate">AddKernelWrapperPass</code>. This creates a struct
+composed of the individual kernel parameters which the runtime can create and
+pass when invoking the kernel. If <code class="docutils literal notranslate">IsPackedStruct = true</code> is passed via the
+pass options on construction, then all of the parameters are tightly packed,
+otherwise each parameter is aligned to a power of 2 equal to or above the size.</p>
+<p>As a first step towards achieving this the pass iterates over all the current
+kernel parameter types and adds them as members to a new struct type called
+<code class="docutils literal notranslate">MuxPackedArgs.&lt;kernel name&gt;</code>. The rules for parameter packing are as follows:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate">PassLocalBuffersBySize = true</code>, buffers in the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html#address-spaces"><span class="std std-ref">local/Workgroup</span></a> address space are passed via the
+device <code class="docutils literal notranslate">size_t</code> type. In this mode, the buffer is stack allocated upon
+kernel entry, creating an <code class="docutils literal notranslate">alloca</code> instruction with the size passed through
+<code class="docutils literal notranslate">MuxPackedArgs</code>. The stack-allocated pointer will then be passed to the old
+kernel via a pointer. The host runtime is expected to pass the size of the
+buffer allocation. If <code class="docutils literal notranslate">PassLocalBuffersBySize</code> is not <code class="docutils literal notranslate">true</code>, then they
+are treated as regular pointers.</p></li>
+<li><p>If the kernel argument is a pointer type with the <code class="docutils literal notranslate">byval</code> parameter
+attribute, the parameter is passed by its <code class="docutils literal notranslate">byval</code> type.</p></li>
+<li><p>If none of the above cases hold, then the parameter is packed as-is.</p></li>
+</ul>
+<p>Next, the pass creates a wrapper function which will be used as the new kernel
+entry point, taking a pointer to the <code class="docutils literal notranslate">MuxPackedArgs</code> struct as its first
+parameter. Any scheduling parameters present in kernel are dealt with thus,
+depending on the value of <code class="docutils literal notranslate">BuiltinInfo::SchedParamInfo::PassedExternally</code>:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate">true</code>, are passed through the wrapper function</p></li>
+<li><p>If <code class="docutils literal notranslate">false</code>, must be initialized by
+<code class="docutils literal notranslate">BuiltinInfo::initalizeSchedulingParamForWrappedKernel</code> in the entry block,
+before being passed to the original wrapped kernel.</p></li>
+</ul>
+<p>The wrapper pass takes its name from the <em>original function</em> name of the old
+wrapped kernel, with a pass-specific suffix appended. The wrapped kernel is
+marked inline. A call instruction to this wrapped kernel is then created inside
+the wrapper, using GEPs to the appropriate <code class="docutils literal notranslate">MuxPackedArgs</code> element for each of
+the parameters.</p>
+<p>This pass runs on all functions in the module with <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">mux-kernel</span></a> attributes. The new
+wrapper functions take this attribute from the original functions.</p>
+<p>Any <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">!mux_scheduled_fn</span></a>
+metadata is dropped on the wrapper function, as the old metadata is no longer
+accurate, and no further passes depend on it.</p>
+<pre><code class="language-default">; Has two parameters (%a0, %a1) and two scheduling parameters (%x, %y)
+declare !mux_scheduled_fn !1 void @foo(i8 %a0, i16 %y, i32 %a1, i64 %x) #0
+
+attributes #0 = { "mux-kernel" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{ !"x", !"y" }
+!1 = !{ i32 1, i32 3 }
+</code>
+</pre>
+<p>Assuming that for scheduling parameter <code class="docutils literal notranslate">%x</code>,
+<code class="docutils literal notranslate">BuiltinInfo::SchedParamInfo::PassedExternally</code> is <code class="docutils literal notranslate">true</code> and for <code class="docutils literal notranslate">%y</code> it
+is <code class="docutils literal notranslate">false</code>, after running this pass:</p>
+<pre><code class="language-default">; A packed argument structure containing %a0 and %a1
+%MuxPackedArgs.foo = type { i8, i32 }
+
+declare !mux_scheduled_fn !1 void @foo(i8 %a0, i16 %y, i32 %a1, i64 %x)
+
+; Has one packed-argument parameter and one pass-through scheduling parameter: %x
+define void @foo.mux-kernel-wrapper(ptr %packed-args, i64 %x) #0 {
+  ; Load the original kernel arguments from the packed structure
+  %a0 = load i8 ptr %packed-args
+  %a1.addr = getelementptr %MuxPackedArgs.foo, ptr %packed-args, i32 0, i32 1
+  %a1 = load i32, ptr %a1.addr
+  ; Initialize %y as per BuiltinInfo::initalizeSchedulingParamForWrappedKernel
+  %y = ...
+  call void @foo(i8 %a0, i16 %y, i32 %a1, i64 %x)
+}
+
+attributes #0 = { "mux-base-fn-name"="foo" "mux-kernel" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{ !"x", !"y" }
+!1 = !{ i32 1, i32 3 }
+</code>
+</pre>
+</div>
+<div class="section" id="replacelocalmodulescopevariablespass">
+<a class="header-link" href="#replacelocalmodulescopevariablespass"><h2 id="replacelocalmodulescopevariablespass">ReplaceLocalModuleScopeVariablesPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">ReplaceLocalModuleScopeVariables</code> pass identifies global variables in
+the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html#address-spaces"><span class="std std-ref">local/Workgroup</span></a> address space
+and places them in a struct called <code class="docutils literal notranslate">localVarTypes</code>, allocated in a newly
+created wrapper function. A pointer to the struct is then passed via a
+parameter to the original kernel. The wrapper function takes over function
+attributes and metadata from the original kernel.</p>
+<p>When creating the struct we need to be aware of the alignment of members so that
+they are OpenCL conformant for their type. To do this we manually pad the struct
+by keeping track of each elements offset and adding byte array entries for
+padding to meet alignment requirements. Finally the whole struct is aligned to
+the largest member alignment found.</p>
+<p>Once the struct is created the pass replaces all instructions using each of the
+global variables identified in the previous step with instructions referencing
+the matching struct member instead. Finally the identified global variables are
+removed once all of their uses have been replaced.</p>
+</div>
+<div class="section" id="replacemuxmathdeclspass">
+<a class="header-link" href="#replacemuxmathdeclspass"><h2 id="replacemuxmathdeclspass">ReplaceMuxMathDeclsPass</h2><span class="material-icons">link</span></a>
+<p>Replaces function declarations from the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><span class="doc">Builtins</span></a> module. These
+functions are used internally in our builtins implementation to tune behaviour
+within algorithms. As such the pass should be run after the builtins have been
+linked into the LLVM module being modified.</p>
+<p>The following builtins are replaced:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">__mux_isftz</code> - Whether the target flushes to zero.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_usefast</code> - Whether to use faster, less accurate maths algorithms.</p></li>
+<li><p><code class="docutils literal notranslate">__mux_isembeddedprofile</code> - Whether the mux target implements OpenCL
+embedded profile.</p></li>
+</ul>
+<p>Declarations matching each of these function names are searched for by
+<code class="docutils literal notranslate">ReplaceMuxMathDeclsPass</code>, and if found, a function body is created returning
+a constant value. These constant return values are set from <code class="docutils literal notranslate">bool</code> parameters
+passed by the runtime on pass creation, and may be derived from hardware
+features like denormal support, or from compilation flags like fast-math. These
+functions must not be declared with the <code class="docutils literal notranslate">noinline</code> attribute: later generic
+optimization passes, such as Dead Code Elimination, should be able remove the
+unused control-flow in kernel code once the definitions of these builtins have
+been inlined.</p>
+</div>
+<div class="section" id="uniqueopaquestructspass">
+<a class="header-link" href="#uniqueopaquestructspass"><h2 id="uniqueopaquestructspass">UniqueOpaqueStructsPass</h2><span class="material-icons">link</span></a>
+<p>When linking two <code class="docutils literal notranslate">llvm::Module</code>s containing forward declarations of opaque
+structure types with the same name, or deserializing an <code class="docutils literal notranslate">llvm::Module</code> in a
+context which already declares an opaque structure with the same name as an
+opaque structure type in the module, LLVM attempts to resolve the name clash by
+appending a suffix to one of the types e.g., <code class="docutils literal notranslate">opencl.event_t</code> becomes
+<code class="docutils literal notranslate">opencl.event_t.0</code>. This situation is problematic if passes rely on the
+opaque struct type’s name to identify it.</p>
+<p>The <code class="docutils literal notranslate">UniqueOpaqueStructsPass</code> can be used by targets after linking modules or
+deserializing modules in a new context. Running this pass will replace all
+instances of an opaque structure type with a suffix in its name with the
+unsuffixed version, if the unsuffixed variant exists in the context and is also
+opaque.</p>
+<p>After this pass has run all opaque suffixed types will have been removed and
+replaced with the unique unsuffixed opaque struct type if it exists.</p>
+</div>
+<div class="section" id="simplecallbackpass">
+<a class="header-link" href="#simplecallbackpass"><h2 id="simplecallbackpass">SimpleCallbackPass</h2><span class="material-icons">link</span></a>
+<p>Certain simple operations on <code class="docutils literal notranslate">llvm::Module</code>s that don’t warrant their own
+dedicated pass can be accomplished using the <code class="docutils literal notranslate">SimpleCallbackPass</code> which
+invokes a callback function when the pass is run. The callback returns <code class="docutils literal notranslate">void</code>
+and is provided the <code class="docutils literal notranslate">llvm::Module</code> as a parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is undefined behaviour for the callback to modify the <code class="docutils literal notranslate">Module</code> in such a
+way that analyses are invalidated.</p>
+</div>
+</div>
+<div class="section" id="replacewgcpass">
+<a class="header-link" href="#replacewgcpass"><h2 id="replacewgcpass">ReplaceWGCPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">ReplaceWGCPass</code> provides software implementations of the ComputeMux
+work-group collective builtins. Targets wishing to support work-group
+collectives in software <strong>may</strong> run this pass. This pass makes heavy use of
+barriers, so do not expect performance. Because it introduces barriers into the
+module, this pass <strong>must</strong> be run before any barrier analysis or
+materialization e.g., the <a class="reference internal" href="#preparebarrierspass">PrepareBarriersPass</a> and <a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a>.</p>
+<p>This pass introduces global variables into the module qualified with the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html#address-spaces"><span class="std std-ref">local/Workgroup</span></a> address space and
+therefore <strong>must</strong> be run before any pass that materializes <code class="docutils literal notranslate">__local</code>
+variables in another form, e.g., the <a class="reference internal" href="#replacelocalmodulescopevariablespass">ReplaceLocalModuleScopeVariablesPass</a>.</p>
+</div>
+<div class="section" id="addmetadatapass-analysisty-handlerty">
+<a class="header-link" href="#addmetadatapass-analysisty-handlerty"><h2 id="addmetadatapass-analysisty-handlerty">AddMetadataPass&lt;AnalysisTy, HandlerTy&gt;</h2><span class="material-icons">link</span></a>
+<p>This pass converts kernel metadata retrieved through an analysis and encodes
+the metadata into a binary format through the provided handler. The serialized
+bytes are added to the IR as a global constant and tagged such that it will be
+placed into the “.notes” section in the ELF file, when the binary is created.</p>
+<p>This pass relies on metadata to have been previously added to the IR before the
+pass is run. In the Vectorize case this pass should be run after any <code class="docutils literal notranslate">vecz</code>
+passes and after the <code class="docutils literal notranslate">ComputeLocalMemoryUsagePass</code> to ensure that all
+metadata is present.</p>
+</div>
+<div class="section" id="replacememintrinsicspass">
+<a class="header-link" href="#replacememintrinsicspass"><h2 id="replacememintrinsicspass">ReplaceMemIntrinsicsPass</h2><span class="material-icons">link</span></a>
+<p>A pass that replaces calls to <code class="docutils literal notranslate">llvm.memcpy.*</code>, <code class="docutils literal notranslate">llvm.memset.*</code> and
+<code class="docutils literal notranslate">llvm.memmove.*</code> with calls to a generated loop. This pass can be used for
+targets which are not able to generate backend code for these intrinsics or do
+not link with a library which supports this. Although some attempt is made not to
+generate these intrinsics, they can exist in <code class="docutils literal notranslate">SPIRV</code> code. Note that
+<code class="docutils literal notranslate">llvm.memmove.*</code> does not currently support different address spaces for the
+pointer arguments.</p>
+</div>
+<div class="section" id="preparebarrierspass">
+<a class="header-link" href="#preparebarrierspass"><h2 id="preparebarrierspass">PrepareBarriersPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">PrepareBarriersPass</code> is useful in order to satisfy the requirements the
+<a class="reference internal" href="#workitemloopspass">WorkItemLoopsPass</a> has on kernels containing barrier-like functions if
+running in conjunction with the <a class="reference internal" href="#runveczpass">RunVeczPass</a>. If running, it should be run
+before using the vectorizer.</p>
+<p>It ensures that barriers are synchronized between two or more vectorized
+versions of the same kernel. It gives each barrier a unique ID, which the
+vectorizer preserves in each vectorized kernel, meaning the
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> can correctly schedule the work-item loops for each
+barrier region.</p>
+</div>
+<div class="section" id="removelifetimeintrinsicspass">
+<a class="header-link" href="#removelifetimeintrinsicspass"><h2 id="removelifetimeintrinsicspass">RemoveLifetimeIntrinsicsPass</h2><span class="material-icons">link</span></a>
+<p>The LLVM intrinsics <code class="docutils literal notranslate">llvm.lifetime.start</code> and <code class="docutils literal notranslate">llvm.lifetime.end</code> take as an
+argument a pointer to memory and define where in the code referencing that
+memory objects is valid. Before the start intrinsic memory pointed to is
+undefined and a load to it can be replaced with an <code class="docutils literal notranslate">undef</code>. Likewise the memory
+is undefined after the end intrinsic and any stores can be removed as dead.</p>
+<p>The function pass <code class="docutils literal notranslate">RemoveLifetimeIntrinsicsPass</code> removes these intrinsics
+from a module by iterating over all the instructions and erasing any lifetime
+intrinsics found, as well as the bit-casts they use for the pointer argument.
+Removing this information is useful for debugging since the backend is less
+likely to optimize away variables in the stack no longer used, as a result this
+pass should only be run on debug builds of the module.</p>
+</div>
+<div class="section" id="removeexceptionspass">
+<a class="header-link" href="#removeexceptionspass"><h2 id="removeexceptionspass">RemoveExceptionsPass</h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit does not support exceptions. However, functions without
+the <code class="docutils literal notranslate">NoUnwind</code> attribute can still be generated in certain cases. This pass
+adds the <code class="docutils literal notranslate">NoUnwind</code> attribute to every function in the module, for target code
+generators that can’t handle exceptions.</p>
+</div>
+<div class="section" id="verifyreqdsubgroupsizelegalpass-verifyreqdsubgroupsizesatisfiedpass">
+<a class="header-link" href="#verifyreqdsubgroupsizelegalpass-verifyreqdsubgroupsizesatisfiedpass"><h2 id="verifyreqdsubgroupsizelegalpass-verifyreqdsubgroupsizesatisfiedpass">VerifyReqdSubGroupSizeLegalPass &amp; VerifyReqdSubGroupSizeSatisfiedPass</h2><span class="material-icons">link</span></a>
+<p>These passes check whether the compiler can handle, and has successfully
+handled, a kernel with a required sub-group size.</p>
+<p>The <code class="docutils literal notranslate">VerifyReqdSubGroupSizeLegalPass</code> searches for any kernel with a required
+sub-group size and checks whether the device supports such a size. It does this
+using the target’s <code class="docutils literal notranslate">compiler::utils::DeviceInfo</code> analysis. Any unsupported
+size results in a compiler diagnostic, which the compiler can handle (usually
+via a build error).</p>
+<p>The <code class="docutils literal notranslate">VerifyReqdSubGroupSizeSatisfiedPass</code> searches for any kernel entry point
+with a required sub-group size and checks whether the vectorizer was able to
+satisfy that requirement. As such, it should be run after vectorization. A
+compiler diagnostic is raised for each kernel for which this does not hold.</p>
+</div>
+<div class="section" id="replacetargetexttyspass">
+<a class="header-link" href="#replacetargetexttyspass"><h2 id="replacetargetexttyspass">ReplaceTargetExtTysPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">ReplaceTargetExtTysPass</code> pass replaces certain <a class="reference external" href="https://llvm.org/docs/LangRef.html#target-extension-type">target extension types</a> found in the
+initial compiler IR. It replaces them with new types reported by the
+<code class="docutils literal notranslate">BuiltinInfo::getRemappedTargetExtTy</code> analysis function. This is conceptually
+replacing abstract and target-agnostic opaque types with concrete ones ready
+for the target.</p>
+<p>This pass can replace any of the following types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">spirv.Image</code></p></li>
+<li><p><code class="docutils literal notranslate">spirv.Event</code></p></li>
+<li><p><code class="docutils literal notranslate">spirv.Sampler</code></p></li>
+</ul>
+<p>It replaces any of the above types across the module, replacing any functions
+with any of these target extension types as function parameters or return types
+<em>in-place</em>, i.e., with a new function with the updated function signature.</p>
+<p>If the target’s compiler backend is able to handle any of the above types
+natively then the target <strong>may</strong> opt out of this process completely. Note
+however that some aspects of the ComputeMux compiler <strong>may</strong> make assumptions
+about some of the above types, such as the type of images passed to any of the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><span class="doc">Image Library</span></a> functions. This means that in such a situation,
+it may be required to skip other passes such as the
+<code class="docutils literal notranslate">compiler::ImageArgumentSubstitutionPass</code>.</p>
+</div>
+<div class="section" id="manualtypelegalizationpass">
+<a class="header-link" href="#manualtypelegalizationpass"><h2 id="manualtypelegalizationpass">ManualTypeLegalizationPass</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">ManualTypeLegalizationPass</code> pass replaces <code class="docutils literal notranslate">half</code> operations with
+<code class="docutils literal notranslate">float</code> operations, inserting conversions as needed. It does this to work
+around LLVM issue 73805, where LLVM’s own legalization replaces whole chains of
+operations rather than each operation individually, thus leaving out rounding
+operations implied by the LLVM IR.</p>
+<p>This replacement is only done on targets that promote <code class="docutils literal notranslate">half</code> to <code class="docutils literal notranslate">float</code>
+during type legalization. On targets where <code class="docutils literal notranslate">half</code> is a native type, or where
+<code class="docutils literal notranslate">half</code> is known to be promoted using “soft-promotion” rules, LLVM is presumed
+to translate <code class="docutils literal notranslate">half</code> correctly.</p>
+</div>
+<div class="section" id="metadata-utilities">
+<a class="header-link" href="#metadata-utilities"><h2 id="metadata-utilities">Metadata Utilities</h2><span class="material-icons">link</span></a>
+<p>There are several key pieces of metadata used for inter-communication between
+the oneAPI Construction Kit passes, documented in the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><span class="doc">ComputeMux Compiler Specification</span></a>.</p>
+<p>In order to avoid hard-coding assumptions about the metadata’s names, number of
+operands, types of operands, etc., utility functions <strong>should</strong> be used to access
+or manipulate the metadata. The specific names and/or operands of these
+metadata is <strong>not</strong> guaranteed to be stable between the oneAPI Construction Kit
+versions.</p>
+</div>
+<div class="section" id="attribute-utilities">
+<a class="header-link" href="#attribute-utilities"><h2 id="attribute-utilities">Attribute Utilities</h2><span class="material-icons">link</span></a>
+<p>There are several key attributes used for inter-communication between
+the oneAPI Construction Kit passes, documented in the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><span class="doc">ComputeMux Compiler Specification</span></a>.</p>
+<p>The <code class="docutils literal notranslate">modules/compiler/utils/include/utils/attributes.h</code> header contains all
+such APIs, several of which are given here by way of example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">void setIsKernel(llvm::Function &amp;F)</code></p>
+<ul>
+<li><p>Adds the <code class="docutils literal notranslate">mux-kernel</code> attribute to function <code class="docutils literal notranslate">F</code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">void setIsKernelEntryPt(llvm::Function &amp;F)</code></p>
+<ul>
+<li><p>Adds <code class="docutils literal notranslate">"mux-kernel"="entry-point"</code> attribute to function <code class="docutils literal notranslate">F</code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">bool isKernel(const llvm::Function &amp;F)</code></p>
+<ul>
+<li><p>Returns true if function <code class="docutils literal notranslate">F</code> has a <code class="docutils literal notranslate">mux-kernel</code> attribute</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">bool isKernelEntryPt(const llvm::Function &amp;F)</code></p>
+<ul>
+<li><p>Returns true if function <code class="docutils literal notranslate">F</code> has a <code class="docutils literal notranslate">mux-kernel</code> attribute with the value
+<code class="docutils literal notranslate">"entry-point"</code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">void dropIsKernel(llvm::Function &amp;F)</code></p>
+<ul>
+<li><p>Drops the <code class="docutils literal notranslate">mux-kernel</code> attribute from function <code class="docutils literal notranslate">F</code>, if present.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">void takeIsKernel(llvm::Function &amp;ToF, llvm::Function &amp;FromF)</code></p>
+<ul>
+<li><p>Transfers <code class="docutils literal notranslate">mux-kernel</code> attributes from function <code class="docutils literal notranslate">FromF</code> to function
+<cite>ToF</cite>, if present on the old function. Overwrites any such metadata in the
+new function.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sub-groups">
+<a class="header-link" href="#sub-groups"><h2 id="sub-groups">Sub-groups</h2><span class="material-icons">link</span></a>
+<p>A implementation of OpenCL C sub-group builtins is provided by the default
+compiler pipeline.</p>
+<p>The OpenCL C sub-group builtins are first translated into the corresponding
+ComputeMux builtin functions. These functions are understood by the rest of the
+compiler and can be identified and analyzed by the <code class="docutils literal notranslate">BuiltinInfo</code> analysis.</p>
+<p>A definition of these mux builtins for where the sub-group size is 1 is
+provided by <code class="docutils literal notranslate">BIMuxInfoConcept</code> used by the <a class="reference internal" href="#definemuxbuiltinspass">DefineMuxBuiltinsPass</a>.</p>
+<p>Vectorized definitions of the various sub-group builtins are provided by the
+VECZ pass, so any target running VECZ (and the above passes) will be able to
+support sub-groups of a larger size than 1. Note that VECZ does not currently
+interact “on top of” the mux builtins - it replaces them in the functions it
+vectorized. This is future work to allow the two to build on top of each other.</p>
+<p>If a target wishes to provide their own sub-group implementation they should
+provide a derived <code class="docutils literal notranslate">BIMuxInfoConcept</code> and override <code class="docutils literal notranslate">defineMuxBuiltin</code> for
+the sub-group builtins.</p>
+</div>
+<div class="section" id="linker-support">
+<a class="header-link" href="#linker-support"><h2 id="linker-support">Linker support</h2><span class="material-icons">link</span></a>
+<p>An interface to the <code class="docutils literal notranslate">lld</code> linker is provided through a function. It may be
+desirable to call this after the compiler pipeline has produced object code.
+This requires that the compiler target is linked with the <code class="docutils literal notranslate">lld</code> libraries, as
+well as building the <code class="docutils literal notranslate">lld</code> when producing the <code class="docutils literal notranslate">LLVM</code> libraries.</p>
+<p>The interface is provided as a header: <code class="docutils literal notranslate">compiler/utils/lld_linker.h</code>. Targets
+should additionally link against the <code class="docutils literal notranslate">compiler-linker-utils</code> library. The
+linker is exposed via the following interface:</p>
+<pre><code class="language-cpp">llvm::Expected&lt;std::unique_ptr&lt;llvm::MemoryBuffer&gt;&gt; lldLinkToBinary(
+    const llvm::ArrayRef&lt;uint8_t&gt; rawBinary,
+    const std::string &amp;linkerScriptStr, const uint8_t *linkerLib,
+    unsigned int linkerLibBytes,
+    const llvm::SmallVectorImpl&lt;std::string&gt; &amp;additionalLinkArgs);
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">rawBinary</code> is the object final output, and the function returns the
+final output binary. An optional library may be passed in as a binary in
+<code class="docutils literal notranslate">linkerLib</code>. Targets can pass in additional linker flags in
+<code class="docutils literal notranslate">additionalLinkArgs</code>. Typical additional flags include <code class="docutils literal notranslate">-e0</code> to suppress
+warnings for having no entry point.</p>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Overview</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools"
+                            >
+                            <div>
+                                <h1>Tools</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#compiler-utilities">Compiler Utilities</a></li>
+                        <li class="heading-2"><a href="#transferkernelmetadatapass-encodekernelmetadatapass">TransferKernelMetadataPass &amp;amp; EncodeKernelMetadataPass</a></li>
+                        <li class="heading-2"><a href="#lowertomuxbuiltinspass">LowerToMuxBuiltinsPass</a></li>
+                        <li class="heading-2"><a href="#alignmodulestructspass">AlignModuleStructsPass</a></li>
+                        <li class="heading-2"><a href="#replaceatomicfuncspass">ReplaceAtomicFuncsPass</a></li>
+                        <li class="heading-2"><a href="#fixupcallingconventionpass">FixupCallingConventionPass</a></li>
+                        <li class="heading-2"><a href="#workitemloopspass">WorkItemLoopsPass</a></li>
+                        <li class="heading-2"><a href="#optimalbuiltinreplacementpass">OptimalBuiltinReplacementPass</a></li>
+                        <li class="heading-2"><a href="#linkbuiltinspass">LinkBuiltinsPass</a></li>
+                        <li class="heading-2"><a href="#makefunctionnameuniquepass">MakeFunctionNameUniquePass</a></li>
+                        <li class="heading-2"><a href="#reducetofunctionpass">ReduceToFunctionPass</a></li>
+                        <li class="heading-2"><a href="#runveczpass">RunVeczPass</a></li>
+                        <li class="heading-2"><a href="#scheduling-parameters">Scheduling Parameters</a></li>
+                        <li class="heading-2"><a href="#definemuxbuiltinspass">DefineMuxBuiltinsPass</a></li>
+                        <li class="heading-2"><a href="#addkernelwrapperpass">AddKernelWrapperPass</a></li>
+                        <li class="heading-2"><a href="#replacelocalmodulescopevariablespass">ReplaceLocalModuleScopeVariablesPass</a></li>
+                        <li class="heading-2"><a href="#replacemuxmathdeclspass">ReplaceMuxMathDeclsPass</a></li>
+                        <li class="heading-2"><a href="#uniqueopaquestructspass">UniqueOpaqueStructsPass</a></li>
+                        <li class="heading-2"><a href="#simplecallbackpass">SimpleCallbackPass</a></li>
+                        <li class="heading-2"><a href="#replacewgcpass">ReplaceWGCPass</a></li>
+                        <li class="heading-2"><a href="#addmetadatapass-analysisty-handlerty">AddMetadataPass&amp;lt;AnalysisTy, HandlerTy&amp;gt;</a></li>
+                        <li class="heading-2"><a href="#replacememintrinsicspass">ReplaceMemIntrinsicsPass</a></li>
+                        <li class="heading-2"><a href="#preparebarrierspass">PrepareBarriersPass</a></li>
+                        <li class="heading-2"><a href="#removelifetimeintrinsicspass">RemoveLifetimeIntrinsicsPass</a></li>
+                        <li class="heading-2"><a href="#removeexceptionspass">RemoveExceptionsPass</a></li>
+                        <li class="heading-2"><a href="#verifyreqdsubgroupsizelegalpass-verifyreqdsubgroupsizesatisfiedpass">VerifyReqdSubGroupSizeLegalPass &amp;amp; VerifyReqdSubGroupSizeSatisfiedPass</a></li>
+                        <li class="heading-2"><a href="#replacetargetexttyspass">ReplaceTargetExtTysPass</a></li>
+                        <li class="heading-2"><a href="#manualtypelegalizationpass">ManualTypeLegalizationPass</a></li>
+                        <li class="heading-2"><a href="#metadata-utilities">Metadata Utilities</a></li>
+                        <li class="heading-2"><a href="#attribute-utilities">Attribute Utilities</a></li>
+                        <li class="heading-2"><a href="#sub-groups">Sub-groups</a></li>
+                        <li class="heading-2"><a href="#linker-support">Linker support</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="e955784e99bff79a1745d637ba091e56">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

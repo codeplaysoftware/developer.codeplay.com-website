@@ -1,0 +1,73 @@
+.download-chooser-panels {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-chooser-panels * {
+    box-sizing: border-box;
+}
+
+.download-chooser-panels > * {
+    padding: 6rem 4rem;
+}
+
+.download-chooser-panels > *:nth-of-type(1) {
+    background-color: var(--firstColor);
+}
+
+.download-chooser-panels > *:nth-of-type(2) {
+    background-color: var(--secondColor);
+}
+
+.download-chooser-panels > *:nth-of-type(3) {
+    background-color: var(--thirdColor);
+}
+
+@media screen and (min-width: 800px) {
+    .download-chooser-panels.panels-2 {
+        flex-direction: row;
+    }
+
+    .download-chooser-panels.panels-2 > * {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .download-chooser-panels.panels-3 {
+        flex-direction: row;
+    }
+
+    .download-chooser-panels.panels-3 > * {
+        flex: 1;
+    }
+}
+
+.download-chooser-panels h1 {
+    font-size: 1.2rem;
+    padding-top: 0;
+}
+
+.download-chooser-panels h1 .rounded-icon {
+    margin-right: 1rem;
+}
+
+.download-chooser-panels p {
+    font-size: 1rem;
+    margin-top: 2rem;
+    opacity: .8;
+}
+
+.download-chooser-panels select {
+    margin-top: 3rem;
+}
+
+.download-chooser-panels select {
+    background-color: var(--highlightColor);
+    color: inherit;
+}
+
+.download-chooser-panels select option {
+    background-color: var(--foregroundColor);
+    color: inherit;
+}

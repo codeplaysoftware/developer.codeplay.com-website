@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Custom Lowering Work-Item Builtins - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Custom Lowering Work-Item Builtins' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Custom Lowering Work-Item Builtins - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Custom Lowering Work-Item Builtins' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="tutorials-custom-lowering-work-item-builtins">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class="selected"><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class="selected focused"><a href="custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#custom-lowering-work-item-builtins">
+                            <h1>Custom Lowering Work-Item Builtins</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/tutorials/custom-lowering-work-item-builtins.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="adding-target-specific-metadata-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="custom-lowering-work-item-builtins">
+
+<p>Work-item builtin functions are core to the correct scheduling of work-groups.
+Given the variety of platforms that ComputeMux runs on, it is a common
+occurrence that target hardware or execution models could provide more optimal
+implementations of these builtins than the “software” versions that ComputeMux
+provides by default.</p>
+<p>In the compiler, language-level work-item functions are lowered to ComputeMux
+<a class="reference internal" href="../specifications/mux-compiler-spec.html#builtins"><span class="std std-ref">Builtins</span></a>. For example, OpenCL’s
+<code class="docutils literal notranslate">get_local_id</code> is lowered to call <code class="docutils literal notranslate">__mux_get_local_id</code>. This provides the
+compiler with the ability to map multiple higher-level languages to a small
+core set of built-in functions whose semantics are well understood. On the
+other end, the lowering of these <cite>mux builtins</cite> themselves can be customized by
+targets as long as they do not break the semantics of the builtins.</p>
+<p>ComputeMux provides a software implementation of mux work-item builtins in two
+passes: <a class="reference internal" href="../modules/compiler/utils.html#addschedulingparameterspass"><span class="std std-ref">AddSchedulingParametersPass</span></a> and
+<a class="reference internal" href="../modules/compiler/utils.html#definemuxbuiltinspass"><span class="std std-ref">DefineMuxBuiltinsPass</span></a> .
+The behaviour of these passes can be customized by a target’s implementation of
+<code class="docutils literal notranslate">BuiltinInfo</code>.</p>
+<p>Using an example scenario, this tutorial will provide different examples of how
+the <code class="docutils literal notranslate">__mux_get_local_id</code> builtin could be mapped to hardware functionality,
+using a RISC-V example scenario as motivation.</p>
+<div class="section" id="scenario">
+<a class="header-link" href="#scenario"><h2 id="scenario">Scenario</h2><span class="material-icons">link</span></a>
+<p>If a target’s scheduling model <a class="reference internal" href="../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html#work-group-scheduling"><span class="std std-ref">maps hardware thread IDs to work-item IDs</span></a>, then <code class="docutils literal notranslate">__mux_get_local_id</code> could be lowered to return a hardware
+thread ID.</p>
+<p>For a RISC-V target executing <cite>one-dimensional</cite> work-groups, this would be
+equivalent to the returning value of the <code class="docutils literal notranslate">mhartid</code> control and status
+register (<cite>CSR</cite>).</p>
+<ol class="arabic simple">
+<li><p>Override <code class="docutils literal notranslate">BuiltinInfo::defineMuxWorkItemBuiltin</code> to customize how
+<code class="docutils literal notranslate">__mux_get_local_id</code> is lowered.</p></li>
+<li><p>Override <code class="docutils literal notranslate">BuiltinInfo::initializeSchedulingParamForWrappedKernel</code> and
+store <code class="docutils literal notranslate">mhartid</code> to <code class="docutils literal notranslate">MuxWorkItemInfo</code>’s local ID field in the kernel
+wrapper.</p></li>
+<li><p>Override <code class="docutils literal notranslate">BuiltinInfo::getSchedulingParameters</code> to add an additional
+thread ID parameter, and implement <code class="docutils literal notranslate">BuiltinInfo::defineMuxWorkItemBuiltin</code>
+to return that in <code class="docutils literal notranslate">__mux_get_local_id</code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Examples are for illustration purposes only, and only show how the local ID
+in the X dimension could be mapped. Other dimensions are ignored.</p>
+</div>
+<p>Each example requires a custom implementation of <code class="docutils literal notranslate">BIMuxInfoConcept</code> as it
+overrides the <a class="reference internal" href="../modules/compiler/utils.html#scheduling-parameters"><span class="std std-ref">default software implementation</span></a> of mux builtins in some way. The skeleton structure for each
+example is:</p>
+<pre><code class="language-cpp">class MyMuxImpl : public utils::BIMuxInfoConcept {
+  // Will be filled out by each example
+};
+
+// Then, when registering analysis passes or creating the target's
+// PassMachinery...
+auto Callback = [&amp;](const llvm::Module &amp;) {
+  return utils::BuiltinInfo(std::make_unique&lt;MyMuxImpl&gt;(),
+                            utils::createSimpleCLBuiltinInfo(Builtins));
+};
+
+MAM.registerPass([&amp;] { return utils::BuiltinInfoAnalysis(Callback); });
+</code>
+</pre>
+<p>This skeleton will provide our target-specific <code class="docutils literal notranslate">BuiltinInfo</code> implementation
+to the compiler, e.g., in the target’s implementation of
+<a class="reference internal" href="../specifications/mux-compiler-spec.html#basemodule-createpassmachinery"><span class="std std-ref">BaseModule::createPassMachinery</span></a>.</p>
+<p>We will also be using the following LLVM IR and the
+<a class="reference internal" href="../modules/compiler/tools/muxc.html"><span class="doc">muxc</span></a> compiler testing tool to demonstrate how
+the changes made in each example affects code generation.</p>
+<p>The example contains a simple kernel function called <code class="docutils literal notranslate">my_kernel</code> which calls
+<code class="docutils literal notranslate">__mux_get_local_id</code>. The attributes which declare it a kernel function have
+been added by a previous pass.</p>
+<pre><code class="language-llvm">; ModuleID = 'thread-id.ll'
+
+declare i64 @__mux_get_local_id(i32)
+
+define void @my_kernel() #0 {
+  %tid = call i64 @__mux_get_local_id(i32 0)
+  ret void
+}
+
+attributes #0 = { "mux-kernel"="entry-point" }
+</code>
+</pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above example is compiling for a 64-bit target. To test compilation for
+a 32-bit, change <code class="docutils literal notranslate">i64</code> to <code class="docutils literal notranslate">i32</code> where appropriate.</p>
+</div>
+</div>
+<div class="section" id="example-1">
+<a class="header-link" href="#example-1"><h2 id="example-1">Example #1</h2><span class="material-icons">link</span></a>
+<p>By customizing how the compiler <cite>defines</cite> (provides the body of the function)
+the <code class="docutils literal notranslate">__mux_get_local_id</code> function, we can look up and return the <code class="docutils literal notranslate">mhartid</code>
+register. This transformation takes place during the
+<code class="docutils literal notranslate">DefineMuxBuiltinsPass</code>, once scheduling parameters have been added.</p>
+<p>Reading the <code class="docutils literal notranslate">mhartid</code> register must be done with inline assembly.</p>
+<p>We defer to the default lowering for all other work-item builtins. This means
+that, e.g., <code class="docutils literal notranslate">__mux_get_global_id</code> will call <code class="docutils literal notranslate">__mux_get_local_id</code> and
+benefit from this optimized lowering.</p>
+<p>The code for this example is as follows:</p>
+<pre><code class="language-cpp">class MyMuxImpl : public utils::BIMuxInfoConcept {
+  virtual llvm::Function *defineMuxBuiltin(
+      utils::BuiltinID ID, llvm::Module &amp;M,
+      llvm::ArrayRef&lt;llvm::Type *&gt; OverloadInfo = {}) override {
+    if (ID != utils::eMuxBuiltinGetLocalId) {
+      return BIMuxInfoConcept::defineMuxBuiltin(ID, M, OverloadInfo);
+    }
+    llvm::Function *F =
+        M.getFunction(utils::BuiltinInfo::getMuxBuiltinName(ID, OverloadInfo));
+    // Set some useful function attributes
+    setDefaultBuiltinAttributes(*F);
+    F-&gt;setLinkage(llvm::GlobalValue::InternalLinkage);
+    // Set up a basic block for our new function body
+    auto *BB = llvm::BasicBlock::Create(M.getContext(), "entry", F);
+
+    // Create an inline assembly statement which reads the value of mhartid
+    auto *const Asm = llvm::InlineAsm::get(
+        llvm::FunctionType::get(F-&gt;getReturnType(), /*isVarArg*/ false),
+        "csrr\t$0, mhartid", "=r,~{memory}", /*hasSideEffects*/ true);
+
+    llvm::IRBuilder&lt;&gt; IRB(BB);
+    // "Call" this inline assembly statement and return it
+    IRB.CreateRet(IRB.CreateCall(Asm, {}, "thread-id"));
+    return F;
+  }
+};
+</code>
+</pre>
+<pre><code class="language-llvm">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes define-mux-builtins -S thread-id.ll
+
+; Function Attrs: alwaysinline
+define internal i64 @__mux_get_local_id(i32 %0) #0 {
+entry:
+  %thread-id = call i64 asm sideeffect "csrr\09$0, mhartid", "=r,~{memory}"()
+  ret i64 %thread-id
+}
+
+define void @my_kernel() #1 {
+  %tid = call i64 @__mux_get_local_id(i32 0)
+  ret void
+}
+
+attributes #0 = { alwaysinline }
+attributes #1 = { "mux-kernel"="entry-point" }
+</code>
+</pre>
+<p>Here, the <code class="docutils literal notranslate">DefineMuxBuiltinsPass</code> (<code class="docutils literal notranslate">define-mux-builtins</code>) has picked up the
+custom lowering of <code class="docutils literal notranslate">__mux_get_local_id</code> to instead return the <code class="docutils literal notranslate">mhartid</code>
+register.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>Since other work-item builtins retain their default lowering, they need
+scheduling parameters. As such, the <code class="docutils literal notranslate">AddSchedulingParametersPass</code>
+(<code class="docutils literal notranslate">add-sched-params</code>) is still required in general. When running this pass
+first, you should see:</p>
+</div></blockquote>
+<pre><code class="language-default">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes add-sched-params,define-mux-builtins -S thread-id.ll
+
+declare i64 @__mux_get_local_id.old(i32)
+
+define internal void @my_kernel() {
+  %tid = call i64 @__mux_get_local_id.old(i32 0)
+  ret void
+}
+
+; Function Attrs: alwaysinline
+define internal i64 @__mux_get_local_id(i32 %0, ptr noalias %wi-info, ptr noalias %wg-info) #0 !mux_scheduled_fn !1 {
+entry:
+  %thread-id = call i64 asm sideeffect "csrr\09$0, mhartid", "=r,~{memory}"()
+  ret i64 %thread-id
+}
+
+define void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info) #1 !mux_scheduled_fn !2 {
+  %tid = call i64 @__mux_get_local_id(i32 0, ptr noalias %wi-info, ptr noalias %wg-info)
+  ret void
+}
+
+attributes #0 = { alwaysinline }
+attributes #1 = { "mux-base-fn-name"="my_kernel" "mux-kernel"="entry-point" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{!"MuxWorkItemInfo", !"MuxWorkGroupInfo"}
+!1 = !{i32 1, i32 2}
+!2 = !{i32 0, i32 1}
+</code>
+</pre>
+<p>Note how <code class="docutils literal notranslate">__mux_get_local_id</code> has received scheduling parameters even
+though it doesn’t use them. The generated LLVM-IR also contains two dead
+functions. Two key LLVM passes - <cite>dead global elimination</cite> and <cite>dead argument
+elimination</cite> - will usually clean this up later:</p>
+<pre><code class="language-default">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes add-sched-params,define-mux-builtins,globaldce,deadargelim -S thread-id.ll
+
+; Function Attrs: alwaysinline
+define internal void @__mux_get_local_id() #0 !mux_scheduled_fn !1 {
+entry:
+  %thread-id = call i64 asm sideeffect "csrr\09$0, mhartid", "=r,~{memory}"()
+  ret void
+}
+
+define void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info) #1 !mux_scheduled_fn !2 {
+  call void @__mux_get_local_id()
+  ret void
+}
+
+attributes #0 = { alwaysinline }
+attributes #1 = { "mux-base-fn-name"="my_kernel" "mux-kernel"="entry-point" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{!"MuxWorkItemInfo", !"MuxWorkGroupInfo"}
+!1 = !{i32 1, i32 2}
+!2 = !{i32 0, i32 1}
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="example-2">
+<a class="header-link" href="#example-2"><h2 id="example-2">Example #2</h2><span class="material-icons">link</span></a>
+<p>Alternatively, it is possible to exploit the default lowering of
+<code class="docutils literal notranslate">__mux_get_local_id</code>. The default scheduling parameter <code class="docutils literal notranslate">MuxWorkItemInfo</code>
+has a three-dimensional field to hold local ID values. In the default
+compilation pipeline, these values are set by the <a class="reference internal" href="../modules/compiler/utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a>. This pass maps all work-items of a
+work-group to run on a single hardware thread by making the implicit
+parallelism model explicit, inserting three-dimensional loops over a work-group
+and calling <code class="docutils literal notranslate">__mux_set_local_id</code> in every work-item loop iteration before
+calling the original kernel function. If the target does not run this pass and
+can guarantee that these local ID values are not otherwise clobbered, it could
+store <code class="docutils literal notranslate">mhartid</code> to this scheduling parameter once per kernel invocation.</p>
+<p>The <a class="reference internal" href="../modules/compiler/utils.html#addkernelwrapperpass"><span class="std std-ref">AddKernelWrapperPass</span></a> is
+responsible for initializing any scheduling parameters which are not passed
+“externally” by the driver. By overriding
+<code class="docutils literal notranslate">BuiltinInfo::initializeSchedulingParamForWrappedKernel</code>, we can customize
+the initialization of <code class="docutils literal notranslate">MuxWorkItemInfo</code> to store <code class="docutils literal notranslate">mhartid</code> to the local ID.</p>
+<pre><code class="language-cpp">class MyMuxImpl : public utils::BIMuxInfoConcept {
+  virtual llvm::Value *initializeSchedulingParamForWrappedKernel(
+      const utils::BuiltinInfo::SchedParamInfo &amp;Info, llvm::IRBuilder&lt;&gt; &amp;B,
+      llvm::Function &amp;IntoF, llvm::Function &amp;) override {
+    // We only expect to have to initialize the work-item info. The work-group
+    // info is passed straight through.
+    assert(!Info.PassedExternally &amp;&amp; Info.ID == 0 &amp;&amp; Info.ParamName == "wi-info");
+    llvm::Module &amp;M = *IntoF.getParent();
+    // Create an inline assembly statement which reads the value of mhartid
+    auto *const Asm = llvm::InlineAsm::get(
+        llvm::FunctionType::get(compiler::utils::getSizeType(M), false),
+        "csrr\t$0, mhartid", "=r,~{memory}", true);
+    // This is known to be the underlying structure type of this scheduling
+    // parameter
+    auto *Ty = utils::getWorkItemInfoStructTy(M);
+    // Allocate MuxWorkItemInfo on the stack
+    auto *const Alloca = B.CreateAlloca(Ty, /*ArraySize*/ nullptr, Info.ParamName);
+    // Calculate the address of the local ID field in the X dimension
+    auto *const FieldAddr =
+        B.CreateGEP(Ty, Alloca, {B.getInt32(0), B.getInt32(0), B.getInt32(0)});
+    // Store mhartid to this address
+    auto *const Call = B.CreateCall(Asm, {}, "thread-id");
+    B.CreateStore(Call, FieldAddr, "store");
+    // Return the address of the allocation to be passed to the wrapped kernel
+    return Alloca;
+  }
+};
+</code>
+</pre>
+<p>Running the <code class="docutils literal notranslate">AddKernelWrapperPass</code> (<code class="docutils literal notranslate">add-kernel-wrapper</code>) as part of the
+pipeline, it is possible to see that the wrapper kernel when initializing
+<code class="docutils literal notranslate">MuxWorkItemInfo</code> also sets up the local ID by storing the value of
+<code class="docutils literal notranslate">mhartid</code> to the scheduling structure. The default lowering of
+<code class="docutils literal notranslate">__mux_get_local_id</code> thus picks this up.</p>
+<pre><code class="language-default">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes add-sched-params,define-mux-builtins,add-kernel-wrapper -S thread-id.ll
+
+%MuxWorkItemInfo = type { [3 x i64], i32, i32, i32, i32 }
+
+; Function Attrs: alwaysinline
+define internal i64 @__mux_get_local_id(i32 %0, ptr noalias %wi-info, ptr noalias %wg-info) #0 !mux_scheduled_fn !1 {
+  %2 = icmp ult i32 %0, 3
+  %3 = select i1 %2, i32 %0, i32 0
+  %4 = getelementptr %MuxWorkItemInfo, ptr %wi-info, i32 0, i32 0, i32 %3
+  %5 = load i64, ptr %4, align 4
+  %6 = select i1 %2, i64 %5, i64 0
+  ret i64 %6
+}
+
+; Function Attrs: alwaysinline
+define internal void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info) #1 !mux_scheduled_fn !2 {
+  %tid = call i64 @__mux_get_local_id(i32 0, ptr noalias %wi-info, ptr noalias %wg-info)
+  ret void
+}
+
+; Function Attrs: nounwind
+define void @my_kernel.mux-kernel-wrapper(ptr %packed-args, ptr noalias %wg-info) #2 {
+  %wi-info = alloca %MuxWorkItemInfo, align 8
+  %1 = getelementptr %MuxWorkItemInfo, ptr %wi-info, i32 0, i32 0, i32 0
+  %thread-id = call i64 asm sideeffect "csrr\09$0, mhartid", "=r,~{memory}"()
+  store volatile i64 %thread-id, ptr %1, align 4
+  call void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info) #1
+  ret void
+}
+
+attributes #0 = { alwaysinline }
+attributes #1 = { alwaysinline "mux-base-fn-name"="my_kernel" }
+attributes #2 = { nounwind "mux-base-fn-name"="my_kernel" "mux-kernel"="entry-point" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{!"MuxWorkItemInfo", !"MuxWorkGroupInfo"}
+!1 = !{i32 1, i32 2}
+!2 = !{i32 0, i32 1}
+</code>
+</pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: some dead functions (explained above) have been trimmed for clarity.</p>
+</div>
+</div>
+<div class="section" id="example-3">
+<a class="header-link" href="#example-3"><h2 id="example-3">Example #3</h2><span class="material-icons">link</span></a>
+<p>Instead of using the default scheduling parameters, targets may wish to add
+<cite>additional</cite> scheduling parameters. This approach may benefit targets with a
+certain kernel ABI, or ones whose work-group scheduling calculates work-item
+data beyond the view of ComputeMux, e.g., in the driver or the HAL.</p>
+<pre><code class="language-cpp">class MyMuxImpl : public utils::BIMuxInfoConcept {
+  virtual llvm::SmallVector&lt;utils::BuiltinInfo::SchedParamInfo, 4&gt;
+  getMuxSchedulingParameters(llvm::Module &amp;M) override {
+    // Retrieve the default list of scheduling parameters (MuxWorkItemInfo
+    // and MuxWorkGroupInfo)
+    auto List = BIMuxInfoConcept::getMuxSchedulingParameters(M);
+    // Register a third scheduling parameter - a 64-bit integer we'll use to
+    // pass through the thread ID.
+    utils::BuiltinInfo::SchedParamInfo Extra;
+    Extra.ID = 2;
+    Extra.ParamTy = llvm::Type::getInt64Ty(M.getContext());
+    Extra.ParamName = "thread-id";
+    Extra.ParamDebugName = "ThreadID";
+    Extra.PassedExternally = true;
+
+    List.push_back(Extra);
+
+    return List;
+  }
+
+  virtual llvm::Function *defineMuxBuiltin(
+      utils::BuiltinID ID, llvm::Module &amp;M,
+      llvm::ArrayRef&lt;llvm::Type *&gt; OverloadInfo = {}) override {
+    if (ID == utils::eMuxBuiltinGetLocalId) {
+      llvm::Function *F =
+          M.getFunction(utils::BuiltinInfo::getMuxBuiltinName(ID, OverloadInfo));
+      // Set some useful function attributes
+      setDefaultBuiltinAttributes(*F);
+      // We additionally know that our function is readnone
+      F-&gt;addFnAttr(llvm::Attribute::ReadNone);
+      F-&gt;setLinkage(llvm::GlobalValue::InternalLinkage);
+      auto *BB = llvm::BasicBlock::Create(M.getContext(), "entry", F);
+      llvm::IRBuilder&lt;&gt; B(BB);
+      // Simply return the last scheduling parameter, which we know is the
+      // thread ID.
+      B.CreateRet(std::prev(F-&gt;arg_end()));
+      return F;
+    }
+    return BIMuxInfoConcept::defineMuxBuiltin(ID, M, OverloadInfo);
+  }
+};
+</code>
+</pre>
+<p>Running the <code class="docutils literal notranslate">AddSchedulingParametersPass</code> will show that the third scheduling
+parameter has been added to <code class="docutils literal notranslate">__mux_get_local_id</code>, and that
+<code class="docutils literal notranslate">DefineMuxBuiltinsPass</code> then kicks in to simply return that value.</p>
+<pre><code class="language-default">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes add-sched-params,define-mux-builtins -S thread-id.ll
+
+; Function Attrs: alwaysinline
+define internal i64 @__mux_get_local_id(i32 %0, ptr noalias %wi-info, ptr noalias %wg-info, i64 %thread-id) #0 !mux_scheduled_fn !1 {
+entry:
+  ret i64 %thread-id
+}
+
+define void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info, i64 %thread-id) #1 !mux_scheduled_fn !2 {
+  %thread-id = call i64 @__mux_get_local_id(i32 0, ptr noalias %wi-info, ptr noalias %wg-info, i64 %thread-id)
+  ret void
+}
+
+attributes #0 = { alwaysinline readnone }
+attributes #1 = { "mux-base-fn-name"="my_kernel" "mux-kernel"="entry-point" }
+
+!mux-scheduling-params = !{!0}
+
+!0 = !{!"MuxWorkItemInfo", !"MuxWorkGroupInfo", !"ThreadID"}
+!1 = !{i32 1, i32 2, i32 3}
+!2 = !{i32 0, i32 1, i32 2}
+</code>
+</pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: some dead functions (explained above) have been trimmed for clarity.</p>
+</div>
+<p>We can then see how the <code class="docutils literal notranslate">AddKernelWrapperPass</code> respects this scheduling
+parameter. Note how <code class="docutils literal notranslate">%thread-id</code> now forms part of the kernel ABI:</p>
+<pre><code class="language-default">; Run this on the command line, you should see the following
+; muxc --device "RefSi M1" --passes add-sched-params,define-mux-builtins,add-kernel-wrapper -S thread-id.ll
+
+%MuxWorkItemInfo = type { [3 x i64], i32, i32, i32, i32 }
+
+; Some functions omitted for clarity
+
+; Function Attrs: nounwind
+define void @my_kernel.mux-kernel-wrapper(ptr %packed-args, ptr noalias %wg-info, i64 %thread-id) #2 {
+  %wi-info = alloca %MuxWorkItemInfo, align 8
+  call void @my_kernel.mux-sched-wrapper(ptr noalias %wi-info, ptr noalias %wg-info, i64 %thread-id) #1
+  ret void
+}
+</code>
+</pre>
+<p>In this example, it can be imagined that the code that calls the kernel
+<code class="docutils literal notranslate">my_kernel</code> initializes a parameter register (e.g., <code class="docutils literal notranslate">a2</code> on RISC-V) with
+the value of <code class="docutils literal notranslate">mhartid</code>.</p>
+</div>
+<div class="section" id="other-approaches">
+<a class="header-link" href="#other-approaches"><h2 id="other-approaches">Other Approaches</h2><span class="material-icons">link</span></a>
+<p>The set of examples given are not exhaustive: it is possible to combine any of
+the above examples:</p>
+<ul class="simple">
+<li><p>Examples #2 and #3 could be combined to result in a third 64-bit integer
+<code class="docutils literal notranslate">ThreadID</code> scheduling parameter whose value is initialized by the
+<code class="docutils literal notranslate">AddKernelWrapperPass</code>, rather than being passed to the kernel.</p></li>
+<li><p>Targets using the <code class="docutils literal notranslate">WorkItemLoopsPass</code> could customize the lowering of
+<code class="docutils literal notranslate">__mux_set_local_id</code> akin to example #1 to set a target-specific reserved
+register which is then read by <code class="docutils literal notranslate">__mux_get_local_id</code>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:51 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="adding-a-custom-builtins-extension-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Adding A Custom Builtins Extension</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="adding-target-specific-metadata-2.html"
+                            >
+                            <div>
+                                <h1>Adding Target-Specific Metadata</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#custom-lowering-work-item-builtins">Custom Lowering Work-Item Builtins</a></li>
+                        <li class="heading-2"><a href="#scenario">Scenario</a></li>
+                        <li class="heading-2"><a href="#example-1">Example #1</a></li>
+                        <li class="heading-2"><a href="#example-2">Example #2</a></li>
+                        <li class="heading-2"><a href="#example-3">Example #3</a></li>
+                        <li class="heading-2"><a href="#other-approaches">Other Approaches</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="954049ac66de55e1449160ddb271555c">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

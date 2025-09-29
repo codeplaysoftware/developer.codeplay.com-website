@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>cl::sycl::program Class Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'cl::sycl::program Class Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+    <meta name="keywords" content="reference, api, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="cl::sycl::program Class Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'cl::sycl::program Class Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Reference/ReferencePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-content-with-side-menu layout-file">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+        <div class="nav-padding">
+            <!-- Title & Version Selector -->
+            <div class="header">
+                <h1 class="file-container-title">
+                    <span class="material-icons">menu_book</span>Reference
+                </h1>
+                <div>
+                    <!-- Version Selector -->
+                    <div class="version-selector disabled">
+                        <div><span class="material-icons">history</span>2.11.0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu -->
+            <ol class="file-menu">
+                <li class="selected"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/annotated" ><div class="icon"></div>Classes</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl" ><div class="icon"><span class="type-icon namespace">N</span></div>cl</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl" ><div class="icon"><span class="type-icon namespace">N</span></div>sycl</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01k_target_00_01is_placeholder_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::accessor&lt; elemT, kDims, kMode, kTarget, isPlaceholder &gt; &gt;</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1info" ><div class="icon"><span class="type-icon namespace">N</span></div>info</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector" ><div class="icon"><span class="type-icon class">C</span></div>device_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_010_00_01k_mode_00_01access_1_1target_1_1local_00_01ac11e61964f98321fc59e3ba211b2ed571" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, 0, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image_0099ace1af3eb9921dd135ee22871e171c" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1local_00954080e79c4cab78cbdd7b7477d4a6dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor__error" ><div class="icon"><span class="type-icon class">C</span></div>accessor_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1atomic" ><div class="icon"><span class="type-icon struct">S</span></div>atomic</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits_3_01backend_1_1opencl_01_4" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits&lt; backend::opencl &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer_3_01const_01_t_00_01dims_00_01_allocator_t_01_4" ><div class="icon"><span class="type-icon class">C</span></div>buffer&lt; const T, dims, AllocatorT &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context" ><div class="icon"><span class="type-icon class">C</span></div>context</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1default__selector" ><div class="icon"><span class="type-icon class">C</span></div>default_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__error" ><div class="icon"><span class="type-icon class">C</span></div>device_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1device__type" ><div class="icon"><span class="type-icon struct">S</span></div>device_type</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event" ><div class="icon"><span class="type-icon class">C</span></div>event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception" ><div class="icon"><span class="type-icon class">C</span></div>exception</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1feature__not__supported" ><div class="icon"><span class="type-icon class">C</span></div>feature_not_supported</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1group" ><div class="icon"><span class="type-icon class">C</span></div>group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1id" ><div class="icon"><span class="type-icon class">C</span></div>id</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__context_01_5_00_01context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_context *, context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__platform__id_01_5_00_01platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_platform_id *, platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1intel__selector" ><div class="icon"><span class="type-icon class">C</span></div>intel_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__parameter__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_parameter_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel" ><div class="icon"><span class="type-icon class">C</span></div>kernel</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1link__program__error" ><div class="icon"><span class="type-icon class">C</span></div>link_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range" ><div class="icon"><span class="type-icon class">C</span></div>nd_range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1opencl__selector" ><div class="icon"><span class="type-icon class">C</span></div>opencl_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform__error" ><div class="icon"><span class="type-icon class">C</span></div>platform_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1private__memory" ><div class="icon"><span class="type-icon class">C</span></div>private_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1profiling__error" ><div class="icon"><span class="type-icon class">C</span></div>profiling_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list" ><div class="icon"><span class="type-icon class">C</span></div>property_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1range" ><div class="icon"><span class="type-icon class">C</span></div>range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1sampler" ><div class="icon"><span class="type-icon class">C</span></div>sampler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_012_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 2, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_014_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 4, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1swizzled__vec" ><div class="icon"><span class="type-icon class">C</span></div>swizzled_vec</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1event_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::event &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1kernel_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::kernel &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1program_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::program &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1sampler_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::sampler &gt;</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay" ><div class="icon"><span class="type-icon namespace">N</span></div>codeplay</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1profiling" ><div class="icon"><span class="type-icon namespace">N</span></div>profiling</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1interop__handle" ><div class="icon"><span class="type-icon class">C</span></div>interop_handle</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum" ><div class="icon"><span class="type-icon struct">S</span></div>maximum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>maximum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>minimum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1no__init__impl" ><div class="icon"><span class="type-icon class">C</span></div>no_init_impl</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1profiling_1_1profiling__zone" ><div class="icon"><span class="type-icon class">C</span></div>profiling_zone</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1host__access" ><div class="icon"><span class="type-icon class">C</span></div>host_access</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1use__onchip__memory" ><div class="icon"><span class="type-icon class">C</span></div>use_onchip_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1host__handler" ><div class="icon"><span class="type-icon class">C</span></div>host_handler</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1usm__allocator_1_1rebind" ><div class="icon"><span class="type-icon struct">S</span></div>rebind</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1context__bound" ><div class="icon"><span class="type-icon class">C</span></div>context_bound</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__mutex" ><div class="icon"><span class="type-icon class">C</span></div>use_mutex</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1enable__profiling" ><div class="icon"><span class="type-icon class">C</span></div>enable_profiling</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1experimental" ><div class="icon"><span class="type-icon namespace">N</span></div>experimental</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1sub__group" ><div class="icon"><span class="type-icon struct">S</span></div>sub_group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum" ><div class="icon"><span class="type-icon struct">S</span></div>minimum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1experimental_1_1usm__allocator" ><div class="icon"><span class="type-icon class">C</span></div>usm_allocator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1ext" ><div class="icon"><span class="type-icon namespace">N</span></div>ext</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits" ><div class="icon"><span class="type-icon struct">S</span></div>param_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__host__ptr" ><div class="icon"><span class="type-icon class">C</span></div>use_host_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1queue" ><div class="icon"><span class="type-icon namespace">N</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1in__order__impl" ><div class="icon"><span class="type-icon class">C</span></div>in_order_impl</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accelerator__selector" ><div class="icon"><span class="type-icon class">C</span></div>accelerator_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor" ><div class="icon"><span class="type-icon class">C</span></div>accessor</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__buf15cbef5585a67b9df703426df07becd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_buffer, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__task_00_01_is_placeholder_01_4" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_task, IsPlaceholder &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image__a20b2e286317ab4aba41c67020102515e" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image_array, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1subgroup76e943a636f7dfa8379be4ce805ab016" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::subgroup_local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1amd__selector" ><div class="icon"><span class="type-icon class">C</span></div>amd_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer" ><div class="icon"><span class="type-icon class">C</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1compile__program__error" ><div class="icon"><span class="type-icon class">C</span></div>compile_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1cpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>cpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device" ><div class="icon"><span class="type-icon class">C</span></div>device</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__event" ><div class="icon"><span class="type-icon class">C</span></div>device_event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1elem" ><div class="icon"><span class="type-icon struct">S</span></div>elem</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event__error" ><div class="icon"><span class="type-icon class">C</span></div>event_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception__list" ><div class="icon"><span class="type-icon class">C</span></div>exception_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1gpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>gpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1h__item" ><div class="icon"><span class="type-icon class">C</span></div>h_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1host__selector" ><div class="icon"><span class="type-icon class">C</span></div>host_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1image" ><div class="icon"><span class="type-icon class">C</span></div>image</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__device__id_01_5_00_01device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_device_id *, device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01size__t_01_5_00_01range_3_013_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; size_t *, range&lt; 3 &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_object_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1item" ><div class="icon"><span class="type-icon class">C</span></div>item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel__error" ><div class="icon"><span class="type-icon class">C</span></div>kernel_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1memory__allocation__error" ><div class="icon"><span class="type-icon class">C</span></div>memory_allocation_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01const_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; const void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__item" ><div class="icon"><span class="type-icon class">C</span></div>nd_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range__error" ><div class="icon"><span class="type-icon class">C</span></div>nd_range_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform" ><div class="icon"><span class="type-icon class">C</span></div>platform</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1precision__manipulator" ><div class="icon"><span class="type-icon class">C</span></div>precision_manipulator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler::parallel_for_work_group</a><ol></ol></li><li class="selected focused"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program" ><div class="icon"><span class="type-icon class">C</span></div>program</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue" ><div class="icon"><span class="type-icon class">C</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1runtime__error" ><div class="icon"><span class="type-icon class">C</span></div>runtime_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1stream" ><div class="icon"><span class="type-icon class">C</span></div>stream</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_0116_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 16, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_013_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 3, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_018_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 8, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1vec" ><div class="icon"><span class="type-icon class">C</span></div>vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1buffer_3_01_t_00_01dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::buffer&lt; T, dimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1image_3_01k_dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::image&lt; kDimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1queue_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::queue &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1stream_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::stream &gt;</a><ol></ol></li></ol></li>            </ol>
+        </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <h1>cl::sycl::program Class Reference</h1>
+                </header>
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="contents">
+<p>Public facing program class that provides an interface for abstracting the construction and building of a cl_program object, See section 3.5.5 of the SYCL 1.2 specification.  
+ <a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#details">More...</a></p>
+<p><code>#include &lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1541d56187f0f0552e56c81cdf47c4b6"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a1541d56187f0f0552e56c81cdf47c4b6">program</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a>, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a1541d56187f0f0552e56c81cdf47c4b6"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a program for a context.  <a href="#a1541d56187f0f0552e56c81cdf47c4b6">More...</a><br></td></tr>
+<tr class="separator:a1541d56187f0f0552e56c81cdf47c4b6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a12f9591c5e75aff32146ee994cac8575"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a12f9591c5e75aff32146ee994cac8575">program</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &gt; deviceList, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a12f9591c5e75aff32146ee994cac8575"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a program for a list of devices on a context.  <a href="#a12f9591c5e75aff32146ee994cac8575">More...</a><br></td></tr>
+<tr class="separator:a12f9591c5e75aff32146ee994cac8575"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab46aa1b08be948fee80590bcc5880093"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ab46aa1b08be948fee80590bcc5880093">program</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a>, cl_program clProgram)</td></tr>
+<tr class="memdesc:ab46aa1b08be948fee80590bcc5880093"><td class="mdescLeft"> </td><td class="mdescRight">Inter-op constructor that takes a context and a cl_program.  <a href="#ab46aa1b08be948fee80590bcc5880093">More...</a><br></td></tr>
+<tr class="separator:ab46aa1b08be948fee80590bcc5880093"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad2bff05a27651ffc8c076b1dadba7afd"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ad2bff05a27651ffc8c076b1dadba7afd">program</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; programList, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:ad2bff05a27651ffc8c076b1dadba7afd"><td class="mdescLeft"> </td><td class="mdescRight">Linker constructor from a list of programs.  <a href="#ad2bff05a27651ffc8c076b1dadba7afd">More...</a><br></td></tr>
+<tr class="separator:ad2bff05a27651ffc8c076b1dadba7afd"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad564a3ee9a43fc261b5e61ca54e3787e"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ad564a3ee9a43fc261b5e61ca54e3787e">program</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; programList, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> linkOptions, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:ad564a3ee9a43fc261b5e61ca54e3787e"><td class="mdescLeft"> </td><td class="mdescRight">Linker constructor from a list of programs.  <a href="#ad564a3ee9a43fc261b5e61ca54e3787e">More...</a><br></td></tr>
+<tr class="separator:ad564a3ee9a43fc261b5e61ca54e3787e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a22428a62f8dc6253976b3c3438e4fb33"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a22428a62f8dc6253976b3c3438e4fb33">program</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; programList, const char *linkOptions, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="separator:a22428a62f8dc6253976b3c3438e4fb33"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0d2310f117b0b4270c61f81cd2d02a12"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a0d2310f117b0b4270c61f81cd2d02a12">program</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;rhs)=default</td></tr>
+<tr class="memdesc:a0d2310f117b0b4270c61f81cd2d02a12"><td class="mdescLeft"> </td><td class="mdescRight">Copy constructor that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices.  <a href="#a0d2310f117b0b4270c61f81cd2d02a12">More...</a><br></td></tr>
+<tr class="separator:a0d2310f117b0b4270c61f81cd2d02a12"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3f05e5d7b985fe6e8a3b6e5654527a62"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3f05e5d7b985fe6e8a3b6e5654527a62">operator=</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;rhs)=default</td></tr>
+<tr class="memdesc:a3f05e5d7b985fe6e8a3b6e5654527a62"><td class="mdescLeft"> </td><td class="mdescRight">Assignment operator that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices.  <a href="#a3f05e5d7b985fe6e8a3b6e5654527a62">More...</a><br></td></tr>
+<tr class="separator:a3f05e5d7b985fe6e8a3b6e5654527a62"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a8e0f5e8e85d87cf97a42ff528c72b9"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a6a8e0f5e8e85d87cf97a42ff528c72b9">program</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;&amp;rhs)=default</td></tr>
+<tr class="memdesc:a6a8e0f5e8e85d87cf97a42ff528c72b9"><td class="mdescLeft"> </td><td class="mdescRight">Copy constructor that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices.  <a href="#a6a8e0f5e8e85d87cf97a42ff528c72b9">More...</a><br></td></tr>
+<tr class="separator:a6a8e0f5e8e85d87cf97a42ff528c72b9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2c22bc80d1143931ef12b2c59daadf80"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a2c22bc80d1143931ef12b2c59daadf80">operator=</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;&amp;rhs)=default</td></tr>
+<tr class="memdesc:a2c22bc80d1143931ef12b2c59daadf80"><td class="mdescLeft"> </td><td class="mdescRight">Assignment operator that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices.  <a href="#a2c22bc80d1143931ef12b2c59daadf80">More...</a><br></td></tr>
+<tr class="separator:a2c22bc80d1143931ef12b2c59daadf80"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9ec74a98b67844a8b45f42e923e59e37"><td class="memItemLeft">COMPUTECPP_TEST_VIRTUAL </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a9ec74a98b67844a8b45f42e923e59e37">~program</a> ()=default</td></tr>
+<tr class="memdesc:a9ec74a98b67844a8b45f42e923e59e37"><td class="mdescLeft"> </td><td class="mdescRight">Destructor that releases the cl_program.  <a href="#a9ec74a98b67844a8b45f42e923e59e37">More...</a><br></td></tr>
+<tr class="separator:a9ec74a98b67844a8b45f42e923e59e37"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a91f79c193cdf2f496743f8194f45b00c"><td class="memTemplParams" colspan="2">template&lt;typename kernelT &gt; </td></tr>
+<tr class="memitem:a91f79c193cdf2f496743f8194f45b00c"><td class="memTemplItemLeft">void </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a91f79c193cdf2f496743f8194f45b00c">compile_with_kernel_type</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> compileOptions="")</td></tr>
+<tr class="memdesc:a91f79c193cdf2f496743f8194f45b00c"><td class="mdescLeft"> </td><td class="mdescRight">Compile a SYCL kernel using name and optional custom compile options.  <a href="#a91f79c193cdf2f496743f8194f45b00c">More...</a><br></td></tr>
+<tr class="separator:a91f79c193cdf2f496743f8194f45b00c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aca7ca24a1f0928d4de06cd28f0726639"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#aca7ca24a1f0928d4de06cd28f0726639">compile_with_source</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> kernelSource, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> compileOptions="")</td></tr>
+<tr class="memdesc:aca7ca24a1f0928d4de06cd28f0726639"><td class="mdescLeft"> </td><td class="mdescRight">Compiles a program from the given OpenCL C kernel source.  <a href="#aca7ca24a1f0928d4de06cd28f0726639">More...</a><br></td></tr>
+<tr class="separator:aca7ca24a1f0928d4de06cd28f0726639"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a538c86ff0ff531935705cdd29a3aa399"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a538c86ff0ff531935705cdd29a3aa399">compile_with_source</a> (const char *kernelSrc, const char *compileOptions)</td></tr>
+<tr class="memdesc:a538c86ff0ff531935705cdd29a3aa399"><td class="mdescLeft"> </td><td class="mdescRight">Compiles a program from the given OpenCL C kernel source.  <a href="#a538c86ff0ff531935705cdd29a3aa399">More...</a><br></td></tr>
+<tr class="separator:a538c86ff0ff531935705cdd29a3aa399"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1f6dc5176f77d0df4f995057ae7bc54c"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a1f6dc5176f77d0df4f995057ae7bc54c">create_from_built_in_kernel</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a>)</td></tr>
+<tr class="memdesc:a1f6dc5176f77d0df4f995057ae7bc54c"><td class="mdescLeft"> </td><td class="mdescRight">Creates a valid cl_program from a pre-built kernel provided by the underlying OpenCL implementation.  <a href="#a1f6dc5176f77d0df4f995057ae7bc54c">More...</a><br></td></tr>
+<tr class="separator:a1f6dc5176f77d0df4f995057ae7bc54c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a41b14c32d40ac67df82eaed38fb976da"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a41b14c32d40ac67df82eaed38fb976da">create_from_built_in_kernel</a> (const char *<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a>)</td></tr>
+<tr class="memdesc:a41b14c32d40ac67df82eaed38fb976da"><td class="mdescLeft"> </td><td class="mdescRight">Creates a valid cl_program from a pre-built kernel provided by the underlying OpenCL implementation.  <a href="#a41b14c32d40ac67df82eaed38fb976da">More...</a><br></td></tr>
+<tr class="separator:a41b14c32d40ac67df82eaed38fb976da"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a067d18447886e13a392d27fd2e26edb8"><td class="memTemplParams" colspan="2">template&lt;typename kernelT &gt; </td></tr>
+<tr class="memitem:a067d18447886e13a392d27fd2e26edb8"><td class="memTemplItemLeft">void </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> buildOptions="")</td></tr>
+<tr class="memdesc:a067d18447886e13a392d27fd2e26edb8"><td class="mdescLeft"> </td><td class="mdescRight">Build a SYCL kernel using its name and optional custom build options.  <a href="#a067d18447886e13a392d27fd2e26edb8">More...</a><br></td></tr>
+<tr class="separator:a067d18447886e13a392d27fd2e26edb8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac2b73b108542f963e3ac377ba16ae29b"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ac2b73b108542f963e3ac377ba16ae29b">build_with_source</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> kernelSource, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> buildOptions="")</td></tr>
+<tr class="memdesc:ac2b73b108542f963e3ac377ba16ae29b"><td class="mdescLeft"> </td><td class="mdescRight">Creates and builds a program from OpenCL C kernel source and optional build options.  <a href="#ac2b73b108542f963e3ac377ba16ae29b">More...</a><br></td></tr>
+<tr class="separator:ac2b73b108542f963e3ac377ba16ae29b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5fe2bc0f701934c268f5994811ed68ea"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a5fe2bc0f701934c268f5994811ed68ea">build_with_source</a> (const char *kernelSrc, const char *compileOptions)</td></tr>
+<tr class="memdesc:a5fe2bc0f701934c268f5994811ed68ea"><td class="mdescLeft"> </td><td class="mdescRight">Creates and builds a program from OpenCL C kernel source and optional build options.  <a href="#a5fe2bc0f701934c268f5994811ed68ea">More...</a><br></td></tr>
+<tr class="separator:a5fe2bc0f701934c268f5994811ed68ea"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3ba4863592f4e5a1b93eb97e1dbf03b5"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> linkOptions="")</td></tr>
+<tr class="memdesc:a3ba4863592f4e5a1b93eb97e1dbf03b5"><td class="mdescLeft"> </td><td class="mdescRight">Link all compiled programs using the (optional) link options.  <a href="#a3ba4863592f4e5a1b93eb97e1dbf03b5">More...</a><br></td></tr>
+<tr class="separator:a3ba4863592f4e5a1b93eb97e1dbf03b5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae0e598d9e39214d685b0e47ab0b68597"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ae0e598d9e39214d685b0e47ab0b68597">link</a> (const char *linkOptions)</td></tr>
+<tr class="memdesc:ae0e598d9e39214d685b0e47ab0b68597"><td class="mdescLeft"> </td><td class="mdescRight">Link all compiled programs using the (optional) link options.  <a href="#ae0e598d9e39214d685b0e47ab0b68597">More...</a><br></td></tr>
+<tr class="separator:ae0e598d9e39214d685b0e47ab0b68597"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a03ccc2ea0ff460ccb3729c88e8506864"><td class="memTemplParams" colspan="2">template&lt;typename kernelT &gt; </td></tr>
+<tr class="memitem:a03ccc2ea0ff460ccb3729c88e8506864"><td class="memTemplItemLeft">bool </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a03ccc2ea0ff460ccb3729c88e8506864">has_kernel</a> () const</td></tr>
+<tr class="memdesc:a03ccc2ea0ff460ccb3729c88e8506864"><td class="mdescLeft"> </td><td class="mdescRight">Checks whether the program contains a kernel specified by the type.  <a href="#a03ccc2ea0ff460ccb3729c88e8506864">More...</a><br></td></tr>
+<tr class="separator:a03ccc2ea0ff460ccb3729c88e8506864"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6c94eec20792fb1614574e738a8be0ab"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a6c94eec20792fb1614574e738a8be0ab">has_kernel</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> kernelName) const</td></tr>
+<tr class="memdesc:a6c94eec20792fb1614574e738a8be0ab"><td class="mdescLeft"> </td><td class="mdescRight">Checks whether the program contains a kernel specified by the name.  <a href="#a6c94eec20792fb1614574e738a8be0ab">More...</a><br></td></tr>
+<tr class="separator:a6c94eec20792fb1614574e738a8be0ab"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab6a46a67d4978aad1e3a9ef220f8f1d8"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ab6a46a67d4978aad1e3a9ef220f8f1d8">has_kernel</a> (const char *kernelName) const</td></tr>
+<tr class="separator:ab6a46a67d4978aad1e3a9ef220f8f1d8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a66001da30147f4582e8436e9fe4a3404"><td class="memTemplParams" colspan="2">template&lt;typename kernelT &gt; </td></tr>
+<tr class="memitem:a66001da30147f4582e8436e9fe4a3404"><td class="memTemplItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a66001da30147f4582e8436e9fe4a3404">get_kernel</a> () const</td></tr>
+<tr class="memdesc:a66001da30147f4582e8436e9fe4a3404"><td class="mdescLeft"> </td><td class="mdescRight">Retrieve a SYCL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> object described by the typename kernelT.  <a href="#a66001da30147f4582e8436e9fe4a3404">More...</a><br></td></tr>
+<tr class="separator:a66001da30147f4582e8436e9fe4a3404"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad1e117950f431ca293c1ccc0e52969d2"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ad1e117950f431ca293c1ccc0e52969d2">get_kernel</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> kernelName) const</td></tr>
+<tr class="memdesc:ad1e117950f431ca293c1ccc0e52969d2"><td class="mdescLeft"> </td><td class="mdescRight">Retrieve a SYCL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> object described by the kernel name.  <a href="#ad1e117950f431ca293c1ccc0e52969d2">More...</a><br></td></tr>
+<tr class="separator:ad1e117950f431ca293c1ccc0e52969d2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a80b6944ac8576b78cd9eef2ac35dcc09"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a80b6944ac8576b78cd9eef2ac35dcc09">get_kernel</a> (const char *kernelName) const</td></tr>
+<tr class="separator:a80b6944ac8576b78cd9eef2ac35dcc09"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aba1760c9abfeb8bb2c4a0c705db09347"><td class="memTemplParams" colspan="2">template&lt;info::program param&gt; </td></tr>
+<tr class="memitem:aba1760c9abfeb8bb2c4a0c705db09347"><td class="memTemplItemLeft">COMPUTECPP_EXPORT <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits.html">info::param_traits</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1info.html#a6645cc5581516494ff2409d887258574">info::program</a>, param &gt;::return_type </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#aba1760c9abfeb8bb2c4a0c705db09347">get_info</a> () const</td></tr>
+<tr class="memdesc:aba1760c9abfeb8bb2c4a0c705db09347"><td class="mdescLeft"> </td><td class="mdescRight">Retrieves information about the program.  <a href="#aba1760c9abfeb8bb2c4a0c705db09347">More...</a><br></td></tr>
+<tr class="separator:aba1760c9abfeb8bb2c4a0c705db09347"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a28d87aad5d7bd62efd334a25c9a1d00e"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; char &gt; &gt; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a28d87aad5d7bd62efd334a25c9a1d00e">get_binaries</a> () const</td></tr>
+<tr class="memdesc:a28d87aad5d7bd62efd334a25c9a1d00e"><td class="mdescLeft"> </td><td class="mdescRight">Return the list of binaries that were used to compile and link the program.  <a href="#a28d87aad5d7bd62efd334a25c9a1d00e">More...</a><br></td></tr>
+<tr class="separator:a28d87aad5d7bd62efd334a25c9a1d00e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ab978ea0fd25f4844355e959acd19e30b"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ab978ea0fd25f4844355e959acd19e30b">get_context</a> () const</td></tr>
+<tr class="memdesc:ab978ea0fd25f4844355e959acd19e30b"><td class="mdescLeft"> </td><td class="mdescRight">Retrieves the context associated with the program.  <a href="#ab978ea0fd25f4844355e959acd19e30b">More...</a><br></td></tr>
+<tr class="separator:ab978ea0fd25f4844355e959acd19e30b"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abcd5c50165925dbb8d1779474e72e9f6"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">cl::sycl::device</a> &gt; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#abcd5c50165925dbb8d1779474e72e9f6">get_devices</a> () const</td></tr>
+<tr class="memdesc:abcd5c50165925dbb8d1779474e72e9f6"><td class="mdescLeft"> </td><td class="mdescRight">Return the list of devices associated with the program.  <a href="#abcd5c50165925dbb8d1779474e72e9f6">More...</a><br></td></tr>
+<tr class="separator:abcd5c50165925dbb8d1779474e72e9f6"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8fa2fc745b9a4fea1c80ef4e438d440d"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a8fa2fc745b9a4fea1c80ef4e438d440d">get_compile_options</a> () const</td></tr>
+<tr class="memdesc:a8fa2fc745b9a4fea1c80ef4e438d440d"><td class="mdescLeft"> </td><td class="mdescRight">Return the compile options used when compiling the program.  <a href="#a8fa2fc745b9a4fea1c80ef4e438d440d">More...</a><br></td></tr>
+<tr class="separator:a8fa2fc745b9a4fea1c80ef4e438d440d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3818d7c7f142bb245cdae198a107d29a"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3818d7c7f142bb245cdae198a107d29a">get_link_options</a> () const</td></tr>
+<tr class="memdesc:a3818d7c7f142bb245cdae198a107d29a"><td class="mdescLeft"> </td><td class="mdescRight">Return the link options used when linking the program.  <a href="#a3818d7c7f142bb245cdae198a107d29a">More...</a><br></td></tr>
+<tr class="separator:a3818d7c7f142bb245cdae198a107d29a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abe6bda06f0e7ce8d744669a23cda4e52"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#abe6bda06f0e7ce8d744669a23cda4e52">get_build_options</a> () const</td></tr>
+<tr class="memdesc:abe6bda06f0e7ce8d744669a23cda4e52"><td class="mdescLeft"> </td><td class="mdescRight">Return the build options used when building the program.  <a href="#abe6bda06f0e7ce8d744669a23cda4e52">More...</a><br></td></tr>
+<tr class="separator:abe6bda06f0e7ce8d744669a23cda4e52"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae86b3cfa4dbff2156dd1485c1a88d42f"><td class="memItemLeft">cl_program </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ae86b3cfa4dbff2156dd1485c1a88d42f">get</a> () const</td></tr>
+<tr class="memdesc:ae86b3cfa4dbff2156dd1485c1a88d42f"><td class="mdescLeft"> </td><td class="mdescRight">Inter-op member function that returns the underlying cl_program.  <a href="#ae86b3cfa4dbff2156dd1485c1a88d42f">More...</a><br></td></tr>
+<tr class="separator:ae86b3cfa4dbff2156dd1485c1a88d42f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aa4b02f092c1e25ce4be3100d946f9dc8"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#aa4b02f092c1e25ce4be3100d946f9dc8">is_linked</a> () const</td></tr>
+<tr class="memdesc:aa4b02f092c1e25ce4be3100d946f9dc8"><td class="mdescLeft"> </td><td class="mdescRight">Return a bool specifying whether the program has been linked.  <a href="#aa4b02f092c1e25ce4be3100d946f9dc8">More...</a><br></td></tr>
+<tr class="separator:aa4b02f092c1e25ce4be3100d946f9dc8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a52de7223f772e3d98b7a700ec0f146b7"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a52de7223f772e3d98b7a700ec0f146b7">is_host</a> () const</td></tr>
+<tr class="memdesc:a52de7223f772e3d98b7a700ec0f146b7"><td class="mdescLeft"> </td><td class="mdescRight">Returns whether the program was constructed from a host context.  <a href="#a52de7223f772e3d98b7a700ec0f146b7">More...</a><br></td></tr>
+<tr class="separator:a52de7223f772e3d98b7a700ec0f146b7"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ad6a80548fddd3a70f3d763ea433e58b4"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a104e4e04504c3752e3ba5a3d4013e0eb">program_state</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#ad6a80548fddd3a70f3d763ea433e58b4">get_state</a> () const</td></tr>
+<tr class="memdesc:ad6a80548fddd3a70f3d763ea433e58b4"><td class="mdescLeft"> </td><td class="mdescRight">Retrieves the current build state of the program.  <a href="#ad6a80548fddd3a70f3d763ea433e58b4">More...</a><br></td></tr>
+<tr class="separator:ad6a80548fddd3a70f3d763ea433e58b4"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1cc47001abcb4b992f8bb3568fb796e8"><td class="memItemLeft">cl_program </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a1cc47001abcb4b992f8bb3568fb796e8">get_no_retain</a> () const</td></tr>
+<tr class="memdesc:a1cc47001abcb4b992f8bb3568fb796e8"><td class="mdescLeft"> </td><td class="mdescRight">Inter-op member function that returns the underlying cl_program.  <a href="#a1cc47001abcb4b992f8bb3568fb796e8">More...</a><br></td></tr>
+<tr class="separator:a1cc47001abcb4b992f8bb3568fb796e8"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5cae5011a9b34c67cc02ef3cefe2bc3a"><td class="memTemplParams" colspan="2">template&lt;typename BIType &gt; </td></tr>
+<tr class="memitem:a5cae5011a9b34c67cc02ef3cefe2bc3a"><td class="memTemplItemLeft">static const BIType &amp; </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a5cae5011a9b34c67cc02ef3cefe2bc3a">select_kernel_binary_info_helper</a> (const BIType *binList, size_t binListSize, ddevice_wkptr dev)</td></tr>
+<tr class="memdesc:a5cae5011a9b34c67cc02ef3cefe2bc3a"><td class="mdescLeft"> </td><td class="mdescRight">Retrieve an appropriate binary to build a program.  <a href="#a5cae5011a9b34c67cc02ef3cefe2bc3a">More...</a><br></td></tr>
+<tr class="separator:a5cae5011a9b34c67cc02ef3cefe2bc3a"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a60cb73001aebb3f57b5c911c0150587c"><td class="memTemplParams" colspan="2">template&lt;typename BIType &gt; </td></tr>
+<tr class="memitem:a60cb73001aebb3f57b5c911c0150587c"><td class="memTemplItemLeft">static const detail::kernel_binary_info &amp; </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a60cb73001aebb3f57b5c911c0150587c">select_kernel_binary_info</a> (const detail::kernel_binary_info &amp;hostBinaryInfo, const BIType *binList, size_t binListSize, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;ctx)</td></tr>
+<tr class="memdesc:a60cb73001aebb3f57b5c911c0150587c"><td class="mdescLeft"> </td><td class="mdescRight">Retrieves binary info to build a program.  <a href="#a60cb73001aebb3f57b5c911c0150587c">More...</a><br></td></tr>
+<tr class="separator:a60cb73001aebb3f57b5c911c0150587c"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Friends</h2></td></tr>
+<tr class="memitem:adbcc2bde97370a824dea9219b16fd677"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#adbcc2bde97370a824dea9219b16fd677">operator==</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;lhs, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;rhs)</td></tr>
+<tr class="memdesc:adbcc2bde97370a824dea9219b16fd677"><td class="mdescLeft"> </td><td class="mdescRight">Determines if lhs and rhs are equal.  <a href="#adbcc2bde97370a824dea9219b16fd677">More...</a><br></td></tr>
+<tr class="separator:adbcc2bde97370a824dea9219b16fd677"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a821fc8186a2dae16e88afdeb4ea6cc91"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a821fc8186a2dae16e88afdeb4ea6cc91">operator!=</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;lhs, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a821fc8186a2dae16e88afdeb4ea6cc91"><td class="mdescLeft"> </td><td class="mdescRight">Determines if lhs and rhs are not equal.  <a href="#a821fc8186a2dae16e88afdeb4ea6cc91">More...</a><br></td></tr>
+<tr class="separator:a821fc8186a2dae16e88afdeb4ea6cc91"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<a id="details" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Public facing program class that provides an interface for abstracting the construction and building of a cl_program object, See section 3.5.5 of the SYCL 1.2 specification. </p>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00107">107</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1541d56187f0f0552e56c81cdf47c4b6" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1541d56187f0f0552e56c81cdf47c4b6">◆ </a></span>program() <span class="overload">[1/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>context</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a program for a context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">context</td><td>The context that will be associated with the program </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a12f9591c5e75aff32146ee994cac8575" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f9591c5e75aff32146ee994cac8575">◆ </a></span>program() <span class="overload">[2/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>context</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &gt; </td>
+<td class="paramname"><em>deviceList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a program for a list of devices on a context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">context</td><td>The context that will be associated with the program </td></tr>
+<tr><td class="paramname">deviceList</td><td>List of devices that will be associated with the program </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="ab46aa1b08be948fee80590bcc5880093" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46aa1b08be948fee80590bcc5880093">◆ </a></span>program() <span class="overload">[3/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>context</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">cl_program </td>
+<td class="paramname"><em>clProgram</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Inter-op constructor that takes a context and a cl_program. </p>
+<p>Note that the clProgram param must have previously been created from the underlying cl_context of the context parameter and the underlying cl_devices from the list of devices parameter. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">context</td><td>A reference to the context that the cl_program will be associated with. </td></tr>
+<tr><td class="paramname">clProgram</td><td>The cl_program that the program will be assigned to. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="ad2bff05a27651ffc8c076b1dadba7afd" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2bff05a27651ffc8c076b1dadba7afd">◆ </a></span>program() <span class="overload">[4/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; </td>
+<td class="paramname"><em>programList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Linker constructor from a list of programs. </p>
+<p>All of the provided programs must be in the compiled program state and associated with the same context. The constructed program will be in the linked program state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">programList</td><td>List of programs to link together into a new program </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+<table class="exception">
+<tr><td class="paramname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error.html">invalid_object_error</a></td><td>if provided programs not associated with the same context or if not all of them are in the compiled program state </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00152">152</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ad564a3ee9a43fc261b5e61ca54e3787e" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad564a3ee9a43fc261b5e61ca54e3787e">◆ </a></span>program() <span class="overload">[5/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; </td>
+<td class="paramname"><em>programList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>linkOptions</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Linker constructor from a list of programs. </p>
+<p>All of the provided programs must be in the compiled program state and associated with the same context. The constructed program will be in the linked program state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">programList</td><td>List of programs to link together into a new program </td></tr>
+<tr><td class="paramname">linkOptions</td><td>String of options used when linking programs </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+<table class="exception">
+<tr><td class="paramname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error.html">invalid_object_error</a></td><td>if provided programs not associated with the same context or if not all of them are in the compiled program state </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00168">168</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a22428a62f8dc6253976b3c3438e4fb33" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22428a62f8dc6253976b3c3438e4fb33">◆ </a></span>program() <span class="overload">[6/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &gt; </td>
+<td class="paramname"><em>programList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>linkOptions</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p></p>
+<p>All of the provided programs must be in the compiled program state and associated with the same context. The constructed program will be in the linked program state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">programList</td><td>List of programs to link together into a new program </td></tr>
+<tr><td class="paramname">linkOptions</td><td>String of options used when linking programs </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+<table class="exception">
+<tr><td class="paramname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error.html">invalid_object_error</a></td><td>if provided programs not associated with the same context or if not all of them are in the compiled program state </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a0d2310f117b0b4270c61f81cd2d02a12" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2310f117b0b4270c61f81cd2d02a12">◆ </a></span>program() <span class="overload">[7/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Copy constructor that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">rhs</td><td>The program being copied from. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a6a8e0f5e8e85d87cf97a42ff528c72b9" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a8e0f5e8e85d87cf97a42ff528c72b9">◆ </a></span>program() <span class="overload">[8/8]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::program::program </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;&amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Copy constructor that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">rhs</td><td>The program being copied from. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a9ec74a98b67844a8b45f42e923e59e37" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec74a98b67844a8b45f42e923e59e37">◆ </a></span>~program()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">COMPUTECPP_TEST_VIRTUAL cl::sycl::program::~program </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Destructor that releases the cl_program. </p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a067d18447886e13a392d27fd2e26edb8" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a067d18447886e13a392d27fd2e26edb8">◆ </a></span>build_with_kernel_type()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename kernelT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::build_with_kernel_type </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>buildOptions</em> = <code>""</code></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Build a SYCL kernel using its name and optional custom build options. </p>
+<p>This function produces a ready-to-run program. Note that calling this member function is invalid if the program has already been successfully compiled, built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a91f79c193cdf2f496743f8194f45b00c">compile_with_kernel_type(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">kernelT</td><td>Typename specifying the name of the kernel to be built. </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">buildOptions</td><td>The string specifying the build options to provide to the underlying OpenCL API. </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00301">301</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ac2b73b108542f963e3ac377ba16ae29b" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b73b108542f963e3ac377ba16ae29b">◆ </a></span>build_with_source() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::build_with_source </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>kernelSource</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>buildOptions</em> = <code>""</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Creates and builds a program from OpenCL C kernel source and optional build options. </p>
+<p>This function produces a ready-to-run program. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernelSource</td><td>Source of the OpenCL kernel. </td></tr>
+<tr><td class="paramname">buildOptions</td><td>The string specifying the build options to provide to the underlying OpenCL API. </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00324">324</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a5fe2bc0f701934c268f5994811ed68ea" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe2bc0f701934c268f5994811ed68ea">◆ </a></span>build_with_source() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::build_with_source </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>kernelSrc</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>compileOptions</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Creates and builds a program from OpenCL C kernel source and optional build options. </p>
+<p>This function produces a ready-to-run program. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernelSource</td><td>Source of the OpenCL kernel. </td></tr>
+<tr><td class="paramname">buildOptions</td><td>The string specifying the build options to provide to the underlying OpenCL API. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a91f79c193cdf2f496743f8194f45b00c" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f79c193cdf2f496743f8194f45b00c">◆ </a></span>compile_with_kernel_type()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename kernelT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::compile_with_kernel_type </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>compileOptions</em> = <code>""</code></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Compile a SYCL kernel using name and optional custom compile options. </p>
+<p>This function creates a ready-to-link program.</p>
+<p>Note that calling this member function is invalid if the program has already been successfully compiled, built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a91f79c193cdf2f496743f8194f45b00c">compile_with_kernel_type(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">kernelT</td><td>Typename specifying the name of the kernel to be compiled. </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">compileOptions</td><td>String of compile options that will be passed to the OpenCL driver. </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00242">242</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="aca7ca24a1f0928d4de06cd28f0726639" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca7ca24a1f0928d4de06cd28f0726639">◆ </a></span>compile_with_source() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::compile_with_source </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>kernelSource</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>compileOptions</em> = <code>""</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Compiles a program from the given OpenCL C kernel source. </p>
+<p>Note that calling this member function is invalid if the program has already been successfully compiled, built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a91f79c193cdf2f496743f8194f45b00c">compile_with_kernel_type(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernelSource</td><td>to compile </td></tr>
+<tr><td class="paramname">compilation</td><td>options for the source </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00268">268</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a538c86ff0ff531935705cdd29a3aa399" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a538c86ff0ff531935705cdd29a3aa399">◆ </a></span>compile_with_source() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::compile_with_source </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>kernelSrc</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>compileOptions</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Compiles a program from the given OpenCL C kernel source. </p>
+<p>Note that calling this member function is invalid if the program has already been successfully compiled, built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a91f79c193cdf2f496743f8194f45b00c">compile_with_kernel_type(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernelSource</td><td>to compile </td></tr>
+<tr><td class="paramname">compilation</td><td>options for the source </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a1f6dc5176f77d0df4f995057ae7bc54c" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6dc5176f77d0df4f995057ae7bc54c">◆ </a></span>create_from_built_in_kernel() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::create_from_built_in_kernel </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>kernel</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a valid cl_program from a pre-built kernel provided by the underlying OpenCL implementation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernel</td><td>The name of the built-in kernel </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00281">281</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a41b14c32d40ac67df82eaed38fb976da" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b14c32d40ac67df82eaed38fb976da">◆ </a></span>create_from_built_in_kernel() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::create_from_built_in_kernel </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>kernel</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a valid cl_program from a pre-built kernel provided by the underlying OpenCL implementation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernel</td><td>The name of the built-in kernel </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="ae86b3cfa4dbff2156dd1485c1a88d42f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae86b3cfa4dbff2156dd1485c1a88d42f">◆ </a></span>get()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">cl_program cl::sycl::program::get </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Inter-op member function that returns the underlying cl_program. </p>
+<dl><dt>Returns</dt><dd>The underlying cl_program usable by the OpenCL API. </dd></dl>
+</div>
+</div>
+<a id="a28d87aad5d7bd62efd334a25c9a1d00e" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d87aad5d7bd62efd334a25c9a1d00e">◆ </a></span>get_binaries()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt;char&gt; &gt; cl::sycl::program::get_binaries </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return the list of binaries that were used to compile and link the program. </p>
+<dl><dt>Returns</dt><dd>The list of binaries that were used to compile and link the program. </dd></dl>
+</div>
+</div>
+<a id="abe6bda06f0e7ce8d744669a23cda4e52" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6bda06f0e7ce8d744669a23cda4e52">◆ </a></span>get_build_options()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> cl::sycl::program::get_build_options </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return the build options used when building the program. </p>
+<dl><dt>Returns</dt><dd>A string specifying the options used when building the program. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00461">461</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a8fa2fc745b9a4fea1c80ef4e438d440d" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa2fc745b9a4fea1c80ef4e438d440d">◆ </a></span>get_compile_options()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> cl::sycl::program::get_compile_options </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return the compile options used when compiling the program. </p>
+<dl><dt>Returns</dt><dd>A string specifying the compile options used when compiling the program. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00445">445</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ab978ea0fd25f4844355e959acd19e30b" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab978ea0fd25f4844355e959acd19e30b">◆ </a></span>get_context()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> cl::sycl::program::get_context </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the context associated with the program. </p>
+<dl><dt>Returns</dt><dd>Associated context. </dd></dl>
+</div>
+</div>
+<a id="abcd5c50165925dbb8d1779474e72e9f6" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd5c50165925dbb8d1779474e72e9f6">◆ </a></span>get_devices()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a0a3b58674c77d248758b6bee05800ac5">vector_class</a>&lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">cl::sycl::device</a>&gt; cl::sycl::program::get_devices </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return the list of devices associated with the program. </p>
+<dl><dt>Returns</dt><dd>The list of associated devices. </dd></dl>
+</div>
+</div>
+<a id="aba1760c9abfeb8bb2c4a0c705db09347" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba1760c9abfeb8bb2c4a0c705db09347">◆ </a></span>get_info()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;info::program param&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname">COMPUTECPP_EXPORT <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits.html">info::param_traits</a>&lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1info.html#a6645cc5581516494ff2409d887258574">info::program</a>, param&gt;::return_type cl::sycl::program::get_info </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves information about the program. </p>
+<p>The runtime query the OpenCL API and then converts the result into the SYCL representation before returning it. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">param</td><td>Information to retrieve. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>The information in the SYCL format. </dd></dl>
+</div>
+</div>
+<a id="a66001da30147f4582e8436e9fe4a3404" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66001da30147f4582e8436e9fe4a3404">◆ </a></span>get_kernel() <span class="overload">[1/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename kernelT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> cl::sycl::program::get_kernel </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieve a SYCL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> object described by the typename kernelT. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">kernelT</td><td>Typename specifying the name of the kernel to be returned. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>The kernel that has been created from the kernel name parameter. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00387">387</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ad1e117950f431ca293c1ccc0e52969d2" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e117950f431ca293c1ccc0e52969d2">◆ </a></span>get_kernel() <span class="overload">[2/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> cl::sycl::program::get_kernel </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>kernelName</em></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieve a SYCL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> object described by the kernel name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">kernelName</td><td>The string specifying the kernel name. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>The kernel that has been created form the kernel name parameter. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00402">402</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a80b6944ac8576b78cd9eef2ac35dcc09" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b6944ac8576b78cd9eef2ac35dcc09">◆ </a></span>get_kernel() <span class="overload">[3/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel.html">kernel</a> cl::sycl::program::get_kernel </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>kernelName</em></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p></p>
+</div>
+</div>
+<a id="a3818d7c7f142bb245cdae198a107d29a" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3818d7c7f142bb245cdae198a107d29a">◆ </a></span>get_link_options()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> cl::sycl::program::get_link_options </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return the link options used when linking the program. </p>
+<dl><dt>Returns</dt><dd>A string specifying the link options used when linking the program. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00453">453</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a1cc47001abcb4b992f8bb3568fb796e8" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc47001abcb4b992f8bb3568fb796e8">◆ </a></span>get_no_retain()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl_program cl::sycl::program::get_no_retain </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Inter-op member function that returns the underlying cl_program. </p>
+<dl><dt>Returns</dt><dd>The underlying cl_program usable by the OpenCL API. </dd></dl>
+</div>
+</div>
+<a id="ad6a80548fddd3a70f3d763ea433e58b4" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6a80548fddd3a70f3d763ea433e58b4">◆ </a></span>get_state()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a104e4e04504c3752e3ba5a3d4013e0eb">program_state</a> cl::sycl::program::get_state </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the current build state of the program. </p>
+<dl><dt>Returns</dt><dd>The build state of the program </dd></dl>
+</div>
+</div>
+<a id="a03ccc2ea0ff460ccb3729c88e8506864" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ccc2ea0ff460ccb3729c88e8506864">◆ </a></span>has_kernel() <span class="overload">[1/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename kernelT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::program::has_kernel </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Checks whether the program contains a kernel specified by the type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">kernelT</td><td>Typename specifying the name of the kernel to be returned. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if the SYCL kernel function defined by the type kernelT is an available kernel, either within the encapsulated cl_program (if this SYCL program is an OpenCL program), or on the host, otherwise false. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00357">357</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a6c94eec20792fb1614574e738a8be0ab" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c94eec20792fb1614574e738a8be0ab">◆ </a></span>has_kernel() <span class="overload">[2/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::program::has_kernel </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>kernelName</em></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Checks whether the program contains a kernel specified by the name. </p>
+<dl><dt>Returns</dt><dd>True if the OpenCL C kernel function defined by kernelName is an available kernel within the encapsulated cl_program and this SYCL program is not a host program, otherwise false. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00373">373</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ab6a46a67d4978aad1e3a9ef220f8f1d8" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6a46a67d4978aad1e3a9ef220f8f1d8">◆ </a></span>has_kernel() <span class="overload">[3/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::program::has_kernel </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>kernelName</em></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p></p>
+</div>
+</div>
+<a id="a52de7223f772e3d98b7a700ec0f146b7" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52de7223f772e3d98b7a700ec0f146b7">◆ </a></span>is_host()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::program::is_host </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns whether the program was constructed from a host context. </p>
+<dl><dt>Returns</dt><dd>True if program constructed from a host context </dd></dl>
+</div>
+</div>
+<a id="aa4b02f092c1e25ce4be3100d946f9dc8" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4b02f092c1e25ce4be3100d946f9dc8">◆ </a></span>is_linked()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::program::is_linked </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Return a bool specifying whether the program has been linked. </p>
+<dl><dt>Returns</dt><dd>True if the program has been linked. </dd></dl>
+</div>
+</div>
+<a id="a3ba4863592f4e5a1b93eb97e1dbf03b5" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ba4863592f4e5a1b93eb97e1dbf03b5">◆ </a></span>link() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::link </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#a20186da90261e9302b957e4823179f1b">string_class</a> </td>
+<td class="paramname"><em>linkOptions</em> = <code>""</code></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Link all compiled programs using the (optional) link options. </p>
+<p>This function produce a ready-to-run program using a compiled program.</p>
+<p>Note that calling this member function is invalid if the cl_program has already been successfully built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">linkOptions</td><td>String specifying the link options to provide to the underlying OpenCL API. </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00343">343</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="ae0e598d9e39214d685b0e47ab0b68597" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0e598d9e39214d685b0e47ab0b68597">◆ </a></span>link() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::program::link </td>
+<td>(</td>
+<td class="paramtype">const char * </td>
+<td class="paramname"><em>linkOptions</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Link all compiled programs using the (optional) link options. </p>
+<p>This function produce a ready-to-run program using a compiled program.</p>
+<p>Note that calling this member function is invalid if the cl_program has already been successfully built or linked via either <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a3ba4863592f4e5a1b93eb97e1dbf03b5">link(string_class)</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html#a067d18447886e13a392d27fd2e26edb8">build_with_kernel_type(string_class)</a> or program(vector_class&lt;program&gt;, string_class). </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">linkOptions</td><td>String specifying the link options to provide to the underlying OpenCL API. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a3f05e5d7b985fe6e8a3b6e5654527a62" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f05e5d7b985fe6e8a3b6e5654527a62">◆ </a></span>operator=() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a>&amp; cl::sycl::program::operator= </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Assignment operator that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">rhs</td><td>The program being assigned from. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a2c22bc80d1143931ef12b2c59daadf80" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c22bc80d1143931ef12b2c59daadf80">◆ </a></span>operator=() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a>&amp; cl::sycl::program::operator= </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp;&amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Assignment operator that initialises a copy of the program with the same underlying cl_program, associated context and list of associated devices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">rhs</td><td>The program being assigned from. </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a60cb73001aebb3f57b5c911c0150587c" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60cb73001aebb3f57b5c911c0150587c">◆ </a></span>select_kernel_binary_info()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BIType &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">static const detail::kernel_binary_info&amp; cl::sycl::program::select_kernel_binary_info </td>
+<td>(</td>
+<td class="paramtype">const detail::kernel_binary_info &amp; </td>
+<td class="paramname"><em>hostBinaryInfo</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const BIType * </td>
+<td class="paramname"><em>binList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>binListSize</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>ctx</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves binary info to build a program. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">BIType</td><td></td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">hostBinaryInfo</td><td>Host binary info. Will be selected if the context is a host context </td></tr>
+<tr><td class="paramname">binList</td><td>The list available binaries for this program </td></tr>
+<tr><td class="paramname">binListSize</td><td>The length of <code>binList</code> </td></tr>
+<tr><td class="paramname">ctx</td><td>Context to retrieve binary info for </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Reference to kernel binary info </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00688">688</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="a5cae5011a9b34c67cc02ef3cefe2bc3a" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cae5011a9b34c67cc02ef3cefe2bc3a">◆ </a></span>select_kernel_binary_info_helper()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename BIType &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">static const BIType&amp; cl::sycl::program::select_kernel_binary_info_helper </td>
+<td>(</td>
+<td class="paramtype">const BIType * </td>
+<td class="paramname"><em>binList</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>binListSize</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">ddevice_wkptr </td>
+<td class="paramname"><em>dev</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieve an appropriate binary to build a program. </p>
+<p>If a sycl stub file has more than one binary in it (e.g. spir64 and spirv64) the environment variable COMPUTECPP_TARGET_BITCODE can be used to select which binary this function will return. If the binary for the specified value is not found, the first one available will be returned.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">binList</td><td>The list available binaries for this program. </td></tr>
+<tr><td class="paramname">binListSize</td><td>The length of <code>binList</code>. </td></tr>
+<tr><td class="paramname">dev</td><td>Device where the binary will execute on. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>A reference to the selected binary. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00643">643</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a821fc8186a2dae16e88afdeb4ea6cc91" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821fc8186a2dae16e88afdeb4ea6cc91">◆ </a></span>operator!=</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool operator!= </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>lhs</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>rhs</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Determines if lhs and rhs are not equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">lhs</td><td>Left-hand-side object in comparison </td></tr>
+<tr><td class="paramname">rhs</td><td>Right-hand-side object in comparison </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if different underlying objects </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00219">219</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<a id="adbcc2bde97370a824dea9219b16fd677" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbcc2bde97370a824dea9219b16fd677">◆ </a></span>operator==</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool operator== </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>lhs</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program.html">program</a> &amp; </td>
+<td class="paramname"><em>rhs</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Determines if lhs and rhs are equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">lhs</td><td>Left-hand-side object in comparison </td></tr>
+<tr><td class="paramname">rhs</td><td>Right-hand-side object in comparison </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if same underlying object </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html#l00210">210</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a>.</p>
+</div>
+</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/program_8h_source.html">program.h</a></li>
+</ul>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:42 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="e9cdca52fad0e772e090ce5ec84746a7">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

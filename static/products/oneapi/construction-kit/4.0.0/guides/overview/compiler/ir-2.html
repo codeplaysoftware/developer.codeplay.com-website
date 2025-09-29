@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Intermediate Representation - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Intermediate Representation' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Intermediate Representation - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Intermediate Representation' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-compiler-ir">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/compiler/ir">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/compiler/ir">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/compiler/ir">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/compiler/ir">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/compiler/ir">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/compiler/ir">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#intermediate-representation">
+                            <h1>Intermediate Representation</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/compiler/ir.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="intermediate-representation">
+
+<p>ComputeMux assumes <a class="reference external" href="https://llvm.org/docs/LangRef.html#introduction">LLVM IR</a>
+as its intermediate representation. The precise specification of the
+intermediate representation is dependent on the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html#supported-llvm-versions"><span class="std std-ref">version of LLVM</span></a> ComputeMux
+has been built against.</p>
+<p>While ComputeMux itself does not mandate a specific producer of the IR it
+consumes, it is assumed to meet certain requirements, e.g., that it comes from
+a supported higher-level form, including – but not limited to – a tool
+converting SPIR-V to LLVM IR or a <code class="docutils literal notranslate">clang</code> compiler compiling OpenCL C or SYCL
+for the SPIR “triple”.</p>
+<p>This section describes the various conventions on IR that a ComputeMux compiler
+<strong>may</strong> encounter and <strong>must</strong> support during code generation. For a list of
+language features a compiler is <strong>not</strong> required to support, see
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html#computemux-compiler-non-requirements"><span class="std std-ref">ComputeMux Compiler Non-Requirements</span></a>.</p>
+<div class="section" id="types">
+<a class="header-link" href="#types"><h2 id="types">Types</h2><span class="material-icons">link</span></a>
+<p>The following tables describe the ComputeMux “built-in” scalar and vector types
+and how they are mapped to the LLVM IR type system. They stem from the
+higher-level languages supported by ComputeMux, including OpenCL C and SPIR-V.</p>
+<p>Built-in Scalar Types:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OpenCL C types</p></th>
+<th class="head"><p>LLVM IR type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">bool</code></p></td>
+<td><p><code class="docutils literal notranslate">i1</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>(<code class="docutils literal notranslate">unsigned</code>) <code class="docutils literal notranslate">char</code></p></td>
+<td><p><code class="docutils literal notranslate">i8</code></p></td>
+</tr>
+<tr class="row-even"><td><p>(<code class="docutils literal notranslate">unsigned</code>) <code class="docutils literal notranslate">short</code></p></td>
+<td><p><code class="docutils literal notranslate">i16</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>(<code class="docutils literal notranslate">unsigned</code>) <code class="docutils literal notranslate">int</code></p></td>
+<td><p><code class="docutils literal notranslate">i32</code></p></td>
+</tr>
+<tr class="row-even"><td><p>(<code class="docutils literal notranslate">unsigned</code>) <code class="docutils literal notranslate">long</code> <a class="footnote-reference brackets" href="#f1" id="id1">1</a></p></td>
+<td><p><code class="docutils literal notranslate">i64</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">float</code></p></td>
+<td><p><code class="docutils literal notranslate">float</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">double</code> <a class="footnote-reference brackets" href="#f2" id="id2">2</a></p></td>
+<td><p><code class="docutils literal notranslate">double</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">half</code> <a class="footnote-reference brackets" href="#f3" id="id3">3</a></p></td>
+<td><p><code class="docutils literal notranslate">half</code></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Built-in Vector Types:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OpenCL C type</p></th>
+<th class="head"><p>LLVM IR type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">bool</code><em>n</em> <a class="footnote-reference brackets" href="#f4" id="id4">4</a></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x i1&gt;</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>[<code class="docutils literal notranslate">u</code>]<code class="docutils literal notranslate">char</code><em>n</em></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x i8&gt;</code></p></td>
+</tr>
+<tr class="row-even"><td><p>[<code class="docutils literal notranslate">u</code>]<code class="docutils literal notranslate">short</code><em>n</em></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x i16&gt;</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>[<code class="docutils literal notranslate">u</code>]<code class="docutils literal notranslate">int</code><em>n</em></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x i32&gt;</code></p></td>
+</tr>
+<tr class="row-even"><td><p>[<code class="docutils literal notranslate">u</code>]<code class="docutils literal notranslate">long</code><em>n</em> <a class="footnote-reference brackets" href="#f1" id="id5">1</a></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x i64&gt;</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">float</code><em>n</em></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x float&gt;</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">double</code><em>n</em> <a class="footnote-reference brackets" href="#f2" id="id6">2</a></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x double&gt;</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">half</code><em>n</em> <a class="footnote-reference brackets" href="#f3" id="id7">3</a></p></td>
+<td><p><code class="docutils literal notranslate">&lt;n x half&gt;</code></p></td>
+</tr>
+</tbody>
+</table></div>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id5">2</a>)</span></dt>
+<dd><p>An optional type. See <a class="reference internal" href="#optional-64-bit-integer-support">Optional 64-bit integer support</a></p>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id6">2</a>)</span></dt>
+<dd><p>An optional type. See <a class="reference internal" href="#optional-64-bit-double-support">Optional 64-bit double support</a></p>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id7">2</a>)</span></dt>
+<dd><p>An optional type. See <a class="reference internal" href="#optional-16-bit-half-support">Optional 16-bit half support</a></p>
+</dd>
+<dt class="label" id="f4"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>A reserved data type in OpenCL C, but one that is common in LLVM IR</p>
+</dd>
+</dl>
+<p>Aside from optional types, which have specific conditions detailed below, the
+aforementioned built-in types <strong>must</strong> be supported by a conforming ComputeMux
+compiler implementation. Note that “support” in this context <strong>does not</strong> mean
+requiring hardware for all built-in types; exactly how types are supported is
+ultimately left to the compiler implementation but it is assumed that a
+ComputeMux compiler can legalize any unsupported types.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Compilers targeting architectures which lack hardware support for certain
+built-in types <strong>may</strong> typically rely on LLVM’s built-in
+<code class="docutils literal notranslate">SelectionDAG</code>-based legalization framework to handle illegal types and
+operations during instruction selection.</p>
+<p>Illegal vector types are usually scalarized or “unrolled”. Illegal integer
+types are usually either extended to larger integers or split into multiple
+operations over smaller ones. Illegal floating-point types typically rely on
+the external LLVM compiler support library <a class="reference external" href="https://compiler-rt.llvm.org/">compiler-rt</a>.</p>
+<p>Compilers <strong>may</strong> customize this legalization process if there is a better
+approach for their target architecture.</p>
+<p>A brief overview of the instruction selection process is described <a class="reference external" href="https://releases.llvm.org/docs/CodeGenerator.html#selectiondag-instruction-selection-process">here</a>.</p>
+</div>
+<div class="section" id="other-types">
+<a class="header-link" href="#other-types"><h3 id="other-types">Other types</h3><span class="material-icons">link</span></a>
+<p>The built-in types have been detailed above only to describe their
+relative importance and are <em>not</em> the only types a ComputeMux compiler <strong>may</strong>
+encounter as part of a conformant implementation. Pointer types, the <code class="docutils literal notranslate">void</code>
+type, array types, structure types and union types <strong>must</strong> all be correctly
+handled.</p>
+<p>Aside from both scalar and vector <code class="docutils literal notranslate">double</code> and <code class="docutils literal notranslate">half</code> types, ComputeMux
+makes no guarantees about the presence or absence of operations on non-built-in
+integer, floating-point or vector types in the IR.</p>
+<p>For example, if <a class="reference internal" href="#compiler-ir-wfv"><span class="std std-ref">whole-function vectorization</span></a> is
+enabled, operations on vector types wider than 16 <strong>may</strong> be introduced into
+the IR. LLVM itself has been known to turn <code class="docutils literal notranslate">double2</code> (<code class="docutils literal notranslate">&lt;2 x double&gt;</code>)
+vectors into scalar 128-bit integers (<code class="docutils literal notranslate">i128</code>), and <strong>may</strong> reduce switch
+statement values into arithmetic over 4-bit integers (<code class="docutils literal notranslate">i4</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both ComputeMux and LLVM’s middle-end optimizations <strong>may</strong> introduce
+“illegal” types into the module. The concept of “legal types” is not
+generally observed at that level. For instance, some LLVM intrinsics <em>only</em>
+take <code class="docutils literal notranslate">i64</code> parameters. The reason for this, as mentioned above, is that the
+contract on an LLVM backend is that it should always be able legalize the
+standard operations and intrinsics given any type.</p>
+</div>
+</div>
+<div class="section" id="optional-64-bit-integer-support">
+<a class="header-link" href="#optional-64-bit-integer-support"><h3 id="optional-64-bit-integer-support">Optional 64-bit integer support</h3><span class="material-icons">link</span></a>
+<p>For targets implementing the embedded profile without supporting the optional
+64-bit integer types (<code class="docutils literal notranslate">cles_khr_int64</code>), operations on 64-bit integers <strong>may
+still be present in the IR</strong>.</p>
+</div>
+<div class="section" id="optional-16-bit-half-support">
+<a class="header-link" href="#optional-16-bit-half-support"><h3 id="optional-16-bit-half-support">Optional 16-bit half support</h3><span class="material-icons">link</span></a>
+<p>Targets without support for the optional <code class="docutils literal notranslate">half</code> type (<code class="docutils literal notranslate">cl_khr_fp16</code>)
+<strong>shall not</strong> see arithmetic, conversion or relational operations on neither
+scalar nor vector <code class="docutils literal notranslate">half</code> types anywhere in the IR module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <code class="docutils literal notranslate">half</code> can always be used as a storage format, other operations and
+built-in functions <strong>may</strong> operate on <code class="docutils literal notranslate">half</code> values, such as loads and
+stores.</p>
+</div>
+</div>
+<div class="section" id="optional-64-bit-double-support">
+<a class="header-link" href="#optional-64-bit-double-support"><h3 id="optional-64-bit-double-support">Optional 64-bit double support</h3><span class="material-icons">link</span></a>
+<p>Targets without support for the optional <code class="docutils literal notranslate">double</code> type <strong>shall not</strong> see
+neither scalar nor vector <code class="docutils literal notranslate">double</code> types anywhere in the IR module.</p>
+</div>
+<div class="section" id="vector-types-and-whole-function-vectorization">
+<span id="compiler-ir-wfv"></span><a class="header-link" href="#vector-types-and-whole-function-vectorization"><h3 id="vector-types-and-whole-function-vectorization">Vector Types and Whole-Function Vectorization</h3><span class="material-icons">link</span></a>
+<p>If WFV is enabled, the vectorizer may emit vectors wider than the requested
+vectorization factor, if vectors already exist in the incoming IR. The
+vectorizer may emit vectors wider than 16, if the target reports that it has
+vector registers wide enough to contain such a wider type.</p>
+<p>The vectorizer is able to produce scalable vectors (being a vector of the form
+<code class="docutils literal notranslate">&lt;vscale x n x Ty&gt;</code> where <code class="docutils literal notranslate">n</code> is a constant factor known at compile-time,
+and <code class="docutils literal notranslate">vscale</code> being a hardware-dependent factor that can be queried at
+runtime) on requesting a scalable vectorization factor. Support for scalable
+vectors is not a requirement. Scalable vectors are available starting from LLVM
+12, but LLVM 13 is recommended since support in LLVM 12 is very limited.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See the overview of
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html#the-vecz-whole-function-vectorizer"><span class="std std-ref">The Vecz Whole-Function Vectorizer</span></a> for more information about this particular
+compiler optimization.</p>
+</div>
+</div>
+</div>
+<div class="section" id="integer-and-floating-point-operations">
+<a class="header-link" href="#integer-and-floating-point-operations"><h2 id="integer-and-floating-point-operations">Integer and Floating-point Operations</h2><span class="material-icons">link</span></a>
+<p>The LLVM IR module <strong>shall</strong> contain standard built-in IR instructions which
+<strong>may</strong> form some proportion of the “compute” operations in the kernel being
+compiled. That is to say the kernel <strong>may not</strong> be entirely comprised of
+library functions and compiler intrinsics. The specific language features which
+produce these built-in instructions (e.g., operators: see below) depend on a
+variety of factors: the compute standard being implemented; the compile
+options; the compiler frontend; the version of LLVM being used; any
+higher-level intermediate representation being lowered to LLVM IR.</p>
+<p>These standard LLVM instructions each have their own semantics as described in
+the <a class="reference external" href="https://llvm.org/docs/LangRef.html">LLVM language reference manual</a>.
+ComputeMux <strong>shall not</strong> infer any <em>contradictory</em> semantics about these
+instructions based upon the compute standard it is compiling for. ComputeMux
+<strong>shall</strong> fundamentally act as a well-behaving LLVM compiler. Additional
+requirements <strong>may</strong> be placed on top of these instructions depending on the
+compute standard being implemented, such as <a class="reference internal" href="#floating-point-precision-requirements">Floating-point Precision
+Requirements</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When implementing the OpenCL compute standard in conjunction with the <em>clang</em>
+frontend, all built-in operators <strong>shall</strong> be emitted into the IR as standard
+LLVM IR instructions. This includes add (<code class="docutils literal notranslate">+</code>), subtract (<code class="docutils literal notranslate">-</code>), multiply
+(<code class="docutils literal notranslate">*</code>), divide (<code class="docutils literal notranslate">/</code>), unary operators (<code class="docutils literal notranslate">+</code>, <code class="docutils literal notranslate">-</code>), relational operators
+(<code class="docutils literal notranslate">&lt;</code>, <code class="docutils literal notranslate">&gt;=</code>, etc.), equality operators (<code class="docutils literal notranslate">==</code>, <code class="docutils literal notranslate">!=</code>), logical operators
+(<code class="docutils literal notranslate">&amp;&amp;</code>, <code class="docutils literal notranslate">||</code>), ternary selection (<code class="docutils literal notranslate">?:</code>), and unary logical not (<code class="docutils literal notranslate">!</code>)
+for all built-in scalar and vector types. Additional operators – for integer
+types only – include remainder (<code class="docutils literal notranslate">%</code>), shift (<code class="docutils literal notranslate">&lt;&lt;</code>, <code class="docutils literal notranslate">&gt;&gt;</code>), pre- and
+post-increment (<code class="docutils literal notranslate">--</code>, <code class="docutils literal notranslate">++</code>), bitwise and (<code class="docutils literal notranslate">&amp;</code>), bitwise or (<code class="docutils literal notranslate">|</code>),
+bitwise exclusive or (<code class="docutils literal notranslate">^</code>), and bitwise not (<code class="docutils literal notranslate">~</code>).</p>
+<p>There is no guarantee that a given operator is mapped to a specific IR
+instruction. While the naive lowering of subtraction (<code class="docutils literal notranslate">-</code>) to LLVM’s
+<code class="docutils literal notranslate">sub</code> is likely, it is also possible for transformations and optimizations
+to change the <code class="docutils literal notranslate">sub</code> of a constant to an <code class="docutils literal notranslate">add</code> of the negative constant,
+for example. A ternary expression <strong>may</strong> be identified as a min/max
+operation and represented by an intrinsic, e.g., <code class="docutils literal notranslate">llvm.umin.*</code>.</p>
+<p>See <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#operators">OpenCL C Operators</a>
+for a full list of the operators described above.</p>
+</div>
+<p>Presented here is an <em>incomplete</em> list of instructions which often arise from
+the compute standards supported by ComputeMux and which targets <strong>shall</strong> be
+expected to handle for <strong>all</strong> supported scalar and vector built-in <a class="reference internal" href="#types">Types</a>:
+the <a class="reference external" href="https://llvm.org/docs/LangRef.html#binary-operations">binary operations</a>
+including integer <code class="docutils literal notranslate">add</code>, <code class="docutils literal notranslate">sub</code>, <code class="docutils literal notranslate">mul</code>, <code class="docutils literal notranslate">udiv</code>, <code class="docutils literal notranslate">sdiv</code>, <code class="docutils literal notranslate">urem</code>,
+<code class="docutils literal notranslate">sdiv</code>; floating-point <code class="docutils literal notranslate">fadd</code>, <code class="docutils literal notranslate">fsub</code>, <code class="docutils literal notranslate">fmul</code>, <code class="docutils literal notranslate">fdiv</code>, and <code class="docutils literal notranslate">frem</code>;
+the <a class="reference external" href="https://llvm.org/docs/LangRef.html#bitwise-binary-operations">bitwise binary operations</a> <code class="docutils literal notranslate">and</code>,
+<code class="docutils literal notranslate">or</code>, <code class="docutils literal notranslate">xor</code>, <code class="docutils literal notranslate">shl</code>, <code class="docutils literal notranslate">lshr</code>, <code class="docutils literal notranslate">ashr</code>. Relational and equality
+operations are commonly lowered as <code class="docutils literal notranslate">icmp</code> or <code class="docutils literal notranslate">fcmp</code> instructions.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The four basic floating-point operators – commonly rendered into LLVM IR as
+<code class="docutils literal notranslate">fadd</code>, <code class="docutils literal notranslate">fsub</code>, <code class="docutils literal notranslate">fmul</code>, and <code class="docutils literal notranslate">fdiv</code> instructions – are special in
+that ComputeMux <strong>does not</strong> provide software implementations to help achieve
+precision requirements. See <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#requirements"><span class="std std-ref">here</span></a> for
+more information. An example of the precision requirements that OpenCL
+conformance places upon these four operators is given below.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Targets without hardware support for the fifth operator <code class="docutils literal notranslate">frem</code> <strong>may</strong> wish
+to replace all such instructions with calls to the OpenCL built-in <code class="docutils literal notranslate">fmod</code>
+function or the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a> equivalent, which both have
+overloads for all OpenCL built-in vector <a class="reference internal" href="#types">Types</a>. This may be preferable to
+LLVM’s standard expansion of the instruction which may scalarize vector
+types.</p>
+</div>
+<div class="section" id="floating-point-precision-requirements">
+<a class="header-link" href="#floating-point-precision-requirements"><h3 id="floating-point-precision-requirements">Floating-point Precision Requirements</h3><span class="material-icons">link</span></a>
+<p>The LLVM IR instructions will have precision requirements that vary according
+to the higher-level programming language being implemented. These precision
+requirements <strong>must</strong> be adhered to for conformance, but note that there may be
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html#opencl-full-profile-ulp"><span class="std std-ref">profiles</span></a>, <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html#optimization-options"><span class="std std-ref">compiler options</span></a>, or
+specific maths library functions (e.g., <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#math-functions">native functions in OpenCL</a>)
+to relax these requirements when used in performance-sensitive code.</p>
+<div class="section" id="opencl-conformance">
+<a class="header-link" href="#opencl-conformance"><h4 id="opencl-conformance">OpenCL Conformance</h4><span class="material-icons">link</span></a>
+<p>The OpenCL <em>full-profile</em> precision requirements for floating-point arithmetic
+operations (for both scalar and vector) are summarized in the table below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This table is a summary of requirements for the <em>full</em> profile. The embedded
+profile and/or presence of certain compilation options may loosen these
+requirements. See <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#relative-error-as-ulps">Relative Error as ULPs</a>
+for the definition of ULP and precision requirements for other profiles,
+compilation flags, and other built-in floating-point operations. See
+the same section in the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_fp16-relative-error-as-ulps">cl_khr_fp16 documentation</a>
+for the precision requirements on <cite>half</cite> data types.</p>
+</div>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Operator</p></th>
+<th class="head" colspan="3"><p>Min accuracy - ULP values</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>Single-precision</p></th>
+<th class="head"><p>Double-precision <a class="footnote-reference brackets" href="#f5" id="id8">5</a></p></th>
+<th class="head"><p>Half-precision <a class="footnote-reference brackets" href="#f5" id="id9">5</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">fadd</code></p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">fsub</code></p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">fmul</code></p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>Correctly rounded</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">fdiv</code></p></td>
+<td><p>&lt;= 2.5 ulp</p></td>
+<td><p>Correctly rounded</p></td>
+<td><p>&lt;= 1 ulp</p></td>
+</tr>
+</tbody>
+</table></div>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="f5"><span class="brackets">5</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id9">2</a>)</span></dt>
+<dd><p>Support for both half and double is optional</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><span class="doc">Floating-Point Requirements</span></a> for details on
+floating point precision requirements for hardware.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intrinsics">
+<span id="compiler-ir-intrinsics"></span><a class="header-link" href="#intrinsics"><h2 id="intrinsics">Intrinsics</h2><span class="material-icons">link</span></a>
+<p>LLVM includes the notion of <a class="reference external" href="https://llvm.org/docs/LangRef.html#intrinsic-functions">intrinsic functions</a> which serve to
+extend the capabilities of stock LLVM IR. ComputeMux provides a number of
+points at which intrinsics may be emitted into the IR.</p>
+<p>Some intrinsics <strong>may</strong> be immediately present in the IR consumed by
+ComputeMux, either generated by the compiler frontend or created during
+conversion from a higher-level intermediate representation such as SPIR-V.</p>
+<p>The standard ComputeMux pass pipeline includes several standard LLVM
+optimizations such as <code class="docutils literal notranslate">InstCombine</code> which are known to introduce intrinsics
+into the IR module. This pass pipeline is ultimately <em>configurable</em> and so
+passes can be added, removed or reordered as required. Doing so may introduce
+or remove unspecified intrinsics into the IR module.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A compiler backend can usually rely on LLVM’s standard legalization framework
+to expand any unsupported intrinsics into a set of supported operations. If
+an architecture has native support for any intrinsics then custom code will
+be required to ‘lower’ them to target-specific instruction sequences.</p>
+</div>
+<p>If ComputeMux’s <a class="reference internal" href="#compiler-ir-wfv"><span class="std std-ref">whole-function vectorizer</span></a> (WFV) pass
+is enabled, the vectorizer <strong>may</strong> emit the vector reduction intrinsics
+<code class="docutils literal notranslate">@llvm.vector.reduce.and.*</code> or <code class="docutils literal notranslate">@llvm.vector.reduce.or.*</code>. Up to and
+including LLVM 11, if these are not supported by the target, alternative code
+will be generated, so supporting these is not a requirement. As of LLVM 12,
+these intrinsics <strong>may</strong> be emitted <em>regardless of the target capabilities</em>.</p>
+<p>If WFV is enabled, load instructions <strong>may</strong> be vectorized to the intrinsics
+<code class="docutils literal notranslate">@llvm.masked.load.*</code> or <code class="docutils literal notranslate">@llvm.masked.gather.*</code>. Store instructions
+<strong>may</strong> be vectorized to the intrinsics <code class="docutils literal notranslate">@llvm.masked.store.*</code> or
+<code class="docutils literal notranslate">@llvm.masked.scatter.*</code>. These are emitted through an externally-exposed
+interface, so the default behaviour <strong>may</strong> be overridden by a target-specific
+implementation, if required.</p>
+<p>If WFV is enabled, certain operations on scalable vectors other than loads and
+stores <strong>shall</strong> use <code class="docutils literal notranslate">@llvm.masked.scatter.*</code> and <code class="docutils literal notranslate">@llvm.masked.gather.*</code>
+intrinsics.</p>
+<p>If WFV is enabled, the vectorizer <strong>may</strong> emit a number of other
+target-independent intrinsics commonly generated by LLVM’s middle-end
+optimizations (e.g., <code class="docutils literal notranslate">@llvm.maxnum</code>, <code class="docutils literal notranslate">@llvm.fshr</code>, etc.), but only if they
+exist in the incoming IR.</p>
+</div>
+<div class="section" id="address-spaces">
+<span id="compiler-ir-address-spaces"></span><a class="header-link" href="#address-spaces"><h2 id="address-spaces">Address Spaces</h2><span class="material-icons">link</span></a>
+<p>In LLVM IR, pointer types are considered as pointing to a particular “address
+space” denoted by an integral value, e.g., <code class="docutils literal notranslate">i32 addrspace(2)*</code>. Address
+spaces conceptually describe different regions of memory which may not
+necessarily be uniformly addressable. The default address space is the number
+zero and the semantics of non-zero address spaces are target-specific. In
+LLVM’s type system, two otherwise equivalent pointer types are unequal if they
+point to different address spaces and may not be used interchangeably.</p>
+<p>See <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html#address-spaces"><span class="std std-ref">Address Spaces</span></a> for a
+conceptual overview of the address spaces ComputeMux recognizes and how these
+address spaces may be mapped to hardware.</p>
+<p>In LLVM IR, ComputeMux maps these address spaces to the numbers 0-4:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Address Space</p></th>
+<th class="head"><p>OpenCL</p></th>
+<th class="head"><p>SPIR-V</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="5"><p>0</p></td>
+<td rowspan="5"><p>private</p></td>
+<td><p>Function</p></td>
+</tr>
+<tr class="row-odd"><td><p>Private</p></td>
+</tr>
+<tr class="row-even"><td><p>AtomicCounter</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>1</p></td>
+<td rowspan="4"><p>global</p></td>
+<td><p>Uniform</p></td>
+</tr>
+<tr class="row-even"><td><p>CrossWorkgroup</p></td>
+</tr>
+<tr class="row-odd"><td><p>Image</p></td>
+</tr>
+<tr class="row-even"><td><p>StorageBuffer</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>2</p></td>
+<td rowspan="2"><p>constant</p></td>
+<td><p>UniformConstant</p></td>
+</tr>
+<tr class="row-even"><td><p>PushConstant</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>local</p></td>
+<td><p>Workgroup</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>generic</p></td>
+<td><p>Generic</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Targets <strong>shall not</strong> use these address space numbers for any other purpose.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The conventions in LLVM surrounding address spaces 0-3 stem from the SPIR 1.2
+specification.</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/SPIR/specs/spir_spec-1.2.pdf">https://www.khronos.org/registry/SPIR/specs/spir_spec-1.2.pdf</a></p>
+</div>
+<p>Targets <strong>may</strong> use any of the unused address space numbers for their own
+purposes. It is recommended that address space numbers above 100 are used to
+better accommodate future specifications.</p>
+<p>ComputeMux <strong>shall not</strong> make assumptions about how address spaces map to the
+target architecture and how conversions between them behave. Conversions
+between address spaces in the IR <strong>shall</strong> be preserved. Targets <strong>shall</strong>
+expect that <code class="docutils literal notranslate">addrspacecast</code> instructions <strong>may</strong> occur in programs in all
+supported versions of LLVM. It is up to the target to lower these instructions
+accordingly.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is common that a ComputeMux compiler backend is targeting an architecture
+where not all address spaces are distinct memory regions, e.g., one with a
+unified address space, or more generally one for which a given pair of
+address spaces 0 to 4 are known to share the same addressable region.</p>
+<p>In this instance, it is recommended that the distinct address spaces are
+<em>maintained</em> on pointer types. An LLVM compiler backend does not care for
+particular address spaces and they should not interfere with any
+optimizations.</p>
+<p>A common sticking point is in fact the <code class="docutils literal notranslate">addrspacecast</code> instructions which
+hit the instruction selector and expect a lowering to target-specific
+instructions. The target <strong>may</strong> override
+<code class="docutils literal notranslate">TargetMachine::isNoopAddrSpaceCast</code>. This method allows LLVM to
+automatically elide <code class="docutils literal notranslate">addrspacecast</code> instructions during instruction
+selection.</p>
+</div>
+</div>
+<div class="section" id="alignment">
+<a class="header-link" href="#alignment"><h2 id="alignment">Alignment</h2><span class="material-icons">link</span></a>
+<p>As is required by the semantics of LLVM IR, a target <strong>must</strong> adhere to the
+alignments specified on operations. These are most commonly found as either the
+<code class="docutils literal notranslate">align</code> argument (or <code class="docutils literal notranslate">!align</code> metadata) on instructions including
+<code class="docutils literal notranslate">alloca</code>, <code class="docutils literal notranslate">load</code>, <code class="docutils literal notranslate">store</code>, etc., or the alignment parameter on
+<a class="reference internal" href="#compiler-ir-intrinsics"><span class="std std-ref">intrinsics</span></a> such as <code class="docutils literal notranslate">@llvm.masked.gather.*</code>
+and <code class="docutils literal notranslate">@llvm.masked.scatter.*</code>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference external" href="https://llvm.org/docs/LangRef.html">LLVM language reference manual</a>
+contains the full details on how alignment is expressed by each operation.</p>
+</div>
+<p>The specific alignments on each operation are ultimately defined by the
+higher-level programming environment that ComputeMux is compiling for.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Built-in datatypes in OpenCL <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#alignment-of-types">are specified as being aligned to their own
+size in bytes</a>.</p>
+<p>Note that vectors of 3 elements are specified as having a size as if they had
+4 elements. Therefore their alignment is that of the equivalent 4-element
+vector.</p>
+<p>It is for this reason that the following accesses <strong>must</strong> be supported for
+any ComputeMux implementation that is required to support OpenCL conformance:</p>
+<ul class="simple">
+<li><p>1-byte-aligned <code class="docutils literal notranslate">i8</code></p></li>
+<li><p>2-byte-aligned <code class="docutils literal notranslate">i16</code>, <code class="docutils literal notranslate">half</code>, <code class="docutils literal notranslate">&lt;2 x i8&gt;</code>, etc.</p></li>
+<li><p>4-byte-aligned <code class="docutils literal notranslate">i32</code>, <code class="docutils literal notranslate">float</code>, <code class="docutils literal notranslate">&lt;2 x i16&gt;</code>, etc.</p></li>
+<li><p>8-byte-aligned <code class="docutils literal notranslate">i64</code>, <code class="docutils literal notranslate">double</code>, <code class="docutils literal notranslate">&lt;3 x half&gt;</code>, etc.</p></li>
+<li><p>16-byte-aligned <code class="docutils literal notranslate">&lt;2 x i64&gt;</code>, <code class="docutils literal notranslate">&lt;4 x i32&gt;</code>, etc.</p></li>
+<li><p>32-byte-aligned <code class="docutils literal notranslate">&lt;4 x i64&gt;</code>, <code class="docutils literal notranslate">&lt;8 x i32&gt;</code>, etc.</p></li>
+<li><p>64-byte-aligned <code class="docutils literal notranslate">&lt;8 x i64&gt;</code>, <code class="docutils literal notranslate">&lt;16 x i32&gt;</code>, etc.</p></li>
+<li><p>128-byte-aligned <code class="docutils literal notranslate">&lt;16 x i64&gt;</code>, <code class="docutils literal notranslate">&lt;16 x double&gt;</code>, etc.</p></li>
+</ul>
+<p>Refer back to the section on <a class="reference internal" href="#types">Types</a> to see how higher-level types are
+lowered to the IR types mentioned above.</p>
+</div>
+<p>These alignments <strong>may</strong> not coincide with the target hardware’s natural
+alignment capabilities. It is the compiler’s job to correctly lower accesses
+that are unaligned with respect to the target hardware. This is typically done
+in the compiler backend during instruction selection.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A compiler backend may have to support storing an <code class="docutils literal notranslate">i8</code> to a byte-aligned
+address by loading a naturally-aligned word from around the destination
+pointer, blending in the <code class="docutils literal notranslate">i8</code> value (e.g., using masks and shifts), and
+storing the blended word back to memory.</p>
+<p>Note that this workaround may have to be done atomically, e.g., if work-items
+in a work-group are executed in parallel. See <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html#work-group-scheduling"><span class="std std-ref">an overview of work-group
+scheduling
+scenarios</span></a> for more information.</p>
+</div>
+<p>Note that this – in conjunction with the <a class="reference internal" href="#compiler-ir-address-spaces"><span class="std std-ref">private address space 0</span></a> conceptually being mapped <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html#private"><span class="std std-ref">to the stack</span></a> – means that the compiler
+<strong>may</strong> have to handle stack objects which require a high alignment, e.g., 128
+bytes for OpenCL conformance (see above).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This <strong>may</strong> involve dynamically realigning the stack from its natural ABI
+alignment in the function prologue.</p>
+</div>
+<div class="section" id="computemux">
+<a class="header-link" href="#computemux"><h3 id="computemux">ComputeMux</h3><span class="material-icons">link</span></a>
+<p>ComputeMux <strong>shall</strong> preserve any existing alignment when mutating existing
+memory accesses.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If <a class="reference internal" href="#compiler-ir-wfv"><span class="std std-ref">whole-function vectorization</span></a> is enabled, this
+means that vectorized access <strong>shall</strong> maintain the alignment of the original
+accesses. Therefore this pass may introduce vector accesses whose alignment
+is <em>smaller</em> than their size in bytes.</p>
+<p>For example, when vectorizing by a factor of 8, <code class="docutils literal notranslate">i8 align 1</code> <strong>may</strong> be
+vectorized to <code class="docutils literal notranslate">&lt;8 x i8&gt; align 1</code> and <code class="docutils literal notranslate">&lt;2 x i16&gt; align 4</code> <strong>may</strong> be
+vectorized to <code class="docutils literal notranslate">&lt;16 x i16&gt; align 4</code>.</p>
+</div>
+<p>All <em>new</em> memory accesses created by ComputeMux compiler passes <strong>shall</strong> use
+the alignment specified by the target’s <a class="reference external" href="https://llvm.org/docs/LangRef.html#data-layout">data layout string</a> contained in the LLVM IR
+module and so <strong>shall</strong> be correctly aligned for the target architecture.</p>
+</div>
+<div class="section" id="user-control-over-alignment">
+<a class="header-link" href="#user-control-over-alignment"><h3 id="user-control-over-alignment">User control over alignment</h3><span class="material-icons">link</span></a>
+<p>Users of OpenCL can additionally explicitly specify minimum alignment on
+<code class="docutils literal notranslate">enum</code>, <code class="docutils literal notranslate">struct</code> and <code class="docutils literal notranslate">union</code> types using the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#specifying-attributes-of-types">aligned attribute</a>.
+This attribute is optional and <strong>may</strong> be supported in a target-specific way as
+part of conformant ComputeMux implementation.</p>
+</div>
+</div>
+<div class="section" id="debug-info">
+<a class="header-link" href="#debug-info"><h2 id="debug-info">Debug Info</h2><span class="material-icons">link</span></a>
+<p>ComputeMux Compiler expects standard <a class="reference external" href="https://llvm.org/docs/SourceLevelDebugging.html">LLVM IR debug metadata</a> to be used as the
+format for source debug information. The reusable passes provided by
+oneAPI Construction Kit to ComputeMux Compiler targets make a best-effort attempt to
+preserve debug info, but no guarantees are provided.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In OpenCL, the <code class="docutils literal notranslate">-cl-opt-disable</code> <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#optimization-options">Compilation Option</a> can be used by
+developers to disable optimizations for a better debugging experience. The
+default is optimizations are enabled. oneAPI Construction Kit uses this flag to
+skip front-end compiler transformations used for performance, but places no
+requirements on the ComputeMux Compiler implementation to act on the flag.</p>
+</div>
+<p>LLVM debug information is designed to be agnostic regarding the final format and
+target debugger. oneAPI Construction Kit does nothing to compromise this, and it is
+at the discretion of the ComputeMux Compiler back-end to choose the most suitable
+output format for the target, e.g. DWARF, Stabs, etc.</p>
+<p>Debug information metadata is not used for any other purpose in the oneAPI
+Construction Kit and <strong>may</strong> be discarded by a ComputeMux Compiler target without
+sacrificing either correctness or performance.</p>
+<p>In the future, the ComputeMux Compiler specification may define functions the
+target can optionally implement for the purposes of debugging. For example, with
+target specific debugger hooks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OpenCL 1.2 does not provide a <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#optimization-options">Compilation Option</a> to developers to enable
+debug information in the kernel. Instead, oneAPI Construction Kit provides the
+<code class="docutils literal notranslate">cl_codeplay_extra_build_options</code> OpenCL extension which introduces the
+following options (amongst others) to aid debugging:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">-g</code></dt><dd><p>Build program with debug info.</p>
+</dd>
+<dt><code class="docutils literal notranslate">-S &lt;path/to/source/file&gt;</code></dt><dd><p>Point debug information to a source file on disk. If this does not exist,
+the runtime creates the file with cached source.</p>
+</dd>
+</dl>
+<p>These options make use of existing LLVM debug info metadata, and place no
+additional responsibilities on the ComputeMux Compiler target.</p>
+</div>
+</div>
+<div class="section" id="dma">
+<a class="header-link" href="#dma"><h2 id="dma">DMA</h2><span class="material-icons">link</span></a>
+<p>The ComputeMux compiler specification defines several DMA builtins that a
+compiler implementation <strong>should</strong> provide in the form of an IR pass or
+library. A target that does not provide definitions of the DMA builtins cannot
+take advantage of the optimizations described below.</p>
+<p>Defining these builtins using platform specific DMA features enables optimized
+memory operations in any frameworks built on top of Mux.</p>
+<p>For targets unable to support hardware DMA oneAPI Construction Kit provides
+software implementations of the DMA builtins in the form of compiler passes
+that any target may use. Software implementations of the DMA builtins <strong>may</strong>
+have a performance overhead and any target that can provide platform optimized
+implementations of the builtins <strong>should</strong> do so.</p>
+<p>A full list of the DMA builtins along with their signatures and semantics can
+be found in the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#builtins"><span class="std std-ref">Builtins</span></a>
+section of the ComputeMux compiler specification.</p>
+</div>
+<div class="section" id="atomics-and-fences">
+<a class="header-link" href="#atomics-and-fences"><h2 id="atomics-and-fences">Atomics and Fences</h2><span class="material-icons">link</span></a>
+<p>Atomic and fence instructions <strong>shall</strong> be emitted into the IR consumed by a
+ComputeMux compiler implementation. As outlined in the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html#atomics-and-fences"><span class="std std-ref">Atomics and Fences</span></a>
+section, if a target has hardware support for atomic operations it <strong>should</strong>
+map them to these instructions. As a fallback, if a target does not support
+hardware atomics or fences it <strong>may</strong> implement these instructions in software
+using synchronization primitives such as mutexes.</p>
+<p>For a full list of the atomic and fence instructions a ComputeMux compiler
+implementation <strong>must</strong> handle see the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#atomics-and-fences"><span class="std std-ref">Atomics and Fences</span></a> section of the
+CompilerMux specification.</p>
+<p>The required set of instructions allows the oneAPI Construction Kit to support
+the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#atomic-functions">OpenCL C atomic</a> and <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#_overview_of_atomic_and_fence_operations">OpenCL C fence</a> operations and the <a class="reference external" href="https://www.khronos.org/registry/SPIR-V/specs/unified1/SPIRV.html#_a_id_atomic_a_atomic_instructions">SPIR-V atomic</a>
+and <a class="reference external" href="https://www.khronos.org/registry/SPIR-V/specs/unified1/SPIRV.html#_a_id_barrier_a_barrier_instructions">SPIR-V barrier</a> operations. Synchronization on non-atomic memory access
+is defined by a <em>memory consistency model</em>. The memory consistency requirements
+made on the instruction listed in the Mux compiler spec enables the oneAPI
+Construction Kit to support the higher level <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#_memory_consistency_model_for_opencl_1_x">OpenCL memory consistency model</a>
+and the <a class="reference external" href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model">Vulkan memory model</a>.</p>
+</div>
+<div class="section" id="barriers">
+<a class="header-link" href="#barriers"><h2 id="barriers">Barriers</h2><span class="material-icons">link</span></a>
+<p>The ComputeMux compiler specification defines a set of barrier builtins which
+provide a limited ability to synchronize between kernel execution threads.
+These are designed to support the barrier functions defined in the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#synchronization-functions">OpenCL C
+specification</a>. A full list of these builtins as we define them, and a brief
+description of their semantics can be found in the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html#builtins"><span class="std std-ref">Builtins</span></a> section of the ComputeMux
+compiler specification.</p>
+<p>ComputeMux provides a compiler pass that transforms kernels containing barriers
+such that execution and memory dependencies created by them can be satisfied
+without the need for synchronization primitives on the device. This pass makes
+use of the fence instructions described in the section above, so barrier
+support can benefit from hardware support for such operations. Instead of
+relying on the compiler pass, a ComputeMux implementation <strong>may</strong> choose to
+implement these builtins with supporting hardware features, as mentioned in the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><span class="doc">Synchronization Requirements</span></a> section.</p>
+</div>
+<div class="section" id="builtins">
+<a class="header-link" href="#builtins"><h2 id="builtins">Builtins</h2><span class="material-icons">link</span></a>
+<p>The ComputeMux compiler has the notion of <em>builtin functions</em>. These are
+functions that are known by the compiler to exhibit certain semantics and
+properties which are useful or essential for the purposes of compilation. These
+<em>always</em> include the functions defined by <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a>. In
+addition – depending on the higher-level language being compiled for – other
+builtin functions are recognized; for example, for OpenCL and SYCL,
+the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#built-in-functions">OpenCL Builtin Functions</a> are considered by ComputeMux to be builtin.</p>
+<p>The definitions of builtins <strong>shall</strong> be assumed to be provided by ComputeMux.
+ComputeMux <strong>may</strong> modify the implementation of a builtin
+function at any point in the compilation pipeline according to its own needs.
+It <strong>may</strong> do so regardless of whether that builtin is already defined in the
+module being compiled.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If users wish to provide their own implementations of builtin functions, they
+should do so using a <em>new</em> function definition which is not recognized by
+ComputeMux as a builtin. For example, an optimized <code class="docutils literal notranslate">fma</code> may safely be
+implemented as <code class="docutils literal notranslate">my_fma</code>, provided users replace all calls to <code class="docutils literal notranslate">fma</code> to the
+new function.</p>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:45 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>ComputeMux Compiler</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions"
+                            >
+                            <div>
+                                <h1>Supported LLVM Versions</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#intermediate-representation">Intermediate Representation</a></li>
+                        <li class="heading-2"><a href="#types">Types</a></li>
+                        <li class="heading-2"><a href="#integer-and-floating-point-operations">Integer and Floating-point Operations</a></li>
+                        <li class="heading-2"><a href="#intrinsics">Intrinsics</a></li>
+                        <li class="heading-2"><a href="#address-spaces">Address Spaces</a></li>
+                        <li class="heading-2"><a href="#alignment">Alignment</a></li>
+                        <li class="heading-2"><a href="#debug-info">Debug Info</a></li>
+                        <li class="heading-2"><a href="#dma">DMA</a></li>
+                        <li class="heading-2"><a href="#atomics-and-fences">Atomics and Fences</a></li>
+                        <li class="heading-2"><a href="#barriers">Barriers</a></li>
+                        <li class="heading-2"><a href="#builtins">Builtins</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="ee82534153a37de66cc20de971a2a945">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

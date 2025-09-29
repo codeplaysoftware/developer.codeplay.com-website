@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/running-kernels/executing-kernels-without-scheduling.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Loading and Executing Kernels Without Scheduling - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Loading and Executing Kernels Without Scheduling' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Loading and Executing Kernels Without Scheduling - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Loading and Executing Kernels Without Scheduling' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-tutorials-creating-new-hal-running-kernels-executing-kernels-without-scheduling">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#loading-and-executing-kernels-without-scheduling">
+                            <h1>Loading and Executing Kernels Without Scheduling</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/tutorials/creating-new-hal/running-kernels/executing-kernels-without-scheduling.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="loading-and-executing-kernels-without-scheduling">
+
+<p>Now that we can execute a simple command buffer on the CMP, it is time to extend
+the command buffer to execute the kernel function using the
+<code class="docutils literal notranslate">CMP_RUN_KERNEL_SLICE</code> command. To keep things simple, we will only use a
+single hardware thread to execute kernels and focus on the <code class="docutils literal notranslate">hello</code> example
+with a local size of one item.</p>
+<div class="section" id="loading-kernels">
+<a class="header-link" href="#loading-kernels"><h2 id="loading-kernels">Loading Kernels</h2><span class="material-icons">link</span></a>
+<p>Before kernels can be executed on the RefSi device, the executable object (in
+this case, an ELF object) containing the kernel needs to be loaded in the
+device’s memory. This is done using a simple ELF loader provided for this
+tutorial.</p>
+<p>In order to simplify the loading of kernels on the device, this tutorial uses a
+linker script which lays out the kernel code at a fixed address in memory when
+compiling kernels to RISC-V executable objects. The linker script file can be
+found at <code class="docutils literal notranslate">hal_refsi_tutorial/include/device/program.lds</code>. The area of memory
+used to store kernel code starts at address <code class="docutils literal notranslate">0x10000</code> and ends at <code class="docutils literal notranslate">0xfffff</code>:</p>
+<pre><code class="language-cpp">// refsi_hal.cpp
+...
+constexpr const uint64_t REFSI_ELF_BASE = 0x10000ull;                  // Added
+constexpr const uint64_t REFSI_ELF_SIZE = (1 &lt;&lt; 20) - REFSI_ELF_BASE;  // Added
+</code>
+</pre>
+<p>The RefSi M1 device we are targetting in this tutorial does not have any memory
+mapped at <code class="docutils literal notranslate">[0x10000:0xfffff]</code>, which requires a memory mapping to be created
+before the ELF object can be loaded onto the device. Such memory mappings can be
+created using a RefSi feature called memory window, which sets up the device to
+redirect memory accesses from one region of memory to another.</p>
+<p>Creating a memory window involves running a command buffer that writes to
+several CMP registers that control the configuration of a memory window. In
+order to simplify this process, we create a utility function that takes care of
+populating a command buffer with the required register writes:</p>
+<pre><code class="language-cpp">// refsi_hal.h
+...
+class refsi_command_buffer; // Added
+...
+class refsi_hal_device : public hal::hal_device_t {
+ private:
+  bool createWindow(refsi_command_buffer &amp;cb, uint32_t win_id,              // Added
+                    uint32_t mode, refsi_addr_t base, refsi_addr_t target,  // Added
+                    uint64_t scale, uint64_t size);                         // Added
+};
+</code>
+</pre>
+<pre><code class="language-cpp">// refsi_hal.cpp
+bool refsi_hal_device::createWindow(refsi_command_buffer &amp;cb,
+                                    uint32_t win_id, uint32_t mode,
+                                    refsi_addr_t base, refsi_addr_t target,
+                                    uint64_t scale, uint64_t size) {
+  auto base_reg = (refsi_cmp_register_id)(CMP_REG_WINDOW_BASE0 + win_id);
+  auto target_reg = (refsi_cmp_register_id)(CMP_REG_WINDOW_TARGET0 + win_id);
+  auto mode_reg = (refsi_cmp_register_id)(CMP_REG_WINDOW_MODE0 + win_id);
+  auto scale_reg = (refsi_cmp_register_id)(CMP_REG_WINDOW_SCALE0 + win_id);
+
+  // Break down the scale into two factors, a and b.
+  if (scale &gt; (1ull &lt;&lt; 32)) {
+    return false;
+  }
+  uint64_t scale_a = (scale &gt; 0) ? 1 : 0;
+  uint64_t scale_b = (scale &gt; 0) ? scale - 1 : 0;
+
+  // Encode the mode register value.
+  uint64_t mode_val = CMP_WINDOW_ACTIVE | (mode &amp; 0x6) |
+      ((size - 1) &amp; 0xffffffff) &lt;&lt; 32ull;
+
+  // Add register writes to the command buffer.
+  cb.addWRITE_REG64(base_reg, base);
+  cb.addWRITE_REG64(target_reg, target);
+  cb.addWRITE_REG64(scale_reg, (scale_a &amp; 0x1f) | (scale_b &lt;&lt; 32ull));
+  cb.addWRITE_REG64(mode_reg, mode_val);
+  return true;
+}
+</code>
+</pre>
+<p>In this tutorial we first allocate a buffer in DRAM (using <code class="docutils literal notranslate">mem_alloc</code> we have
+implemented earlier) for the ELF executable and then create a memory window that
+maps the <code class="docutils literal notranslate">[0x10000:0xfffff]</code> region to the DRAM buffer using the utility
+function we just added:</p>
+<pre><code class="language-cpp">// refsi_hal.h
+class refsi_hal_device : public hal::hal_device_t {
+ private:
+  bool createWindows();                     // Added
+  ...
+  hal::hal_addr_t elf_mem_base = 0;         // Added
+  hal::hal_addr_t elf_mem_size = 0;         // Added
+  hal::hal_addr_t elf_mem_mapped_addr = 0;  // Added
+};
+</code>
+</pre>
+<pre><code class="language-cpp">// refsi_hal.cpp
+bool refsi_hal_device::createWindows() {
+  refsi_command_buffer cb;
+
+  // Set up a memory window for ELF executables.
+  // Allocate 'ELF' memory in DRAM, to store kernel executables.
+  elf_mem_base = REFSI_ELF_BASE;
+  elf_mem_size = REFSI_ELF_SIZE;
+  if (elf_mem_mapped_addr) {
+    mem_free(elf_mem_mapped_addr);
+  }
+  elf_mem_mapped_addr = mem_alloc(elf_mem_size, 4096);
+  if (!elf_mem_mapped_addr) {
+    return false;
+  }
+  if (!createWindow(cb, 0 /* win_id */, CMP_WINDOW_MODE_SHARED, elf_mem_base,
+                    elf_mem_mapped_addr, 0, elf_mem_size)) {
+    return false;
+  }
+
+  cb.addFINISH();
+  return cb.run(*this) == refsi_success;
+}
+</code>
+</pre>
+<p>Finally, we need to call <code class="docutils literal notranslate">createWindows</code> when first initializing the device.
+The memory window only needs to be created once, and not before executing each
+kernel on the device. This will be done in the <code class="docutils literal notranslate">initialize</code> function:</p>
+<pre><code class="language-cpp">// refsi_hal.cpp
+bool refsi_hal_device::initialize() {
+  if (!createWindows()) { // Added
+    return false;         // Added
+  }                       // Added
+  return true;
+}
+</code>
+</pre>
+<p>There is one final step needed before the ELF can be loaded. We need to add a
+new utility class, <code class="docutils literal notranslate">hal_mem_device</code>. This class inherits from the
+<code class="docutils literal notranslate">MemoryDeviceBase</code> base class, which abstracts devices with memory that can be
+written to and read from:</p>
+<pre><code class="language-cpp">// refsi_hal.h
+#include "common_devices.h" // Added
+...
+class hal_mem_device : public MemoryDeviceBase { // Added class
+ public:
+  hal_mem_device(hal::hal_device_t *hal_device) : hal_device(hal_device) {}
+
+  /// @brief Return zero. Memory controllers are variable-sized devices.
+  size_t mem_size() const override { return 0; }
+
+  bool load(reg_t addr, size_t len, uint8_t *bytes, unit_id_t unit) override {
+    return hal_device-&gt;mem_read(bytes, addr, len);
+  }
+
+  bool store(reg_t addr, size_t len, const uint8_t *bytes,
+             unit_id_t unit) override {
+    return hal_device-&gt;mem_write(addr, bytes, len);
+  }
+
+ private:
+  hal::hal_device_t *hal_device;
+};                                               // End class
+</code>
+</pre>
+<p>Once this is done, the ELF loader (through the <code class="docutils literal notranslate">ELFProgram</code> class) can copy
+kernel code to the <code class="docutils literal notranslate">[0x10000:0xfffff]</code> region without being aware of the
+memory window and the data will automatically end up in DRAM instead. Note how
+there is no mention of memory windows or the ELF base address when loading the
+kernel’s ELF:</p>
+<pre><code class="language-cpp">// refsi_hal.cpp
+bool refsi_hal_device::kernel_exec(hal::hal_program_t program,
+                                   hal::hal_kernel_t kernel,
+                                   const hal::hal_ndrange_t *nd_range,
+                                   const hal::hal_arg_t *args,
+                                   uint32_t num_args, uint32_t work_dim) {
+  refsi_locker locker(hal_lock);
+
+  refsi_hal_program *refsi_program = (refsi_hal_program *)program; // Added
+  ELFProgram *elf = refsi_program-&gt;elf.get();                      // Added
+  refsi_hal_kernel *kernel_wrapper = (refsi_hal_kernel *)kernel;
+
+  // Load ELF into the RefSi device's memory.                      // Added
+  hal_mem_device mem_if(this);                                     // Added
+  if (!elf-&gt;load(mem_if)) {                                        // Added
+    return false;                                                  // Added
+  }                                                                // Added
+  ...
+}
+</code>
+</pre>
+<p>When executing the <code class="docutils literal notranslate">hello</code> example again, we can see that a new command buffer
+is executed when starting up the RefSi device. Writes to CMP registers are
+present in the debug output and give an indication as to how the memory window
+is set up (e.g. the base address being <code class="docutils literal notranslate">0x10000</code> and the target address
+that was allocated in DRAM to store ELF kernels being <code class="docutils literal notranslate">0xbff10000</code>):</p>
+<pre><code class="language-shell">$ REFSI_DEBUG=cmp bin/hello
+[CMP] Starting.
+[CMP] Starting to execute command buffer at 0xbff0ffb8.
+[CMP] CMP_WRITE_REG64(WINDOW_BASE0, 0x10000)
+[CMP] CMP_WRITE_REG64(WINDOW_TARGET0, 0xbff10000)
+[CMP] CMP_WRITE_REG64(WINDOW_SCALE0, 0x0)
+[CMP] CMP_WRITE_REG64(WINDOW_MODE0, 0xeffff00000001)
+[CMP] CMP_FINISH
+[CMP] Finished executing command buffer in 0.000 s
+Using device 'RefSi M1 Tutorial'
+Running hello example (Global size: 8, local size: 1)
+[CMP] Starting to execute command buffer at 0xbff0ffe8.
+[CMP] CMP_WRITE_REG64(ENTRY_PT_FN, 0x1001c)
+[CMP] CMP_FINISH
+[CMP] Finished executing command buffer in 0.000 s
+[CMP] Requesting stop.
+[CMP] Stopping.
+</code>
+</pre>
+<p>However, we are still not seeing any of the expected output from the <code class="docutils literal notranslate">hello</code>
+example. This is because none of the command buffers contain any commands that
+execute code on the RefSi accelerator cores, such as <code class="docutils literal notranslate">CMP_RUN_KERNEL_SLICE</code>.
+This will be addressed in the next section.</p>
+</div>
+<div class="section" id="executing-kernels">
+<a class="header-link" href="#executing-kernels"><h2 id="executing-kernels">Executing Kernels</h2><span class="material-icons">link</span></a>
+<p>Now that the kernel executable has been loaded in the RefSi device’s memory,
+we can start looking at how to execute the kernel on the device.</p>
+<p>First, we want to add a helper function to encode the <code class="docutils literal notranslate">CMP_RUN_KERNEL_SLICE</code>
+command:</p>
+<pre><code class="language-cpp">// refsi_command_buffer.h
+class refsi_command_buffer {
+  ...
+ private:
+   void addRUN_KERNEL_SLICE(uint32_t max_harts, uint64_t num_instances,
+                            uint64_t slice_id);
+};
+</code>
+</pre>
+<pre><code class="language-cpp">// refsi_command_buffer.cpp
+void refsi_command_buffer::addRUN_KERNEL_SLICE(uint32_t max_harts,
+                                               uint64_t num_instances,
+                                               uint64_t slice_id) {
+  uint32_t inline_chunk = (max_harts &amp; 0xff);
+  chunks.push_back(
+      refsiEncodeCMPCommand(CMP_RUN_KERNEL_SLICE, 2, inline_chunk));
+  chunks.push_back(num_instances);
+  chunks.push_back(slice_id);
+}
+</code>
+</pre>
+<p>This command has a few parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">max_harts</code>: specifies the maximum number of (parallel) hardware threads to
+use for executing the kernel. We will set this value to one in order to have
+sequential execution.</p></li>
+<li><p><code class="docutils literal notranslate">num_instances</code>: specifies how many times to invoke the kernel entry point
+function. This will be equal to the number of work-groups.</p></li>
+<li><p><code class="docutils literal notranslate">slice_id</code>: identifies the slice command when it is used multiple times for
+the same kernel. This will be the case for 2D and 3D kernels.</p></li>
+</ul>
+<p>When this command is executed, the kernel entry point function is invoked
+multiple times on the given number of RISC-V hardware threads. The entry point
+address is taken from the <code class="docutils literal notranslate">CMP_REG_ENTRY_PT_FN</code> register, which is already set
+in the command buffer. This address must be in device memory, which means that
+the ELF program containing the kernel code must also be loaded on the device as
+we have done in the previous section.</p>
+<p>Second, we add a <code class="docutils literal notranslate">RUN_KERNEL_SLICE</code> command to the command buffer that is
+being populated in <code class="docutils literal notranslate">kernel_exec</code>. Building on the previous section, here is
+that function looks now after adding the command to run the kernel:</p>
+<pre><code class="language-cpp">// refsi_hal.cpp
+bool refsi_hal_device::kernel_exec(hal::hal_program_t program,
+                                   hal::hal_kernel_t kernel,
+                                   const hal::hal_ndrange_t *nd_range,
+                                   const hal::hal_arg_t *args,
+                                   uint32_t num_args, uint32_t work_dim) {
+  refsi_locker locker(hal_lock);
+
+  ELFProgram *elf = (ELFProgram *)program;
+  refsi_hal_kernel *kernel_wrapper = (refsi_hal_kernel *)kernel;
+
+  // Load ELF into the RefSi device's memory.
+  hal_mem_device mem_if(this);
+  if (!elf-&gt;load(mem_if)) {
+    return false;
+  }
+
+  // Encode the command buffer.
+  size_t num_instances = nd_range-&gt;global[0] / nd_range-&gt;local[0];         // Added
+  cb.addWRITE_REG64(CMP_REG_ENTRY_PT_FN, kernel_wrapper-&gt;symbol);
+  cb.addWRITE_REG64(CMP_REG_RETURN_ADDR, elf-&gt;find_symbol("kernel_exit")); // Added
+  cb.addRUN_KERNEL_SLICE(1, num_instances, 0);                             // Added
+  cb.addFINISH();
+
+  // Write the command buffer to device memory.
+  ...
+}
+</code>
+</pre>
+<p>When executing the <code class="docutils literal notranslate">hello</code> example again, we can see that a
+<code class="docutils literal notranslate">CMP_RUN_KERNEL_SLICE</code> command is executed and that an instruction is executed
+on device (thanks to setting the <code class="docutils literal notranslate">SPIKE_SIM_LOG</code> environment variable to print
+a trace of simulated RISC-V instructions):</p>
+<pre><code class="language-shell">$ SPIKE_SIM_LOG=1 REFSI_DEBUG=cmp bin/hello
+[CMP] Starting.
+[CMP] Starting to execute command buffer at 0xbff0ffb8.
+[CMP] CMP_WRITE_REG64(WINDOW_BASE0, 0x10000)
+[CMP] CMP_WRITE_REG64(WINDOW_TARGET0, 0xbff10000)
+[CMP] CMP_WRITE_REG64(WINDOW_SCALE0, 0x0)
+[CMP] CMP_WRITE_REG64(WINDOW_MODE0, 0xeffff00000001)
+[CMP] CMP_FINISH
+[CMP] Finished executing command buffer in 0.000 s
+Using device 'RefSi M1 Tutorial'
+Running hello example (Global size: 8, local size: 1)
+[CMP] Starting to execute command buffer at 0xbff0ffd0.
+[CMP] CMP_WRITE_REG64(ENTRY_PT_FN, 0x1001c)
+[CMP] CMP_WRITE_REG64(RETURN_ADDR, 0x1006c)
+[CMP] CMP_RUN_KERNEL_SLICE(n=8, slice_id=0, max_harts=1)
+core   0: 0x000000000001001c (0x000066bc) c.ld    a5, 72(a3)
+core   0: exception trap_load_access_fault, epc 0x000000000001001c
+core   0:           tval 0x0000000000000048
+error: 'Load Access Fault' exception was raised @ 0x1001c (badaddr = 0x48)
+[CMP] Finished executing command buffer in 0.000 s
+[CMP] Requesting stop.
+[CMP] Stopping.
+</code>
+</pre>
+<p>However, the kernel is seen to crash with a load access fault when executing the
+first instruction. This is because the second argument to the entry point
+function has not been initialized. We will see how to resolve this issue in the
+next section.</p>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/running-kernels/executing-kernels-without-scheduling.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/running-kernels/executing-kernels-without-scheduling.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1></h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <h1></h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#loading-and-executing-kernels-without-scheduling">Loading and Executing Kernels Without Scheduling</a></li>
+                        <li class="heading-2"><a href="#loading-kernels">Loading Kernels</a></li>
+                        <li class="heading-2"><a href="#executing-kernels">Executing Kernels</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="cf89962b9dcd3491f09de920b20a036c">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

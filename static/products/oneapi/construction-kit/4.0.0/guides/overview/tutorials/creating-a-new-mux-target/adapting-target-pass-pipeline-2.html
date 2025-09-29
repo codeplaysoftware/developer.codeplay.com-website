@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Adapting the Pass Pipeline for the Target - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Adapting the Pass Pipeline for the Target' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Adapting the Pass Pipeline for the Target - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Adapting the Pass Pipeline for the Target' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-tutorials-creating-a-new-mux-target-adapting-target-pass-pipeline">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#adapting-the-pass-pipeline-for-the-target">
+                            <h1>Adapting the Pass Pipeline for the Target</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="adapting-the-pass-pipeline-for-the-target">
+
+<p><code class="docutils literal notranslate">RefSi</code> supports calling our kernel with common parameters across multiple
+<cite>instance IDs</cite> and <cite>slice IDs</cite>, whereas our standard pass pipeline expects that
+all the functions that are executed have the same parameters except for a unique
+scheduling struct.</p>
+<p>To map one expectation to the other we add a wrapper pass as a final pass which
+takes the <em>RefSi</em> defined parameters <cite>instance ID</cite> and <cite>slice ID</cite> to map to to
+specific ndrange workgroups.</p>
+<p>The default compiler pipeline creates a function which will work on a single
+workgroup at a time. This means that it creates work item loops across the whole
+workgroup. The <em>API</em> of this created function is:</p>
+<pre><code class="language-cpp">kernel_name(param_pack, sched_struct)
+</code>
+</pre>
+<p>The <cite>param_pack</cite> is a structure containing all of the parameters packed into a
+structure, aligned to each paramater size.</p>
+<p>The scheduling struct looks like:</p>
+<pre><code class="language-cpp">struct sched_struct {
+  size_t   group_id[3];
+  size_t   num_groups[3];
+  size_t   global_offset[3];
+  size_t   local_size[3];
+  uint32_t work_dim;
+}
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">sched_struct</code> is assumed to have different values per workgroup for the
+<cite>group_id</cite> part of the struct.</p>
+<p><em>RefSi</em> only supports the same fixed parameters across all kernels executed, as
+well as two 64 bit integer values, <code class="docutils literal notranslate">instance_id</code> and <code class="docutils literal notranslate">slice_id</code> as
+additional parameters as follows:</p>
+<p>We can use these additional values to work out the <code class="docutils literal notranslate">group_id</code> values as
+follows:</p>
+<pre><code class="language-cpp">group_id[0] = instance id
+group_id[1] = slice id % num_groups[1]
+group_id[2] = slice id / num_groups[1]
+</code>
+</pre>
+<p>We thus need to write an additional pass which takes the <em>RefSi</em> function
+signature, sets the <code class="docutils literal notranslate">group_id</code> parts of the <code class="docutils literal notranslate">sched_struct</code> and calls the
+original kernel produced through the generic pipeline.</p>
+<p>To create our pass we need to create a new file <code class="docutils literal notranslate">refsi_wrapper_pass.h</code> under
+<code class="docutils literal notranslate">compiler/refsi_tutorial/include/refsi_tutorial</code>.</p>
+<p>This file needs to look like:</p>
+<pre><code class="language-cpp">#ifndef REFSI_TUTORIAL_REFSI_WRAPPER_PASS_H_INCLUDED
+#define REFSI_TUTORIAL_REFSI_WRAPPER_PASS_H_INCLUDED
+
+#include &lt;llvm/IR/PassManager.h&gt;
+
+namespace refsi_tutorial {
+  class RefSiWrapperPass final
+      : public llvm::PassInfoMixin&lt;RefSiWrapperPass&gt; {
+   public:
+    llvm::PreservedAnalyses run(llvm::Module &amp;, llvm::ModuleAnalysisManager &amp;);
+  };
+}
+
+#endif
+</code>
+</pre>
+<p>We also need an implementation pass <code class="docutils literal notranslate">RefSiWrapperPass.cpp</code> under
+<code class="docutils literal notranslate">compiler/refsi_tutorial/source/passes</code>.</p>
+<p>This will need the following includes and settings:</p>
+<pre><code class="language-cpp">#include &lt;refsi_tutorial/refsi_wrapper_pass.h&gt;
+#include &lt;compiler/utils/metadata.h&gt;
+#include &lt;compiler/utils/pass_functions.h&gt;
+#include &lt;llvm/IR/IRBuilder.h&gt;
+#include &lt;compiler/utils/scheduling.h&gt;
+using namespace llvm;
+</code>
+</pre>
+<p>To begin with we will create an empty function except to print something.</p>
+<pre><code class="language-cpp">namespace refsi_tutorial {
+  llvm::PreservedAnalyses RefSiWrapperPass::run(llvm::Module &amp;M,
+                                                llvm::ModuleAnalysisManager &amp;) {
+    (void) M;
+    bool modified = false;
+    llvm::errs() &lt;&lt; "Inside RefSiWrapperPass::run\n";
+    return modified ? PreservedAnalyses::none() : PreservedAnalyses::all();
+  }
+}
+</code>
+</pre>
+<p>These two files will need to be added to
+<code class="docutils literal notranslate">compiler/refsi_tutorial/CMakeLists.txt</code> under <code class="docutils literal notranslate">set(REFSI_SOURCES</code>.</p>
+<p>We then need to ensure this pass is run. We use a configuration class which
+allows the addition of user passes easily, amongst other settings. In this case
+we wish to add passes to the end of standard pass pipeline.</p>
+<p>In <code class="docutils literal notranslate">compiler/refsi_tutorial/source/module.cpp</code>, in <code class="docutils literal notranslate">getLateTargetPasses()</code>
+after the <code class="docutils literal notranslate">Add final passes here</code> comment, add:</p>
+<pre><code class="language-cpp">// Add final passes here by adding directly to PM as needed
+PM.addPass(refsi_tutorial::RefSiWrapperPass());
+</code>
+</pre>
+<p>Note you will also need to include the header file <code class="docutils literal notranslate">refsi_wrapper_pass.h</code> you
+just created.</p>
+<p>Now all we need to do is compile. At this point all we need to is build the
+standalone compiler, <code class="docutils literal notranslate">clc</code>, using <code class="docutils literal notranslate">ninja clc</code>.</p>
+<p>Now we can run <code class="docutils literal notranslate">clc</code> on a simple kernel, e.g.:</p>
+<pre><code class="language-c">__kernel void copy(__global int *in, __global int *out) {
+  out[get_global_id(0)] = in[get_global_id(0)];
+}
+</code>
+</pre>
+<p>Save this to <code class="docutils literal notranslate">/tmp/copy.cl</code>.
+Now try <code class="docutils literal notranslate">bin/clc /tmp/copy.cl</code>.</p>
+<p>You should see:</p>
+<pre><code class="language-shell">Inside RefSiWrapperPass::run
+</code>
+</pre>
+<p>To enable additional debug we can also support debugging of the pass by adding
+to <code class="docutils literal notranslate">compiler/refsi_tutorial/source/refsi_tutorial_pass_registry.def</code>:</p>
+<pre><code class="language-cpp">#ifndef MODULE_PASS
+#define MODULE_PASS(NAME, CREATE_PASS)
+#endif
+MODULE_PASS("refsi-wrapper", refsi_tutorial::RefSiWrapperPass())
+#undef MODULE_PASS
+</code>
+</pre>
+<p>Note this also requires adding the header for the pass to
+<code class="docutils literal notranslate">compiler/refsi_tutorial/source/refsi_tutorial_pass_machinery.cpp</code></p>
+<p>Running again with the debug environment variable <cite>CA_LLVM_OPTIONS</cite> we can see
+the IR after that pass:</p>
+<pre><code class="language-shell">CA_LLVM_OPTIONS="-print-after=refsi-wrapper" \
+./build/bin/UnitCL --gtest_filter=Execution/Execution.Task_01_02_Add/OpenCLC
+</code>
+</pre>
+<p>we see the <cite>IR</cite> dumped after that pass, including the unchanged function:</p>
+<pre><code class="language-shell">** IR Dump After refsi_tutorial::RefSiWrapperPass on [module] ***
+; ModuleID = 'kernel.opencl'
+source_filename = "kernel.opencl"
+target datalayout = "e-m:e-p:64:64-i64:64-i128:128-n64-S128"
+target triple = "riscv64-unknown-unknown-elf"
+
+%0 = type { [3 x i32] }
+%1 = type { [3 x i8] }
+%MuxWorkGroupInfo = type { [3 x i64], [3 x i64], [3 x i64], [3 x i64], i32 }
+%MuxPackedArgs.add = type { ptr addrspace(1), ptr addrspace(1), ptr addrspace(1) }
+
+@kernel_info_global = local_unnamed_addr global %0 { [3 x i32] [i32 3, i32 1, i32 0] }, section "kernel_info", align 32
+@kernel_names_global = local_unnamed_addr global %1 { [3 x i8] c"add" }, section "kernel_names", align 32
+
+; Function Attrs: inaccessiblememonly mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.assume(i1 noundef) #0
+
+; Function Attrs: nofree nosync nounwind
+define void @add(ptr nocapture readonly %0, ptr nocapture readonly %1) local_unnamed_addr #1 !codeplay_ca_wrapper !10 !mux_scheduled_fn !11 {
+</code>
+</pre>
+<p>This will be useful as you extend the pass.</p>
+<p>We will need to access the scheduling struct as part of this work. The following
+functions can be used to load and store from the scheduling struct.</p>
+<p>The <code class="docutils literal notranslate">Element</code> value allows us to select one of the elements from the
+scheduling struct, there are enums that can be used for this
+<code class="docutils literal notranslate">compiler::utils::WorkGroupInfoStructField::num_groups</code> and
+<code class="docutils literal notranslate">compiler::utils::WorkGroupInfoStructField::group_id</code>.</p>
+<p>The <code class="docutils literal notranslate">Index</code> allows access to the array within that if it is an array.</p>
+<pre><code class="language-cpp">namespace {
+
+  /// @brief Store a value to the schedule struct
+  /// @param Builder IRBuilder to use
+  /// @param MuxWorkGroupStructTy Scheduling structure type
+  /// @param Sched Schedule struct
+  /// @param Element Top level index into the struct
+  /// @param Index Index into the sub array of the element. If this is not an
+  /// array element, this value will be ignored.
+  /// @param Val Value to be stored
+  void storeToSchedStruct(IRBuilder&lt;&gt; &amp;Builder, StructType *MuxWorkGroupStructTy,
+                          Value *Sched, uint32_t Element, uint32_t Index,
+                          Value *Val) {
+    Value *IndicesArray[3] = {Builder.getInt32(0), Builder.getInt32(Element),
+                              Builder.getInt32(Index)};
+
+    Type *ElTy = GetElementPtrInst::getIndexedType(
+        MuxWorkGroupStructTy, llvm::ArrayRef&lt;Value *&gt;(IndicesArray, 2));
+    ArrayType *ArrayTy = dyn_cast_or_null&lt;ArrayType&gt;(ElTy);
+
+    Value *SchedLookupPtr =
+        Builder.CreateGEP(MuxWorkGroupStructTy, Sched,
+                          ArrayRef&lt;Value *&gt;(IndicesArray, ArrayTy ? 3 : 2));
+
+    Builder.CreateStore(Val, SchedLookupPtr);
+  }
+
+  /// @brief Load a value from the schedule struct
+  /// @param Builder IRBuilder to use
+  /// @param MuxWorkGroupStructTy Scheduling structure type
+  /// @param Sched Schedule struct
+  /// @param Element Top level index into the struct
+  /// @param Index Index into the sub array of the element. If this is not an
+  /// array element, this value will be ignored.
+  /// @return The value loaded from the struct
+  Value *loadFromSchedStruct(IRBuilder&lt;&gt; &amp;Builder,
+                             StructType *MuxWorkGroupStructTy, Value *Sched,
+                             uint32_t Element, uint32_t Index) {
+    Value *IndicesArray[3] = {Builder.getInt32(0), Builder.getInt32(Element),
+                              Builder.getInt32(Index)};
+    // Check if it's an array type
+    Type *ElTy = GetElementPtrInst::getIndexedType(
+        MuxWorkGroupStructTy, llvm::ArrayRef&lt;Value *&gt;(IndicesArray, 2));
+    ArrayType *ArrayTy = dyn_cast_or_null&lt;ArrayType&gt;(ElTy);
+
+    Value *SchedLookupPtr =
+        Builder.CreateGEP(MuxWorkGroupStructTy, Sched,
+                          ArrayRef&lt;Value *&gt;(IndicesArray, ArrayTy ? 3 : 2));
+    Type *ValTy = GetElementPtrInst::getIndexedType(
+        MuxWorkGroupStructTy, ArrayRef&lt;Value *&gt;(IndicesArray, ArrayTy ? 3 : 2));
+    Value *SchedValue = Builder.CreateLoad(ValTy, SchedLookupPtr);
+
+    return SchedValue;
+  }
+}  // namespace
+</code>
+</pre>
+<p>We also want to be able to copy the struct so we can write to it. This function
+will be useful for this and should be added to the anonymous namespace:</p>
+<pre><code class="language-cpp">/// @brief Copy a whole element from one struct to another
+/// @param Builder IRBuilder to use
+/// @param MuxWorkGroupStructTy Scheduling structure type
+/// @param SchedIn Input scheduling struct
+/// @param SchedOut Output scheduling struct
+/// @param Element Element index within scheduling struct
+void CopyElementToNewSchedStruct(IRBuilder&lt;&gt; &amp;Builder,
+                                 StructType *MuxWorkGroupStructTy,
+                                 Value *SchedIn, Value *SchedOut,
+                                 uint32_t Element) {
+  Value *IndicesArray[2] = {Builder.getInt32(0), Builder.getInt32(Element)};
+  Type *ElTy =
+      GetElementPtrInst::getIndexedType(MuxWorkGroupStructTy, IndicesArray);
+  ArrayType *ArrayTy = dyn_cast_or_null&lt;ArrayType&gt;(ElTy);
+
+  // If it's an array get the number of elements
+  uint32_t Count = ArrayTy ? ArrayTy-&gt;getNumElements() : 1;
+  for (uint32_t i = 0; i &lt; Count; i++) {
+    Value *SchedValue = loadFromSchedStruct(Builder, MuxWorkGroupStructTy,
+                                            SchedIn, Element, i);
+    storeToSchedStruct(Builder, MuxWorkGroupStructTy, SchedOut, Element, i,
+                      SchedValue);
+  }
+}
+</code>
+</pre>
+<p>We now want to wrap every kernel. Firstly, replace the <code class="docutils literal notranslate">llvm::errs()</code> line
+above in <code class="docutils literal notranslate">run()</code> with the following: <code class="docutils literal notranslate">RefSiWrapperPass::run()</code>:</p>
+<pre><code class="language-cpp">SmallPtrSet&lt;Function *, 4&gt; NewKernels;
+for (auto &amp;F : M.functions()) {
+  if (compiler::utils::isKernel(F) &amp;&amp; !NewKernels.count(&amp;F)) {
+  }
+}
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">NewKernels</code> <code class="docutils literal notranslate">SmallPtrSet</code> is just to ensure we don’t process the
+generated new kernel function.</p>
+<p>We will do the rest of the code in the namespace <code class="docutils literal notranslate">refsi_tutorial</code>. We will also
+set up some useful constants to refer to the arguments:</p>
+<pre><code class="language-cpp">namespace refsi_tutorial {
+/// @brief The index of the scheduling struct in the list of arguments.
+const unsigned int SchedStructArgIndex = 3;
+const unsigned int InstanceArgIndex = 0;
+const unsigned int SliceArgIndex = 1;
+</code>
+</pre>
+<p>We will now write a function to wrap the kernel. We will call it
+<code class="docutils literal notranslate">addKernelWrapper</code>:</p>
+<pre><code class="language-cpp">llvm::Function *addKernelWrapper(llvm::Module &amp;M, llvm::Function &amp;F)
+</code>
+</pre>
+<p>To start with we wish to create a bodyless function which basically takes all
+of the metadata, name etc from the original function. We do this with a utility
+function, <code class="docutils literal notranslate">compiler::utils::createKernelWrapperFunction()</code>. This utility
+function will require the original function and the parameter types for the new
+function.</p>
+<p>First of all we need to gather together the types of all the new function’s
+arguments. This function will take the same arguments as the original function,
+but with two extra 64 bit int parameters for the <code class="docutils literal notranslate">instance id</code> and the <code class="docutils literal notranslate">slice
+id</code>.</p>
+<pre><code class="language-cpp">// Make types for the wrapper pass based on original parameters and
+// additional instance/slice params.
+// We add two int64Ty for the Instance Id and Slice Id prior to the kernel
+// arguments.
+
+SmallVector&lt;Type *, 4&gt; ArgTypes;
+ArgTypes.push_back(Type::getInt64Ty(M.getContext()));
+ArgTypes.push_back(Type::getInt64Ty(M.getContext()));
+for (auto &amp;Arg : F.getFunctionType()-&gt;params()) {
+  ArgTypes.push_back(Arg);
+}
+Function *NewFunction = compiler::utils::createKernelWrapperFunction(
+    M, F, ArgTypes, ".refsi-wrapper");
+
+// Copy over the old parameter names and attributes
+for (unsigned i = 0, e = F.arg_size(); i != e; i++) {
+  auto *NewArg = NewFunction-&gt;getArg(i + 2);
+  NewArg-&gt;setName(F.getArg(i)-&gt;getName());
+  NewFunction-&gt;addParamAttrs(
+      i + 2, AttrBuilder(F.getContext(), F.getAttributes().getParamAttrs(i)));
+}
+NewFunction-&gt;getArg(InstanceArgIndex)-&gt;setName("instance");
+NewFunction-&gt;getArg(SliceArgIndex)-&gt;setName("slice");
+
+if (!NewFunction-&gt;hasFnAttribute(Attribute::NoInline)) {
+  NewFunction-&gt;addFnAttr(Attribute::AlwaysInline);
+}
+</code>
+</pre>
+<p>We want to start creating code now, so create an <code class="docutils literal notranslate">IRBuilder</code> for ease of use:</p>
+<pre><code class="language-cpp">IRBuilder&lt;&gt; Builder(
+        BasicBlock::Create(NewFunction-&gt;getContext(), "", NewFunction));
+</code>
+</pre>
+<p>Set up some variables to refer to the arguments:</p>
+<pre><code class="language-cpp">Argument *SchedArg = NewFunction-&gt;getArg(SchedStructArgIndex);
+Argument *InstanceArg = NewFunction-&gt;getArg(InstanceArgIndex);
+Argument *SliceArg = NewFunction-&gt;getArg(SliceArgIndex);
+</code>
+</pre>
+<p>We will be referring to the scheduling struct a lot, so get the type:</p>
+<pre><code class="language-cpp">auto *MuxWorkGroupStructTy = compiler::utils::getWorkGroupInfoStructTy(M);
+</code>
+</pre>
+<p>We want to copy the input struct so we can write to it. We need to allocate this
+structure on the stack:</p>
+<pre><code class="language-cpp">auto *SchedCopyInst = Builder.CreateAlloca(MuxWorkGroupStructTy);
+</code>
+</pre>
+<p>We can now copy the input structure to our copied structure:</p>
+<pre><code class="language-cpp">CopyElementToNewSchedStruct(
+    Builder, MuxWorkGroupStructTy, SchedArg, SchedCopyInst,
+    compiler::utils::WorkGroupInfoStructField::num_groups);
+CopyElementToNewSchedStruct(
+    Builder, MuxWorkGroupStructTy, SchedArg, SchedCopyInst,
+    compiler::utils::WorkGroupInfoStructField::global_offset);
+CopyElementToNewSchedStruct(
+    Builder, MuxWorkGroupStructTy, SchedArg, SchedCopyInst,
+    compiler::utils::WorkGroupInfoStructField::local_size);
+CopyElementToNewSchedStruct(
+    Builder, MuxWorkGroupStructTy, SchedArg, SchedCopyInst,
+    compiler::utils::WorkGroupInfoStructField::work_dim);
+</code>
+</pre>
+<p>In order to work out the <code class="docutils literal notranslate">group ids</code>, we first need to get the number of
+groups in the second dimension.</p>
+<pre><code class="language-cpp">Value *NumGroups1 = loadFromSchedStruct(
+    Builder, MuxWorkGroupStructTy, SchedArg,
+    compiler::utils::WorkGroupInfoStructField::num_groups, 1);
+</code>
+</pre>
+<p>We can now work out the values for <code class="docutils literal notranslate">group id[1]</code> and <code class="docutils literal notranslate">group id[2]</code> from the
+<code class="docutils literal notranslate">SliceArg</code> and <code class="docutils literal notranslate">NumGroups1</code>.</p>
+<pre><code class="language-cpp">Value *GroupId1 = Builder.CreateURem(SliceArg, NumGroups1);
+Value *GroupId2 = Builder.CreateUDiv(SliceArg, NumGroups1);
+</code>
+</pre>
+<p>We now have all the information we need to set the <code class="docutils literal notranslate">group ids</code>, so store to
+the copied struct:</p>
+<pre><code class="language-cpp">storeToSchedStruct(Builder, MuxWorkGroupStructTy, SchedCopyInst,
+                   compiler::utils::WorkGroupInfoStructField::group_id, 0,
+                   InstanceArg);
+storeToSchedStruct(Builder, MuxWorkGroupStructTy, SchedCopyInst,
+                   compiler::utils::WorkGroupInfoStructField::group_id, 1,
+                   GroupId1);
+storeToSchedStruct(Builder, MuxWorkGroupStructTy, SchedCopyInst,
+                   compiler::utils::WorkGroupInfoStructField::group_id, 2,
+                   GroupId2);
+</code>
+</pre>
+<p>We can now just call the original function. First of all set up the arguments.
+This will be the same as the original function, but replacing the input
+scheduling struct with our copy and dropping the <code class="docutils literal notranslate">instance</code> and <code class="docutils literal notranslate">slice</code> arguments.</p>
+<pre><code class="language-cpp">unsigned int ArgIndex = 0;
+SmallVector&lt;Value *, 8&gt; Args;
+for (auto &amp;Arg : NewFunction-&gt;args()) {
+  if (ArgIndex &gt; SliceArgIndex) {
+    if (ArgIndex == SchedStructArgIndex) {
+      Args.push_back(SchedCopyInst);
+    } else {
+      Args.push_back(&amp;Arg);
+    }
+  }
+  ArgIndex++;
+}
+</code>
+</pre>
+<p>We now call the original function and add a <code class="docutils literal notranslate">ret void</code>. Our new function is
+complete now and we can return this created function.</p>
+<pre><code class="language-cpp">compiler::utils::createCallToWrappedFunction(
+    F, Args, Builder.GetInsertBlock(), Builder.GetInsertPoint());
+
+Builder.CreateRetVoid();
+return NewFunction;
+</code>
+</pre>
+<p>Now all we need to do is call <code class="docutils literal notranslate">addKernelWrapper()</code> from <code class="docutils literal notranslate">run()</code>.</p>
+<pre><code class="language-cpp">auto *NewFunction = addKernelWrapper(M, F);
+modified = true;
+NewKernels.insert(NewFunction);
+</code>
+</pre>
+<p>We now wish to build <em>UnitCL</em>, the oneAPI Construction Kit test suite.</p>
+<pre><code class="language-shell">$ ninja UnitCL
+</code>
+</pre>
+<p>We will run a single test:</p>
+<pre><code class="language-shell">$ bin/UnitCL --gtest_filter=Execution/Execution.Task_01_02_Add/OpenCLC
+</code>
+</pre>
+<p>This show should the following:</p>
+<pre><code class="language-shell">Note: Google Test filter = Execution/Execution.Task_01_02_Add/OpenCLC
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Execution/Execution
+[ RUN      ] Execution/Execution.Task_01_02_Add/OpenCLC
+[CMP] Starting.
+[CMP] Starting to execute command buffer at 0x47fff1a0.
+[CMP] CMP_WRITE_REG64(0x1, 0x100d6)
+[CMP] CMP_WRITE_REG64(0x2, 0x2000047fff200)
+[CMP] CMP_WRITE_REG64(0x3, 0x180000000000)
+[CMP] CMP_WRITE_REG64(0x4, 0x1280000200000)
+[CMP] CMP_RUN_KERNEL_SLICE(n=4, slice_id=0, max_harts=4)
+[CMP] CMP_FINISH
+[CMP] Finished executing command buffer.
+[       OK ] Execution/Execution.Task_01_02_Add/OpenCLC (123 ms)
+[----------] 1 test from Execution/Execution (123 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (127 ms total)
+[  PASSED  ] 1 test.
+[CMP] Requesting stop.
+[CMP] Stopping.
+</code>
+</pre>
+<p>Dumping the IR of your function should show your changes:</p>
+<pre><code class="language-shell"> $ CA_LLVM_OPTIONS="-print-after=refsi-wrapper" bin/UnitCL \
+   --gtest_filter=Execution/Execution.Task_01_02_Add/OpenCLC
+
+; Function Attrs: alwaysinline mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite)
+define void @add.refsi-wrapper(i64 %instance, i64 %slice, ptr %packed-args, ptr noalias nonnull align 8 deferenceable(104) %wg-info) #3 !codeplay_ca_wrapper !12 !mux_scheduled_fn !15 {
+  %1 = alloca %MuxWorkGroupInfo, align 8
+  %2 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 1, i32 1
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 1, i32 0
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 1, i32 0
+  store i64 %5, ptr %6, align 8
+
+  ; more load/stores like this to copy the whole struct
+
+  %34 = urem i64 %slice, %3
+  %35 = udiv i64 %slice, %3
+  %36 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 0, i32 0
+  store i64 %instance, ptr %36, align 8
+  %37 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 0, i32 1
+  store i64 %34, ptr %37, align 8
+  %38 = getelementptr %MuxWorkGroupInfo, ptr %1, i32 0, i32 0, i32 2
+  store i64 %35, ptr %38, align 8
+  call void @add.mux-kernel-wrapper(ptr %packed-args, ptr noalias nonnull align 8 dereferenceable(104) %1)
+  ret void
+}
+</code>
+</pre>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Building and Running Tests</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further"
+                            >
+                            <div>
+                                <h1>Extending it Further</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#adapting-the-pass-pipeline-for-the-target">Adapting the Pass Pipeline for the Target</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="ba85cf1d97f1d3371a3c7015005f5344">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

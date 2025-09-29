@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>OpenCL - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'OpenCL' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="OpenCL - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'OpenCL' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="source-cl">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#opencl">
+                            <h1>OpenCL</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/source/cl.md" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="tex2jax_ignore mathjax_ignore section" id="opencl">
+
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html">OpenCL CMake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake/AddCACL.html">AddCACL Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html">How OpenCL Concepts Are Mapped Onto ComputeMux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#programs-and-kernels">Programs and Kernels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#opencl-compilation-steps">OpenCL Compilation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#runtime-compilation">Runtime Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#offline-compilation">Offline Compilation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#queues-and-synchronization">Queues and Synchronization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#opencl-queues-and-events">OpenCL Queues and Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#mux-queues-and-semaphores">Mux Queues and Semaphores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#memory-objects">Memory Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#opencl-buffer-and-images">OpenCL Buffer and Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html#mux-memory">Mux Memory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html">OpenCL Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#opencl-c-1-2-khr-opencl-c-1-2">OpenCL C 1.2 - <code class="docutils literal notranslate">khr_opencl_c_1_2</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#installable-client-driver-icd-cl-khr-icd">Installable Client Driver (ICD) - <code class="docutils literal notranslate">cl_khr_icd</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#kernel-debug-cl-codeplay-kernel-debug">Kernel Debug - <code class="docutils literal notranslate">cl_codeplay_kernel_debug</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#extra-build-options-cl-codeplay-extra-build-options">Extra build options - <code class="docutils literal notranslate">cl_codeplay_extra_build_options</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#kernel-exec-info-cl-codeplay-kernel-exec-info">Kernel Exec Info - <code class="docutils literal notranslate">cl_codeplay_kernel_exec_info</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#performance-counter-cl-codeplay-performance-counters">Performance Counter - <code class="docutils literal notranslate">cl_codeplay_performance_counters</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#soft-math-cl-codeplay-soft-math">Soft Math - <code class="docutils literal notranslate">cl_codeplay_soft_math</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#whole-function-vectorization-cl-codeplay-wfv">Whole Function Vectorization - <code class="docutils literal notranslate">cl_codeplay_wfv</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#usm-cl-intel-unified-shared-memory">USM - <code class="docutils literal notranslate">cl_intel_unified_shared_memory</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#spir-v-usm-generic-storage-class-spv-codeplay-usm-generic-storage-class">SPIR-V USM Generic Storage Class - <code class="docutils literal notranslate">SPV_codeplay_usm_generic_storage_class</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#command-buffers-provisional-cl-khr-command-buffer">Command-Buffers (Provisional) - <code class="docutils literal notranslate">cl_khr_command_buffer</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#command-buffers-mutable-dispatch-cl-khr-command-buffer-mutable-dispatch">Command Buffers: Mutable Dispatch - <code class="docutils literal notranslate">cl_khr_command_buffer_mutable_dispatch</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#extended-async-copies-cl-khr-extended-async-copies">Extended Async Copies - <code class="docutils literal notranslate">cl_khr_extended_async_copies</code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html#required-subgroup-sizes-for-kernels-cl-intel-required-subgroup-size">Required subgroup sizes for kernels - <code class="docutils literal notranslate">cl_intel_required_subgroup_size</code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html">OpenCL External Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#tutorials">Tutorials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#tutorial-1-confirm-the-example-extension-works">Tutorial 1: Confirm the Example Extension Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#tutorial-2-create-a-new-runtime-extension-for-host-cpu">Tutorial 2: Create a new runtime extension for Host CPU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#how-to">How to …</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#how-to-add-a-second-extension">How to Add a Second Extension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#how-to-add-a-unitcl-test-of-a-new-extension">How to Add a UnitCL test of a new Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#explanation">Explanation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-api-headers-in-cl">Extension API Headers in <code class="docutils literal notranslate">CL</code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-source">Extension Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-entry-points">Extension Entry Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-cmake">Extension CMake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-testing">Extension Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#extension-documentation">Extension Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html">OpenCL ICD Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html">OpenCL Intercept Layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#injection-testing">Injection Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#dumping-program-binaries">Dumping Program Binaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#injecting-dumped-binaries">Injecting Dumped Binaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html#opencl-cts-examples">OpenCL CTS Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#clc-opencl-offline-kernel-compiler"><code class="docutils literal notranslate">clc</code> OpenCL Offline Kernel Compiler</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#clc-use-cases"><code class="docutils literal notranslate">clc</code> Use-Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#clc-usage"><code class="docutils literal notranslate">clc</code> Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#oclc-opencl-c-compiler-and-intermediate-state-kernel-inspector"><code class="docutils literal notranslate">oclc</code> OpenCL-C Compiler and Intermediate State Kernel Inspector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#oclc-use-cases"><code class="docutils literal notranslate">oclc</code> Use-Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html#oclc-usage"><code class="docutils literal notranslate">oclc</code> Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html">Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html">UnitCL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#target-specific-unitcl-tests">Target-Specific UnitCL Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#executing-unitcl">Executing UnitCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#unitcl-options">UnitCL Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#default-test-variations">Default Test Variations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#kernel-execution-tests">Kernel Execution Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html#generating-spir-v">Generating SPIR-V</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>The oneAPI Construction Kit implementation of the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/opencl-1.2.pdf">OpenCL spec</a> provides
+definitions for its entry points which <em>must not</em> be changed. In addition the
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/opencl-1.2.pdf">OpenCL</a> also defines the OpenCL object types, such as
+<code class="docutils literal notranslate">_cl_platform_id</code>, which hold the state required to implement those objects.</p>
+<p>Each header and source file is named after the OpenCL object it implements. For
+example, the <code class="docutils literal notranslate">_cl_context</code> object can be found in <code class="docutils literal notranslate">include/cl/context.h</code> and
+<code class="docutils literal notranslate">source/context.cpp</code>. This pattern is used to group associated functionality in
+the same place. All entry points that take a <code class="docutils literal notranslate">cl_context</code> as the first parameter
+or return a <code class="docutils literal notranslate">cl_context</code>, such as <code class="docutils literal notranslate">clCreateContext</code>, can be found in these
+source files. This pattern is repeated for all of the OpenCL API objects.</p>
+<blockquote>
+<div><p>There are two special cases of note which relate to the <code class="docutils literal notranslate">cl_mem</code> object. To
+Separate the implementation of buffer and image objects two new types
+inheriting From <code class="docutils literal notranslate">_cl_mem</code> have been added; <code class="docutils literal notranslate">_cl_mem_buffer</code> representing
+<code class="docutils literal notranslate">cl_mem</code> objects Created with <code class="docutils literal notranslate">clCreateBuffer</code>; and <code class="docutils literal notranslate">_cl_mem_image</code> for
+<code class="docutils literal notranslate">cl_mem</code>’s representing Images. These definitions and their associated API
+entry points can be found in The buffer and image header and source files.</p>
+</div></blockquote>
+<p>All objects, in OpenCL these specified to be reference counted. The
+implementation of reference counting is shared between all API objects and can
+be found in the <code class="docutils literal notranslate">include/cl/base.h</code> header file. Every API object inherits from
+the <code class="docutils literal notranslate">cl::base&lt;T&gt;</code> class template, which makes use of the Curiously Recurring
+Template Pattern (CRTP) to avoid the introduction of a virtual function table.
+This is an important point because the OpenCL ICD requires the first
+<code class="docutils literal notranslate">sizeof(void*)</code> bytes of each API object to contain the ICD dispatch table, not
+a C++ virtual function table.</p>
+<div class="section" id="supported-features-and-implementation-details">
+<a class="header-link" href="#supported-features-and-implementation-details"><h2 id="supported-features-and-implementation-details">Supported Features and Implementation Details</h2><span class="material-icons">link</span></a>
+<p>Documentation on the OpenCL API supported by the oneAPI Construction Kit and
+implementation details for effective use. The <span class="xref myst">API</span>
+includes all standard, non-optional OpenCL 1.2 APIs and language features.
+oneAPI Construction Kit is also compatible with some <a class="reference internal" href="#deprecated-entry-points"><span class="std std-doc">deprecated</span></a>
+OpenCL version 1.0 and 1.1 APIs, as well as those APIs defined in implemented
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><span class="doc std std-doc">extensions</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#data-types"><span class="std std-doc">Data Types</span></a></p></li>
+<li><p><a class="reference internal" href="#platform-info"><span class="std std-doc">Platform Info</span></a></p></li>
+<li><p><a class="reference internal" href="#device-info"><span class="std std-doc">Device Info</span></a></p></li>
+<li><p><a class="reference internal" href="#program-compilation"><span class="std std-doc">Program Compilation</span></a></p></li>
+<li><p><a class="reference internal" href="#image-support"><span class="std std-doc">Image Support</span></a></p></li>
+<li><p><a class="reference internal" href="#deprecated-entry-points"><span class="std std-doc">Deprecated Entry Points</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="data-types">
+<a class="header-link" href="#data-types"><h2 id="data-types">Data Types</h2><span class="material-icons">link</span></a>
+<p>OpenCL headers provide datatypes which are guaranteed to be a consistent size.
+This is important since the size of C/C++ datatypes is implementation defined,
+which leads to non-portable code and discrepancies between host and program
+data.</p>
+<p>Note that the use of half precision floating point scalar and vector types is
+optional, enabled using the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/cl_khr_fp16.html"><code class="docutils literal notranslate">cl_khr_fp16</code></a> extension.
+oneAPI Construction Kit’s doesn’t currently support this as half is not
+implemented in our maths library. However the oneAPI Construction Kit CPU target does support
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/cl_khr_fp64.html"><code class="docutils literal notranslate">cl_khr_fp64</code></a>, which is the double precision floating point
+extension. Use <a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetDeviceInfo.html"><code class="docutils literal notranslate">clGetDeviceInfo</code></a> for information about what
+floating point extensions are supported for your target device.</p>
+<div class="section" id="scalar-data-types">
+<a class="header-link" href="#scalar-data-types"><h3 id="scalar-data-types"><a class="reference external" href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/scalarDataTypes.html">Scalar Data Types</a></h3><span class="material-icons">link</span></a>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>API type</p></th>
+<th class="head"><p>Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_char</code></p></td>
+<td><p>8-bit signed integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_uchar</code></p></td>
+<td><p>8-bit unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_short</code></p></td>
+<td><p>16-bit signed integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_ushort</code></p></td>
+<td><p>16-bit unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_int</code></p></td>
+<td><p>32-bit signed integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_uint</code></p></td>
+<td><p>32-bit unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_long</code></p></td>
+<td><p>64-bit signed integer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_ulong</code></p></td>
+<td><p>64-bit unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_half</code></p></td>
+<td><p>16-bit IEEE 754 floating point number</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_float</code></p></td>
+<td><p>32-bit IEEE 754 floating point number</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_double</code></p></td>
+<td><p>64-bit IEEE 754 floating point number</p></td>
+</tr>
+</tbody>
+</table></div>
+<p><code class="docutils literal notranslate">cl_bool</code> is also available but unlike the other <code class="docutils literal notranslate">cl_</code> types is not guaranteed
+to be the same size as the <code class="docutils literal notranslate">bool</code> in kernels.</p>
+</div>
+<div class="section" id="vector-data-types">
+<a class="header-link" href="#vector-data-types"><h3 id="vector-data-types"><a class="reference external" href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/vectorDataTypes.html">Vector Data Types</a></h3><span class="material-icons">link</span></a>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>API type</p></th>
+<th class="head"><p>Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_char</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 8-bit signed integers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_uchar</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 8-bit unsigned integers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_short</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 16-bit signed integers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_ushort</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 16-bit unsigned integers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_int</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 32-bit signed integers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_uint</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 32-bit unsigned integers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_long</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 64-bit signed integers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_ulong</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 64-bit unsigned integers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_half</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 16-bit IEEE 754 floating point numbers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">cl_float</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 32-bit IEEE 754 floating point numbers</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">cl_double</code><em>n</em></p></td>
+<td><p>vector of <em>n</em> 64-bit IEEE 754 floating point numbers</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Built-in vector data types are supported by the oneAPI Construction Kit even if the underlying
+compute device does not support any or all of the vector data types. Vector
+widths defined by the standard are 2, 3, 4, 8, and 16.</p>
+</div>
+</div>
+<div class="section" id="platform-info">
+<a class="header-link" href="#platform-info"><h2 id="platform-info">Platform Info</h2><span class="material-icons">link</span></a>
+<p>The OpenCL platform layer implements platform-specific features that allow
+applications to find OpenCL devices, device configuration information, and to
+create OpenCL contexts using one or more devices.</p>
+<p>Use <a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetPlatformInfo.html">clGetPlatformInfo</a> to query the platform for information
+such as available extensions, and the name &amp; version of the implementation.
+oneAPI Construction Kit typically will have platform name <code class="docutils literal notranslate">ComputeAorta</code> and
+vendor name <code class="docutils literal notranslate">Codeplay Software Ltd.</code> The version string will also contain both
+the version of the oneAPI Construction Kit and the LLVM version built against.</p>
+</div>
+<div class="section" id="device-info">
+<a class="header-link" href="#device-info"><h2 id="device-info">Device Info</h2><span class="material-icons">link</span></a>
+<p>A device is a collection of compute units typically correspond to a GPU, a
+multi-core CPU, and other processors such as DSPs.</p>
+<p>To find the available devices on a platform use
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetDeviceIDs.html">clGetDeviceIDs</a>. oneAPI Construction Kit should contain a host CPU device
+of type <code class="docutils literal notranslate">CL_DEVICE_TYPE_CPU</code>, as well as optionally other accelerators. DSPs
+fall under devices type <code class="docutils literal notranslate">CL_DEVICE_TYPE_ACCELERATOR</code>.</p>
+<p>All the information about a device can be queried with
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetDeviceInfo.html">clGetDeviceInfo</a>. Including device specific extensions and
+information regarding memory size and work group limits. The <code class="docutils literal notranslate">CL_DEVICE_NAME</code> of
+oneAPI Construction Kit’s CPU device target will be <code class="docutils literal notranslate">ComputeAorta ARCH</code>, where
+<code class="docutils literal notranslate">ARCH</code> is replaced with the platform architecture, e.g., <code class="docutils literal notranslate">x86_64</code>.</p>
+<div class="section" id="profiles">
+<a class="header-link" href="#profiles"><h3 id="profiles">Profiles</h3><span class="material-icons">link</span></a>
+<p>OpenCL devices can report supporting <code class="docutils literal notranslate">"FULL_PROFILE"</code> or <code class="docutils literal notranslate">"EMBEDDED_PROFILE"</code> by
+passing <code class="docutils literal notranslate">CL_DEVICE_PROFILE</code> as the <code class="docutils literal notranslate">param_name</code> to
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetDeviceInfo.html">clGetDeviceInfo</a>. oneAPI Construction Kit detects which profile
+a device supports using the following table, as specified in [OpenCL 1.2][#opencl-1.2].
+If any of these limits fall below the <code class="docutils literal notranslate">"FULL_PROFILE"</code> value then the device
+will report support for <code class="docutils literal notranslate">"EMBEDDED_PROFILE"</code>.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>OpenCL Device Property</p></th>
+<th class="text-align:right head"><p>FULL</p></th>
+<th class="text-align:right head"><p>EMBEDDED</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_MEM_ALLOC_SIZE</code></p></td>
+<td class="text-align:right"><p>128 MB</p></td>
+<td class="text-align:right"><p>1 KB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_PARAMETER_SIZE</code></p></td>
+<td class="text-align:right"><p>1024</p></td>
+<td class="text-align:right"><p>256</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE</code></p></td>
+<td class="text-align:right"><p>64 KB</p></td>
+<td class="text-align:right"><p>1 KB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_CONSTANT_ARGS</code></p></td>
+<td class="text-align:right"><p>8</p></td>
+<td class="text-align:right"><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_LOCAL_MEM_SIZE</code></p></td>
+<td class="text-align:right"><p>32 KB</p></td>
+<td class="text-align:right"><p>1 KB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_PRINTF_BUFFER_SIZE</code></p></td>
+<td class="text-align:right"><p>1 MB</p></td>
+<td class="text-align:right"><p>1 KB</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_READ_IMAGE_ARGS</code></p></td>
+<td class="text-align:right"><p>128</p></td>
+<td class="text-align:right"><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_WRITE_IMAGE_ARGS</code></p></td>
+<td class="text-align:right"><p>8</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_SAMPLERS</code></p></td>
+<td class="text-align:right"><p>16</p></td>
+<td class="text-align:right"><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE2D_MAX_WIDTH</code></p></td>
+<td class="text-align:right"><p>8192</p></td>
+<td class="text-align:right"><p>2048</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE2D_MAX_HEIGHT</code></p></td>
+<td class="text-align:right"><p>8192</p></td>
+<td class="text-align:right"><p>2048</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE3D_MAX_WIDTH</code></p></td>
+<td class="text-align:right"><p>2048</p></td>
+<td class="text-align:right"><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE3D_MAX_HEIGHT</code></p></td>
+<td class="text-align:right"><p>2048</p></td>
+<td class="text-align:right"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE3D_MAX_DEPTH</code></p></td>
+<td class="text-align:right"><p>2048</p></td>
+<td class="text-align:right"><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE_MAX_BUFFER_SIZE</code></p></td>
+<td class="text-align:right"><p>65536</p></td>
+<td class="text-align:right"><p>2048</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE_MAX_ARRAY_SIZE</code></p></td>
+<td class="text-align:right"><p>2048</p></td>
+<td class="text-align:right"><p>256</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>As <code class="docutils literal notranslate">cl_device_id</code>’s are created from a <code class="docutils literal notranslate">mux_device_t</code>, which expose a different
+set of properties, an implementation of [Mux][../modules/mux/spec] can
+control which OpenCL profile is reported using the following property mappings.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>OpenCL Device Property</p></th>
+<th class="head"><p>Mux Device Property</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_MEM_ALLOC_SIZE</code></p></td>
+<td><p><code class="docutils literal notranslate">allocation_size</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_LOCAL_MEM_SIZE</code></p></td>
+<td><p><code class="docutils literal notranslate">shared_local_memory_size</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_READ_IMAGE_ARGS</code></p></td>
+<td><p><code class="docutils literal notranslate">max_sampled_images</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_WRITE_IMAGE_ARGS</code></p></td>
+<td><p><code class="docutils literal notranslate">max_storage_images</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_MAX_SAMPLERS</code></p></td>
+<td><p><code class="docutils literal notranslate">max_samplers</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE_MAX_BUFFER_SIZE</code></p></td>
+<td><p><code class="docutils literal notranslate">max_image_dimension_1d</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE2D_MAX_{WIDTH,HEIGHT}</code></p></td>
+<td><p><code class="docutils literal notranslate">max_image_dimension_2d</code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE3D_MAX_{WIDTH,HEIGHT,DEPTH}</code></p></td>
+<td><p><code class="docutils literal notranslate">max_image_dimension_3d</code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate">CL_DEVICE_IMAGE_MAX_ARRAY_SIZE</code></p></td>
+<td><p><code class="docutils literal notranslate">max_image_array_layers</code></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="section" id="program-compilation">
+<a class="header-link" href="#program-compilation"><h2 id="program-compilation">Program Compilation</h2><span class="material-icons">link</span></a>
+<p>An OpenCL program consists of a set of kernels that are identified as functions
+declared with the <code class="docutils literal notranslate">__kernel</code> qualifier in the program source. Each program
+object can represent program source or binary.</p>
+<p>oneAPI Construction Kit tends to delay final compilation until kernel run time,
+e.g. [clEnqueueNDRangeKernel][clEnqueueNDRange] , where all the scheduling
+information will be available. Therefore if a user runs the same kernel kernel
+twice with identical work loads and scheduling, the first run may suffer some
+initial latency from compilation.</p>
+<div class="section" id="clcreateprogramwithsource">
+<a class="header-link" href="#clcreateprogramwithsource"><h3 id="clcreateprogramwithsource"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCreateProgramWithSource.html">clCreateProgramWithSource</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_program clCreateProgramWithSource(cl_context context,
+                                     cl_uint count,
+                                     const char **strings,
+                                     const size_t *lengths,
+                                     cl_int *errcode_ret);
+</code>
+</pre>
+<p>Creates an OpenCL program object from OpenCL C source, oneAPI Construction Kit
+does no compilation at this stage.</p>
+</div>
+<div class="section" id="clcreateprogramwithbinary">
+<a class="header-link" href="#clcreateprogramwithbinary"><h3 id="clcreateprogramwithbinary"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCreateProgramWithBinary.html">clCreateProgramWithBinary</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_program clCreateProgramWithBinary(cl_context context,
+                                     cl_uint num_devices,
+                                     const cl_device_id *device_list,
+                                     const size_t *lengths,
+                                     const unsigned char **binaries,
+                                     cl_int *binary_status,
+                                     cl_int *errcode_ret);
+</code>
+</pre>
+<p>Create an OpenCL program object from a binary. If the binary is a pre-compiled
+binary, then it <strong>may</strong> be compiled again, but this will have no effect.</p>
+</div>
+<div class="section" id="clcreateprogramwithbuiltinkernels">
+<a class="header-link" href="#clcreateprogramwithbuiltinkernels"><h3 id="clcreateprogramwithbuiltinkernels"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCreateProgramWithBuiltInKernels.html">clCreateProgramWithBuiltInKernels</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_program clCreateProgramWithBuiltInKernels(cl_context context,
+                                             cl_uint num_devices,
+                                             const cl_device_id *device_list,
+                                             const char *kernel_names,
+                                             cl_int *errcode_ret);
+</code>
+</pre>
+<p>Create an OpenCL program object with built-in kernels. This is useful if you
+have a configurable, but not programmable, accelerator with predefined
+computations it is optimized for. oneAPI Construction Kit currently doesn’t
+support any built-in kernels but this will change in the future.</p>
+</div>
+<div class="section" id="clcompileprogram">
+<a class="header-link" href="#clcompileprogram"><h3 id="clcompileprogram"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCompileProgram.html">clCompileProgram</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clCompileProgram(cl_program program,
+                        cl_uint num_devices,
+                        const cl_device_id *device_list,
+                        const char *options,
+                        cl_uint num_input_headers,
+                        const cl_program *input_headers,
+                        const char **header_include_names,
+                        void (CL_CALLBACK *pfn_notify) (
+                          cl_program program,
+                          void *user_data
+                        ),
+                        void *user_data);
+</code>
+</pre>
+<p>Compile the program object. If the program was created from source oneAPI
+Construction Kit runs the clang compiler frontend at this point.</p>
+</div>
+<div class="section" id="cllinkprogram">
+<a class="header-link" href="#cllinkprogram"><h3 id="cllinkprogram"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clLinkProgram.html">clLinkProgram</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_program clLinkProgram(cl_context context,
+                         cl_uint num_devices,
+                         const cl_device_id *device_list,
+                         const char *options,
+                         cl_uint num_input_programs,
+                         const cl_program *input_programs,
+                         void (CL_CALLBACK *pfn_notify) (
+                           cl_program program,
+                           void *user_data
+                         ),
+                         void *user_data,
+                         cl_int *errcode_ret);
+</code>
+</pre>
+<p>Link one of more program objects. In the spec wording it mentions that this may
+create an executable, however in oneAPI Construction Kit we delay the creation
+of an executable until [<code class="docutils literal notranslate">clEnqueueNDRangeKernel</code>][clEnqueueNDRange] for
+performance reasons. We do however link separate LLVM Modules together here.</p>
+</div>
+<div class="section" id="clbuildprogram">
+<a class="header-link" href="#clbuildprogram"><h3 id="clbuildprogram"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clBuildProgram.html">clBuildProgram</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clBuildProgram(cl_program program,
+                      cl_uint num_devices,
+                      const cl_device_id *device_list,
+                      const char *options,
+                      void (CL_CALLBACK *pfn_notify) (
+                        cl_program program,
+                        void *user_data
+                      ),
+                      void *user_data);
+</code>
+</pre>
+<p>Build, or compile and link, the program object. This is equivalent to a call to
+<a class="reference internal" href="#clcompileprogram"><span class="std std-doc"><code class="docutils literal notranslate">clCompileProgram</code></span></a> followed by <a class="reference internal" href="#cllinkprogram"><span class="std std-doc"><code class="docutils literal notranslate">clLinkProgram</code></span></a>.
+The <code class="docutils literal notranslate">options</code> string parameter can be used to pass compiler flags, including
+some only available as Codeplay vendor extensions.</p>
+</div>
+<div class="section" id="clgetprograminfo">
+<a class="header-link" href="#clgetprograminfo"><h3 id="clgetprograminfo"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetProgramInfo.html">clGetProgramInfo</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clGetProgramInfo(cl_program program,
+                        cl_program_info param_name,
+                        size_t param_value_size,
+                        void *param_value,
+                        size_t *param_value_size_ret);
+</code>
+</pre>
+<p>Query the program object for information. One use of this is to retrieve
+compiled binaries which can we used in future to pass to
+<a class="reference internal" href="#clcreateprogramwithbinary"><span class="std std-doc"><code class="docutils literal notranslate">clCreateProgramFromBinary</code></span></a> to save compilation
+time. In this case oneAPI Construction Kit will return LLVM IR for the binary
+format.</p>
+</div>
+<div class="section" id="clgetprogrambuildinfo">
+<a class="header-link" href="#clgetprogrambuildinfo"><h3 id="clgetprogrambuildinfo"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetProgramBuildInfo.html">clGetProgramBuildInfo</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clGetProgramBuildInfo(cl_program program,
+                             cl_device_id device,
+                             cl_program_build_info param_name,
+                             size_t param_value_size,
+                             void *param_value,
+                             size_t *param_value_size_ret);
+</code>
+</pre>
+<p>Query the program for the latest build information. If compilation failed this
+function can be used to retrieve the error log, which oneAPI Construction Kit
+will output this as a LLVM diagnostic.</p>
+</div>
+</div>
+<div class="section" id="image-support">
+<a class="header-link" href="#image-support"><h2 id="image-support">Image Support</h2><span class="material-icons">link</span></a>
+<p>An image object is used to store a 1, 2, or 3 dimensional texture,
+frame-buffer or image. The elements of an image object are selected from a
+list of predefined image formats. Samplers can then be used to read from
+multi-dimensional images.</p>
+<p>Not all OpenCL devices will support images, check the <code class="docutils literal notranslate">CL_DEVICE_IMAGE_SUPPORT</code>
+property from <a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetDeviceInfo.html"><code class="docutils literal notranslate">clGetDeviceInfo</code></a> to find out for a specific
+device. <code class="docutils literal notranslate">CL_INVALID_OPERATION</code> will be returned as an error code from some of
+the image API functions if there are no devices in the context that support
+images. Types such as <code class="docutils literal notranslate">image1d_t</code> and <code class="docutils literal notranslate">sampler_t</code> will also be unavailable.</p>
+<p>The oneAPI Construction Kit CPU device target does support images, but these
+are emulated in software rather than hardware accelerated, so not performant.
+Other oneAPI Construction Kit platform devices may or may not support images.</p>
+</div>
+<div class="section" id="debugging-opencl-kernels">
+<a class="header-link" href="#debugging-opencl-kernels"><h2 id="debugging-opencl-kernels">Debugging OpenCL kernels</h2><span class="material-icons">link</span></a>
+<p>Although a developer can easily create a debug build of an OpenCL application,
+this will only allow debugging of the host side code. Successful debugging of
+kernels themselves is more involved. The sections below document the steps
+needed for smooth debugging of kernels.</p>
+<div class="section" id="build-flags">
+<a class="header-link" href="#build-flags"><h3 id="build-flags">Build flags</h3><span class="material-icons">link</span></a>
+<p>To best debug an OpenCL kernel the build flags <code class="docutils literal notranslate">-g</code>, <code class="docutils literal notranslate">-S</code>, and <code class="docutils literal notranslate">-cl-opt-disable</code>
+should be set in the options to <code class="docutils literal notranslate">clBuildProgram()</code>, where <code class="docutils literal notranslate">-g</code> and <code class="docutils literal notranslate">-S</code> are
+part of our <code class="docutils literal notranslate">cl_codeplay_extra_build_options</code> platform extension.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">-g</code> enables emission of debug info. Without this flag the debugger user will
+not be able to set a breakpoint on the kernel name.</p></li>
+<li><p><code class="docutils literal notranslate">-S &lt;path/to/source/file&gt;</code> points the generated debug info to a source file on
+disk so that the debugger can display kernel source code. If this file does
+not exist already the OCL runtime will create a file from the string passed to
+<code class="docutils literal notranslate">clCreateProgramWithSource()</code>, if this API call occurred.</p></li>
+<li><p><code class="docutils literal notranslate">-cl-opt-disable</code> disables performance optimizations. Omitting this flag will
+result in an inability to reliably inspect frame variables and source step.
+Analogous to debugging C/C++ code that hasn’t been built with <code class="docutils literal notranslate">-O0</code>.</p></li>
+</ul>
+</div>
+<div class="section" id="viewing-kernel-source-in-the-debugger">
+<a class="header-link" href="#viewing-kernel-source-in-the-debugger"><h3 id="viewing-kernel-source-in-the-debugger">Viewing kernel source in the debugger</h3><span class="material-icons">link</span></a>
+<blockquote>
+<div><p>Note: This section was created before the <code class="docutils literal notranslate">-S</code> build option was added.
+Mapping the source in the debugger can be done as a more invasive
+fall-back but the suggested technique is to utilize <code class="docutils literal notranslate">-S</code>.</p>
+</div></blockquote>
+<p>It is problematic for a debugger to show source code for cl programs since they
+are created from an API call to <code class="docutils literal notranslate">clCreateProgramWithSource()</code>. Where the
+source string passed in could be programmatically generated, not just read
+directly from a .cl file on disk.</p>
+<p>As a placeholder the OCL runtime sets the source filename to <code class="docutils literal notranslate">kernel.opencl</code>,
+and directory to wherever <code class="docutils literal notranslate">libOpenCl.so</code> was dynamically loaded into.
+This path then gets propagated into the debug info and picked up by the
+debugger. So if a debugger user wants to set a breakpoint on a file &amp; line,
+then the file will have to be <code class="docutils literal notranslate">kernel.opencl</code>. This could be an issue if
+multiple kernels from different cl programs are being run.</p>
+<p>More significant for the user experience is that the debugger can’t show the
+source code line for the current pc address of a stopped process. A workaround
+to this problem in the case where the .cl file does exist on disk is to rename
+the file to <code class="docutils literal notranslate">kernel.opencl</code>. The directories may still not match however, so an
+example fix would be to copy the source .cl file to <code class="docutils literal notranslate">/tmp/kernel.opencl</code>, then
+remap the directory in the debugger to point to <code class="docutils literal notranslate">/tmp</code>. <code class="docutils literal notranslate">lldb</code> uses a path
+substitution, while in <code class="docutils literal notranslate">gdb</code> you can provide a catch all directory to search for
+files in. Note <code class="docutils literal notranslate">lldb</code> doesn’t substitute environmental variables here so instead
+of using <code class="docutils literal notranslate">$HOME</code> or <code class="docutils literal notranslate">$USER</code> set the absolute path.</p>
+<pre><code class="language-default">(lldb) settings set target.source-map /home/foo/Aorta/build /tmp
+(gdb) directory /tmp
+</code>
+</pre>
+</div>
+<div class="section" id="lldb-sample-session">
+<a class="header-link" href="#lldb-sample-session"><h3 id="lldb-sample-session">LLDB sample session</h3><span class="material-icons">link</span></a>
+<p>Example debugging session of running the convolution UnitCL test and debugging
+its kernel. Note UnitCL needs to be passed the <code class="docutils literal notranslate">-g</code>, <code class="docutils literal notranslate">-S</code>, and <code class="docutils literal notranslate">-cl-opt-disable</code>
+options via the <code class="docutils literal notranslate">--unitcl_build_options</code> command line argument.</p>
+<p>We start by setting a function breakpoint on the kernel name with
+‘b convolution’, which won’t be resolved immediately since <code class="docutils literal notranslate">libOpenCL.so</code>
+hasn’t been dynamically loaded yet.</p>
+<pre><code class="language-default">$ lldb -- build/bin/UnitCL \
+          --gtest_filter=Execution.Task_07_04_Convolution \
+          --unitcl_build_options="-g -cl-opt-disable -S OCL/test/UnitCL/kernels/task_07.04_convolution.cl"
+(lldb) b convolution
+Breakpoint 1: no locations (pending)
+WARNING:  Unable to resolve breakpoint to any actual locations.
+(lldb) r
+</code>
+</pre>
+<p><code class="docutils literal notranslate">lldb</code> shows all the active threads which are currently stopped which makes the
+output cluttered, but it’s important to note that the thread IDs displayed have
+no relation to OpenCL work item IDs. To see all the threads in <code class="docutils literal notranslate">lldb</code> run
+‘thread list’, while to select an individual thread ‘thread select’ can be used.
+Depending on the OCL host implementation scheduling each process thread could
+execute several work items, and so may hit a kernel breakpoint several times.</p>
+<p>Next in our debug session we  step over the line <code class="docutils literal notranslate">int x = get_global_id(0);</code>
+with the ‘thread step-over’ command, also aliased to ‘next’. Then by printing
+the frame variables we can see that the global id of the current work item is
+130.</p>
+<pre><code class="language-default">(lldb) thread select 7
+(lldb) thread step-over
+(lldb) frame var
+(float *) src = 0x0000000000d28e80
+(float *) dst = 0x00000000007fd800
+(int) x = 130
+(int) width = 0
+</code>
+</pre>
+<p>We can also set a breakpoint on a file line, where the file must be set as
+<code class="docutils literal notranslate">task_07.04_convolution.cl</code>. Additionally we can narrow this breakpoint scope
+down to a single work-item with the condition ‘x==4’, since x holds the global
+id. When the breakpoint is hit <code class="docutils literal notranslate">lldb</code> can list multiple threads as stopped, and
+the debugger user may have to cycle through the threads to find the specific one
+where x==4.</p>
+<pre><code class="language-default">(lldb) break set -f task_07.04_convolution.cl -l 20 -c "x == 4"
+(lldb) break del 1
+(lldb) continue
+convolution(src=0x0000000000d28e80, dst=0x00000000007fd800)
+   17  	            sum += weight * src[x + i];
+   18  	        }
+   19  	        sum /= totalWeight;
+-&gt; 20  	        dst[x] = sum;
+   21  	    }
+   22  	    else
+   23  	    {
+
+(lldb) print x
+(int) $0 = 4
+(lldb) print dst[x]
+(float) $1 = 0
+(lldb) next
+(lldb) print dst[x]
+(float) $2 = 95.9932632
+</code>
+</pre>
+</div>
+<div class="section" id="gdb-sample-session">
+<a class="header-link" href="#gdb-sample-session"><h3 id="gdb-sample-session">GDB sample session</h3><span class="material-icons">link</span></a>
+<p>Here we run through the same debugging scenario as for <code class="docutils literal notranslate">lldb</code>, but using the
+equivalent <code class="docutils literal notranslate">gdb</code> command syntax.</p>
+<pre><code class="language-default">$ gdb --args build/bin/UnitCL \
+             --gtest_filter=Execution.Task_07_04_Convolution \
+             --unitcl_build_options="-g -cl-opt-disable -S OCL/test/UnitCL/kernels/task_07.04_convolution.cl"
+(gdb) b convolution
+(gdb) run
+</code>
+</pre>
+<p>Unlike <code class="docutils literal notranslate">lldb</code>, <code class="docutils literal notranslate">gdb</code> only displays a single thread when the process is stopped.
+But you can see them all with command ‘info threads’, and select the individual
+thread with <code class="docutils literal notranslate">thread $tid</code>.</p>
+<pre><code class="language-default">(gdb) thread 6
+[Switching to thread 6 (Thread 0x7fffeb8f2700 (LWP 4090))]
+#0  convolution (src=0xd28e80, dst=0x7fd800) at task_07.04_convolution.cl:7
+7	    int x = get_global_id(0);
+(gdb) next
+8	    int width = get_global_size(0);
+(gdb) info locals
+x = 130
+width = 0
+(gdb) info args
+src = 0xd28e80
+dst = 0x7fd800
+</code>
+</pre>
+<p>We can set a conditional breakpoint on a file line only for work-item 4 using
+the below <code class="docutils literal notranslate">gdb</code> command syntax.</p>
+<pre><code class="language-default">(gdb) break task_07.04_convolution.cl:20 if x == 4
+(gdb) delete 1
+(gdb) continue
+Continuing.
+[Switching to Thread 0x7fffeb8f2700 (LWP 4106)]
+
+Breakpoint 2, convolution (src=0xd28e80, dst=0x7fd800) at task_07.04_convolution.cl:20
+20	        dst[x] = sum;
+(gdb) info locals
+sum = 0.833333313
+totalWeight = 12
+x = 4
+width = 256
+(gdb) print  dst[x]
+$1 = 0
+(gdb) next
+7	    int x = get_global_id(0);
+(gdb) print  dst[x]
+$2 = 0.833333313
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="deprecated-entry-points">
+<a class="header-link" href="#deprecated-entry-points"><h2 id="deprecated-entry-points">Deprecated Entry Points</h2><span class="material-icons">link</span></a>
+<p>Deprecated OpenCL 1.0 and 1.1 functions which are implemented by the oneAPI
+Construction Kit for conformance and backwards compatibility.</p>
+<div class="section" id="clgetextensionfunctionaddress">
+<a class="header-link" href="#clgetextensionfunctionaddress"><h3 id="clgetextensionfunctionaddress"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clGetExtensionFunctionAddress.html">clGetExtensionFunctionAddress</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">void* clGetExtensionFunctionAddress(const char *func_name);
+</code>
+</pre>
+<p>Query the platform for address of extension function, deprecated in OpenCL 1.2.
+Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clGetExtensionFunctionAddressForPlatform.html"><code class="docutils literal notranslate">clGetExtensionFunctionAddressForPlatform</code></a>.</p>
+</div>
+<div class="section" id="clenqueuewaitforevents">
+<a class="header-link" href="#clenqueuewaitforevents"><h3 id="clenqueuewaitforevents"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clEnqueueWaitForEvents.html">clEnqueueWaitForEvents</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clEnqueueWaitForEvents(cl_command_queue queue,
+                              cl_uint num_events,
+                              const cl_event *event_list);
+</code>
+</pre>
+<p>Enqueue an event wait list, deprecated in OpenCL 1.2. Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clWaitForEvents.html"><code class="docutils literal notranslate">clWaitForEvents</code></a>.</p>
+</div>
+<div class="section" id="clenqueuebarrier">
+<a class="header-link" href="#clenqueuebarrier"><h3 id="clenqueuebarrier"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clEnqueueBarrier.html">clEnqueueBarrier</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clEnqueueBarrier(cl_command_queue queue);
+</code>
+</pre>
+<p>Enqueue a barrier on the command queue, deprecated in OpenCL 1.2. Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clEnqueueBarrierWithWaitList.html"><code class="docutils literal notranslate">clEnqueueBarrierWithWaitList</code></a></p>
+</div>
+<div class="section" id="clenqueuemarker">
+<a class="header-link" href="#clenqueuemarker"><h3 id="clenqueuemarker"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clEnqueueMarker.html">clEnqueueMarker</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clEnqueueMarker(cl_command_queue queue,
+                       cl_event *event);
+</code>
+</pre>
+<p>Enqueue a marker on the command queue, deprecated in OpenCL 1.2. Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clEnqueueMarkerWithWaitList.html"><code class="docutils literal notranslate">clEnqueueMarkerWithWaitList</code></a></p>
+</div>
+<div class="section" id="clunloadcompiler">
+<a class="header-link" href="#clunloadcompiler"><h3 id="clunloadcompiler"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clUnloadCompiler.html">clUnloadCompiler</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_int clUnloadCompiler();
+</code>
+</pre>
+<p>Unload the compiler, deprecated in OpenCL 1.2. This is a hint from the
+application and does not guarantee that the compiler will actually be unloaded
+by the implementation. As this is just a hint oneAPI Construction Kit ignores it.</p>
+<p>Replaced by <a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clUnloadPlatformCompiler.html"><code class="docutils literal notranslate">clUnloadPlatformCompiler</code></a>.</p>
+</div>
+<div class="section" id="clcreateimage2d">
+<a class="header-link" href="#clcreateimage2d"><h3 id="clcreateimage2d"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clCreateImage2D.html">clCreateImage2D</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_mem clCreateImage2D(cl_context context,
+                       cl_mem_flags flags,
+                       const cl_image_format *image_format,
+                       size_t image_width,
+                       size_t image_height,
+                       size_t image_row_pitch,
+                       void *host_ptr,
+                       cl_int *errcode_ret);
+</code>
+</pre>
+<p>Create a 2D image memory object, deprecated in OpenCL 1.2. Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCreateImage.html"><code class="docutils literal notranslate">clCreateImage</code></a>.</p>
+</div>
+<div class="section" id="clcreateimage3d">
+<a class="header-link" href="#clcreateimage3d"><h3 id="clcreateimage3d"><a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.1/docs/man/xhtml/clCreateImage3D.html">clCreateImage3D</a></h3><span class="material-icons">link</span></a>
+<pre><code class="language-c">cl_mem clCreateImage3D(cl_context context,
+                       cl_mem_flags flags,
+                       const cl_image_format *image_format,
+                       size_t image_width,
+                       size_t image_height,
+                       size_t image_depth,
+                       size_t image_row_pitch,
+                       size_t image_slice_pitch,
+                       void *host_ptr,
+                       cl_int *errcode_ret);
+</code>
+</pre>
+<p>Create a 3D image memory object, deprecated in OpenCL 1.2. Replaced by
+<a class="reference external" href="http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/clCreateImage.html"><code class="docutils literal notranslate">clCreateImage</code></a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Design</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake"
+                            >
+                            <div>
+                                <h1>OpenCL CMake</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#opencl">OpenCL</a></li>
+                        <li class="heading-2"><a href="#supported-features-and-implementation-details">Supported Features and Implementation Details</a></li>
+                        <li class="heading-2"><a href="#data-types">Data Types</a></li>
+                        <li class="heading-2"><a href="#platform-info">Platform Info</a></li>
+                        <li class="heading-2"><a href="#device-info">Device Info</a></li>
+                        <li class="heading-2"><a href="#program-compilation">Program Compilation</a></li>
+                        <li class="heading-2"><a href="#image-support">Image Support</a></li>
+                        <li class="heading-2"><a href="#debugging-opencl-kernels">Debugging OpenCL kernels</a></li>
+                        <li class="heading-2"><a href="#deprecated-entry-points">Deprecated Entry Points</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="826bd5ad7f3913e1ebb1d8119b0f5ac2">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

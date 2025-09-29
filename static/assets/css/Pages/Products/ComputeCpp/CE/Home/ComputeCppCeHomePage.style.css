@@ -1,0 +1,307 @@
+/**
+ * Section: Splash
+ */
+section.splash {
+    position: relative;
+}
+
+section.splash img {
+    max-width: 656px !important;
+}
+
+section.splash:before {
+    background-image: url(../../../../../../img/products/computecpp/ce/home/bg-code-overlay.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: '';
+    display: inline-block;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    animation: 1.5s ease-in-out zoomin;
+    z-index: 0;
+}
+
+@keyframes zoomin {
+    from {
+        opacity: 0;
+        transform: scale(1.2, 1.2);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+/**
+ * Section: Learn SYCL
+ */
+section#learn-sycl {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--splashButtonColor);
+    position: relative;
+    transition: .3s all;
+    text-align: center;
+    color: var(--whiteColor);
+}
+
+section#learn-sycl:hover {
+    filter: brightness(1.1);
+}
+
+section#learn-sycl a * {
+    padding: 0;
+    margin: 0;
+}
+
+section#learn-sycl a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 1rem 0;
+}
+
+section#learn-sycl p {
+    opacity: .7;
+    margin-top: .5rem;
+}
+
+section#learn-sycl h1 {
+    margin-top: 1rem;
+}
+
+section#learn-sycl img {
+    max-height: 143px;
+    max-width: 287px;
+    display: inline-block;
+}
+
+section#learn-sycl a > *:nth-of-type(3) span {
+    font-size: 4rem;
+}
+
+@media screen and (min-width: 70.63rem) {
+    section#learn-sycl {
+        text-align: left;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    section#learn-sycl a {
+        flex-direction: row;
+    }
+
+    section#learn-sycl img {
+        position: relative;
+        bottom: -1rem;
+    }
+
+    section#learn-sycl h1 {
+        margin-top: 0;
+    }
+
+    section#learn-sycl a > *:nth-of-type(1) {
+        width: 287px;
+        display: flex;
+    }
+
+    section#learn-sycl a > *:nth-of-type(2) {
+        flex: 1;
+        padding-left: 3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    section#learn-sycl a > *:nth-of-type(3) {
+        width: 75px;
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+    }
+}
+
+/**
+ * Section: Experimetal
+ */
+section#try-experimental {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+section#try-experimental div.wrapper {
+    display: grid;
+    grid-template-columns: 40px 1fr 170px;
+    grid-column-gap: 3rem;
+}
+
+section#try-experimental div.wrapper > div:nth-of-type(1),
+section#try-experimental div.wrapper > div:nth-of-type(3) {
+    display: flex;
+    align-items: center;
+}
+
+section#try-experimental div.wrapper > div:nth-of-type(1) span {
+    font-size: 3rem;
+    opacity: .7;
+}
+
+/**
+ * Section: Accelerate
+ */
+section#accelerate ul.columns > li:nth-child(1) {
+    vertical-align: middle
+}
+
+section#accelerate img {
+    max-width: 542px !important;
+}
+
+/**
+ * Section: Features
+ */
+section#features #feature-table {
+    display: table;
+    width: 100%;
+    border: var(--borderDefault);
+    border-radius: 12px;
+}
+
+section#features #feature-table > * {
+    display: table-row;
+}
+
+section#features #feature-table > * > * {
+    display: table-cell;
+    text-align: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    border-bottom: var(--borderDefault);
+    border-right: var(--borderDefault);
+}
+
+section#features #feature-table > * > *:first-of-type {
+    font-weight: bold;
+    background-color: var(--backgroundColor);
+}
+
+section#features #feature-table > *:last-of-type > * {
+    border-bottom: 0;
+}
+
+section#features #feature-table > * > *:last-of-type {
+    border-right: 0;
+}
+
+section#features #feature-table > *:nth-of-type(1) {
+    font-weight: bold;
+}
+
+section#features #feature-table > *:nth-of-type(1) > * {
+    padding: 2rem;
+}
+
+section#features #feature-table > * > *:nth-of-type(1) {
+    width: 50%;
+    text-align: left;
+}
+
+section#features #feature-table img {
+    width: 20px !important;
+}
+
+section#features #feature-table button {
+    padding: 1rem 2rem;
+}
+
+/**
+ * Section: Target Audience
+ */
+section#target-audience img {
+    max-width: 81px !important;
+}
+
+/**
+ * Section: Playground
+ */
+section#playground #playground-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+section#playground #playground-container > div {
+    text-align: center;
+    box-sizing: border-box;
+}
+
+section#playground #playground-container > div:nth-child(1) img {
+    max-width: 374px;
+}
+
+section#playground #playground-container > div:nth-child(3) img {
+    max-width: 200px;
+}
+
+@media screen and (min-width: 70rem) {
+    section#playground #playground {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    section#playground #playground div.wrapper {
+        padding-bottom: 0;
+    }
+
+    section#playground #playground-container {
+        display: grid;
+        grid-template-columns: 374px 1fr 200px;
+        grid-gap: 3rem;
+    }
+
+    section#playground #playground-container > div {
+        text-align: left;
+    }
+}
+
+section#playground #playground-container h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+section#playground #playground-container a button {
+    cursor: pointer;
+}
+
+section#playground #playground-container > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section#playground #playground-container > div:nth-child(1) {
+    align-items: flex-end;
+}
+
+/**
+ * Section: Testimonials
+ */
+section#testimonials .columns * {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+section#testimonials .columns h1,
+section#testimonials .columns h2 {
+    margin-top: 1rem;
+}
+
+section#testimonials .columns h1 {
+    font-weight: bold;
+}
+
+section#testimonials .columns h2 {
+    font-weight: normal;
+}

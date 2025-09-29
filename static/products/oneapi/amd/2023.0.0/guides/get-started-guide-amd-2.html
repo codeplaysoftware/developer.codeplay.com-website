@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/amd/2023.0.0/guides/get-started-guide-amd by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:04:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Install oneAPI for AMD GPUs (beta) - Guides - oneAPI for AMD GPU - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Install oneAPI for AMD GPUs (beta)' for oneAPI for AMD GPU 2023.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, sycl, amd, hip, mi100" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Install oneAPI for AMD GPUs (beta) - Guides - oneAPI for AMD GPU - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Install oneAPI for AMD GPUs (beta)' for oneAPI for AMD GPU 2023.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/OneApiShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/Nvidia/OneApiForNvidiaShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/Nvidia/Guide/OneApiForNvidiaGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI for AMD GPU</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Docs</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://support.codeplay.com/" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">support_agent</span>
+
+                            <div>Support</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html" target="_blank">
+                        <div>
+                            <img class="icon material-icons" src="../../../../../assets/img/products/oneapi/menu-icon-intel.png" alt="Icon" />
+
+
+                            <div>Download Toolkit</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../guides/index.html"
+                           >Docs</a>
+                    </li>
+                    <li >
+                        <a href="https://support.codeplay.com/"
+                           target="_blank">Support</a>
+                    </li>
+                    <li >
+                        <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html"
+                           target="_blank">Download Toolkit</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="get-started-guide-amd">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2023.0.0</div>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/get-started-guide-amd-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/get-started-guide-amd-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/get-started-guide-amd-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/get-started-guide-amd-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/get-started-guide-amd-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/get-started-guide-amd-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/get-started-guide-amd-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/get-started-guide-amd-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/get-started-guide-amd-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/get-started-guide-amd-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/get-started-guide-amd-2.html">2024.0.0</a></li>
+                           <li><a href="../../2023.2.1/guides/get-started-guide-amd-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/get-started-guide-amd-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/get-started-guide-amd-2.html">2023.1.0</a></li>
+                           <li><a href="get-started-guide-amd-2.html">2023.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI for AMD GPUs (beta) 2023.0.0</a><ol></ol></li>               <li class="selected"><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Get Started</a><ol><li class="selected focused"><a href="get-started-guide-amd.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Install oneAPI for AMD GPUs (beta)</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-amd-2.html#use-dpc-to-target-amd-gpus"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Use DPC++ to Target AMD GPUs</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-amd-2.html#dpc-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DPC++ Resources</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-amd-2.html#sycl-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL Resources</a><ol></ol></li><li class=""><a href="debugging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging SYCL Applications</a><ol></ol></li></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Support</a><ol><li class=""><a href="features-amd.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Features</a><ol></ol></li><li class=""><a href="changelog-amd-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Changelog</a><ol></ol></li><li class=""><a href="troubleshooting.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Troubleshooting</a><ol></ol></li><li class=""><a href="license-amd.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>License Agreement</a><ol></ol></li></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of oneAPI for AMD GPU.
+                            This guide was designed for version 2023.0.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#install-oneapi-for-amd-gpus--beta-">
+                            <h1>Install oneAPI for AMD GPUs (beta)</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="debugging-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<p>This guide contains information on using DPC++ to run SYCL™ applications on AMD
+GPUs via the DPC++ HIP plugin.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please keep in mind that this is beta-quality software, which means
+that it contains most of the major features, but is not yet complete
+and still contains known and unknown bugs. For more details on the
+supported features, see the <a class="reference internal" href="features-amd.html"><span class="doc std std-doc">Features</span></a>
+documentation.</p>
+</div>
+<p>For general information about DPC++, refer to the
+<a class="reference internal" href="#dpc-resources"><span class="std std-doc">DPC++ Resources</span></a> section.</p>
+<section id="install-oneapi-for-amd-gpus-beta">
+
+<section id="supported-platforms">
+<a class="header-link" href="#supported-platforms"><h2 id="supported-platforms">Supported Platforms</h2><span class="material-icons">link</span></a>
+<p>This release has been tested on the following platforms:</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>GPU Hardware</p></th>
+<th class="head"><p>Architecture</p></th>
+<th class="head"><p>Operating System</p></th>
+<th class="head"><p>HIP</p></th>
+<th class="head"><p>GPU Driver</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AMD Radeon Pro W6800</p></td>
+<td><p>gfx1030</p></td>
+<td><p>Ubuntu 20.04.5 LTS</p></td>
+<td><p>4.5.2</p></td>
+<td><p>21.40.2.40502</p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><p>This release should work on HIP 4.x versions, but only HIP 4.5.2 has been
+tested. Codeplay cannot guarantee correct operation with earlier HIP 4.x
+releases.</p>
+<ul>
+<li><p><strong>This release does not work with HIP 5.x, but support will be added in a
+future release.</strong></p></li>
+<li><p>As a workaround, HIP 4.5.2 can be installed alongside your HIP 5.x
+installation. See the
+<a class="reference external" href="https://docs.amd.com/bundle/ROCm-Installation-Guide-v5.4.1/page/How_to_Install_ROCm.html#d23e752">Using the Installer Script for Multiversion ROCm Installation</a>
+section of the ROCm Installation Guide.</p></li>
+</ul>
+</li>
+<li><p>This release should work across a wide array of AMD GPUs, but Codeplay cannot
+guarantee correct operation on untested platforms.</p></li>
+<li><p>The package has been tested on Ubuntu 20.04 only, but can be installed on
+generic Linux systems.</p></li>
+<li><p>The plugin relies on HIP being installed on your system. As HIP does not
+support Windows or macOS®, oneAPI for AMD GPUs (beta) packages are not
+available for those operating systems.</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<a class="header-link" href="#prerequisites"><h2 id="prerequisites">Prerequisites</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Install C++ development tools.</p>
+<p>You will need the following C++ development tools installed in order to
+build and run oneAPI applications: <code class="docutils literal notranslate"><span class="pre">cmake</span></code>, <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, <code class="docutils literal notranslate"><span class="pre">g++</span></code>, <code class="docutils literal notranslate"><span class="pre">make</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pkg-config</span></code>.</p>
+<p>The following console commands will install the above tools on the most
+popular Linux distributions:</p>
+<p><strong>Ubuntu</strong></p>
+<pre><code class="language-shell">sudo apt update
+sudo apt -y install cmake pkg-config build-essential
+</code>
+</pre>
+<p><strong>Red Hat and Fedora</strong></p>
+<pre><code class="language-shell">sudo yum update
+sudo yum -y install cmake pkgconfig
+sudo yum groupinstall "Development Tools"
+</code>
+</pre>
+<p><strong>SUSE</strong></p>
+<pre><code class="language-shell">sudo zypper update
+sudo zypper --non-interactive install cmake pkg-config
+sudo zypper --non-interactive install pattern devel_C_C++
+</code>
+</pre>
+<p>Verify that the tools are installed by running:</p>
+<pre><code class="language-shell">which cmake pkg-config make gcc g++
+</code>
+</pre>
+<p>You should see output similar to:</p>
+<pre><code class="language-shell">/usr/bin/cmake
+/usr/bin/pkg-config
+/usr/bin/make
+/usr/bin/gcc
+/usr/bin/g++
+</code>
+</pre>
+</li>
+<li><p>Install an <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html">Intel® oneAPI Toolkit 2023.0.0</a>
+that contains the DPC++/C++ Compiler.</p>
+<ul class="simple">
+<li><p>For example, the Intel oneAPI Base Toolkit should suit most use cases.</p></li>
+<li><p>The Toolkit must be version 2023.0.0 - otherwise oneAPI for AMD GPUs
+cannot be installed.</p></li>
+</ul>
+</li>
+<li><p>Install the GPU driver and ROCm™ software stack for the AMD GPU.</p>
+<ul class="simple">
+<li><p>For example, for ROCm 4.5, follow the steps described in the
+<a class="reference external" href="https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation_new.html#rocm-installation-guide-v4-5">ROCm Installation Guide v4.5</a>.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">amdgpu-install</span></code> installer is recommended, with the
+<code class="docutils literal notranslate"><span class="pre">--usecase="dkms,graphics,opencl,hip,hiplibsdk"</span></code> argument to ensure that
+all required components are installed.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="installation">
+<a class="header-link" href="#installation"><h2 id="installation">Installation</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Download the <a class="reference external" href="https://developer.codeplay.com/products/oneapi/amd/download/">oneAPI for AMD GPUs (beta) installer</a>.</p></li>
+<li><p>Run the downloaded self-extracting installer:</p>
+<pre><code class="language-shell">sh oneapi-for-amd-gpus-2023.0.0-linux.sh
+</code>
+</pre>
+<ul class="simple">
+<li><p>The installer will search for an existing Intel oneAPI Toolkit 2023.0.0
+installation in common locations. If you have installed an Intel oneAPI
+Toolkit in a custom location, use <code class="docutils literal notranslate"><span class="pre">--install-dir</span> <span class="pre">/path/to/intel/oneapi</span></code>.</p></li>
+<li><p>If your Intel oneAPI Toolkit installation is outside your home directory,
+you may be required to run this command with <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="set-up-your-environment">
+<a class="header-link" href="#set-up-your-environment"><h2 id="set-up-your-environment">Set Up Your Environment</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>To set up your oneAPI environment in your current session, source the
+Intel-provided <code class="docutils literal notranslate"><span class="pre">setvars.sh</span></code> script.</p>
+<p>For system-wide installations:</p>
+<pre><code class="language-shell">. /opt/intel/oneapi/setvars.sh --include-intel-llvm
+</code>
+</pre>
+<p>For private installations (in the default location):</p>
+<pre><code class="language-shell">. ~/intel/oneapi/setvars.sh --include-intel-llvm
+</code>
+</pre>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--include-intel-llvm</span></code> option is required in order to add LLVM tools
+such as <code class="docutils literal notranslate"><span class="pre">clang++</span></code> to the path.</p></li>
+<li><p>Note that you will have to run this script in every new terminal session.
+For options to handle the setup automatically each session, see the relevant
+Intel oneAPI Toolkit documentation, such as
+<a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-intel-oneapi-base-linux/top/before-you-begin.html#before-you-begin_GUID-338EB548-7DB6-410E-B4BF-E65C017389C4">Set Environment Variables for CLI Development</a>.</p></li>
+</ul>
+</li>
+<li><p>Ensure that the HIP libraries and tools can be found in your environment:</p>
+<ol class="arabic">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">rocminfo</span></code> - if it runs without any obvious errors in the output
+then your environment should be set up correctly.</p></li>
+<li><p>Otherwise, set your environment variables manually:</p>
+<pre><code class="language-shell">export PATH=/PATH_TO_ROCM_ROOT/bin:$PATH
+export LD_LIBRARY_PATH=/PATH_TO_ROCM_ROOT/lib:$LD_LIBRARY_PATH
+</code>
+</pre>
+<p>ROCm is commonly installed in <code class="docutils literal notranslate"><span class="pre">/opt/rocm-x.x.x/</span></code>.</p>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="verify-your-installation">
+<a class="header-link" href="#verify-your-installation"><h2 id="verify-your-installation">Verify Your Installation</h2><span class="material-icons">link</span></a>
+<p>To verify the DPC++ HIP plugin installation, the DPC++ <code class="docutils literal notranslate"><span class="pre">sycl-ls</span></code> tool can be
+used to make sure that SYCL now exposes the available AMD GPUs. You should see
+something similar to the following in the <code class="docutils literal notranslate"><span class="pre">sycl-ls</span></code> output if AMD GPUs are found:</p>
+<pre><code class="language-shell">[ext_oneapi_hip:gpu:0] AMD HIP BACKEND, AMD Radeon PRO W6800 0.0 [HIP 40421.43]
+</code>
+</pre>
+<ul class="simple">
+<li><p>If the available AMD GPUs are correctly listed, then the DPC++ HIP
+plugin was correctly installed and set up.</p></li>
+<li><p>Otherwise, see the “Missing devices in sycl-ls output” section of the
+<a class="reference internal" href="troubleshooting.html"><span class="doc std std-doc">Troubleshooting</span></a> documentation.</p></li>
+<li><p>Note that this command may also list other devices such as OpenCL™
+devices, Intel GPUs, or NVIDIA® GPUs, based on the available hardware
+and DPC++ plugins installed.</p></li>
+</ul>
+</section>
+<section id="run-a-sample-application">
+<a class="header-link" href="#run-a-sample-application"><h2 id="run-a-sample-application">Run a Sample Application</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Create a file <code class="docutils literal notranslate"><span class="pre">simple-sycl-app.cpp</span></code> with the following C++/SYCL code:</p>
+<pre><code class="language-cpp">#include &lt;sycl/sycl.hpp&gt;
+
+int main() {
+  // Creating buffer of 4 ints to be used inside the kernel code
+  sycl::buffer&lt;sycl::cl_int, 1&gt; Buffer(4);
+
+  // Creating SYCL queue
+  sycl::queue Queue;
+
+  // Size of index space for kernel
+  sycl::range&lt;1&gt; NumOfWorkItems{Buffer.size()};
+
+  // Submitting command group(work) to queue
+  Queue.submit([&amp;](sycl::handler &amp;cgh) {
+    // Getting write only access to the buffer on a device
+    auto Accessor = Buffer.get_access&lt;sycl::access::mode::write&gt;(cgh);
+    // Executing kernel
+    cgh.parallel_for&lt;class FillBuffer&gt;(
+        NumOfWorkItems, [=](sycl::id&lt;1&gt; WIid) {
+          // Fill buffer with indexes
+          Accessor[WIid] = (sycl::cl_int)WIid.get(0);
+        });
+  });
+
+  // Getting read only access to the buffer on the host.
+  // Implicit barrier waiting for queue to complete the work.
+  const auto HostAccessor = Buffer.get_access&lt;sycl::access::mode::read&gt;();
+
+  // Check the results
+  bool MismatchFound = false;
+  for (size_t I = 0; I &lt; Buffer.size(); ++I) {
+    if (HostAccessor[I] != I) {
+      std::cout &lt;&lt; "The result is incorrect for element: " &lt;&lt; I
+                &lt;&lt; " , expected: " &lt;&lt; I &lt;&lt; " , got: " &lt;&lt; HostAccessor[I]
+                &lt;&lt; std::endl;
+      MismatchFound = true;
+    }
+  }
+
+  if (!MismatchFound) {
+    std::cout &lt;&lt; "The results are correct!" &lt;&lt; std::endl;
+  }
+
+  return MismatchFound;
+}
+</code>
+</pre>
+</li>
+<li><p>Compile the application with:</p>
+<pre><code class="language-shell">clang++ -fsycl -fsycl-targets=amdgcn-amd-amdhsa \
+        -Xsycl-target-backend --offload-arch=&lt;ARCH&gt; \
+        -o simple-sycl-app simple-sycl-app.cpp 
+</code>
+</pre>
+<p>Where ARCH is the GPU architecture e.g. <code class="docutils literal notranslate"><span class="pre">gfx1030</span></code>, which you can check by
+running:</p>
+<pre><code class="language-shell">rocminfo | grep 'Name: *gfx.*'
+</code>
+</pre>
+<p>You should see the GPU architecture in the output, for example:</p>
+<pre><code class="language-shell">  Name:                    gfx1030
+</code>
+</pre>
+</li>
+<li><p>Run the application with:</p>
+<pre><code class="language-shell">SYCL_DEVICE_FILTER=hip SYCL_PI_TRACE=1 ./simple-sycl-app
+</code>
+</pre>
+<p>You should see output like:</p>
+<pre><code class="language-shell">SYCL_PI_TRACE[basic]: Plugin found and successfully loaded: libpi_hip.so [ PluginVersion: 11.15.1 ]
+SYCL_PI_TRACE[all]: Selected device: -&gt; final score = 1500
+SYCL_PI_TRACE[all]:   platform: AMD HIP BACKEND
+SYCL_PI_TRACE[all]:   device: AMD Radeon PRO W6800
+The results are correct!
+</code>
+</pre>
+<p>If so, you have succesfully set up and verified your oneAPI for AMD GPUs
+development environment, and you can begin developing oneAPI applications.</p>
+<p>The rest of this document provides general information on compiling and
+running oneAPI applications on AMD GPUs.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="use-dpc-to-target-amd-gpus">
+<a class="header-link" href="#use-dpc-to-target-amd-gpus"><h1 id="use-dpc-to-target-amd-gpus">Use DPC++ to Target AMD GPUs</h1><span class="material-icons">link</span></a>
+<section id="compile-for-amd-gpus">
+<a class="header-link" href="#compile-for-amd-gpus"><h2 id="compile-for-amd-gpus">Compile for AMD GPUs</h2><span class="material-icons">link</span></a>
+<p>To compile a SYCL application for AMD GPUs, use the <code class="docutils literal notranslate"><span class="pre">clang++</span></code> compiler
+provided with DPC++. For example:</p>
+<pre><code class="language-shell">clang++ -fsycl -fsycl-targets=amdgcn-amd-amdhsa \
+        -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx1030 \
+        -o sycl-app sycl-app.cpp
+</code>
+</pre>
+<p>The following flags are required:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-fsycl</span></code>: Instructs the compiler to build the C++ source file in
+SYCL mode. This flag will also implicitly enable C++17 and automatically
+link against the SYCL runtime library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-fsycl-targets=amdgcn-amd-amdhsa</span></code>: Instructs the compiler to
+build SYCL kernels for the AMD GPU target.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Xsycl-target-backend=amdgcn-amd-amdhsa</span> <span class="pre">--offload-arch=gfx1030</span></code>:
+Instructs the compiler to build SYCL kernels for the <code class="docutils literal notranslate"><span class="pre">gfx1030</span></code> AMD
+GPU architecture.</p></li>
+</ul>
+<p>Note that when targeting an AMD GPU, the specific architecture of the GPU
+must be provided.</p>
+<p>For more information on available SYCL compilation flags, see the
+<a class="reference external" href="https://intel.github.io/llvm-docs/UsersManual.html">DPC++ Compiler User’s Manual</a>
+or for information on all DPC++ compiler options see the
+<a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-reference/compiler-options.html">Compiler Options</a>
+section of the Intel oneAPI DPC++/C++ Compiler Developer Guide and Reference.</p>
+</section>
+<section id="compile-for-multiple-targets">
+<a class="header-link" href="#compile-for-multiple-targets"><h2 id="compile-for-multiple-targets">Compile for Multiple Targets</h2><span class="material-icons">link</span></a>
+<p>In addition to targeting AMD GPUs, you can build SYCL applications that can be
+compiled once and then run on a range of hardware. The following example shows
+how to output a single binary including device code that can run on AMD GPUs,
+NVIDIA GPUs, or any device that supports SPIR e.g. Intel GPUs.</p>
+<pre><code class="language-shell">clang++ -fsycl -fsycl-targets=amdgcn-amd-amdhsa,nvptx64-nvidia-cuda,spir64 \
+        -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx1030 \
+        -Xsycl-target-backend=nvptx64-nvidia-cuda --offload-arch=sm_80 \
+        -o sycl-app sycl-app.cpp
+</code>
+</pre>
+</section>
+<section id="run-sycl-applications-on-amd-gpus">
+<a class="header-link" href="#run-sycl-applications-on-amd-gpus"><h2 id="run-sycl-applications-on-amd-gpus">Run SYCL Applications on AMD GPUs</h2><span class="material-icons">link</span></a>
+<p>After compiling your SYCL application for an AMD target, you should also
+ensure that the correct SYCL device representing the AMD GPU is selected at
+runtime.</p>
+<p>In general, simply using the default device selector should select one of the
+available AMD GPUs. However in some scenarios, users may want to change their
+SYCL application to use a more precise SYCL device selector, such as the GPU
+selector, or even a custom selector.</p>
+<p>The environment variable <code class="docutils literal notranslate"><span class="pre">SYCL_DEVICE_FILTER</span></code> may be used to help the SYCL
+device selectors by restricting the set of devices that can be used. For
+example, to only allow devices exposed by the DPC++ HIP plugin:</p>
+<pre><code class="language-shell">export SYCL_DEVICE_FILTER=hip
+</code>
+</pre>
+<p>For more details on this environment variable, see the
+<a class="reference external" href="https://intel.github.io/llvm-docs/EnvironmentVariables.html#sycl-device-filter">Environment Variables section of the oneAPI DPC++ Compiler documentation</a>.
+Note: this environment variable will be deprecated in a subsequent release.</p>
+</section>
+</section>
+<section id="dpc-resources">
+<a class="header-link" href="#dpc-resources"><h1 id="dpc-resources">DPC++ Resources</h1><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/videos/dpc-part-1-introduction-to-new-programming-model.html#gs.kiy9br">Intel DPC++ Overview</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/GetStartedGuide.html">DPC++ Getting Started Guide</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/UsersManual.html">DPC++ Compiler User’s Manual</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/design/CompilerAndRuntimeDesign.html">DPC++ Compiler and Runtime Architecture Design</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/EnvironmentVariables.html">DPC++ Environment Variables</a></p></li>
+</ul>
+</section>
+<section id="sycl-resources">
+<a class="header-link" href="#sycl-resources"><h1 id="sycl-resources">SYCL Resources</h1><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/SYCL/specs/sycl-2020/html/sycl-2020.html">SYCL 2020 Spec</a></p></li>
+<li><p><a class="reference external" href="https://github.com/codeplaysoftware/syclacademy">SYCL Academy Learning Materials</a></p></li>
+<li><p><a class="reference external" href="https://www.codingame.com/playgrounds/48226/introduction-to-sycl/introduction-to-sycl-2">Codingame interactive SYCL tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.iwocl.org/iwocl-2020/sycl-tutorials/">IWOCL SYCL talks</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-1-4842-5574-2">Free DPC++ eBook</a></p></li>
+<li><p><a class="reference external" href="https://sycl.tech/">Find out the latest SYCL news, learning materials and projects</a></p></li>
+</ul>
+</section>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/amd/2023.0.0/guides/get-started-guide-amd by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:04:51 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="for AMD GPU" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/amd/2023.0.0/guides/get-started-guide-amd" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="index-3.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>oneAPI for AMD GPUs (beta) 2023.0.0</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="debugging-2.html"
+                            >
+                            <div>
+                                <h1>Debugging SYCL Applications</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#install-oneapi-for-amd-gpus--beta-">Install oneAPI for AMD GPUs (beta)</a></li>
+                        <li class="heading-2"><a href="#supported-platforms">Supported Platforms</a></li>
+                        <li class="heading-2"><a href="#prerequisites">Prerequisites</a></li>
+                        <li class="heading-2"><a href="#installation">Installation</a></li>
+                        <li class="heading-2"><a href="#set-up-your-environment">Set Up Your Environment</a></li>
+                        <li class="heading-2"><a href="#verify-your-installation">Verify Your Installation</a></li>
+                        <li class="heading-2"><a href="#run-a-sample-application">Run a Sample Application</a></li>
+                        <li class="heading-1"><a href="#use-dpc-to-target-amd-gpus">Use DPC++ to Target AMD GPUs</a></li>
+                        <li class="heading-2"><a href="#compile-for-amd-gpus">Compile for AMD GPUs</a></li>
+                        <li class="heading-2"><a href="#compile-for-multiple-targets">Compile for Multiple Targets</a></li>
+                        <li class="heading-2"><a href="#run-sycl-applications-on-amd-gpus">Run SYCL Applications on AMD GPUs</a></li>
+                        <li class="heading-1"><a href="#dpc-resources">DPC++ Resources</a></li>
+                        <li class="heading-1"><a href="#sycl-resources">SYCL Resources</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="78f79d0fb3e4c1ce9a3e05f64457f12d">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

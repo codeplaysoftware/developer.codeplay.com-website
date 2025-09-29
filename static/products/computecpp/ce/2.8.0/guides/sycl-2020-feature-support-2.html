@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>SYCL 2020 Feature Support - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'SYCL 2020 Feature Support' for ComputeCpp™ Community Edition 2.8.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="SYCL 2020 Feature Support - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'SYCL 2020 Feature Support' for ComputeCpp™ Community Edition 2.8.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="sycl-2020-feature-support">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.8.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-2020-feature-support">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-2020-feature-support">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-2020-feature-support">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-2020-feature-support">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-2020-feature-support">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class="selected focused"><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL 2020 Feature Support</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/frameworks-for-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-experimental-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compute++ Experimental Compiler</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/computecpp-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Extensions</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.8.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#sycl-2020-feature-support">
+                            <h1>SYCL 2020 Feature Support</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/what-is-sycl" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="sycl-2020-feature-support" href="#sycl-2020-feature-support"><span class="material-icons">link</span><h1 id="sycl-2020-feature-support">SYCL 2020 Feature Support</h1></a>
+<p>This document details the new features available in the SYCL 2020 specification and whether they are supported in ComputeCpp. The table below indicates if a feature is supported and if it is, what version of ComputeCpp it is supported in. The table may also include notes about the implementation of the feature to be aware of.</p>
+<p>Table 1. Support Matrix</p>
+<div class="table-wrapper"><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Supported Version</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accessors: Deduction guides (CTAD)</td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: Split into separate types</td>
+<td>2.6.0 (partial)</td>
+<td>Only <code>host_accessor</code> and <code>local_accessor</code></td>
+</tr>
+<tr>
+<td>Accessors: Access mode and target simplifications</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: All device accessors can be placeholders</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: Default template parameters</td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: <code>get_pointer</code> and <code>get_multi_ptr</code> changes</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: Reading outside accessor range is UB</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: <code>accessor::operator[](0)</code> indexes into start of range</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: <code>const T</code> and <code>read_only</code> behavior</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Accessors: <code>operator []</code> returns <code>const</code> ref in read mode</td>
+<td>2.3.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Address space – inference, generics, decorated</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>atomic_ref</code> replacement for <code>atomic</code> class</td>
+<td>2.7.0 (partial)</td>
+<td>Host only</td>
+</tr>
+<tr>
+<td>Backend interop: <code>backend_traits</code></td>
+<td>2.6.0 (partial)</td>
+<td>Images not supported</td>
+</tr>
+<tr>
+<td>Backend interop: <code>get_backend</code></td>
+<td>2.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer</code>: Contiguous container constructor</td>
+<td>2.4.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer</code>: Default access target is device accessor</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer</code>: New constructor from <code>shared_ptr&lt;T[]&gt;</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer</code>: Reinterpret without a range</td>
+<td>2.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer_allocator</code> templated on the data type</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>buffer_allocator</code> is a C++ <code>Allocator</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Builtins: <code>ctz</code> and <code>clz</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>byte_size</code>, <code>size</code> replace <code>get_size</code>, <code>get_count</code></td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>C++17 by default</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Deduction guides</td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Default constructed <code>device</code> and <code>platform</code> changes</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>device_copyable</code> type trait</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Device accessors as reversible containers</td>
+<td>2.8.0 (partial)</td>
+<td>Non-reversible containers fully supported, reversible only for contiguous</td>
+</tr>
+<tr>
+<td>Device aspects</td>
+<td>2.7.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Exception: Derives from std::exception</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Exception: Removal of exception hierarchy and adding error codes</td>
+<td>2.7.0 (partial)</td>
+<td>Error codes thrown in most places</td>
+</tr>
+<tr>
+<td>Explicit dependencies (<code>depends_on()</code>)</td>
+<td>2.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Extension mechanism - feature test macros</td>
+<td>2.7.0</td>
+<td>Only for new features/extensions</td>
+</tr>
+<tr>
+<td>Extension namespaces</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Group Algorithms (work-group)</td>
+<td>2.2.0 (partial)</td>
+<td></td>
+</tr>
+<tr>
+<td>Group algorithms (Sub-group)</td>
+<td>2.2.0 (partial)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>handler::require</code> can be called on any accessor</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Host accessors as reversible containers</td>
+<td>2.8.0 (partial)</td>
+<td>Non-reversible containers fully supported, reversible only for contiguous</td>
+</tr>
+<tr>
+<td>Host task with <code>interop_handle</code></td>
+<td>2.6.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Host task accessors</td>
+<td>2.8.0 (partial)</td>
+<td>Missing deduction guides</td>
+</tr>
+<tr>
+<td>Images - <code>sampled_image</code>, <code>unsampled_image</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Immutable Kernels</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>In-order queues</td>
+<td>2.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>info::kernel_device_specific</code> queries</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Information query descriptors as structs</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>kernel_bundle</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Kernel Function type attributes</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Math array (<code>marray</code>)</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td><code>multi_ptr</code> changes</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>New device selector API</td>
+<td>2.6.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>aspect_selector</code></td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>New header file name (<code>sycl/sycl.hpp</code>)</td>
+<td>2.5.0</td>
+<td></td>
+</tr>
+<tr>
+<td>New property traits and classes that support properties</td>
+<td>2.6.0</td>
+<td></td>
+</tr>
+<tr>
+<td>New attribute style</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>New operations for <code>id</code> and <code>range</code> classes</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Optional Lambda name</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Unnamed types in kernel names</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Parallel_for simplifications</td>
+<td>2.7.0 (partial)</td>
+<td>Missing 2D and 3D range simplifications</td>
+</tr>
+<tr>
+<td>Queue: Constructors taking <code>device</code> + <code>context</code></td>
+<td>2.0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: Explicit copy shortcuts</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: Kernel shortcuts</td>
+<td>2.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Queue: USM memory shortcuts</td>
+<td>2.7.0</td>
+<td>Added <code>memset</code> in 2.7.0</td>
+</tr>
+<tr>
+<td>Reductions</td>
+<td>2.8.0 (partial)</td>
+<td>Missing array reductions</td>
+</tr>
+<tr>
+<td>Remove buffer API for <code>unique_ptr</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Remove <code>nd_item::barrier()</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Remove OpenCL types (<code>cl_int</code> etc.)</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Replace <code>mem_fence</code> with <code>atomic_fence</code></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Required work-group size</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Specialization Constants</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Support relaxed Standard layout</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Sub-groups</td>
+<td>2.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sycl::bit_cast</code></td>
+<td>2.7.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sycl::span</code></td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Templated <code>max_work_item_sizes</code> query</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Terminate in default async_handler</td>
+<td>2.2.0</td>
+<td></td>
+</tr>
+<tr>
+<td><code>vec</code> additions: <code>operator[]</code>, unary +, -</td>
+<td>2.8.0</td>
+<td></td>
+</tr>
+<tr>
+<td>Unified Shared Memory</td>
+<td>2.7.0 (partial)</td>
+<td>Explicit USM supported by <a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-experimental-compiler">experimental compiler</a></td>
+</tr>
+</tbody>
+</table></div></div></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:42 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-2020-feature-support" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/platform-support/targeting-nvidia-ptx#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Targeting NVIDIA PTX</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/what-is-sycl"
+                            >
+                            <div>
+                                <h1>What is SYCL</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#sycl-2020-feature-support">SYCL 2020 Feature Support</a></li>
+                        <li class="heading-1"><a href="#sycl-2020-feature-support">SYCL 2020 Feature Support</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="253505562fdaff20c7843ebe30d15f87">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

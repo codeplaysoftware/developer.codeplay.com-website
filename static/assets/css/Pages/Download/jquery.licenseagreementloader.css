@@ -1,0 +1,110 @@
+#licenseAgreementDialog {
+    display: none;
+    border-radius: 12px;
+}
+
+#licenseAgreementDialog * {
+    box-sizing: border-box;
+}
+
+#licenseAgreementDialog > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#licenseAgreementDialog > div > div {
+    text-align: left;
+    padding: 2rem;
+}
+
+#licenseAgreementDialog > div > div:nth-of-type(1) {
+    background-color: var(--foregroundColor);
+    flex: 1;
+}
+
+#licenseAgreementDialog > div > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+#licenseAgreementDialog > div > div:nth-of-type(2) > div:nth-of-type(1) {
+    flex: 1;
+}
+
+#licenseAgreementDialog .license {
+    background-color: #1d1d1d;
+    font-size: 12px;
+    overflow: auto;
+    text-align: left;
+    max-height: 100%;
+}
+
+#licenseAgreementDialog .loading {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+#licenseAgreementDialog .loading div {
+    text-align: center;
+}
+
+#licenseAgreementDialog .loading span {
+    font-size: 2rem;
+    opacity: .7;
+}
+
+#licenseAgreementDialog a.button {
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem 0 0 0;
+    border: 0;
+}
+
+#licenseAgreementDialog a.disabled {
+    pointer-events: none;
+    opacity: .6;
+    background-color: #4a4a4a !important;
+    cursor: not-allowed;
+}
+
+#licenseAgreementDialog a[name="agree"] {
+    background-color: #3e8300;
+}
+
+#licenseAgreementDialog a[name="disagree"] {
+    background-color: #4a4a4a;
+}
+
+#licenseAgreementDialog > div > div:nth-child(2) > div:nth-child(1) p,
+#licenseAgreementDialog .product-info {
+    display: none;
+}
+
+@media screen and (min-width: 56.25rem) {
+    #licenseAgreementDialog {
+        width: 1100px !important;
+        height: 620px !important;
+    }
+
+    #licenseAgreementDialog > div {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 70% 30%;
+    }
+
+    #licenseAgreementDialog > div > div:nth-child(2) > div:nth-child(1) p {
+        display: inherit;
+    }
+
+    #licenseAgreementDialog .product-info {
+        display: block;
+        opacity: .5;
+        font-size: 11px;
+        padding-bottom: 1rem;
+    }
+}

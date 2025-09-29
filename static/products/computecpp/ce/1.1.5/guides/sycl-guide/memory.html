@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/memory.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:44:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Memory - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Memory' for ComputeCpp™ Community Edition 1.1.5 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Memory - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Memory' for ComputeCpp™ Community Edition 1.1.5 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../api-reference/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../download/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home/index.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="../../../api-reference/index.html"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="../../../download/index.html"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="sycl-guide-memory">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>1.1.5</div>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="../release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="../platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="../platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="../platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="../platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="../platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="../what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class="selected"><a href="../sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class="selected focused"><a href="memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="../computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="../anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="../frameworks-for-computecpp-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="../sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="../manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>manual</a><ol></ol></li>               <li class=""><a href="../error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="../logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="../computecpp-profiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Profiler</a><ol></ol></li>               <li class=""><a href="../step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li>               <li class=""><a href="../integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="../sycl-for-cuda-developers-2.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="../sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="../sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="../tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="../tensorflow-guide/tensorflow-generic-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Generic Setup</a><ol></ol></li><li class=""><a href="../tensorflow-guide/tensorflow-arm-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow ARM Setup</a><ol></ol></li></ol></li>               <li class=""><a href="../eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="../eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="../ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 1.1.5.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#memory">
+                            <h1>Memory</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="limitations-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="memory-and-synchronisation" href="#memory-and-synchronisation"><span class="material-icons">link</span><h1 id="memory-and-synchronisation">Memory and synchronisation</h1></a>
+<p>While for simple computations it is okay to operate purely on work-items, any more complex workload will require finer-grained control. Unfortunately, this comes at the cost of introducing some complexity. Hopefully though, we can clear everything up!</p>
+<p>You might remember that work-items are grouped into work-groups. The splitting into work-groups is not purely conceptual - it has very real implications on memory accesses and performance. Work-groups are independent of each other. In fact, there is no way to synchronize between them in a single kernel. For this reason, two work-groups should never write to the same memory location (although they can read shared data).</p>
+<p>OpenCL and SYCL define a clear distinction between various regions in memory and rules that govern accesses to these. Everything on the CPU side is known as <strong>host memory</strong>. It is not directly accessible from kernels, but as we've seen, buffers and accessors provide facilities for copying host data to the device and accessing it there. The corresponding accessor target is <code>access::target::host_buffer</code>.</p>
+<p>On the device side, more memory regions exist:</p>
+<ul>
+<li>
+<p><strong>Global memory</strong> is available in the same form to all work-groups and items. It can be thought of as a device-side equivalent of RAM. The corresponding target, <code>access::target::global_buffer</code>, is the default target for <code>buffer::get_access</code>. In previous examples we didn't explicitly specify a target, so this one was used.</p>
+</li>
+<li>
+<p><strong>Local memory</strong> is specific to a single work-group. Work-groups cannot access others' local memory, but it is shared between all work-items in a group. It can be thought of as a user-controlled cache. It is especially useful for divide-and-conquer problems where each part of computation is handled by one work-group. Local memory can be used to store the result of such a computation. Local memory is allocated per kernel execution and it cannot be filled with host data, so you have to initialize it yourself. The canonical way to allocate it is to create a <code>access::target::local</code> accessor inside a command group, passing it the requested allocation size.</p>
+</li>
+<li>
+<p><strong>Private memory</strong> is a small region dedicated to each work-item. It is much like CPU register memory. All variables created in a kernel are stored in private memory. Additionally, dedicated <code>private_memory</code> objects can be created for this purpose.</p>
+</li>
+<li>
+<p>Finally, <strong>constant memory</strong> is a read-only part of global memory, which similarly can reference a host-side buffer.</p>
+</li>
+</ul>
+<p>In this example we will try to compute an array reduction - the sum of all its elements. The overall structure of the example is as follows:</p>
+<p><strong>Parallel reduction</strong></p>
+<pre><code class="language-cpp">  #include &lt;array&gt;
+  #include &lt;cstdint&gt;
+  #include &lt;iostream&gt;
+  #include &lt;random&gt;
+  #include &lt;cassert&gt;
+
+  #include &lt;CL/sycl.hpp&gt;
+  namespace sycl = cl::sycl;
+
+  int main(int, char**) {
+    std::array&lt;int32_t, 16&gt; arr;
+
+    std::mt19937 mt_engine(std::random_device{}());
+    std::uniform_int_distribution&lt;int32_t&gt; idist(0, 10);
+
+    std::cout &lt;&lt; "Data: ";
+    for (auto&amp; el : arr) {
+      el = idist(mt_engine);
+      std::cout &lt;&lt; el &lt;&lt; " ";
+    }
+    std::cout &lt;&lt; std::endl;
+
+    sycl::buffer&lt;int32_t, 1&gt; buf(arr.data(), sycl::range&lt;1&gt;(arr.size()));
+
+    &lt;&lt;Read hardware information&gt;&gt;
+
+    &lt;&lt;Reduction loop&gt;&gt;
+
+    auto acc = buf.get_access&lt;sycl::access::mode::read&gt;();
+    std::cout &lt;&lt; "Sum: " &lt;&lt; acc[0] &lt;&lt; std::endl;
+
+    return 0;
+  }
+</code></pre>
+<p>The first thing we do is initialize an array of random values to be added together and a buffer for that data. We then print the values.</p>
+<p><strong>Read hardware information</strong></p>
+<pre><code class="language-cpp">  sycl::device device = sycl::default_selector{}.select_device();
+  sycl::queue queue(device, [] (sycl::exception_list el) {
+      for (auto ex : el) { std::rethrow_exception(ex); }
+    } );
+
+  auto wgroup_size = device.get_info&lt;sycl::info::device::max_work_group_size&gt;();
+  if (wgroup_size % 2 != 0) {
+    throw "Work-group size has to be even!";
+  }
+  auto part_size = wgroup_size * 2;
+
+  auto has_local_mem = device.is_host()
+        || (device.get_info&lt;sycl::info::device::local_mem_type&gt;()
+        != sycl::info::local_mem_type::none);
+  auto local_mem_size = device.get_info&lt;sycl::info::device::local_mem_size&gt;();
+  if (!has_local_mem
+      || local_mem_size &lt; (wgroup_size * sizeof(int32_t)))
+  {
+       throw "Device doesn't have enough local memory!";
+  }
+</code></pre>
+<p>After that we initialize a queue in a slightly different manner than before. Instead of passing a selector to the <code>queue</code> constructor, we request it to return a selected <code>device</code> object. This allows us to access hardware information.</p>
+<p>The <code>device::get_info</code> function has a single template parameter specifying the piece of information that we want to retrieve. <code>info::device::max_work_group_size</code> is defined to be the maximum number of work-items in a work-group executing on a single compute unit. Exceeding this size should result in an error. It is not necessarily the optimal size, but it can be expected to yield good performance.</p>
+<p>We initialize a <code>part_size</code> variable to be the number of elements in the array that work-group reduces. Since each work-item initially reduces two elements, it is twice the work-group size.</p>
+<p>We also test the device for the local memory size - we cannot perform the reduction if there is too little of it or if local memory is unsupported altogether. Of course, in a real-world application a special case would have to be made to also support such devices.</p>
+<p><strong>Reduction loop</strong></p>
+<pre><code class="language-cpp">  auto len = arr.size();
+  while (len != 1) {
+    // division rounding up
+    auto n_wgroups = (len + part_size - 1) / part_size;
+
+    queue.submit([&amp;] (sycl::handler&amp; cgh) {
+    sycl::accessor
+    &lt;int32_t,
+     1,
+     sycl::access::mode::read_write,
+     sycl::access::target::local&gt;
+    local_mem(sycl::range&lt;1&gt;(wgroup_size), cgh);
+
+    auto global_mem = buf.get_access&lt;sycl::access::mode::read_write&gt;(cgh);
+
+    cgh.parallel_for&lt;class reduction_kernel&gt;(
+      sycl::nd_range&lt;1&gt;(n_wgroups * wgroup_size, wgroup_size),
+      [=] (sycl::nd_item&lt;1&gt; item) {
+        &lt;&lt;Perform load into local memory&gt;&gt;
+
+        &lt;&lt;Reduce into one element&gt;&gt;
+
+        &lt;&lt;Write group result to global memory&gt;&gt;
+      }
+    );
+      } );
+    queue.wait_and_throw();
+
+    len = n_wgroups;
+  }
+</code></pre>
+<p>Inside the reduction loop, we first find the number of work-groups for this step of reduction. It is the length <code>len</code> left to be reduced divided by the number of elements that each work-group reduces.</p>
+<p>Next, in the command group, we allocate a part of local memory by creating an accessor with <code>access::target::local</code> and a range equal to the work-group size. We checked the memory size earlier, so we know that it is available. As stated above, this region of memory looks different to each work-group and its use is for temporary storage.</p>
+<p>You might wonder, why do we even bother with using local memory when we could carry out the whole operation in global? The answer is that it is much faster. Local memory is (usually) physically closer to the chip than global and it does not suffer from problems such as false sharing, since it is exclusive to each compute unit. It is therefore a good idea to always carry out all temporary operations in local memory for best performance.</p>
+<p>We also obtain an accessor to the data available in global memory. This time <code>get_access</code> is explicitly qualified with <code>access::target::global_buffer</code>, while previously it took on that value by default.</p>
+<p>Lastly, we launch a parallel kernel. We use the <code>nd_range</code> variant, which allows us to specify both the global and local size. The <code>nd_range</code> constructor takes in two <code>range</code> objects of the same dimensionality as itself. The first one describes the number of work-items per dimension (recall that there can be up to three dimensions). The second range argument to <code>nd_range&lt;n&gt;</code> describes the number of work-items in a work-group. To find the number of work-groups per dimension, divide the first argument by the second. In this case the result is <code>n_wgroups</code>, which is how many work-groups will be instantiated. In this variant the kernel lambda takes an <code>nd_item</code> argument. It represents the current work-item and features methods to get detailed information from it, such as local, global, and work-group info.</p>
+<p>Since each step of the reduction loop produces one number per work-group, we set the <code>len</code> to <code>n_wgroups</code> on every iteration, which will continue reducing over the results.</p>
+<p><strong>Perform load into local memory</strong></p>
+<pre><code class="language-cpp">  size_t local_id = item.get_local_linear_id();
+  size_t global_id = item.get_global_linear_id();
+
+  local_mem[local_id] = 0;
+
+  if ((2 * global_id) &lt; len) {
+    local_mem[local_id] = global_mem[2 * global_id] + global_mem[2 * global_id + 1];
+  }
+
+  item.barrier(sycl::access::fence_space::local_space);
+</code></pre>
+<p>In the kernel, we firstly zero-initialize the local memory, since it can in fact contain garbage data. The key point here is that 0 is the invariant of our reduction, meaning that <code>x + 0 = x</code>, so we can add the whole array safely even if it isn't entirely filled with data to be reduced.</p>
+<p>We divide our data into parts, each one being computed by a single work-group. The input data is required to be of even size, but it doesn't have to be a multiple of the work-group size. Hence, a few work-items in the last work-group can have no corresponding data. For this reason, the initial load from global to local memory is guarded by an if-statement. As mentioned in the "parallelism" section, this is usually a bad idea. In this case, however, it is okay, because at most one work-group will have divergent work-items. We use a small array for illustration purposes and a specialized kernel would technically be faster, but any real use case can be expected to have much more input data.</p>
+<p>After the load is performed with an addition of the two elements corresponding to each work-item, we emit a <strong>barrier</strong> with a local memory fence. We have to stop for a bit and understand why this is necessary. In the OpenCL memory model, all operations across work-items have relaxed semantics. For example, in the following pseudocode we execute two functions in parallel over the same data:</p>
+<p><strong>Relaxed write</strong></p>
+<pre><code class="language-cpp">  int x = 0;
+  int y = 0;
+
+  void thread_a() {
+    write(x, 1);
+    write(y, 2);
+  }
+
+  void thread_b() {
+    int ly = load(y);
+    int lx = load(x);
+    printf("%i %i", lx, ly);
+  }
+
+  in_parallel(thread_a, thread_b);
+</code></pre>
+<p>In a relaxed memory model, work-item B can in fact print <code>0 2</code>. This looks wrong, because work-item A must have written <code>x</code> into memory before it wrote <code>y</code>. The key point is that operation work-item B can observe A's operations in a different order. This 'really' helps hardware performance, but it comes at the cost of confusing behaviour. To deal with this problem, we have to emit memory fences. Moreover, even if we don't mind reordering, we might want to make sure that all results of write operations propagate between work-items - otherwise they could stay in per-work-item cache and not be visible across work-items.</p>
+<p>To synchronize the state of memory, we use the <code>item::barrier(access::fence_space)</code> operation. A SYCL barrier does two things. Firstly, it makes sure that each work-item within the work-group reaches the barrier call. In other words, it guarantees that the work-group is synchronized at a certain point in the code. It is very important to make sure that 'either all work-items reach the barrier or none do'. For example, the following code is <strong>invalid</strong>:</p>
+<p><strong>Branch barrier</strong></p>
+<pre><code class="language-cpp">  if (local_id &lt; 5) {
+    item.barrier(sycl::access::fence_space::local_space);
+  } else {
+    item.barrier(sycl::access::fence_space::local_space);
+  }
+</code></pre>
+<p>It looks innocent, but the problem is that the two instructions are not the same barrier. Work-items below local id 5 will get to the first barrier while the rest will get to the other one, and the execution will stall, both groups waiting on each other forever. A simple transformation of factoring the barrier call out of the conditional would fix it.</p>
+<p>Secondly, <code>item::barrier</code> emits a memory fence in the specified space. It can be either <code>access::fence_space::local_space</code>, <code>::global_space</code> or <code>::global_and_local</code>. A fence ensures that the state of the specified space is consistent across all work-items within the work-group. Importantly, it is 'not possible' to synchronize between work-groups. They are entirely independent, and any write or read in the same global memory area done by two work-groups is a data race. For this reason, it is important to make sure each work-group only works on a dedicated region of global memory without crossover.</p>
+<p>Next, we reduce each work-group's array in local memory:</p>
+<p><strong>Reduce into one element</strong></p>
+<pre><code class="language-cpp">  for (size_t stride = 1; stride &lt; wgroup_size; stride *= 2) {
+    auto idx = 2 * stride * local_id;
+    if (idx &lt; wgroup_size) {
+      local_mem[idx] = local_mem[idx] + local_mem[idx + stride];
+    }
+
+    item.barrier(sycl::access::fence_space::local_space);
+  }
+</code></pre>
+<p>Since each iteration of the <code>for</code> loop depends on the previous one, we emit a barrier every time to synchronise work-items.</p>
+<p>Lastly, write a single number which is the result of this work-group's reduction into global memory.</p>
+<p><strong>Write group result to global memory</strong></p>
+<pre><code class="language-cpp">  if (local_id == 0) {
+    global_mem[item.get_group_linear_id()] = local_mem[0];
+  }
+</code></pre>
+<p>And the result is obtained:</p>
+<p>Data: 1 8 5 9 4 2 6 0 1 8 6 2 10 9 0 5
+Sum: 76</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/memory.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:44:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="memory.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="parallelism-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Parallelism</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="limitations-2.html"
+                            >
+                            <div>
+                                <h1>Limitations</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#memory">Memory</a></li>
+                        <li class="heading-1"><a href="#memory-and-synchronisation">Memory and synchronisation</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="660b1650e1fc2757e27db5ee89210570">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../../oneapi/construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

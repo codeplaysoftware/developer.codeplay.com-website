@@ -1,0 +1,352 @@
+.formatted-text {
+    line-height: 180%;
+}
+
+.formatted-text .header-link {
+    position: relative;
+    line-height: normal;
+    display: block;
+}
+
+.formatted-text .header-link h1,
+.formatted-text .header-link h2,
+.formatted-text .header-link h3,
+.formatted-text .header-link h4,
+.formatted-text .header-link h5,
+.formatted-text .header-link h6 {
+    position: relative
+}
+
+.formatted-text .header-link span {
+    position: absolute;
+    left: -2rem;
+    bottom: 0;
+    opacity: .2;
+    cursor: pointer;
+}
+
+.formatted-text .header-link:hover span {
+    opacity: 1;
+}
+
+.formatted-text pre {
+    width: 100%;
+    margin-top: 1rem;
+    line-height: initial;
+    position: relative;
+}
+
+.formatted-text pre code {
+    overflow: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 7rem !important;
+}
+
+.formatted-text pre .button.copy {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    background: var(--hintColor) !important;
+    color: var(--whiteColor) !important;
+    padding: .5rem .7rem;
+    font-size: 16px;
+    user-select: none;
+    margin-right: 0;
+    z-index: 999;
+    opacity: 0;
+}
+
+.formatted-text pre:hover .button.copy {
+    opacity: 1;
+}
+
+.formatted-text pre .button.copy span {
+    font-size: 18px;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-meta,
+.hljs-type,
+.hljs-keyword {
+    color: #5eb5ff
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-params {
+    color: #ffc300
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #727272
+}
+
+.hljs-string,
+.hljs-attribute,
+.hljs-addition {
+    color: #e5987b
+}
+
+.hljs-emphasis {
+    font-style:italic
+}
+
+.hljs-strong {
+    font-weight:bold
+}
+
+#feedback-button {
+    margin-top: 2rem;
+}
+
+.formatted-text .headerlink {
+    display: none;
+}
+
+.formatted-text .table-wrapper {
+    overflow: auto;
+}
+
+.not-latest {
+    background-color: var(--highlightColor);
+    padding: 1rem;
+    opacity: .8;
+    cursor: default;
+    display: grid;
+    border-radius: var(--borderRadius);
+}
+
+.formatted-text table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.formatted-text table * {
+    box-sizing: border-box;
+}
+
+.formatted-text table td,
+.formatted-text table th {
+    border: var(--borderDefault);
+    padding: 1rem;
+}
+
+.formatted-text table p,
+.formatted-text table p {
+    margin: 0;
+}
+
+.formatted-text table tr {
+    border-top: var(--borderDefault);
+    background-color: var(--backgroundColor);
+}
+
+.formatted-text table th:empty {
+    display: none;
+}
+
+.formatted-text table tbody tr:not(.heading):nth-child(even) {
+    background-color: var(--foregroundColor);
+}
+
+.formatted-text table caption {
+    width: 100%;
+    padding: 1rem;
+    font-weight: bold;
+    border: var(--borderDefault);
+    border-bottom: none;
+}
+
+.formatted-text table.highlighttable th,
+.formatted-text table.highlighttable tr,
+.formatted-text table.highlighttable td {
+    padding: 0;
+}
+
+.formatted-text table.highlighttable td {
+    background-color: var(--codeBlockColor);
+    color: var(--whiteColor);
+    padding: 0;
+}
+
+.formatted-text table.highlighttable .linenos {
+    padding: 0 1rem;
+}
+
+.formatted-text table.highlighttable pre {
+    margin: 0;
+}
+
+.formatted-text table.highlighttable pre code {
+    border-radius: 0;
+}
+
+/**
+ * Syntax Highlighting
+ */
+.formatted-text pre code {
+    color: var(--whiteColor);
+    background: var(--codeBlockColor);
+    overflow-x: auto;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 6px;
+    border: var(--borderDefault);
+    display: inline-block;
+}
+
+.formatted-text p code {
+    padding: 0 .3rem;
+    background-color: var(--backgroundColor);
+    border: var(--borderDefault);
+    display: inline-block;
+    margin: 2px 0;
+    border-radius: 6px;
+}
+
+/**
+ * Admonitions
+ */
+.formatted-text .admonition {
+    position: relative;
+    display: block;
+    margin: 4rem 0 1.5rem 0;
+    background-color: var(--whiteColor);
+    padding: .5rem 1.5rem;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.2);
+}
+
+.dark-mode .formatted-text .admonition {
+    background-color: var(--thirdColor);
+}
+
+.formatted-text .admonition p.admonition-title {
+    display: inline-block;
+    position: absolute;
+    top: -46px;
+    left: 0;
+    font-weight: bold;
+    background: var(--thirdColor);
+    padding: .7rem 1rem;
+    border-radius: 6px 6px 0 0;
+    margin: 0;
+    background: var(--hintColor);
+    color: white;
+}
+
+.formatted-text .admonition.important p.admonition-title,
+.formatted-text .admonition.warning p.admonition-title {
+    background: red;
+}
+
+.formatted-text .admonition.warning,
+.formatted-text .admonition.important {
+    background: rgba(255, 0, 0, .1);
+}
+
+.formatted-text ul,
+.formatted-text ol {
+    padding-left: 1.3rem;
+    margin-top: .5rem;
+}
+
+.formatted-text li p:first-of-type {
+    margin: .2rem 0;
+}
+
+.formatted-text kbd {
+    background-color: var(--highlightColor);
+    border: var(--borderDefault);
+    border-radius: 6px;
+    padding: .3rem;
+}
+
+.formatted-text dd {
+    padding-left: 1rem;
+}
+
+.formatted-text .rubric {
+    font-weight: bold;
+}
+
+.formatted-text dt {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.formatted-text dt p {
+    font-weight: bold;
+}
+
+.formatted-text .math {
+    display: inline-block;
+    background-color: var(--backgroundColor);
+    border: var(--borderDefault);
+    border-radius: 6px;
+    padding: .5rem;
+}
+
+.formatted-text .footnote.brackets {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-column-gap: 2rem;
+}
+
+.formatted-text .footnote.brackets dt {
+    text-align: center;
+}
+
+.formatted-text .topic-title {
+    font-weight: bold;
+}
+
+.formatted-text pre.literal-block {
+    border: var(--borderDefault);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background-color: var(--backgroundColor);
+}
+
+.formatted-text .caption {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.formatted-text .highlight-console,
+.formatted-text .highlight-text,
+.formatted-text .highlight-none {
+    white-space: pre-wrap !important;
+}
+
+.formatted-text .footnote-reference {
+    vertical-align: super;
+    font-size: 12px;
+}
+
+.dark-mode .formatted-text img {
+    background-color: #8a8a8a;
+    border-radius: 12px;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.formatted-text details summary {
+    background: var(--firstColor);
+    border: #ccc 1px solid;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.formatted-text details summary svg {
+    display: none;
+}

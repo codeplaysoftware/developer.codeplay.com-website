@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Command Processor Reference - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Command Processor Reference' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Command Processor Reference - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Command Processor Reference' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-reference-silicon-command-processor">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class="selected"><a href="../../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class="selected"><a href="../reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class="selected focused"><a href="command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#command-processor-reference">
+                            <h1>Command Processor Reference</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/reference-silicon/command-processor.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="dma-controller-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="command-processor-reference">
+
+<p>Commands such as N-D range kernel execution or DMA transfers are not directly
+accessible through driver API calls such as the ones described in the ‘Driver
+Functions’ section. Instead, they can be encoded into an array called a command
+buffer and passed to the <cite>refsiExecuteCommandBuffer</cite> driver function for
+execution. The commands will be passed to the RefSi command processor (CMP) and
+executed in-order.</p>
+<div class="section" id="general-command-format">
+<a class="header-link" href="#general-command-format"><h2 id="general-command-format">General Command Format</h2><span class="material-icons">link</span></a>
+<p>Commands in a command buffer are serialized using binary format based on the
+<a class="reference external" href="https://developer.amd.com/wordpress/media/2013/10/si_programming_guide_v2.pdf">PM4 packet format</a> used on several Radeon and <a class="reference external" href="https://bakhi.github.io/mobileGPU/adreno/">Adreno</a> GPUs:</p>
+<p>These packets are made up of one or more 64-bit chunks of data. The first chunk
+is always a header and it is followed by zero or more 64-bit payload chunks.
+Little-endian ordering is used to encode the chunks.</p>
+<p>The header contains the following fields:</p>
+<ul class="simple">
+<li><p>Bits 7-0: Reserved. Set to zero.</p></li>
+<li><p>Bits 15-8: Opcode. Determine the type of RefSi command to execute.</p></li>
+<li><p>Bits 29-16: Count. Equal to the number of payload chunks, times two.</p></li>
+<li><p>Bits 31-30: Packet identifier. Always set to 3.</p></li>
+<li><p>Bits 63-32: Inline chunk. Command-dependent meaning.</p></li>
+</ul>
+<p>The format of payload chunks differs based on the actual command to be executed
+and will be described in the following section. Unless otherwise specified,
+fields are unsigned integers. Zero-extension must be used when storing an
+unsigned field in a chunk that is larger than the field.</p>
+<p>Opcodes are described in tables in which <code class="docutils literal notranslate">Chunk</code> can be the header’s
+<code class="docutils literal notranslate">Inline</code> chunk or denotes one or multiple 64-bit data payload chunks.
+<code class="docutils literal notranslate">Field</code> is the opcode-specific name of the encoded data.</p>
+</div>
+<div class="section" id="commands">
+<a class="header-link" href="#commands"><h2 id="commands">Commands</h2><span class="material-icons">link</span></a>
+<div class="section" id="finish-command-opcode-1">
+<a class="header-link" href="#finish-command-opcode-1"><h3 id="finish-command-opcode-1"><cite>FINISH</cite> command (Opcode: 1)</h3><span class="material-icons">link</span></a>
+<p>This command marks the end of the command buffer. A ‘command buffer complete’
+signal will be sent on the bus and the next command buffer in the queue will be
+executed.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>DUMMY</p></td>
+<td><p>This field is not used.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="write-reg64-command-opcode-2">
+<a class="header-link" href="#write-reg64-command-opcode-2"><h3 id="write-reg64-command-opcode-2"><cite>WRITE_REG64</cite> command (Opcode: 2)</h3><span class="material-icons">link</span></a>
+<p>This command writes a 64-bit value to a CMP register.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>REG_IDX</p></td>
+<td><p>CMP register index to write the 64-bit value to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>IMM_VAL</p></td>
+<td><p>64-bit immediate value to write to the register.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="load-reg64-command-opcode-3">
+<a class="header-link" href="#load-reg64-command-opcode-3"><h3 id="load-reg64-command-opcode-3"><cite>LOAD_REG64</cite> command (Opcode: 3)</h3><span class="material-icons">link</span></a>
+<p>This command reads a 64-bit value from the given memory address and writes it to
+a CMP register. The memory address must be accessible by the CMP.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>REG_IDX</p></td>
+<td><p>CMP register index to write the 64-bit value to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>SRC_ADDR</p></td>
+<td><p>Memory address to read the 64-bit value from.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="store-reg64-command-opcode-4">
+<a class="header-link" href="#store-reg64-command-opcode-4"><h3 id="store-reg64-command-opcode-4"><cite>STORE_REG64</cite> command (Opcode: 4)</h3><span class="material-icons">link</span></a>
+<p>This command reads a 64-bit value from a CMP register and writes it to the given
+memory address. The memory address must be accessible by the CMP.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>REG_IDX</p></td>
+<td><p>CMP register index to read the 64-bit value from.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>DST_ADDR</p></td>
+<td><p>Memory address to write the 64-bit value to.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="store-imm64-command-opcode-5">
+<a class="header-link" href="#store-imm64-command-opcode-5"><h3 id="store-imm64-command-opcode-5"><cite>STORE_IMM64</cite> command (Opcode: 5)</h3><span class="material-icons">link</span></a>
+<p>This command writes an immediate 64-bit value to the given memory address. The
+memory address must be accessible by the CMP and only 32-bit destination
+addresses are supported with this command. It can be used for example to access
+the DMA controller via the same register interface that is exposed to the RISC-V
+accelerator cores.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>DST_ADDR_LO</p></td>
+<td><p>Lower 32 bits of the address to write to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>IMM_VAL</p></td>
+<td><p>64-bit immediate value to write to memory.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="copy-mem64-command-opcode-6">
+<a class="header-link" href="#copy-mem64-command-opcode-6"><h3 id="copy-mem64-command-opcode-6"><cite>COPY_MEM64</cite> command (Opcode: 6)</h3><span class="material-icons">link</span></a>
+<p>This command copies a number of 64-bit elements from one area of memory to
+another. Elements are copied one by one, to enable this function to be used with
+memory-mapped registers such as performance counters. The <cite>UNIT</cite> field can be
+used to read data from a particular hart in the RefSi accelerator.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>COUNT</p></td>
+<td><p>Number of 64-bit elements to copy.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>SRC_ADDR</p></td>
+<td><p>64-bit address to read data from.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>DST_ADDR</p></td>
+<td><p>64-bit address to write data to.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>UNIT</p></td>
+<td><p>Unit ID to use for reading data from memory.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="run-kernel-slice-command-opcode-7">
+<a class="header-link" href="#run-kernel-slice-command-opcode-7"><h3 id="run-kernel-slice-command-opcode-7"><cite>RUN_KERNEL_SLICE</cite> command (Opcode: 7)</h3><span class="material-icons">link</span></a>
+<p>This command runs a kernel slice, executing the entry point function
+<cite>NUM_INSTANCES</cite> times with the same kernel arguments and slice ID. An instance
+ID ranging from zero to <cite>NUM_INSTANCES - 1</cite> is passed to the entry point
+function in order to identify the instance being currently executed.</p>
+<p>Before the entry point function is executed on the accelerator, this command can
+optionally copy a memory range located in device memory (e.g. TCIM) to the
+per-thread Kernel Thread Block located in TCDM. This can be used for example to
+populate the per-thread scheduling info structure based on a single scheduling
+info template located in device memory.</p>
+<p>The entry point function is executed across RISC-V accelerator cores and
+hardware threads, with the CMP being responsible for distributing the instances
+between available threads. Kernel execution happens synchronously, so that
+following commands have to wait until this command has finished executing before
+they are executed.</p>
+<p>The following  registers are implicitly read by this command and therefore must
+be set to valid values before the command is executed.</p>
+<ul class="simple">
+<li><p><cite>CMP_ENTRY_PT_FN</cite></p></li>
+<li><p><cite>CMP_KUB_DESC</cite></p></li>
+<li><p><cite>CMP_KARGS_INFO</cite></p></li>
+<li><p><cite>CMP_TSD_INFO</cite></p></li>
+<li><p><cite>CMP_STACK_TOP</cite></p></li>
+<li><p><cite>CMP_RETURN_ADDR</cite></p></li>
+</ul>
+<p>Changes to device memory made by the cores when running the kernel will be fully
+observable before the next command is executed, i.e. caches are implicitly
+flushed.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>[7:0] MAX_HARTS</p></td>
+<td><p>Maximum number of harts to run the kernel on.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>NUM_INSTANCES</p></td>
+<td><p>Number of times to call the kernel entry point function.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>SLICE_ID</p></td>
+<td><p>Identifier to pass to the kernel entry point.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="run-instances-command-opcode-8">
+<a class="header-link" href="#run-instances-command-opcode-8"><h3 id="run-instances-command-opcode-8"><cite>RUN_INSTANCES</cite> command (Opcode: 8)</h3><span class="material-icons">link</span></a>
+<p>This command executes a kernel function <cite>NUM_INSTANCES</cite> times with a variable
+number of arguments. An instance ID ranging from zero to <cite>NUM_INSTANCES - 1</cite> is
+passed to the entry point function as the first argument in order to identify
+the instance being currently executed. Up to 7 extra arguments can be passed to
+the entry point function in the order they are defined in the <cite>EXTRA_ARG_x</cite>
+chunks.</p>
+<p>It is similar to <cite>RUN_KERNEL_SLICE</cite> but does not mandate a fixed kernel entry
+point signature, other than the instance ID being the first parameter. Unlike
+with <cite>RUN_KERNEL_SLICE</cite>, Kernel Uniform Block and Kernel Thread Block data is
+not copied to TCDM. This must be done explicitly prior to executing this
+command.</p>
+<p>The entry point function is executed across RISC-V accelerator cores and
+hardware threads, with the CMP being responsible for distributing the instances
+between available threads. Kernel execution happens synchronously, so that
+following commands have to wait until this command has finished executing before
+they are executed.</p>
+<p>The following  registers are implicitly read by this command and therefore must
+be set to valid values before the command is executed.</p>
+<ul class="simple">
+<li><p><cite>CMP_ENTRY_PT_FN</cite></p></li>
+<li><p><cite>CMP_STACK_TOP</cite></p></li>
+<li><p><cite>CMP_RETURN_ADDR</cite></p></li>
+</ul>
+<p>Changes to device memory made by the cores when running the kernel will not
+always be fully observable before the next command is executed, i.e. caches need
+to be explicitly flushed using the <cite>SYNC_CACHE</cite> command.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline
+Inline</p></td>
+<td><p>[7:0] MAX_HARTS
+[10:8] NUM_ARGS</p></td>
+<td><p>Maximum number of harts to run the kernel on.
+Number of extra function arguments (max 7).</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>NUM_INSTANCES</p></td>
+<td><p>Number of times to call the kernel entry point function.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>EXTRA_ARG_0</p></td>
+<td><p>Value to pass to the entry point function as argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>EXTRA_ARG_n</p></td>
+<td><p>Value to pass to the entry point function as argument.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="sync-cache-command-opcode-9">
+<a class="header-link" href="#sync-cache-command-opcode-9"><h3 id="sync-cache-command-opcode-9"><cite>SYNC_CACHE</cite> command (Opcode: 9)</h3><span class="material-icons">link</span></a>
+<p>This command synchronizes one or more caches in the RefSi device with the host.
+After this command has executed, all data written to RISC-V harts’ caches is
+flushed to device memory. Any data cached for reading is also invalidated.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Chunk</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inline</p></td>
+<td><p>FLAGS</p></td>
+<td><p>Flags describing which caches to synchronize.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Possible flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CMP_CACHE_SYNC_ACC_DCACHE</code>: Synchronize the data cache.</p></li>
+<li><p><code class="docutils literal notranslate">CMP_CACHE_SYNC_ACC_ICACHE</code>: Synchronize the instruction cache.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="registers">
+<a class="header-link" href="#registers"><h2 id="registers">Registers</h2><span class="material-icons">link</span></a>
+<div class="section" id="cmp-scratch-register-id-0">
+<a class="header-link" href="#cmp-scratch-register-id-0"><h3 id="cmp-scratch-register-id-0">CMP_SCRATCH Register (ID: 0)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_SCRATCH</cite> register has no special purpose and can be used freely in a
+command buffer. For example, it could be used to temporarily store the most
+recent transfer ID after starting a new DMA transfer. By writing this stored
+transfer ID to the appropriate DMA register using the <cite>STORE_REG64</cite> command, the
+CMP will wait until this transfer is complete before executing the next command.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>63-0</p></td>
+<td><p>SCRATCH</p></td>
+<td><p>No meaning.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-entry-pt-fn-id-1">
+<a class="header-link" href="#cmp-entry-pt-fn-id-1"><h3 id="cmp-entry-pt-fn-id-1">CMP_ENTRY_PT_FN (ID: 1)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_ENTRY_PT_FN</cite> register holds the address of the kernel entry point in
+device memory and must be set before executing any kernel command.</p>
+<p>When using the <cite>RUN_INSTANCES</cite> command (the preferred way to execute kernels),
+the entry point must have the following signature:</p>
+<pre><code class="language-default">void kernel_entry(size_t instance_id, void *arg1, ..., void *arg7);
+</code>
+</pre>
+<p>The <cite>instance_id</cite> parameter is set by the CMP to identify the kernel instance
+being executed by the hardware thread.</p>
+<p>When using the <cite>RUN_KERNEL_SLICE</cite> command the entry point must have the
+following signature instead:</p>
+<pre><code class="language-default">void kernel_entry(size_t instance_id, size_t slice_id,
+                  const void *packed_args, void *ktb);
+</code>
+</pre>
+<p>The <cite>instance_id</cite> parameter is set by the CMP to identify the kernel instance
+being executed by the hardware thread, while the <cite>slice_id</cite> parameter is set
+within the command buffer when executing kernel commands such as
+<cite>RUN_KERNEL_SLICE</cite>.</p>
+<p>The <cite>packed_args</cite> argument is populated from the memory range described in the
+<cite>CMP_KARGS_INFO</cite> and <cite>CMP_KUB_DESC</cite> registers while the <cite>ktb</cite> argument is set to
+an area of memory allocated by the CMP in TCDM based on the <cite>CMP_TSD_INFO</cite> and
+<cite>CMP_KUB_DESC</cite> registers.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>31-0</p></td>
+<td><p>ENTRY_POINT_ADDR</p></td>
+<td><p>Address of the kernel entry point in memory.</p></td>
+</tr>
+<tr class="row-odd"><td><p>63-32</p></td>
+<td><p>Reserved</p></td>
+<td><p>Reserved.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-kub-desc-id-2">
+<a class="header-link" href="#cmp-kub-desc-id-2"><h3 id="cmp-kub-desc-id-2">CMP_KUB_DESC (ID: 2)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_KUB_DESC</cite> register describes where the Kernel Uniform Block is located
+in device memory. The KUB contains data which is uniform to all kernel
+instances, such as kernel arguments or the scheduling info template. It can be
+read by accelerator cores but not written to.</p>
+<p>When <cite>KUB_SIZE</cite> is set to zero, the KUB is not used when executing kernels using
+the <cite>RUN_KERNEL_SLICE</cite> command. As a result, the <cite>packed_args</cite> and <cite>ktd</cite>
+parameters are set to an invalid address when the entry point function is
+invoked. This register is cleared upon reset of the RefSi platform, with all
+fields set to zero.</p>
+<p>Note: this is only used by the <cite>RUN_KERNEL_SLICE</cite> command.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>47-0</p></td>
+<td><p>KUB_ADDR</p></td>
+<td><p>Address of the Kernel Uniform Block.</p></td>
+</tr>
+<tr class="row-odd"><td><p>63-48</p></td>
+<td><p>KUB_SIZE</p></td>
+<td><p>Size of the Kernel Uniform Block in 256-byte increments.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-kargs-info-id-3">
+<a class="header-link" href="#cmp-kargs-info-id-3"><h3 id="cmp-kargs-info-id-3">CMP_KARGS_INFO (ID: 3)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_KARGS_INFO</cite> register describes where packed kernel arguments are
+located in device memory and must be set before executing any <cite>RUN_KERNEL_SLICE</cite>
+command that makes use of kernel arguments.</p>
+<p>When <cite>KARGS_SIZE</cite> is set to zero, the entry point function is invoked with an
+invalid address for the the <cite>packed_args</cite> parameter. This register is cleared
+upon reset of the RefSi platform, with all fields set to zero.</p>
+<p>Note: this is only used by the <cite>RUN_KERNEL_SLICE</cite> command.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>15-0</p></td>
+<td><p>DUMMY</p></td>
+<td><p>Reserved.</p></td>
+</tr>
+<tr class="row-odd"><td><p>39-16</p></td>
+<td><p>KARGS_OFFSET</p></td>
+<td><p>Offset into the KUB where kernel argumenmts are stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>63-40</p></td>
+<td><p>KARGS_SIZE</p></td>
+<td><p>Size of the packed kernel argument list.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-tsd-info-id-4">
+<a class="header-link" href="#cmp-tsd-info-id-4"><h3 id="cmp-tsd-info-id-4">CMP_TSD_INFO (ID: 4)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_TSD_INFO</cite> register describes where thread-specific data is located in
+device memory. When a kernel is executed, the CMP copies thread-specific data to
+TCDM in several locations. Each hardware thread executing the kernel has a
+separate copy of the data (called the Kernel Thread Block or KTB), which can be
+freely modified by the thread.</p>
+<p>When <cite>TSD_SIZE</cite> is set to zero, the entry point function is invoked with an
+invalid address for the <cite>ktd</cite> parameter and the KTB feature is not used. This
+register is cleared upon reset of the RefSi platform, with all fields set to
+zero.</p>
+<p>One use-case for TSD is to let the CMP populate per-thread scheduling info in
+the KTB (located in TCDM) from a single scheduling info template stored in the
+KUB. Upon executing the kernel entry point, the <cite>instance_id</cite> and <cite>slice_id</cite>
+parameters can be used to update scheduling info fields such as <cite>group_id</cite> and
+<cite>local_id</cite>.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>15-0</p></td>
+<td><p>DUMMY</p></td>
+<td><p>Reserved.</p></td>
+</tr>
+<tr class="row-odd"><td><p>39-16</p></td>
+<td><p>TSD_OFFSET</p></td>
+<td><p>Offset into the KUB where thread-specific data is stored.</p></td>
+</tr>
+<tr class="row-even"><td><p>63-40</p></td>
+<td><p>TSD_SIZE</p></td>
+<td><p>Size of thread-specific data for the kernel.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-stack-top-register-id-5">
+<a class="header-link" href="#cmp-stack-top-register-id-5"><h3 id="cmp-stack-top-register-id-5">CMP_STACK_TOP Register (ID: 5)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_STACK_TOP</cite> register can be used to specify the address harts will use
+as the top of the stack when executing the kernel entry point function. Since
+this address will be the same for all harts, it is recommended to set up a
+memory window to enable each hart to have its own stack area.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>63-0</p></td>
+<td><p>STACK_TOP</p></td>
+<td><p>Address to use as the top of the stack.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-return-addr-register-id-6">
+<a class="header-link" href="#cmp-return-addr-register-id-6"><h3 id="cmp-return-addr-register-id-6">CMP_RETURN_ADDR Register (ID: 6)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_RETURN_ADDR</cite> register is used to specify the address to jump to when
+returning from a kernel entry point function. It can be used to execute any
+clean up code and notify the host when the execution of the kernel has
+completed.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>63-0</p></td>
+<td><p>RETURN_ADDR</p></td>
+<td><p>Address to jump to when returning from a kernel.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-reg-window-basen-ids-8-through-15">
+<a class="header-link" href="#cmp-reg-window-basen-ids-8-through-15"><h3 id="cmp-reg-window-basen-ids-8-through-15">CMP_REG_WINDOW_BASEn (IDs: 8 through 15)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_REG_WINDOW_BASE</cite> register array describes the base address of a memory
+window, which is the starting address of a virtual memory area. Any accesses to
+the virtual memory area described by the window actually occur in the target
+memory area of the window.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>63-0</p></td>
+<td><p>BASE_ADDR</p></td>
+<td><p>Base address for the memory window.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-reg-window-targetn-ids-16-through-23">
+<a class="header-link" href="#cmp-reg-window-targetn-ids-16-through-23"><h3 id="cmp-reg-window-targetn-ids-16-through-23">CMP_REG_WINDOW_TARGETn (IDs: 16 through 23)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_REG_WINDOW_TARGET</cite> register array describes the target address of a memory
+window, which is the starting address of a physical memory area. Any accesses to
+the virtual memory area described by the window actually occur in the target
+memory area of the window.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>63-0</p></td>
+<td><p>TARGET_ADDR</p></td>
+<td><p>Target address for the memory window.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-reg-window-moden-ids-24-through-31">
+<a class="header-link" href="#cmp-reg-window-moden-ids-24-through-31"><h3 id="cmp-reg-window-moden-ids-24-through-31">CMP_REG_WINDOW_MODEn (IDs: 24 through 31)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_REG_WINDOW_TARGET</cite> register array contains most of the configuration
+options for a given memory window. The most important field in this register is
+the <cite>ACTIVE</cite> field, which controls whether or not the virtual memory area
+described by the window is accessible. Any accesses to the virtual memory area
+described by the window actually occur in the target memory area of the window.</p>
+<p>The calculation of the effective address depends on the windowing mode:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">SHARED</code>: An access to <code class="docutils literal notranslate">BASE_ADRR + offset</code> is mapped to
+<code class="docutils literal notranslate">TARGET + offset</code>. All harts and all cores see the same memory contents when
+accessing memory through the window.</p></li>
+<li><p><code class="docutils literal notranslate">PER_HART</code>: An access to <code class="docutils literal notranslate">BASE_ADRR + offset</code> is mapped to
+<code class="docutils literal notranslate">TARGET + (SCALE * hart_id) + offset</code>. Different harts see different memory
+contents when accessing memory through the window.</p></li>
+<li><p><code class="docutils literal notranslate">PER_CORE</code>: An access to <code class="docutils literal notranslate">BASE_ADRR + offset</code> is mapped to
+<code class="docutils literal notranslate">TARGET + (SCALE * core_id) + offset</code>. Different cores see different memory
+contents when accessing memory through the window.</p></li>
+</ul>
+<p>In the above calculations, <code class="docutils literal notranslate">SCALE</code> is substituted as <code class="docutils literal notranslate">SCALE_A * SCALE_B</code>.
+<code class="docutils literal notranslate">SCALE_A</code> and <code class="docutils literal notranslate">SCALE_B</code> are configured through the <code class="docutils literal notranslate">CMP_REG_WINDOW_SCALE</code>
+register array.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>ACTIVE</p></td>
+<td><p>Whether or not the memory window can be accessed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2-1</p></td>
+<td><p>MODE</p></td>
+<td><p>0: SHARED, 1: PER_HART, 2: PER_CORE, 3: reserved</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>INTERLEAVE</p></td>
+<td><p>Whether or not the target memory is interleaved.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6-4</p></td>
+<td><p>PERMS</p></td>
+<td><p>Memory permissions. [0]: READ, [1]: WRITE, [2]: EXECUTE</p></td>
+</tr>
+<tr class="row-even"><td><p>12-8</p></td>
+<td><p>STRIDE</p></td>
+<td><p>Granularity of the target area when it is interleaved.</p></td>
+</tr>
+<tr class="row-odd"><td><p>63-32</p></td>
+<td><p>SIZE</p></td>
+<td><p>Size of the memory window, between 1 and 2^32 bytes.</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="cmp-reg-window-scalen-ids-32-through-39">
+<a class="header-link" href="#cmp-reg-window-scalen-ids-32-through-39"><h3 id="cmp-reg-window-scalen-ids-32-through-39">CMP_REG_WINDOW_SCALEn (IDs: 32 through 39)</h3><span class="material-icons">link</span></a>
+<p>The <cite>CMP_REG_WINDOW_SCALE</cite> register array describes the scaling factor to use
+for calculating the effective address when accessing memory through a window
+which is in per-hart or per-core mode. The scaling factor is the product of two
+parts, <code class="docutils literal notranslate">SCALE_A</code> and <code class="docutils literal notranslate">SCALE_B</code>.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bits</p></th>
+<th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4-0</p></td>
+<td><p>SCALE_A</p></td>
+<td><p>First part of the scaling factor (0, 2^1, 2^2, …, 2^31).</p></td>
+</tr>
+<tr class="row-odd"><td><p>63-32</p></td>
+<td><p>SCALE_B</p></td>
+<td><p>Second part of the scaling factor (1 .. 2^32).</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:35 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="overview-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Codeplay Reference Silicon Overview</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="dma-controller-2.html"
+                            >
+                            <div>
+                                <h1>DMA Controller Reference</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#command-processor-reference">Command Processor Reference</a></li>
+                        <li class="heading-2"><a href="#general-command-format">General Command Format</a></li>
+                        <li class="heading-2"><a href="#commands">Commands</a></li>
+                        <li class="heading-2"><a href="#registers">Registers</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="b260b8b3f36fd1cb15d67cefce4f6657">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

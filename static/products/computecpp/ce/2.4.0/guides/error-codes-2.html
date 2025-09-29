@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Error Codes - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Error Codes' for ComputeCpp™ Community Edition 2.4.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Error Codes - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Error Codes' for ComputeCpp™ Community Edition 2.4.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="error-codes">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.4.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/error-codes">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/error-codes">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/error-codes">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/error-codes">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/error-codes">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/error-codes">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/error-codes">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/error-codes">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/error-codes">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/error-codes">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/error-codes">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/error-codes">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/error-codes">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides/error-codes">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides/error-codes">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides/error-codes">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides/error-codes">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides/error-codes">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/frameworks-for-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class="selected focused"><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.4.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#error-codes">
+                            <h1>Error Codes</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/logging" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="computecpp-error-codes" href="#computecpp-error-codes"><span class="material-icons">link</span><h1 id="computecpp-error-codes">ComputeCpp Error Codes</h1></a>
+<a class="header-link" id="computecpp-runtime-error-codes" href="#computecpp-runtime-error-codes"><span class="material-icons">link</span><h2 id="computecpp-runtime-error-codes">ComputeCpp Runtime Error Codes</h2></a>
+<p>The table below lists all the different error codes that can be reported by the runtime, alongside the error message reported and optional information. The columns of the table are:</p>
+<ul>
+<li>Number: The identification number provided with the error message</li>
+<li>OpenCL Error Available: Whether an OpenCL error can be queried from the exception</li>
+<li>Should Report: Whether this error message should be reported to ComputeCpp Support as an internal error</li>
+<li>Optional Information: Optional string that can be produced by the runtime alongside the error message</li>
+<li>Extra information on the error code</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>OpenCL Error Available</th>
+<th>Should Report</th>
+<th>Optional Information</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>No</td>
+<td>Yes</td>
+<td>Unknown Error</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>No</td>
+<td>No</td>
+<td>Out of host memory.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Yes</td>
+<td>No</td>
+<td>Error retaining OpenCL object.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Yes</td>
+<td>No</td>
+<td>Error releasing OpenCL object.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>5</td>
+<td>No</td>
+<td>No</td>
+<td>Failed to allocate host memory.</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>No</td>
+<td>Yes</td>
+<td>This functionality is not currently supported.</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>No</td>
+<td>Yes</td>
+<td>Internal error.</td>
+<td><extra string=""></extra></td>
+</tr>
+<tr>
+<td>8</td>
+<td>No</td>
+<td>No</td>
+<td>SYCL objects are still alive while the runtime is shutting down.</td>
+<td><count alive="" objects="" of=""></count></td>
+</tr>
+<tr>
+<td>9</td>
+<td>No</td>
+<td></td>
+<td>The value of COMPUTECPP_TARGET is invalid.</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>No</td>
+<td>Yes</td>
+<td>Invalid Target String Format</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>No</td>
+<td>No</td>
+<td>Null pointer passed</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>No</td>
+<td>Yes</td>
+<td>The configuration file provided is invalid.</td>
+<td>Filename set in COMPUTECPP_CONFIGURATION_FILE</td>
+</tr>
+<tr>
+<td>13</td>
+<td>No</td>
+<td>Yes</td>
+<td>Value for the configuration option is invalid</td>
+<td>Option [value] is not a valid value for [option]</td>
+</tr>
+<tr>
+<td>100</td>
+<td>No</td>
+<td></td>
+<td>Failed to build program.</td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>No</td>
+<td></td>
+<td>Failed to create a kernel.</td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td>No</td>
+<td></td>
+<td>The requested kernel name could not be found.</td>
+<td>[kernel_name]</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Yes</td>
+<td></td>
+<td>Error while retrieving the program information.</td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td>Yes</td>
+<td></td>
+<td>Error while retrieving the kernel information.</td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td>No</td>
+<td></td>
+<td>The requested target name could not be found.</td>
+<td>[target name]</td>
+</tr>
+<tr>
+<td>106</td>
+<td>No</td>
+<td></td>
+<td>Device not found.</td>
+<td></td>
+</tr>
+<tr>
+<td>107</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create program from binary</td>
+<td></td>
+</tr>
+<tr>
+<td>108</td>
+<td>Yes</td>
+<td></td>
+<td>Attempting to link a program when it is not an object</td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td>Yes</td>
+<td></td>
+<td>Failed build kernel.</td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create program from OpenCL Csource.</td>
+<td></td>
+</tr>
+<tr>
+<td>111</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to set kernel arguments for OpenCL interoperability kernel.</td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to retain an OpenCL kernel object.</td>
+<td></td>
+</tr>
+<tr>
+<td>113</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to release an OpenCL kernel object.</td>
+<td></td>
+</tr>
+<tr>
+<td>114</td>
+<td>No</td>
+<td></td>
+<td>Failed to create program from an invalid cl_program object.</td>
+<td></td>
+</tr>
+<tr>
+<td>115</td>
+<td>No</td>
+<td></td>
+<td>Unsupported extension on the device</td>
+<td></td>
+</tr>
+<tr>
+<td>116</td>
+<td>No</td>
+<td></td>
+<td>Failed to create kernel from invalid OpenCL cl_kernel object</td>
+<td></td>
+</tr>
+<tr>
+<td>117</td>
+<td>No</td>
+<td></td>
+<td>Failed to compile program.</td>
+<td></td>
+</tr>
+<tr>
+<td>118</td>
+<td>No</td>
+<td></td>
+<td>Failed to find a suitable binary for program.</td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>No</td>
+<td>Yes</td>
+<td>Failed to construct implicit queue.</td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Yes</td>
+<td></td>
+<td>Error while waiting for an event.</td>
+<td></td>
+</tr>
+<tr>
+<td>202</td>
+<td>Yes</td>
+<td></td>
+<td>Cannot retrieve event information.</td>
+<td></td>
+</tr>
+<tr>
+<td>203</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Failed to set user event status.</td>
+<td></td>
+</tr>
+<tr>
+<td>204</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create context.</td>
+<td>For host: "context::context(cl_context</td>
+</tr>
+<tr>
+<td>205</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create user event.</td>
+<td></td>
+</tr>
+<tr>
+<td>206</td>
+<td>Yes</td>
+<td></td>
+<td>Error when finishing the OpenCL command queue.</td>
+<td></td>
+</tr>
+<tr>
+<td>207</td>
+<td>Yes</td>
+<td></td>
+<td>Error when flusing the OpenCL command queue.</td>
+<td></td>
+</tr>
+<tr>
+<td>208</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to enqueue the OpenCL command</td>
+<td>(command name)</td>
+</tr>
+<tr>
+<td>209</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to retain OpenCL context.</td>
+<td></td>
+</tr>
+<tr>
+<td>210</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to release OpenCL context.</td>
+<td></td>
+</tr>
+<tr>
+<td>211</td>
+<td>Yes</td>
+<td></td>
+<td>This context has no associated devices.</td>
+<td></td>
+</tr>
+<tr>
+<td>212</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to retain OpenCL event.</td>
+<td>There was an error while trying to do a CLRetainEvent on the cl_event given.</td>
+</tr>
+<tr>
+<td>213</td>
+<td>No</td>
+<td></td>
+<td>Invalid OpenCL event object</td>
+<td></td>
+</tr>
+<tr>
+<td>214</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to release OpenCL event.</td>
+<td></td>
+</tr>
+<tr>
+<td>215</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Error setting the callback of an OpenCL object.</td>
+<td></td>
+</tr>
+<tr>
+<td>216</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to submit command group.</td>
+<td><reason></reason></td>
+</tr>
+<tr>
+<td>217</td>
+<td>No</td>
+<td></td>
+<td>Kernel failed during execution.</td>
+<td></td>
+</tr>
+<tr>
+<td>218</td>
+<td>No</td>
+<td></td>
+<td>Command group has already been processed. Invalid use of accessors or parallel_for invocations.</td>
+<td></td>
+</tr>
+<tr>
+<td>219</td>
+<td>No</td>
+<td></td>
+<td>Cannot use explicit set_arg() for kernel arguments and accessor syntax simultaneously.</td>
+<td></td>
+</tr>
+<tr>
+<td>220</td>
+<td>No</td>
+<td>Yes</td>
+<td>Maximum number of devices per context has been reached.</td>
+<td></td>
+</tr>
+<tr>
+<td>221</td>
+<td>No</td>
+<td></td>
+<td>No command group available in this functor</td>
+<td></td>
+</tr>
+<tr>
+<td>222</td>
+<td>No</td>
+<td></td>
+<td>Cannot contruct a non-host accessor outside of a command group.</td>
+<td></td>
+</tr>
+<tr>
+<td>223</td>
+<td>No</td>
+<td></td>
+<td>Cannot construct a host accessor inside a command group.</td>
+<td></td>
+</tr>
+<tr>
+<td>224</td>
+<td>No</td>
+<td></td>
+<td>Command group submission would allocate more memory than what is available on device.</td>
+<td></td>
+</tr>
+<tr>
+<td>300</td>
+<td>Yes</td>
+<td></td>
+<td>Error trying to retrieve the work-group information from the OpenCL implementation.</td>
+<td></td>
+</tr>
+<tr>
+<td>301</td>
+<td>No</td>
+<td></td>
+<td>Work-group size is invalid.</td>
+<td></td>
+</tr>
+<tr>
+<td>400</td>
+<td>No</td>
+<td></td>
+<td>Error in acquiring information.</td>
+<td></td>
+</tr>
+<tr>
+<td>401</td>
+<td>Yes</td>
+<td></td>
+<td>Cannot create sub-device.</td>
+<td></td>
+</tr>
+<tr>
+<td>402</td>
+<td>Yes</td>
+<td></td>
+<td>Cannot create device.</td>
+<td></td>
+</tr>
+<tr>
+<td>403</td>
+<td>Yes</td>
+<td></td>
+<td>Cannot release OpenCL device.</td>
+<td></td>
+</tr>
+<tr>
+<td>404</td>
+<td>Yes</td>
+<td></td>
+<td>Error acquiring information form the OpenCL runtime for the give cl_mem object.</td>
+<td></td>
+</tr>
+<tr>
+<td>405</td>
+<td>No</td>
+<td></td>
+<td>Cannot create a sycl buffer from a non-buffer cl_mem.</td>
+<td></td>
+</tr>
+<tr>
+<td>406</td>
+<td>No</td>
+<td></td>
+<td>Invalid context provided.</td>
+<td></td>
+</tr>
+<tr>
+<td>407</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create OpenCL command queue</td>
+<td></td>
+</tr>
+<tr>
+<td>408</td>
+<td>Yes</td>
+<td></td>
+<td>Error querying the number of  OpenCL platforms.</td>
+<td></td>
+</tr>
+<tr>
+<td>409</td>
+<td>Yes</td>
+<td></td>
+<td>Error obtaining OpenCL platforms in the system.</td>
+<td></td>
+</tr>
+<tr>
+<td>410</td>
+<td>No</td>
+<td>Yes</td>
+<td>Error processing kernel arguments from integration header.</td>
+<td></td>
+</tr>
+<tr>
+<td>411</td>
+<td>No</td>
+<td></td>
+<td>Incorrect type of accessor (%s) for the given parameters (%s)</td>
+<td><target>,<mode></mode></target></td>
+</tr>
+<tr>
+<td>412</td>
+<td>No</td>
+<td></td>
+<td>Invalid property specified</td>
+<td></td>
+</tr>
+<tr>
+<td>413</td>
+<td>No</td>
+<td></td>
+<td>SYCL host device does not have an associated cl_device_id</td>
+<td></td>
+</tr>
+<tr>
+<td>414</td>
+<td>No</td>
+<td></td>
+<td>SYCL host queue does not have an associated cl_command_queue</td>
+<td></td>
+</tr>
+<tr>
+<td>415</td>
+<td>No</td>
+<td></td>
+<td>SYCL host platform does not have an associated cl_platform_id</td>
+<td></td>
+</tr>
+<tr>
+<td>416</td>
+<td>No</td>
+<td></td>
+<td>The queue associated with an event does not have profiling enabled</td>
+<td></td>
+</tr>
+<tr>
+<td>417</td>
+<td>No</td>
+<td></td>
+<td>The runtime cannot load an OpenCL function dynamically</td>
+<td></td>
+</tr>
+<tr>
+<td>500</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create buffer</td>
+<td></td>
+</tr>
+<tr>
+<td>501</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create sub-buffer.</td>
+<td></td>
+</tr>
+<tr>
+<td>502</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create image.</td>
+<td></td>
+</tr>
+<tr>
+<td>503</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to create sampler.</td>
+<td></td>
+</tr>
+<tr>
+<td>504</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to release memory object.</td>
+<td></td>
+</tr>
+<tr>
+<td>505</td>
+<td>Yes</td>
+<td></td>
+<td>Failed to retain memory object.</td>
+<td></td>
+</tr>
+<tr>
+<td>506</td>
+<td>No</td>
+<td></td>
+<td>Failed to obtain a cl_mem object for the given context</td>
+<td></td>
+</tr>
+<tr>
+<td>507</td>
+<td>No</td>
+<td></td>
+<td>Error constructing an ND Range</td>
+<td>&lt; optional specific error &gt;</td>
+</tr>
+<tr>
+<td>508</td>
+<td>No</td>
+<td></td>
+<td>The memory object requested is not available in the queue</td>
+<td></td>
+</tr>
+<tr>
+<td>509</td>
+<td>No</td>
+<td></td>
+<td>The memory object cannot be casted</td>
+<td></td>
+</tr>
+<tr>
+<td>510</td>
+<td>No</td>
+<td></td>
+<td>Null buffer error</td>
+<td><reason></reason></td>
+</tr>
+<tr>
+<td>511</td>
+<td>Yes</td>
+<td></td>
+<td>Unable to allocate USM memory</td>
+<td><reason></reason></td>
+</tr>
+<tr>
+<td>512</td>
+<td>Yes</td>
+<td>No</td>
+<td>Cannot find device associated with USM pointer</td>
+<td>A non-USM pointer was used in a call to <code>get_pointer_device</code>.</td>
+</tr>
+<tr>
+<td>600</td>
+<td>No</td>
+<td>Yes</td>
+<td>No match for a profiling event was found</td>
+<td></td>
+</tr>
+<tr>
+<td>601</td>
+<td>No</td>
+<td>Yes</td>
+<td>Cannot write the profiling output file</td>
+<td>No permision to write the output file</td>
+</tr>
+<tr>
+<td>602</td>
+<td>No</td>
+<td>Yes</td>
+<td>Failed to register callback for OpenCL kernel event</td>
+<td></td>
+</tr>
+<tr>
+<td>603</td>
+<td>No</td>
+<td>Yes</td>
+<td>Internal error in the JSON profiling backend</td>
+<td></td>
+</tr>
+<tr>
+<td>900</td>
+<td>No</td>
+<td>Yes</td>
+<td>Failed to create buffer for on-chip memory extensions</td>
+<td></td>
+</tr>
+<tr>
+<td>902</td>
+<td>Yes</td>
+<td>No</td>
+<td>Error trying to retrieve kernel subgroup information from the OpenCL implementation</td>
+<td></td>
+</tr>
+</tbody>
+</table></div></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/error-codes" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>compute++ Compiler Manual</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/logging"
+                            >
+                            <div>
+                                <h1>Logging</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#error-codes">Error Codes</a></li>
+                        <li class="heading-1"><a href="#computecpp-error-codes">ComputeCpp Error Codes</a></li>
+                        <li class="heading-2"><a href="#computecpp-runtime-error-codes">ComputeCpp Runtime Error Codes</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="bcb308cd1823d82a0547a7d99e043295">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

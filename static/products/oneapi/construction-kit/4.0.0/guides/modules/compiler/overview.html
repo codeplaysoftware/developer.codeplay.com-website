@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Overview - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Overview' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Overview - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Overview' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="modules-compiler-overview">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class="selected"><a href="../../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class="selected"><a href="../compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class="selected focused"><a href="overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#overview">
+                            <h1>Overview</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/modules/compiler/overview.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="utils-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="overview">
+
+<div class="section" id="introduction">
+<a class="header-link" href="#introduction"><h2 id="introduction">Introduction</h2><span class="material-icons">link</span></a>
+<p>This document serves to introduce users to the ComputeMux compiler pipeline.
+The reference compiler pipeline performs several key transformations over
+several phases that can be difficult to understand for new users.</p>
+<p>The pipeline is constructed and run in <code class="docutils literal notranslate">compiler::BaseModule::finalize</code>
+(overridable but provided by default) which defers to the pure virtual
+<code class="docutils literal notranslate">compiler::BaseModule::getLateTargetPasses</code> which <strong>must</strong> be implemented by
+a target.</p>
+<p>The pipeline described here is thus the reference model used by all in-tree
+ComputeMux targets, used as a suggestion of how to construct a basic target
+pipeline. Everything is ultimately customizable by the target.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#objective-execution-model" id="id1">Objective &amp; Execution Model</a></p>
+<ul>
+<li><p><a class="reference internal" href="#host" id="id2">Host</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#compiler-pipeline-overview" id="id3">Compiler Pipeline Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#input-ir" id="id4">Input IR</a></p></li>
+<li><p><a class="reference internal" href="#adding-metadata-attributes" id="id5">Adding Metadata/Attributes</a></p></li>
+<li><p><a class="reference internal" href="#vectorization" id="id6">Vectorization</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#early-vectorization-passes" id="id7">Early Vectorization Passes</a></p></li>
+<li><p><a class="reference internal" href="#whole-function-vectorization" id="id8">Whole Function Vectorization</a></p>
+<ul>
+<li><p><a class="reference internal" href="#linking-builtins" id="id9">Linking Builtins</a></p></li>
+<li><p><a class="reference internal" href="#work-item-scheduling-barriers" id="id10">Work-item Scheduling &amp; Barriers</a></p></li>
+<li><p><a class="reference internal" href="#adding-scheduling-parameters" id="id11">Adding Scheduling Parameters</a></p></li>
+<li><p><a class="reference internal" href="#defining-mux-builtins" id="id12">Defining mux Builtins</a></p></li>
+<li><p><a class="reference internal" href="#kernel-wrapping" id="id13">Kernel Wrapping</a></p></li>
+<li><p><a class="reference internal" href="#binary-object-creation" id="id14">Binary Object Creation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#barrier-scheduling" id="id15">Barrier Scheduling</a></p>
+<ul>
+<li><p><a class="reference internal" href="#live-variables" id="id16">Live Variables</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#vectorization-scheduling" id="id17">Vectorization Scheduling</a></p></li>
+</ul>
+</div>
+<div class="section" id="objective-execution-model">
+<a class="header-link" href="#objective-execution-model"><h3 id="objective-execution-model"><a class="toc-backref" href="#id1">Objective &amp; Execution Model</a></h3><span class="material-icons">link</span></a>
+<p>The reference compiler pipeline’s objective is to compile incoming
+LLVM IR modules containing one or more kernel functions to object code ready
+for execution when invoked by the host-side runtime. The assumptions placed on
+the input and output kernels is as follows:</p>
+<ol class="arabic simple">
+<li><p>The original kernel is assumed to adhere to an implicit <strong>SIMT</strong> execution
+model; it runs once per each <em>work-item</em> in an <strong>NDRange</strong>.</p></li>
+<li><p>The final compiled kernel is assumed to be invoked from the host-side
+runtime once per <em>work-group</em> in the <strong>NDRange</strong>.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>This execution model is referenced elsewhere in documentation as a
+<em>work-item per thread</em> or <em>core per work-item</em> scheduling model.</p></li>
+</ul>
+</div></blockquote>
+<p>The following diagram provides an overview of the main phases of the reference
+ComputeMux compiler pipeline in terms of the underlying and assumed kernel
+execution model.</p>
+<p>The inner-most function is the original input kernel, which is <em>wrapped</em> by new
+functions in successive phases, until it is ready in a form to be executed by
+the ComputeMux driver.</p>
+<div class="figure align-default" id="computemux-compiler-execution-model-overview">
+<div class="graphviz"><img class="graphviz" src="../../_images/graphviz-ef237fd5372e59b602d4a802b624e993b2601cbd.png"></div>
+<p class="caption" id="computemux-compiler-execution-model-overview"><span class="caption-text">Overview of the passes involved in handling the kernel execution model</span></p>
+</div>
+<p>The <a class="reference internal" href="utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a> is
+the key pass which makes some of the implicit parallelism explicit. By
+introducing <em>work-item loops</em> around each kernel function, the new kernel entry
+point now runs on every work-group in an <strong>NDRange</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Targets adhering to a <em>work-item per thread</em> or <em>core per work-item</em>
+scheduling model will likely wish to omit the <code class="docutils literal notranslate">WorkItemLoopsPass</code>.</p>
+</div>
+<div class="section" id="host">
+<a class="header-link" href="#host"><h4 id="host"><a class="toc-backref" href="#id2">Host</a></h4><span class="material-icons">link</span></a>
+<p>As mentioned, the above documents the <em>reference</em> compiler pipeline. The in-tree
+<a class="reference internal" href="../host.html"><span class="doc">Host CPU</span></a> target uses a different model, where the driver splits up
+the <strong>NDRange</strong> into multi-dimensional <em>slices</em> and calls the
+compiler-generated code for each slice. Each work-group in the slice is then
+traversed using multi-dimensional work-group loops generated by the
+<a class="reference internal" href="../host.html#addentryhookpass"><span class="std std-ref">AddEntryHookPass</span></a>:</p>
+<div class="figure align-default" id="computemux-compiler-host-execution-model-overview">
+<div class="graphviz"><img class="graphviz" src="../../_images/graphviz-af10f2011f4fbf36e4974a9087b48491de2e816c.png"></div>
+<p class="caption" id="computemux-compiler-host-execution-model-overview"><span class="caption-text">Overview of the host target’s excecution model</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="compiler-pipeline-overview">
+<a class="header-link" href="#compiler-pipeline-overview"><h3 id="compiler-pipeline-overview"><a class="toc-backref" href="#id3">Compiler Pipeline Overview</a></h3><span class="material-icons">link</span></a>
+<p>With the overall execution model established, we can start to dive deeper into
+the key phases of the compilation pipeline.</p>
+<div class="figure align-default" id="computemux-compiler-overview">
+<div class="graphviz"><img class="graphviz" src="../../_images/graphviz-bda1df8a125d43fbbe9444742f3912dcd57dface.png"></div>
+<p class="caption" id="computemux-compiler-overview"><span class="caption-text">Overview of compilation pipeline</span></p>
+</div>
+<div class="section" id="input-ir">
+<span id="pipeline-overview"></span><a class="header-link" href="#input-ir"><h4 id="input-ir"><a class="toc-backref" href="#id4">Input IR</a></h4><span class="material-icons">link</span></a>
+<p>The program begins as an LLVM module, either generated by a compiler frontend
+or deserialized from another intermediate form such as <a class="reference external" href="https://www.khronos.org/registry/spir-v/">SPIRV</a>.
+Kernels in the module are assumed to obey a <strong>SIMT</strong> programming model, as
+described earlier in <a class="reference internal" href="#objective-execution-model">Objective &amp; Execution Model</a>.</p>
+<p>Simple fix-up passes take place at this stage: the IR is massaged to conform to
+specifications or to fix known deficiencies in earlier representations.</p>
+</div>
+<div class="section" id="adding-metadata-attributes">
+<a class="header-link" href="#adding-metadata-attributes"><h4 id="adding-metadata-attributes"><a class="toc-backref" href="#id5">Adding Metadata/Attributes</a></h4><span class="material-icons">link</span></a>
+<p>ComputeMux IR metadata and attributes are attached to kernels. This information
+is used by following passes to identify certain aspects of kernels which are
+not otherwise attainable or representable in LLVM IR.</p>
+<p>The <a class="reference internal" href="utils.html#encodekernelmetadatapass"><span class="std std-ref">TransferKernelMetadataPass and EncodeKernelMetadataPass</span></a> are responsible for adding this information.</p>
+<p>See the <a class="reference internal" href="../../specifications/mux-compiler-spec.html"><span class="doc">ComputeMux Compiler Specification</span></a> for details about specific
+<a class="reference internal" href="../../specifications/mux-compiler-spec.html#metadata"><span class="std std-ref">metadata</span></a> and
+<a class="reference internal" href="../../specifications/mux-compiler-spec.html#function-attributes"><span class="std std-ref">attributes</span></a>.</p>
+<p>Early transformation passes and optimizations take place at this stage. Of note
+is LLVM’s <a class="reference external" href="https://www.llvm.org/docs/Vectorizers.html#the-slp-vectorizer">SLP vectorizer</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This takes place in <code class="docutils literal notranslate">BaseModule::finalize</code> before calling
+<code class="docutils literal notranslate">BaseModule::getLateTargetPasses</code> so metadata and attributes can be assumed
+to be present as an input to that method.</p>
+</div>
+</div>
+<div class="section" id="vectorization">
+<a class="header-link" href="#vectorization"><h4 id="vectorization"><a class="toc-backref" href="#id6">Vectorization</a></h4><span class="material-icons">link</span></a>
+</div>
+</div>
+<div class="section" id="early-vectorization-passes">
+<a class="header-link" href="#early-vectorization-passes"><h3 id="early-vectorization-passes"><a class="toc-backref" href="#id7">Early Vectorization Passes</a></h3><span class="material-icons">link</span></a>
+<p>These passes are activated when the <cite>VectorizeSLP</cite> and <cite>VectorizeLoop</cite> bits are
+set in <cite>clang::CodeGenOptions</cite> (corresponding to the
+<cite>-cl-vec={none|loop|slp|all}</cite> command line options). These options activate
+sequences of standard LLVM passes that attempt to vectorize the kernel for a
+single work item. The vectorization passes used are Loop Vectorization, SLP
+Vectorization, and Load/Store Vectorization. Some basic simplification passes
+are also applied (Loop Rotation, Instruction Combine, CFG Simplification and
+Dead Code Removal). Loop Rotation was found necessary for Loop Vectorization to
+work as expected. Loop Rotation can also generate redundant code in the case
+that the number of iterations is known at compile time to be a multiple of the
+vector width, and the CFG Simplification is able to clean it up. Load/Store
+vectorization is applied if either of Loop or SLP options are selected.</p>
+</div>
+<div class="section" id="whole-function-vectorization">
+<a class="header-link" href="#whole-function-vectorization"><h3 id="whole-function-vectorization"><a class="toc-backref" href="#id8">Whole Function Vectorization</a></h3><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="../vecz.html"><span class="doc">Vecz</span></a> whole-function vectorizer is optionally run.</p>
+<p>Note that VECZ may perform its own scalarization, depending on the options
+passed to it, potentially undoing the work of any of the Early Vectorization
+Passes, although it is able to preserve or even widen pre-existing vector
+operations in many cases.</p>
+<div class="section" id="linking-builtins">
+<a class="header-link" href="#linking-builtins"><h4 id="linking-builtins"><a class="toc-backref" href="#id9">Linking Builtins</a></h4><span class="material-icons">link</span></a>
+<p><a class="reference internal" href="../builtins/abacus.html"><span class="doc">Abacus</span></a> builtins are linked into the module by the
+<a class="reference internal" href="utils.html#linkbuiltinspass"><span class="std std-ref">LinkBuiltinsPass</span></a>.</p>
+<p>This is historically done after whole-function vectorization, with the
+vectorizer generating scaled up vector forms of known builtins (e.g.,
+<code class="docutils literal notranslate">round(float2) -&gt; x4 -&gt; round(float8)</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also possible to link <em>most</em> builtins before vectorization, where the
+vectorizer will rely on inlining of any used builtins, and vectorize
+accordingly. Some builtins must still be linked after vectorization,
+however. See the pass’s documentation for more information.</p>
+</div>
+</div>
+<div class="section" id="work-item-scheduling-barriers">
+<a class="header-link" href="#work-item-scheduling-barriers"><h4 id="work-item-scheduling-barriers"><a class="toc-backref" href="#id10">Work-item Scheduling &amp; Barriers</a></h4><span class="material-icons">link</span></a>
+<p>The work-item loops are added to each kernel by the <a class="reference internal" href="utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a>.</p>
+<p>The kernel execution model changes at this stage to replace some of the implicit
+parallelism with explicit looping, as described earlier in <a class="reference internal" href="#objective-execution-model">Objective &amp;
+Execution Model</a>.</p>
+<p><a class="reference internal" href="#barrier-scheduling">Barrier Scheduling</a> takes place at this stage, as well as <a class="reference internal" href="#vectorization-scheduling">Vectorization
+Scheduling</a> if the vectorizer was run.</p>
+</div>
+<div class="section" id="adding-scheduling-parameters">
+<a class="header-link" href="#adding-scheduling-parameters"><h4 id="adding-scheduling-parameters"><a class="toc-backref" href="#id11">Adding Scheduling Parameters</a></h4><span class="material-icons">link</span></a>
+<p>Scheduling parameters are added to builtin functions that need them. These
+extra parameters are used by software implementations of mux work-item builtins
+to provide extra data, used when lowering in a later phase.</p>
+<p>The <a class="reference internal" href="utils.html#addschedulingparameterspass"><span class="std std-ref">AddSchedulingParametersPass</span></a> is responsible for this
+transformation.</p>
+<p>A concrete example of this is the OpenCL <code class="docutils literal notranslate">get_global_id(uint)</code> builtin.
+These are defined (by default) as calling the ComputeMux equivalent
+<code class="docutils literal notranslate">__mux_get_global_id</code>. This function body will have been materialised when
+linking builtins earlier.</p>
+<p>While some hardware may have all of the necessary features for implementing
+this builtin, many architectures don’t. Thus the software implementation
+needs to source extra data from somewhere external to the function. This is
+the role that scheduling parameters fill.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate">BuiltinInfo</code> analysis controls which scheduling parameters are added.
+Targets may override <code class="docutils literal notranslate">BuiltinInfo</code> to change their scheduling parameters
+whilst making use of this pass. See the tutorial on
+<a class="reference internal" href="../../tutorials/custom-lowering-work-item-builtins.html"><span class="doc">Custom Lowering Work-Item Builtins</span></a> on how this may be
+accomplished.</p>
+</div>
+<p>Pseudo C code:</p>
+<pre><code class="language-c">void foo() {
+  size_t id = __mux_get_global_id(0);
+}
+
+size_t __mux_get_global_id(uint);
+
+// The AddSchedulingParametersPass produces the following
+// scheduling structures:
+struct MuxWorkItemInfo { size_t local_ids[3]; ... };
+struct MuxWorkGroupInfo { size_t group_ids[3]; ... };
+
+// And this wrapper function
+void foo.mux-sched-wrapper(MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg) {
+  size_t id = __mux_get_global_id(0, wi, wg);
+}
+
+// And a new version of __mux_get_global_id with scheduling parameters
+size_t __mux_get_global_id(uint, MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg);
+</code>
+</pre>
+<p>A combination of the ComputeMux driver as well as outer loops are responsible
+for filling in all of the scheduling parameter data. For example:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate">WorkItemLoopsPass</code> sets the local ID at each loop level.</p></li>
+<li><p>The ComputeMux driver externally sets up the work-group information such as
+the work-group IDs and sizes.</p></li>
+</ol>
+</div>
+<div class="section" id="defining-mux-builtins">
+<a class="header-link" href="#defining-mux-builtins"><h4 id="defining-mux-builtins"><a class="toc-backref" href="#id12">Defining mux Builtins</a></h4><span class="material-icons">link</span></a>
+<p>The bodies of mux builtin function declarations are provided. They may use the
+extra information passed through parameters added by the
+<code class="docutils literal notranslate">AddSchedulingParametersPass</code> in a previous phase.</p>
+<p>The <a class="reference internal" href="utils.html#definemuxbuiltinspass"><span class="std std-ref">DefineMuxBuiltinsPass</span></a>
+performs this transformation.</p>
+<p>Some builtins may rely on others to complete their function. These dependencies
+are handled transitively.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate">BuiltinInfo</code> analysis controls how mux builtins are defined. Targets
+may override <code class="docutils literal notranslate">BuiltinInfo</code> to change how specific builtins are defined
+whilst making use of this pass. See the tutorial on
+<a class="reference internal" href="../../tutorials/custom-lowering-work-item-builtins.html"><span class="doc">Custom Lowering Work-Item Builtins</span></a> on how this may be
+accomplished.</p>
+</div>
+<p>Pseudo C code:</p>
+<pre><code class="language-c">struct MuxWorkItemInfo { size_t[3] local_ids; ... };
+struct MuxWorkGroupInfo { size_t[3] group_ids; ... };
+
+// And this wrapper function
+void foo.mux-sched-wrapper(MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg) {
+  size_t id = __mux_get_global_id(0, wi, wg);
+}
+
+// The DefineMuxBuiltinsPass provides the definition
+// of __mux_get_global_id:
+size_t __mux_get_global_id(uint i, MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg) {
+  return (__mux_get_group_id(i, wi, wg) * __mux_get_local_size(i, wi, wg)) +
+         __mux_get_local_id(i, wi, wg) + __mux_get_global_offset(i, wi, wg);
+}
+
+// And thus the definition of __mux_get_group_id...
+size_t __mux_get_group_id(uint i, MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg) {
+  return i &gt;= 3 ? 0 : wg-&gt;group_ids[i];
+}
+
+// and __mux_get_local_id, etc
+size_t __mux_get_local_id(uint i, MuxWorkItemInfo *wi, MuxWorkGroupInfo *wg) {
+  return i &gt;= 3 ? 0 : wi-&gt;local_ids[i];
+}
+</code>
+</pre>
+</div>
+<div class="section" id="kernel-wrapping">
+<a class="header-link" href="#kernel-wrapping"><h4 id="kernel-wrapping"><a class="toc-backref" href="#id13">Kernel Wrapping</a></h4><span class="material-icons">link</span></a>
+<p>kernel’s ABI is finalized, ready for it being called by the ComputeMux driver.</p>
+<p>The <a class="reference internal" href="utils.html#addkernelwrapperpass"><span class="std std-ref">AddKernelWrapperPass</span></a>
+performs this transformation.</p>
+<p>Kernel parameters are packed together into an auto-generated <code class="docutils literal notranslate">struct</code> type. A
+pointer to this structure is passed as the first parameter to the new kernel.</p>
+<p>Scheduling parameters such as the <code class="docutils literal notranslate">work-group info</code> are also preserved and
+passed to this new kernel.</p>
+<p>Scheduling parameters such as the <code class="docutils literal notranslate">work-item info</code> that do not constitute the
+kernel ABI are initialized by the wrapper, before being passed to the wrapped
+kernel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate">BuiltinInfo</code> analysis controls scheduling parameters and how they
+interact with the kernel ABI. Targets may override <code class="docutils literal notranslate">BuiltinInfo</code> to change
+how specific builtins are defined whilst making use of this pass. See the
+tutorial on <a class="reference internal" href="../../tutorials/custom-lowering-work-item-builtins.html"><span class="doc">Custom Lowering Work-Item Builtins</span></a> on how this
+may be accomplished.</p>
+</div>
+<p>Pseudo C code:</p>
+<pre><code class="language-c">struct MuxWorkItemInfo { ... };
+struct MuxWorkGroupInfo { ... };
+
+void foo(global int *a, double f, MuxWorkItemInfo *, MuxWorkGroupInfo *);
+
+// AddKernelWrapperPass produces the following packed-argument struct:
+struct MuxPackedArgs.foo { global int *a; double f; };
+
+// AddKernelWrapperPass produces the following wrapper:
+void foo.mux-kernel-wrapper(MuxPackedArgs.foo *args, MuxWorkGroupInfo *wg) {
+  // Note - the default behaviour is to stack-allocate MuxWorkItemInfo,
+  // leaving all fields uninitialized. The previous compiler passes always
+  // 'set' values before they 'get' them. Targets can customize this
+  // behaviour: see the tutoral linked above.
+  MuxWorkItemInfo wi;
+  global int *a = args-&gt;a;
+  double f = args-&gt;f;
+  return foo(a, f, &amp;wi, wg);
+}
+</code>
+</pre>
+</div>
+<div class="section" id="binary-object-creation">
+<a class="header-link" href="#binary-object-creation"><h4 id="binary-object-creation"><a class="toc-backref" href="#id14">Binary Object Creation</a></h4><span class="material-icons">link</span></a>
+<p>Any final passes are run now before the module is passed off to generate an
+object file. For ahead-of-time targets, this may involve calling on LLVM to
+generate an ELF file. For just-in-time targets, nothing further may be done at
+this stage - instead deferring compilation until execution time.</p>
+<p>When presented with a binary object, the host runtime needs to identify the
+kernel to call. A common approach used by ComputeMux compiler targets is to run
+the <a class="reference internal" href="utils.html#addmetadatapass-analysisty-handlerty"><span class="std std-ref">AddMetadataPass</span></a> which helps to encode kernel metadata into the final ELF file. This can then be decoded</p>
+</div>
+</div>
+<div class="section" id="barrier-scheduling">
+<a class="header-link" href="#barrier-scheduling"><h3 id="barrier-scheduling"><a class="toc-backref" href="#id15">Barrier Scheduling</a></h3><span class="material-icons">link</span></a>
+<p>The fact that the <a class="reference internal" href="utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a> handles both work-item loops and
+barriers can be confusing to newcomers. These two concepts are in fact
+linked. Taking the kernel code below, this section will show how the
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> lays out and schedules a kernel’s work-item loops in the
+face of barriers.</p>
+<pre><code class="language-c">kernel void foo(global int *a, global int *b) {
+  // pre barrier code - foo.mux-barrier-region.0()
+  size_t id = get_global_id(0);
+  a[id] += 4;
+  // barrier
+  barrier(CLK_GLOBAL_MEM_FENCE);
+  // post barrier code - foo.mux-barrier-region.1()
+  b[id] += 4;
+}
+</code>
+</pre>
+<p>The kernel has one global barrier, and one statement on either side of it. The
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> conceptually breaks down the kernel into <em>barrier
+regions</em>, which constitute the code following the control-flow between all
+barriers in the kernel. The example above has two regions: the first contains
+the call to <code class="docutils literal notranslate">get_global_id</code> and the read/update/write of global memory
+pointed to by <code class="docutils literal notranslate">a</code>; the second contains the read/update/write of global memory
+pointed to by <code class="docutils literal notranslate">b</code>.</p>
+<p>To correctly observe the barrier’s semantics, all work-items in the work-group
+need to execute the first barrier region before beginning the second. Thus the
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> produces two sets of work-item loops to schedule this
+kernel:</p>
+<div class="figure align-default" id="computemux-barrier-layout">
+<div class="graphviz"><img class="graphviz" src="../../_images/graphviz-6492de0d4f47de2bd0a0bcdd5a03d54f44959b50.png"></div>
+<p class="caption" id="computemux-barrier-layout"><span class="caption-text">How a simple barrier is laid out by WorkItemLoopsPass</span></p>
+</div>
+<div class="section" id="live-variables">
+<a class="header-link" href="#live-variables"><h4 id="live-variables"><a class="toc-backref" href="#id16">Live Variables</a></h4><span class="material-icons">link</span></a>
+<p>Note also that <code class="docutils literal notranslate">id</code> is a <em>live variable</em> whose lifetime traverses the
+barrier. The <code class="docutils literal notranslate">WorkItemLoopsPass</code> creates a structure of live variables which
+are passed between the successive barrier regions, containing data that needs
+to be live in future regions.</p>
+<p>In this case, however, calls to certain builtins like <code class="docutils literal notranslate">get_global_id</code> are
+treated specially and are materialized anew in each barrier region where they
+are used.</p>
+</div>
+</div>
+<div class="section" id="vectorization-scheduling">
+<a class="header-link" href="#vectorization-scheduling"><h3 id="vectorization-scheduling"><a class="toc-backref" href="#id17">Vectorization Scheduling</a></h3><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a> is
+responsible for laying out kernels which have been vectorized by the
+<a class="reference internal" href="../vecz.html"><span class="doc">Vecz</span></a> whole-function vectorizer.</p>
+<p>The vectorizer creates multiple versions of the original kernel. Vectorized
+kernels on their own are generally unable to fulfill work-group scheduling
+requirements, as they operate only on a number of work-items equal to a
+multiple of the vectorization factor. As such, for the general case, several
+kernels must be combined to cover all work-items in the work-group; the
+<code class="docutils literal notranslate">WorkItemLoopsPass</code> is responsible for this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following diagram uses a vectorization width of 4.</p>
+<p>For brevity, the diagram below only details in inner-most work-item loops.
+Most kernels will in reality have 2 outer levels of loops over the full <em>Y</em>
+and <em>Z</em> work-group dimensions.</p>
+</div>
+<div class="figure align-default" id="computemux-vectorized-barrier-layout">
+<div class="graphviz"><img class="graphviz" src="../../_images/graphviz-89a9d50582c67fce121759eb0d5107652f67a990.png"></div>
+<p class="caption" id="computemux-vectorized-barrier-layout"><span class="caption-text">How a vectorized kernel is laid out by WorkItemLoopsPass</span></p>
+</div>
+<p>In the above example, the vectorized kernel is called to execute as many
+work-items as possible, up to the largest multiple of the vectorization less
+than or equal to the work-group size.</p>
+<p>In the case that there are work-items remaining (i.e., if the work-group size
+is not a multiple of 4) then the original scalar kernel is called on the up to
+3 remaining work-items. These remaining work-items are typically called the
+‘peel’ iterations by ComputeMux.</p>
+<p>Note that other vectorized kernel layouts are possible. See the documentation
+for the <a class="reference internal" href="utils.html#workitemloopspass"><span class="std std-ref">WorkItemLoopsPass</span></a>
+to find out other possibilities.</p>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:42 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="../compiler-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Compiler</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="utils-2.html"
+                            >
+                            <div>
+                                <h1>Compiler Utilities</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#overview">Overview</a></li>
+                        <li class="heading-2"><a href="#introduction">Introduction</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="7edd5698611a9188579c62461eb95df7">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

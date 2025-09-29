@@ -1,0 +1,229 @@
+/**
+ * Section: Splash
+ */
+.splash {
+    overflow: visible !important;
+}
+
+/**
+ * Download Selector.
+ */
+.download-method-selector {
+    position: relative;
+    height: 56px;
+    width: auto;
+}
+
+.download-method-selector .options {
+    position: absolute;
+    z-index: 9999;
+    border: var(--borderDefault);
+    color: var(--whiteColor);
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: var(--borderRadius);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.download-method-selector .option {
+    padding: 0 2rem 0 1.5rem;
+    height: 56px;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+}
+
+.download-method-selector .option:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.download-method-selector:not(:hover) .option:not(.selected) {
+    display: none;
+}
+
+.download-method-selector .option > div {
+    display: flex;
+    align-items: center;
+}
+
+.download-method-selector .option img {
+    max-width: 24px;
+    max-height: 24px;
+    height: auto;
+}
+
+.download-method-selector .option h1,
+.download-method-selector .option h2 {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.download-method-selector .option h2 {
+    font-size: .7rem;
+}
+
+
+.side-by-side-layout {
+    min-height: 60vh;
+    padding-top: var(--desktopNavBarOffset);
+}
+
+section.hint-color {
+    color: white;
+}
+
+.g-recaptcha {
+    margin-bottom: 0;
+}
+
+.side-by-side-layout .button {
+    margin-top: 1rem;
+}
+
+.side-by-side-layout > *:nth-of-type(1) h1 {
+    font-size: 2.8rem;
+}
+
+.side-by-side-layout > *:nth-of-type(1) p {
+    opacity: .8;
+}
+
+.side-by-side-layout > *:nth-of-type(1) small {
+    font-size: .8rem;
+    opacity: .7;
+    margin-top: 2rem;
+    display: block;
+}
+
+.side-by-side-layout > *:nth-of-type(1) input {
+    color: black;
+}
+
+.side-by-side-layout > *:nth-of-type(1) ol {
+    list-style: none;
+    counter-reset: list-counter;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+.side-by-side-layout > *:nth-of-type(1) li {
+    counter-increment: list-counter;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.side-by-side-layout > *:nth-of-type(1) li::before {
+    content: counter(list-counter);
+    background-color: #171719;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 3rem;
+    color: white;
+    text-align: center;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.side-by-side-layout >:nth-of-type(2) {
+    display: none;
+    color: black;
+}
+
+.side-by-side-layout >:nth-of-type(2) {
+    position: relative;
+}
+
+.side-by-side-layout >:nth-of-type(2) div:not(.bg) {
+    z-index: 1;
+    padding-left: 6rem;
+}
+
+.side-by-side-layout > *:nth-of-type(2) p {
+    opacity: .7;
+}
+
+.side-by-side-layout > *:nth-of-type(2) ol {
+    list-style: none;
+    margin: 0;
+}
+
+.side-by-side-layout > *:nth-of-type(2) ol li:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.side-by-side-layout > *:nth-of-type(2) span {
+    vertical-align: middle;
+    margin-right: .5rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .side-by-side-layout >:nth-of-type(1) > div {
+        padding-right: 4rem;
+    }
+
+    .side-by-side-layout >:nth-of-type(2) {
+        display: flex;
+        box-shadow: 0 0 17px 0 rgba(0,0,0,.15);
+    }
+
+    .bg {
+        background-color: #ccc;
+        position: absolute;
+        width: 222%;
+        height: 200%;
+        z-index: 0;
+    }
+
+    .dark-mode .bg {
+        background-color: var(--backgroundColor);
+    }
+
+    .dark-mode .side-by-side-layout >:nth-of-type(2) {
+        color: var(--whiteColor);
+    }
+}
+
+#signedDownloadUrl {
+    font-weight: bold;
+}
+
+/**
+ * Download API Popup
+ */
+#download-api-popup {
+    background-color: var(--backgroundColor);
+    border-radius: var(--borderRadius);
+    padding: 3rem;
+    width: 510px !important;
+    text-align: left !important;
+}
+
+#download-api-popup .code {
+    border-radius: var(--borderRadius);
+    padding: 2rem;
+    color: var(--whiteColor);
+    font-size: 13px;
+    word-break: break-word;
+    margin: 2rem 0;
+}
+
+#download-api-popup p a {
+    font-weight: bold;
+}
+
+#download-api-popup .buttons {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-column-gap: .5rem;
+}
+
+#download-api-popup .buttons .button {
+    background-color: #666;
+}

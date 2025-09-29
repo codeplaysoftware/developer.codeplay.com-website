@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>compute++ Compiler Manual - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'compute++ Compiler Manual' for ComputeCpp™ Community Edition 2.7.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="compute++ Compiler Manual - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'compute++ Compiler Manual' for ComputeCpp™ Community Edition 2.7.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="compute-compiler-manual">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.7.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/compute-compiler-manual">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/compute-compiler-manual">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/compute-compiler-manual">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/compute-compiler-manual">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/compute-compiler-manual">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/compute-compiler-manual">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/compute-compiler-manual">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/compute-compiler-manual">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/compute-compiler-manual">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/compute-compiler-manual">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/compute-compiler-manual">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/compute-compiler-manual">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/compute-compiler-manual">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL 2020 Feature Support</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/frameworks-for-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class="selected focused"><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-experimental-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compute++ Experimental Compiler</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Extensions</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.7.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#compute---compiler-manual">
+                            <h1>compute++ Compiler Manual</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-experimental-compiler" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="compute-information-manual" href="#compute-information-manual"><span class="material-icons">link</span><h1 id="compute-information-manual">compute++ Information Manual</h1></a>
+<a class="header-link" id="name" href="#name"><span class="material-icons">link</span><h2 id="name">NAME</h2></a>
+<p>compute++ - ComputeCpp SYCL compiler based on clang 6.0</p>
+<a class="header-link" id="command" href="#command"><span class="material-icons">link</span><h2 id="command">COMMAND</h2></a>
+<pre><code class="language-cpp">compute++ (-sycl | -sycl-device-only | -sycl-driver) \[-sycl-target &lt;target&gt;\] \[options\] &lt;input file&gt;)
+</code></pre>
+<a class="header-link" id="description" href="#description"><span class="material-icons">link</span><h2 id="description">DESCRIPTION</h2></a>
+<p>compute++ is the integrated SYCL driver and compiler for ComputeCpp. </p>
+<p>When using <code>-sycl</code> or <code>-sycl-device-only</code> flag, compute++ takes in a C++ source file, compiles any SYCL kernels it finds (and any functions called from kernels) and outputs the ComputeCpp <em>integration header</em>. The integration header is a C++ header file, generated by compute++, which contains the compiled kernel in the binary format, along with all the required information for the runtime to manage the kernels. Note that <code>-sycl</code> and <code>-sycl-device-only</code> are aliases, there is no difference between them.</p>
+<p>When using <code>-sycl-driver</code> flag, compute++ act as an integrated driver combining the device and host compilation step. It takes in a C++ source file, compiles any SYCL kernels it finds (and any functions called from kernels) and outputs the ComputeCpp <em>integration header</em> as a temporary file. In a second compilation step, it compiles the combined C++ source file and integration header to produce an object file or executable.</p>
+<p>The compiler is based on Clang/LLVM and can support C++11 and partially C++14 with view on supporting increasingly more C++ standards.</p>
+<p>If none of <code>-sycl</code>, <code>-sycl-device-only</code> and <code>-sycl-driver</code> is used, <strong>compute++</strong> acts as the normal clang compiler so it can be used as the host compiler too. Refer to the clang/llvm documentation for general compilation information. Note that <code>-sycl-host-only</code> suppress the effect of <code>-sycl</code>, <code>-sycl-device-only</code> and <code>-sycl-driver</code> when provided after .</p>
+<p><em>Note:</em> the device compiler needs to know on which host the kernels will be invoked from.
+The compiler requires this so it can use the same type definition as the host (size and alignment)
+and layout structures correctly.
+If no <code>-target</code> is given to the device compiler, it will default to a pre-set target.
+The pre-set target can be queried by running <code>clang -v</code>.
+Setting the correct target is particularly important in a cross-compilation setting.</p>
+<a class="header-link" id="examples-a4f23670e1833f3fdb077ca70bbd5d66" href="#examples-a4f23670e1833f3fdb077ca70bbd5d66"><span class="material-icons">link</span><h2 id="examples-a4f23670e1833f3fdb077ca70bbd5d66">EXAMPLES</h2></a>
+<p>The basic invocation of compute++ to produce an integration header:</p>
+<p><strong>compute++ device compiler invocation</strong></p>
+<pre><code class="language-cpp">compute++ -sycl -c
+</code></pre>
+<p>This constitutes the bare minimum to produce the integration header from the SYCL kernels in a C++ source file.</p>
+<p>The option <code>-sycl</code> enables the compute++ SYCL specific code paths to extract and compile its kernels to SPIR and emit the integration header. The <code>-sycl</code> option also makes the compiler assume that the input is a C++11 source file. The other option "<code>-c</code>" is a standard clang option to only perform the compilation step (no linking).</p>
+<p>The basic invocation of compute++ to produce a host object file containing the device kernels:</p>
+<p><strong>compute++ integrated driver invocation</strong></p>
+<pre><code class="language-cpp">compute++ -sycl-driver -c
+</code></pre>
+<p>This constitutes the bare minimum to produce an object containing host code and device kernels the SYCL kernels in a C++ source file.</p>
+<p>The option <code>-sycl-driver</code> schedules calls to the compiler to first run with the <code>-sycl</code> flag to extract kernels and emit the integration header and then run without the <code>-sycl</code> flag and automatically include the integration header. The <code>-sycl-driver</code> option also makes the compiler assume that the input is a C++11 source file.</p>
+<a class="header-link" id="integration-header" href="#integration-header"><span class="material-icons">link</span><h2 id="integration-header">INTEGRATION HEADER</h2></a>
+<p>By using <code>-sycl</code>, compute++ will create an integration header. By convention, the integration header will have the extension "<em>.sycl</em>".</p>
+<p>The following invocation:</p>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp
+</code></pre>
+<p>will create the integration header as myFile.sycl in the same folder as myFile.cpp. You can have more control over the output file by using <code>-o</code> or <code>-sycl-ih</code>:</p>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp -o integration.hpp.sycl
+</code></pre>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp -sycl-ih integration.hpp.sycl
+</code></pre>
+<p>compute++ will then create integration.hpp.sycl instead of myFile.sycl.</p>
+<a class="header-link" id="using-compute-in-a-cross-compilation-setting" href="#using-compute-in-a-cross-compilation-setting"><span class="material-icons">link</span><h2 id="using-compute-in-a-cross-compilation-setting">USING COMPUTE++ IN A CROSS-COMPILATION SETTING</h2></a>
+<p>The production of the integration header when the final application is cross-compiled remains similar to a standard build.
+However it is important to set the host target for the device compiler so the ABI can be set correctly.</p>
+<p>To set the host target, compute++ relies on the standard clang flag <code>-target</code> and can be used in conjunction with <code>-sycl</code> or <code>-sycl-driver</code>.
+If used with <code>-sycl-driver</code>, the host compilation step will produce an object file for the target given with the <code>-target</code> flag.</p>
+<p>If no <code>-sycl-target</code> is specified, the <code>-target</code> flag will influence the default target.
+See the description of <code>-sycl-target</code> for more details on the default target and its selection.</p>
+<p>The following invocation:</p>
+<pre><code class="language-cpp">compute++ -sycl -target aarch64-linux-gnu -c myFile.cpp -sycl-ih integration.hpp.sycl
+</code></pre>
+<p>will create the integration header and device kernel compiled to be invoked from an aarch64 chip.</p>
+<a class="header-link" id="note-on-host-and-device-abi" href="#note-on-host-and-device-abi"><span class="material-icons">link</span><h2 id="note-on-host-and-device-abi">Note on host and device ABI</h2></a>
+<p>ComputeCpp has a check mechanism to ensure the kernel functor as viewed by the host and the device compiler is consistent.
+If not, a static assert is triggered with the following message:</p>
+<pre><code class="language-cpp">The kernel argument memory layout of &lt;compiler&gt;
+is not compatible with the device compiler.
+Try to use -sycl-driver instead.
+</code></pre>
+<p>In such cases, using the integrated driver should solve the problem.</p>
+<p>SYCL allows to write sections of code that will only be visible by either the device compiler (<code>compute++</code>) or the host compiler by using the macro <code>__SYCL_DEVICE_ONLY__</code>.
+It is however undefined behavior if the functor kernel definition is changed using this macro and this may also trigger this static assert.</p>
+<a class="header-link" id="options-d6baf65e0b240ce177cf70da146c8dc8" href="#options-d6baf65e0b240ce177cf70da146c8dc8"><span class="material-icons">link</span><h2 id="options-d6baf65e0b240ce177cf70da146c8dc8">OPTIONS</h2></a>
+<pre><code class="language-cpp">-no-serial-memop
+</code></pre>
+<p>Deactivate memcpy/memset intrinsics replacement by serial functions.</p>
+<p>To work around some driver issues, memcpy and memset are replaced by serial functions (this can impact performances). If the used driver is not impacted by such issue, this option prevents this replacement and can have a positive impact on performance.</p>
+<pre><code class="language-cpp">-sycl-device-only
+</code></pre>
+<pre><code class="language-cpp">-sycl
+</code></pre>
+<p>Enables the SYCL extension to C++.</p>
+<p>This enables the SYCL kernel extraction, diagnostics and integration header production. The flags will also force the compiler to assume the input file is a C++11 file.</p>
+<p>If the clang option <code>-std</code> is also used, its argument must be a C++ standard that covers C++11. If the language standard provided to <code>-std</code> is incompatible with SYCL, the language standard will be overridden to C++11.</p>
+<pre><code class="language-cpp">-sycl-driver
+</code></pre>
+<p>Enables the integrated SYCL driver.</p>
+<p>This enable the compiler to first run in device mode (with the <code>-sycl</code> flag) to produce the integration header and then run in host mode with the integration header automatically included. The flags will also force the compiler to assume the input file is a C++11 file.</p>
+<p>If the clang option <code>-std</code> is also used, its argument must be a C++ standard that covers C++11. If the language standard provided to <code>-std</code> is incompatible with SYCL, the language standard will be overridden to C++11.</p>
+<pre><code class="language-cpp">-sycl-host-only
+</code></pre>
+<p>Only perform the host compilation step, equivalent to omitting any of the <code>-sycl-device-only</code>, <code>-sycl</code> and <code>-sycl-driver</code>.</p>
+<p>Note: Only the last of <code>-sycl-device-only</code>, <code>-sycl</code>, <code>-sycl-driver</code>, <code>-sycl-host-only</code> is considered. The flag <code>-sycl-host-only</code> is useful to suppress the action of the other flags.</p>
+<pre><code class="language-cpp">-sycl-compress-name
+</code></pre>
+<p>Generate compressed SYCL kernel names.</p>
+<p>This option will rename SYCL kernel functors to shorter names for use with OpenCL device drivers. You should use this option if you get an error from an OpenCL device driver when using heavily-templated kernels. There is a risk that using this option will create name collisions in kernels when using heavily templated code, so this option is not enabled by default. However, some OpenCL drivers, such as AMD®’s GPU drivers, will require this option when kernel names have a large number of template parameters.</p>
+<pre><code class="language-cpp">-sycl-keep-unused-args
+</code></pre>
+<p>Instructs the compiler to keep unused kernel arguments.</p>
+<p>By default, all unused SYCL kernel arguments are removed to speed up kernel enqueue at runtime. This flag disables this behavior.</p>
+<pre><code class="language-cpp">-sycl-keep-attr=&lt;value&gt;
+</code></pre>
+<p>Don’t allow the compiler to remove the specified attribute.</p>
+<p>To strictly follow SPIR 1.2 specifications, some attributes used internally are removed before the module emission. To prevent the suppression, the attribute name to keep can be specified.</p>
+<p>Current value supported:</p>
+<pre><code class="language-cpp">noduplicate
+</code></pre>
+<pre><code class="language-cpp">-sycl-target &lt;target&gt;
+</code></pre>
+<p>Specify the target of the device compilation step.</p>
+<p>Valid values are:</p>
+<pre><code class="language-cpp">spir: SPIR 32-bits target
+
+spir64: SPIR 64-bits target
+
+spirv: SPIR-V 32-bits target
+
+spirv64: SPIR-V 64-bits target
+
+ptx64: PTX 64-bits target (experimental)
+
+custom-spir64: Custom target using a custom offline compilation tool consuming 64-bit SPIR, needs "--sycl-custom-tool" to be specified  (Professional Edition only)
+
+custom-spirv32: Custom target using a custom offline compilation tool consuming 32-bit SPIR-V, needs "--sycl-custom-tool" to be specified  (Professional Edition only)
+
+custom-spirv64: Custom target using a custom offline compilation tool consuming 64-bit SPIR-V, needs "--sycl-custom-tool" to be specified  (Professional Edition only)
+</code></pre>
+<p>If the option is omitted, the compiler will default to <strong>spir</strong> if the host target is a 32-bits architecture and <strong>spir64</strong> if the host target is a 64-bits architecture.</p>
+<p>Note:</p>
+<ul>
+<li>
+<p>Option <code>-sycl-spir32</code> should now be replaced by <code>-sycl-target spir</code></p>
+</li>
+<li>
+<p>Option <code>-sycl-spir64</code> should now be replaced by <code>-sycl-target spir64</code></p>
+</li>
+</ul>
+<pre><code class="language-cpp">* --sycl-custom-tool=\&lt;path\&gt;::
+
+Path to a custom tool to use as the offline compilation back-end. Needs to be specified when using one of the "custom" device compilation targets for offline compilation.
+
+* -sycl-custom-args \&lt;value\&gt;::
+</code></pre>
+<p>Arguments to pass to the custom tool being used as the offline compilation back-end. Arguments provided in quotes will be unquoted and passed on as separate arguments ("a b" will be passed as two arguments while " 'a b' " will be passed as one argument).</p>
+<p>Can be specified when using one of the "custom" device compilation targets for offline compilation.</p>
+<p>Specify a path to output the integration header.</p>
+<pre><code class="language-cpp">-sycl-ih &lt;path&gt; 
+</code></pre>
+<p>If no value is specified, the name will be inferred using the output file if specified using <code>-o</code> or the input file.</p>
+<p>Note that this option cannot be used if multiple input files are processed.</p>
+<pre><code class="language-cpp">-fsycl-ih-last
+</code></pre>
+<p>Force the driver to include the integration header after the main source file. Note that this flag has an effect only when used with <code>-sycl-driver</code>.</p>
+<pre><code class="language-cpp">-fsycl-split-modules=&lt;N&gt;
+</code></pre>
+<p>This option lets the compiler generate multiple modules and puts a maximum of <code>&lt;N&gt;</code> kernels into each module. (experimental)</p>
+<p>This may improve compilation times when only a small number of kernels are used at run-time and not every module has to be compiled. By default only one module for all kernels will be produced.</p>
+<pre><code class="language-cpp">-sycl-ocl-target-builtins-path &lt;path&gt;
+</code></pre>
+<p>Specify a custom path to an OpenCL builtin implementation for the target</p>
+<p>By default this flag will be automatically set by the Clang driver when targeting PTX. If you provide your own path it will overwrite the default. The default path is to a binary file containing the implementation of several OpenCL builtins. This option is only used for PTX targets. It will be ignored for any other target.</p>
+<pre><code class="language-cpp">-sycl-print-stats
+</code></pre>
+<p>Print performance statistics for each SYCL kernel extracted by different analyses (Professional Edition only)</p>
+<pre><code class="language-cpp">-fno-sycl-address-space
+-fsycl-address-space
+</code></pre>
+<p>The flag <code>-fno-sycl-address-space</code> prevents the exposure of address spaces in SYCL device compilation mode (experimental).
+This forces the compiler to prevent the emission of address space information in the final module.</p>
+<p>The opposite <code>-fsycl-address-space</code> allows exposure of address spaces (default behavior).
+If both flags are present, only the last provided has an effect.</p>
+<pre><code class="language-cpp">-Wsycl-pedantic, -Werror-sycl-pedantic
+</code></pre>
+<p>Respectively warn or error when using ComputeCpp supported extensions to the SYCL specification. By default no warning is raised in those cases. Enabling the <code>sycl-pedantic</code> warning group will show warnings/errors for when these extensions are used.</p>
+<pre><code class="language-cpp">-Wsycl-known-virtual, -Werror-sycl-known-virtual
+</code></pre>
+<p>Respectively warn or error when calling a member function marked as virtual.</p>
+<p>Calling virtual member functions that do not require dynamic dispatch is a ComputeCpp extension. If this flag is set, uses of this extension will emit a warning or error. This is implicitly enabled when <code>-Wsycl-pedantic</code> is enabled.</p>
+<a class="header-link" id="old-options" href="#old-options"><span class="material-icons">link</span><h3 id="old-options">Old Options</h3></a>
+<p>The following options were removed in a previous release, they are no longer recognized</p>
+<pre><code class="language-cpp">–sycl-no-diags
+</code></pre>
+<p>This option had no effect for several releases.</p>
+<pre><code class="language-cpp">-sycl-spir32
+</code></pre>
+<p>This option used to force the compiler to output 32-bit SPIR or SPIR-V bitcode. The target is now specified using the <code>-sycl-target &lt;target&gt;</code> option.</p>
+<pre><code class="language-cpp">-sycl-spir64
+</code></pre>
+<p>This option used to force the compiler to output 64-bit SPIR or SPIR-V bitcode. The target is now specified using the <code>-sycl-target &lt;target&gt;</code> option.</p>
+<a class="header-link" id="clang-standard-options" href="#clang-standard-options"><span class="material-icons">link</span><h3 id="clang-standard-options">Clang standard options</h3></a>
+<p>As the compiler is based on clang 6, some of the standard clang 6 options are available. This includes:</p>
+<ul>
+<li>
+<p>Warning and error formatting flags</p>
+</li>
+<li>
+<p>Optimisation flags</p>
+</li>
+</ul>
+<p>For more information about clang usage, refer to the <a href="https://releases.llvm.org/6.0.0/tools/clang/docs/">clang 6.0 manual</a></p>
+<a class="header-link" id="compute-specific-diagnostics" href="#compute-specific-diagnostics"><span class="material-icons">link</span><h2 id="compute-specific-diagnostics">Compute++-specific Diagnostics</h2></a>
+<p>This section describes SYCL specific diagnostics. Compute++ errors, warnings and remarks are in the form of:</p>
+<pre><code class="language-cpp">[Computeccp:CCxxxx] Error message
+</code></pre>
+<p>Where "<em>xxxx</em>" is an error code index.</p>
+<a class="header-link" id="computecpp-cc0001" href="#computecpp-cc0001"><span class="material-icons">link</span><h3 id="computecpp-cc0001">[Computecpp:CC0001]</h3></a>
+<p>a SYCL kernel must be named with a class, struct, enum or union type</p>
+<a class="header-link" id="computecpp-cc0002" href="#computecpp-cc0002"><span class="material-icons">link</span><h3 id="computecpp-cc0002">[Computecpp:CC0002]</h3></a>
+<p>cannot name a SYCL kernel with <code>&lt;type&gt;</code> - class, struct, enum or union expected</p>
+<a class="header-link" id="computecpp-cc0003" href="#computecpp-cc0003"><span class="material-icons">link</span><h3 id="computecpp-cc0003">[Computecpp:CC0003]</h3></a>
+<p>an unnamed type is an invalid template argument for
+classes used to name SYCL kernels.</p>
+<p>Valid SYCL kernel names must be a forward declarable class, struct, enum or union type.</p>
+<p>The following examples are valid SYCL kernel names:</p>
+<pre><code class="language-cpp">class ClassKernelName;
+
+struct MyStruct;
+
+enum class MyEnum : int;
+</code></pre>
+<p>The following types are invalid SYCL kernel names:</p>
+<pre><code class="language-cpp">unsigned // not a class, struct, enum or union type
+
+enum MyCpp98Enum {/* Definition */}; // not forward declarable
+</code></pre>
+<a class="header-link" id="computecpp-cc0004" href="#computecpp-cc0004"><span class="material-icons">link</span><h3 id="computecpp-cc0004">[Computecpp:CC0004]</h3></a>
+<p>a SYCL kernel with the name <code>&lt;type&gt;</code> (alias <code>&lt;type&gt;</code>) already exists</p>
+<p>SYCL kernel names must be unique. Therefore, the same type cannot be used twice to name 2 kernels. In such cases, compute++ will emit a note to provide the location of the original name.</p>
+<pre><code class="language-cpp">class MyName;
+
+[...]
+
+h.parallel_for&lt;class MyName&gt;(...);
+h.parallel_for&lt;class MyName&gt;(...); // CC0004: the name is used twice
+</code></pre>
+<a class="header-link" id="computecpp-cc0005" href="#computecpp-cc0005"><span class="material-icons">link</span><h3 id="computecpp-cc0005">[Computecpp:CC0005]</h3></a>
+<p>cannot name a SYCL kernel with nested class, struct, enum or union <code>&lt;type&gt;</code></p>
+<p>SYCL kernel names cannot be a nested class as it is not forward declarable.</p>
+<pre><code class="language-cpp">struct MyClass {
+  struct Nested {};
+};
+
+h.parallel_for&lt;MyClass::Nested&gt;(...); // CC0005
+</code></pre>
+<a class="header-link" id="computecpp-cc0006" href="#computecpp-cc0006"><span class="material-icons">link</span><h3 id="computecpp-cc0006">[Computecpp:CC0006]</h3></a>
+<p><code>&lt;C++ construct&gt;</code> is not allowed within SYCL device code</p>
+<p>C++ constructions that cannot be converted into a valid OpenCL code are invalid in SYCL. These include:</p>
+<ul>
+<li>
+<p>Exceptions (try / catch expressions)</p>
+</li>
+<li>
+<p>Accessing non-const global variables inside device code</p>
+</li>
+<li>
+<p>Function pointers</p>
+</li>
+<li>
+<p>RTTI (dynamic_cast, typeid)</p>
+</li>
+<li>
+<p>Dynamic memory handling: new, delete</p>
+<ul>
+<li>Note: placement new is allowed</li>
+</ul>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0007" href="#computecpp-cc0007"><span class="material-icons">link</span><h3 id="computecpp-cc0007">[Computecpp:CC0007]</h3></a>
+<p>cannot capture <code>&lt;expr&gt;</code> in a SYCL kernel</p>
+<a class="header-link" id="computecpp-cc0008" href="#computecpp-cc0008"><span class="material-icons">link</span><h3 id="computecpp-cc0008">[Computecpp:CC0008]</h3></a>
+<p>a variable of type <code>&lt;type&gt;</code> cannot be captured by a SYCL kernel, because it is <code>&lt;reason&gt;</code></p>
+<p>A SYCL kernel cannot capture:</p>
+<ul>
+<li>
+<p>By reference</p>
+</li>
+<li>
+<p>The "<em>this</em>" pointer</p>
+</li>
+<li>
+<p>Raw pointers</p>
+</li>
+</ul>
+<p>For instance</p>
+<pre><code class="language-cpp">class example;
+
+[...]
+
+int *ptr = new int(10); // Initialise a pointer
+cgh.single_task&lt;class example&gt;([=]() {
+    foo(ptr); // Illegal to use that pointer within kernel
+});
+</code></pre>
+<p>The above code would give the error:</p>
+<p>error: a variable of type 'int *' cannot be captured by a SYCL kernel, because it is a pointer type</p>
+<a class="header-link" id="computecpp-cc0009" href="#computecpp-cc0009"><span class="material-icons">link</span><h3 id="computecpp-cc0009">[Computecpp:CC0009]</h3></a>
+<p>cannot capture object instance of class <code>&lt;class name&gt;</code> containing field <code>&lt;field name&gt;</code> of type <code>&lt;type&gt;</code> in a SYCL kernel</p>
+<a class="header-link" id="computecpp-cc0010" href="#computecpp-cc0010"><span class="material-icons">link</span><h3 id="computecpp-cc0010">[Computecpp:CC0010]</h3></a>
+<p>cannot capture object instance of class <code>&lt;class name&gt;</code> containing field <code>&lt;field name&gt;</code> of type <code>&lt;type&gt;</code> in a SYCL kernel (makes class <code>&lt;class name&gt;</code> non-standard layout)</p>
+<a class="header-link" id="computecpp-cc0011" href="#computecpp-cc0011"><span class="material-icons">link</span><h3 id="computecpp-cc0011">[Computecpp:CC0011]</h3></a>
+<p>cannot capture object <code>&lt;variable&gt;</code> of type <code>&lt;type&gt;</code> in a SYCL kernel, because <code>&lt;reason&gt;</code></p>
+<a class="header-link" id="computecpp-cc0020" href="#computecpp-cc0020"><span class="material-icons">link</span><h3 id="computecpp-cc0020">[Computecpp:CC0020]</h3></a>
+<p>SYCL kernel parameter <code>&lt;param&gt;</code> of type <code>&lt;type&gt;</code> is invalid: <code>&lt;reason&gt;</code></p>
+<p>A SYCL kernel cannot capture:</p>
+<ul>
+<li>
+<p>Any objects containing raw pointers</p>
+</li>
+<li>
+<p>Any objects that do not have a C++ standard layout, including:</p>
+<ul>
+<li>
+<p>Objects with private AND public fields (either private or public is OK but not both)</p>
+</li>
+<li>
+<p>Containing a non-static field of reference type</p>
+</li>
+<li>
+<p>Any objects that contain virtual methods</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For instance</p>
+<pre><code class="language-cpp">class example;
+
+struct FooClass
+{
+  FooClass(int i): m_pMember(new int(i)) {}
+
+  int *m_pMember;
+};
+
+FooClass instance {1}; // Initialize the instance
+
+cgh.single_task&lt;class example&gt;([=]() {
+    foo(instance.m_pMember); // Illegal to use that pointer within kernel
+});
+</code></pre>
+<p>The above code would give the error:</p>
+<pre><code class="language-cpp"> error: can not capture object instance of type 'struct FooClass' in a SYCL kernel, because it contains a field with a pointer type
+</code></pre>
+<a class="header-link" id="computecpp-cc0012" href="#computecpp-cc0012"><span class="material-icons">link</span><h3 id="computecpp-cc0012">[Computecpp:CC0012]</h3></a>
+<p>class <code>&lt;name&gt;</code> cannot be a parameter to a SYCL kernel, because <code>&lt;reason&gt;</code></p>
+<a class="header-link" id="computecpp-cc0013" href="#computecpp-cc0013"><span class="material-icons">link</span><h3 id="computecpp-cc0013">[Computecpp:CC0013]</h3></a>
+<p><code>&lt;type&gt;</code> is an invalid argument type for a SYCL kernel, because it is <code>&lt;reason&gt;</code></p>
+<p>One or more SYCL kernel parameter restrictions have been violated, which triggered this error.</p>
+<p>This includes the following:</p>
+<ul>
+<li>
+<p>"it is a non standard-layout type": To pass as a kernel parameter an object, it needs to be standard-layout.</p>
+</li>
+<li>
+<p>"it contains virtual methods": Objects of a class that contains virtual methods cannot be supported as they are not standard-layout.</p>
+</li>
+<li>
+<p>"it contains a field with a pointer type": Host raw pointers cannot be used on device with OpenCL 1.2. To pass a pointer to the device, SYCL buffers and accessors must be used instead.</p>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0014" href="#computecpp-cc0014"><span class="material-icons">link</span><h3 id="computecpp-cc0014">[Computecpp:CC0014]</h3></a>
+<p>SYCL kernel must return void</p>
+<p>SYCL kernel functors or lambdas cannot return a value.</p>
+<a class="header-link" id="computecpp-cc0015" href="#computecpp-cc0015"><span class="material-icons">link</span><h3 id="computecpp-cc0015">[Computecpp:CC0015]</h3></a>
+<p>recursion is not allowed in SYCL functions</p>
+<a class="header-link" id="computecpp-cc0016" href="#computecpp-cc0016"><span class="material-icons">link</span><h3 id="computecpp-cc0016">[Computecpp:CC0016]</h3></a>
+<p>recursion is not allowed in SYCL functions, but a call graph cycle was detected starting in function `<function name="">'</function></p>
+<p>SYCL restrictions disallow the use of recursive functions as OpenCL disallows their use.</p>
+<p><strong>CC00016</strong> is a recursion caused by a succession of calls that forms in the end a recursive loop.</p>
+<pre><code class="language-cpp">int recurse(int i) { // CC0015
+    return i &lt; 0 ? 0 : recurse(i - 1);
+}
+</code></pre>
+<pre><code class="language-cpp">int funcA(int);
+
+int funcB(int i) {
+  return funcA(i - 1) + i;
+}
+
+int funcA(int i) { // CC0016
+    return i &lt; 0 ? 0 : funcB(i - 1);
+}
+</code></pre>
+<a class="header-link" id="computecpp-cc0023" href="#computecpp-cc0023"><span class="material-icons">link</span><h3 id="computecpp-cc0023">[Computecpp:CC0023]</h3></a>
+<p>class <code>&lt;name&gt;</code> is not standard layout, because <code>&lt;reason&gt;</code></p>
+<p>This error will accompany <code>[Computecpp:CC0011]</code> cannot capture object <code>&lt;variable&gt;</code> of type <code>&lt;type&gt;</code> in a SYCL kernel, because <code>&lt;reason&gt;</code> and will be thrown on the object definition directly. The reasons are the same as in that error.</p>
+<ul>
+<li>
+<p>Any objects containing raw pointers</p>
+</li>
+<li>
+<p>Any objects that do not have a standard layout, including:</p>
+<ul>
+<li>
+<p>Objects with private AND public fields (either private or public is OK but not both)</p>
+</li>
+<li>
+<p>Containing a non-static field of reference type</p>
+</li>
+<li>
+<p>Any objects that contain virtual methods</p>
+</li>
+</ul>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0027" href="#computecpp-cc0027"><span class="material-icons">link</span><h3 id="computecpp-cc0027">[Computecpp:CC0027]</h3></a>
+<p>Some memcpy/memset intrinsics added by the llvm optimizer were replaced by serial functions. This is a workaround for OpenCL drivers that do not support those intrinsics. This may impact performance, consider using -no-serial-memop.</p>
+<p>On certain OpenCL drivers we have found that certain LLVM intrinsic functions are not supported so we replace them with our own code, which will work on all drivers. However, this could stop a vendor compiler which does support these intrinsics from performing certain optimisations so we leave the option -no-serial-memop available to instruct compute++ not to remove it. Generally this remark can be ignored as the code is still valid, but there may be a performance impact.</p>
+<a class="header-link" id="computecpp-cc0028" href="#computecpp-cc0028"><span class="material-icons">link</span><h3 id="computecpp-cc0028">[Computecpp:CC0028]</h3></a>
+<p>OpenCL requires the format string of printf to be a constant string.</p>
+<p>This warning will throw if you attempt to pass a string non-literal as the <em>format</em> string of the printf function. Code like below should produce this warning.</p>
+<pre><code class="language-cpp">const char * str = "somestring"
+printf(str);
+</code></pre>
+<p>The preferred method of printing from a SYCL kernel is to pass a stream object into the kernel.</p>
+<pre><code class="language-cpp">class example;
+
+[...]
+
+ myQueue.submit([&amp;](handler&amp; handle)
+   stream os(1024, 80, handle);
+      cgh.single_task&lt;class example&gt;([=]() {
+        os &lt;&lt; "somestring" &lt;&lt; endl;
+      });
+ });
+</code></pre>
+<a class="header-link" id="computecpp-cc0029" href="#computecpp-cc0029"><span class="material-icons">link</span><h3 id="computecpp-cc0029">[Computecpp:CC0029]</h3></a>
+<p>The `noduplicate' attribute was removed from some functions in order to guarantee conformance with SPIR 1.2. To keep that attribute the <code>-sycl-keep-attr=&lt;noduplicate&gt;</code> command-line option can be used.</p>
+<p>This remark will be thrown whenever the compiler removes the attribute "noduplicate’ from a function or function call. This is not a warning or an error, it is a remark as this is expected behavior from the compiler and the code remains valid.</p>
+<a class="header-link" id="computecpp-cc0030" href="#computecpp-cc0030"><span class="material-icons">link</span><h3 id="computecpp-cc0030">[Computecpp:CC0030]</h3></a>
+<p>sycl requires at least C++11, force language standard to C++11</p>
+<p>The SYCL specification is defined to support C++11 features. Therefore, a SYCL program requires a language standard that includes the C++11 feature set.</p>
+<p>The language standard provided to the "<code>-std</code>" command-line option is incompatible with SYCL and the language standard has been forced to <em>C++11</em>.</p>
+<a class="header-link" id="computecpp-cc0031" href="#computecpp-cc0031"><span class="material-icons">link</span><h3 id="computecpp-cc0031">[Computecpp:CC0031]</h3></a>
+<p><code>&lt;string&gt;</code> is not a valid input to spir-keep-attr. Attribute `noduplicate' is the only supported argument</p>
+<p>The value <code>&lt;value&gt;</code> given to <code>-sycl-keep-attr</code> is invalid. Currently, only noduplicate is a supported attribute. See <code>-sycl-keep-attr</code> help.</p>
+<a class="header-link" id="computecpp-cc0032" href="#computecpp-cc0032"><span class="material-icons">link</span><h3 id="computecpp-cc0032">[Computecpp:CC0032]</h3></a>
+<p>Variadic functions cannot be used in SYCL device code</p>
+<p>SYCL device functions cannot call C-style variadic functions.</p>
+<p>Calls like below are not allowed on device.</p>
+<pre><code class="language-cpp">class example;
+
+void variadic(int, ...);
+
+[...]
+
+myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task&lt;class example&gt;([=]() {
+     variadic(2, 42., "str");
+   });
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0033-deprecated" href="#computecpp-cc0033-deprecated"><span class="material-icons">link</span><h3 id="computecpp-cc0033-deprecated">[Computecpp:CC0033] (deprecated)</h3></a>
+<p>--sycl-no-diags is deprecated and has no effect.</p>
+<p>The flag --sycl-no-diags is now deprecated and the use of this flag does not have any effect any more.</p>
+<a class="header-link" id="computecpp-cc0034" href="#computecpp-cc0034"><span class="material-icons">link</span><h3 id="computecpp-cc0034">[Computecpp:CC0034]</h3></a>
+<p>Function <code>&lt;name&gt;</code> is undefined but referenced on the device and the associated kernels may fail to build or execute at run time</p>
+<p>You will see this warning if an undefined function which does not match one of the known OpenCL builtin functions has been referenced in device code. If the function cannot be resolved by the OpenCL implementation, the kernel is unlikely to compile.</p>
+<a class="header-link" id="computecpp-cc0035" href="#computecpp-cc0035"><span class="material-icons">link</span><h3 id="computecpp-cc0035">[Computecpp:CC0035]</h3></a>
+<p>Intrinsic <code>&lt;intrinsic\_name&gt;</code> has been generated in function <code>&lt;function\_name&gt;</code> which is illegal in SPIR and may result in a compilation failure</p>
+<p>The SPIR spec only allows for memset and memcpy intrinsics to be used, anything else is technically illegal and could cause issues with the OpenCL implementation. This warning will tell you if an illegal intrinsic has been generated.</p>
+<a class="header-link" id="computecpp-cc0036" href="#computecpp-cc0036"><span class="material-icons">link</span><h3 id="computecpp-cc0036">[Computecpp:CC0036]</h3></a>
+<p>OpenCL extension cl_khr_fp16 should be enabled before using type half</p>
+<p>This warning will appear if <code>cl::sycl::half</code> (alias to __fp16) is used in code before the OpenCL extension cl_khr_fp16 is enabled. This warning or lack of does not say anything about whether or not the underlaying OpenCL implementation supports half. You must check this manually using the runtime device class "has_extension" method.</p>
+<a class="header-link" id="computecpp-cc0037" href="#computecpp-cc0037"><span class="material-icons">link</span><h3 id="computecpp-cc0037">[Computecpp:CC0037]</h3></a>
+<p>Variable length arrays are not supported in SYCL kernels.</p>
+<p>Variable length arrays (VLA) are disallowed by OpenCL v1.2 s6.9.d, thus cannot be used in a SYCL kernel.</p>
+<p>Note: This is a C99 features but some compilers provide extensions to support it in C++</p>
+<pre><code class="language-cpp">void foo(unsigned n) {
+  int vla[n]; // illegal if called from a kernel
+}
+</code></pre>
+<a class="header-link" id="computecpp-cc0039" href="#computecpp-cc0039"><span class="material-icons">link</span><h3 id="computecpp-cc0039">[Computecpp:CC0039]</h3></a>
+<p>Kernel <code>&lt;SYCL kernel name&gt;</code>: conflicting values for attribute <code>&lt;OpenCL attribute name&gt;</code>
+Attribute <code>&lt;OpenCL attribute name&gt;</code> values inherited from <code>&lt;Function name&gt;</code>
+Registered values '<code>&lt;OpenCL attribute values&gt;</code>'</p>
+<p>OpenCL attributes vec_type_hint, work_group_size_hint and reqd_work_group_size are allowed to be used in SYCL. In SYCL, those attributes are applied to functions (instead of kernel function in OpenCL) and the compiler infers from the function calls which OpenCL attributes should be applied to the kernel. If a function A and a function B both use the same attribute, then they must use the same values. If they do not agree on those values, then the compiler reports an error pointing out the affected kernel and the functions causing the issue.</p>
+<pre><code class="language-cpp">class Ker;
+
+__attribute__((reqd_work_group_size(64, 64, 1)))
+void A() {}
+__attribute__((reqd_work_group_size(64, 1, 1)))
+void B() {}
+
+[...]
+
+myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task&lt;class Ker&gt;([=]() {
+     A();
+     B();
+   });
+});
+</code></pre>
+<p>The example above will generate the following diagnostic</p>
+<p>error: [Computecpp:CC0039]: Kernel Ker: conflicting values for attribute reqd_work_group_size
+note: [Computecpp:CC0039]: Attribute reqd_work_group_size values inherited from A
+note: [Computecpp:CC0039]: Registered values 'i32 64, i32 64, i32 1'
+note: [Computecpp:CC0039]: Attribute reqd_work_group_size values inherited from B
+note: [Computecpp:CC0039]: Registered values 'i32 64, i32 1, i32 1'</p>
+<a class="header-link" id="computecpp-cc0040" href="#computecpp-cc0040"><span class="material-icons">link</span><h3 id="computecpp-cc0040">[Computecpp:CC0040]</h3></a>
+<p>Accessor appears as member of union used as a kernel argument - associated kernel may not run correctly</p>
+<p>Using unions that contain accessor fields in kernel argument is discouraged and has an undefined behavior.</p>
+<pre><code class="language-cpp">class Ker;
+[...]
+myQueue.submit([&amp;](handler&amp; handle)
+   union {
+     accessor&lt;int, 1, access::mode::read_write, access::target::global_buffer&gt; Acc;
+     int IntField;
+   } Arg;
+   cgh.single_task&lt;class Ker&gt;([=]() {
+     Arg.IntField; // CC0040
+   });
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0042" href="#computecpp-cc0042"><span class="material-icons">link</span><h3 id="computecpp-cc0042">[Computecpp:CC0042]</h3></a>
+<p>Invalid SYCL target <code>&lt;target&gt;</code></p>
+<p>The value given to <code>-sycl-target</code> is not a valid device targets.</p>
+<a class="header-link" id="computecpp-cc0043" href="#computecpp-cc0043"><span class="material-icons">link</span><h3 id="computecpp-cc0043">[Computecpp:CC0043]</h3></a>
+<p>Community Edition releases do not support multiple device targets</p>
+<p>Community edition releases are restricted to one device target per kernel.</p>
+<a class="header-link" id="computecpp-cc0047" href="#computecpp-cc0047"><span class="material-icons">link</span><h3 id="computecpp-cc0047">[Computecpp:CC0047]</h3></a>
+<p>'-sycl-spir32' is deprecated, use '-sycl-target spir' instead
+'-sycl-spir64' is deprecated, use '-sycl-target spir64' instead</p>
+<p>Options -sycl-spir32 and -sycl-spir64 are deprecated and may be removed in future releases. They both are now aliases to "-sycl-target spir" and "-sycl-target spir64" and they should be used directly.</p>
+<a class="header-link" id="computecpp-cc0047-577bcc914f9e55d5e4e4f82f9f00e7d4" href="#computecpp-cc0047-577bcc914f9e55d5e4e4f82f9f00e7d4"><span class="material-icons">link</span><h3 id="computecpp-cc0047-577bcc914f9e55d5e4e4f82f9f00e7d4">[Computecpp:CC0047]</h3></a>
+<p>'-sycl-spir32' is deprecated, use '-sycl-target spir' instead
+'-sycl-spir64' is deprecated, use '-sycl-target spir64' instead</p>
+<p>Options -sycl-spir32 and -sycl-spir64 are deprecated and may be removed in future releases. They both are now aliases to "-sycl-target spir" and "-sycl-target spir64" and they should be used directly.</p>
+<a class="header-link" id="computecpp-cc0048" href="#computecpp-cc0048"><span class="material-icons">link</span><h3 id="computecpp-cc0048">[Computecpp:CC0048]</h3></a>
+<p>Kernel name <code>&lt;x&gt;</code> is a local type - consider forward declaring the type inside of an accessible namespace</p>
+<p>According to the SYCL specification, kernel name types must be accessible from the global namespace. If a type is locally declared (e. g. in a function), it cannot be accessed from outside that function.</p>
+<pre><code class="language-cpp">myQueue.submit(\[&amp;\](handler&amp; handle)
+   cgh.single\_task&lt;class Ker&gt;(\[=\]() {}); // CC0048: Ker is a local type
+});
+</code></pre>
+<p>A possible solution is to forward declare the type to make it non-local</p>
+<pre><code class="language-cpp">class Ker;
+
+[...]
+
+myQueue.submit(\[&amp;\](handler&amp; handle)
+   cgh.single\_task&lt;class Ker&gt;(\[=\]() {}); // CC0048: Ker is a local type
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0049" href="#computecpp-cc0049"><span class="material-icons">link</span><h3 id="computecpp-cc0049">[Computecpp:CC0049]</h3></a>
+<p>Processor <code>&lt;proc1&gt;</code> cannot be specified for the <code>&lt;target&gt;</code> SYCL target. Please use the default (<code>&lt;proc2&gt;</code>) or a later processor.</p>
+<p>The specified processor with <code>-msyclarch</code> is not usable for the given target.</p>
+<a class="header-link" id="computecpp-cc0052" href="#computecpp-cc0052"><span class="material-icons">link</span><h3 id="computecpp-cc0052">[Computecpp:CC0052]</h3></a>
+<p>During compilation of the current function for the target device, a write to constant memory was detected.</p>
+<pre><code class="language-cpp">void f(int &amp;i) { i = 0; } // CC0052 triggered by assignment to int in constant memory
+[ ... ]
+myQueue.submit([&amp;](handler &amp;handle) {
+    auto acc = buffer.get_access&lt;access::mode::write, access::target::constant_buffer&gt;(handle);
+    handle.single_task&lt;class Ker&gt;(([=]() { f(acc[0]); }));
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0056" href="#computecpp-cc0056"><span class="material-icons">link</span><h3 id="computecpp-cc0056">[Computecpp:CC0056]</h3></a>
+<p>Custom target specified but the tool to use not provided. Provide the tool using --sycl-custom-tool.</p>
+<p>A SYCL target for offline compilation using a custom tool was specified but the tool to use not provided.</p>
+<a class="header-link" id="computecpp-cc0057" href="#computecpp-cc0057"><span class="material-icons">link</span><h3 id="computecpp-cc0057">[Computecpp:CC0057]</h3></a>
+<p>Community Edition releases do not support offline compilation</p>
+<p>A SYCL target for offline compilation was specified but Community Edition releases do not support this feature.</p>
+<a class="header-link" id="computecpp-cc0058" href="#computecpp-cc0058"><span class="material-icons">link</span><h3 id="computecpp-cc0058">[Computecpp:CC0058]</h3></a>
+<p>This error is no longer emitted by ComputeCPP.</p>
+<p>In previous versions, split modules (<code>-fsycl-split-modules</code>) were incompatible with some features such as offline compilation.</p>
+<a class="header-link" id="computecpp-cc0059" href="#computecpp-cc0059"><span class="material-icons">link</span><h3 id="computecpp-cc0059">[Computecpp:CC0059]</h3></a>
+<p>Community Edition releases do not support printing performance statistics for SYCL kernels using <code>-sycl-print-stats</code>.</p>
+<a class="header-link" id="computecpp-cc0061" href="#computecpp-cc0061"><span class="material-icons">link</span><h3 id="computecpp-cc0061">[Computecpp:CC0061]</h3></a>
+<p>Community Edition releases do not support dumping kernel information using <code>-sycl-kernel-info</code>.</p>
+<a class="header-link" id="computecpp-cc0062" href="#computecpp-cc0062"><span class="material-icons">link</span><h3 id="computecpp-cc0062">[Computecpp:CC0062]</h3></a>
+<p>An IO error was encountered when opening or writing to the output file specified by <code>-sycl-kernel-info</code>.</p>
+<a class="header-link" id="computecpp-cc0060" href="#computecpp-cc0060"><span class="material-icons">link</span><h3 id="computecpp-cc0060">[Computecpp:CC0060]</h3></a>
+<p>The SYCL specification requires that virtual functions not be supported, however ComputeCpp supports this in cases where dynamic dispatch does not occur. This warning is raised when <code>-Wsycl-pedantic</code> or <code>-Wsycl-known-virtual</code> is set.</p>
+<a class="header-link" id="computecpp-cc0063" href="#computecpp-cc0063"><span class="material-icons">link</span><h3 id="computecpp-cc0063">[Computecpp:CC0063]</h3></a>
+<p>The SYCL bundler tool encountered an error while trying to read a file.</p>
+<a class="header-link" id="computecpp-cc0064" href="#computecpp-cc0064"><span class="material-icons">link</span><h3 id="computecpp-cc0064">[Computecpp:CC0064]</h3></a>
+<p>The SYCL bundler tool encountered an error while trying to parse a module pack.</p>
+<a class="header-link" id="computecpp-cc0065" href="#computecpp-cc0065"><span class="material-icons">link</span><h3 id="computecpp-cc0065">[Computecpp:CC0065]</h3></a>
+<p>Community Edition releases do not support bundling multiple binaries.</p>
+<p>The bundler was given multiple bundle sources on the command line, and the release is a Community Edition one.</p>
+<a class="header-link" id="compute-internal-diagnostics" href="#compute-internal-diagnostics"><span class="material-icons">link</span><h2 id="compute-internal-diagnostics">Compute++ Internal Diagnostics</h2></a>
+<p>The following diagnostics are internal. If the ComputeCpp package is correctly installed, please file a bug report.</p>
+<a class="header-link" id="computecpp-cc0017" href="#computecpp-cc0017"><span class="material-icons">link</span><h3 id="computecpp-cc0017">[Computecpp:CC0017]</h3></a>
+<p>ignored invalid use of SYCL kernel attribute</p>
+<a class="header-link" id="computecpp-cc0018" href="#computecpp-cc0018"><span class="material-icons">link</span><h3 id="computecpp-cc0018">[Computecpp:CC0018]</h3></a>
+<p>template specialization of a SYCL kernel is not a SYCL kernel without the proper attributes</p>
+<a class="header-link" id="computecpp-cc0019" href="#computecpp-cc0019"><span class="material-icons">link</span><h3 id="computecpp-cc0019">[Computecpp:CC0019]</h3></a>
+<p>`%0' is invalid for a SYCL kernel and was ignored</p>
+<a class="header-link" id="computecpp-cc0021" href="#computecpp-cc0021"><span class="material-icons">link</span><h3 id="computecpp-cc0021">[Computecpp:CC0021]</h3></a>
+<p>SYCL kernels can only have one functor parameter: parameter <code>&lt;param&gt;</code> of type <code>&lt;type&gt;</code> cannot be one, because parameter <code>&lt;param&gt;</code> of type <code>&lt;type&gt;</code> already is</p>
+<a class="header-link" id="computecpp-cc0022-deprecated" href="#computecpp-cc0022-deprecated"><span class="material-icons">link</span><h3 id="computecpp-cc0022-deprecated">[Computecpp:CC0022] (deprecated)</h3></a>
+<p>a SYCL kernel cannot also be an OpenCL kernel</p>
+<a class="header-link" id="computecpp-cc0024" href="#computecpp-cc0024"><span class="material-icons">link</span><h3 id="computecpp-cc0024">[Computecpp:CC0024]</h3></a>
+<p>Missing serial function equivalent for intrinsic <code>&lt;name&gt;</code> (expected prototype <code>&lt;name&gt;</code> for serial function)</p>
+<a class="header-link" id="computecpp-cc0025" href="#computecpp-cc0025"><span class="material-icons">link</span><h3 id="computecpp-cc0025">[Computecpp:CC0025]</h3></a>
+<p>Serial function <code>&lt;name&gt;</code> has no body (equivalent for intrinsic <code>&lt;name&gt;</code>)</p>
+<a class="header-link" id="computecpp-cc0026" href="#computecpp-cc0026"><span class="material-icons">link</span><h3 id="computecpp-cc0026">[Computecpp:CC0026]</h3></a>
+<p>Serial function <code>&lt;name&gt;</code> has an incorrect signature (equivalent for intrinsic <code>&lt;name&gt;</code>)</p>
+<a class="header-link" id="computecpp-cc0038" href="#computecpp-cc0038"><span class="material-icons">link</span><h3 id="computecpp-cc0038">[Computecpp:CC0038]</h3></a>
+<p>Invalid SYCL attribute for function <code>&lt;reason&gt;</code>
+Invalid OpenCL attribute for function <code>&lt;reason&gt;</code></p>
+<p>Some internal metadata are not correctly formed.</p>
+<a class="header-link" id="computecpp-cc0041" href="#computecpp-cc0041"><span class="material-icons">link</span><h3 id="computecpp-cc0041">[Computecpp:CC0041]</h3></a>
+<p>Redefinition of binary metadata for target <code>&lt;target&gt;</code> (<code>&lt;arch-size&gt;</code> bits)</p>
+<a class="header-link" id="computecpp-cc0044" href="#computecpp-cc0044"><span class="material-icons">link</span><h3 id="computecpp-cc0044">[Computecpp:CC0044]</h3></a>
+<p>Redefinition of kernel <code>&lt;kernel name&gt;</code> metadata</p>
+<a class="header-link" id="computecpp-cc0045" href="#computecpp-cc0045"><span class="material-icons">link</span><h3 id="computecpp-cc0045">[Computecpp:CC0045]</h3></a>
+<p>Error reading SYCL metadata file: <code>&lt;file&gt;</code></p>
+<a class="header-link" id="computecpp-cc0046" href="#computecpp-cc0046"><span class="material-icons">link</span><h3 id="computecpp-cc0046">[Computecpp:CC0046]</h3></a>
+<p>Expect the same number of binary information placeholders (got <code>&lt;i&gt;</code>) and kernel input files (got <code>&lt;j&gt;</code>)</p>
+<p>AMD is a registered trademark of Advanced Micro Devices, Inc. Intel is a trademark of Intel Corporation or its subsidiaries in the U.S. and/or other countries. NVIDIA and CUDA are registered trademarks of NVIDIA Corporation</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sample-code#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Sample Code</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-experimental-compiler"
+                            >
+                            <div>
+                                <h1>Compute++ Experimental Compiler</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#compute---compiler-manual">compute++ Compiler Manual</a></li>
+                        <li class="heading-1"><a href="#compute-information-manual">compute++ Information Manual</a></li>
+                        <li class="heading-2"><a href="#name">NAME</a></li>
+                        <li class="heading-2"><a href="#command">COMMAND</a></li>
+                        <li class="heading-2"><a href="#description">DESCRIPTION</a></li>
+                        <li class="heading-2"><a href="#examples-a4f23670e1833f3fdb077ca70bbd5d66">EXAMPLES</a></li>
+                        <li class="heading-2"><a href="#integration-header">INTEGRATION HEADER</a></li>
+                        <li class="heading-2"><a href="#using-compute-in-a-cross-compilation-setting">USING COMPUTE++ IN A CROSS-COMPILATION SETTING</a></li>
+                        <li class="heading-2"><a href="#note-on-host-and-device-abi">Note on host and device ABI</a></li>
+                        <li class="heading-2"><a href="#options-d6baf65e0b240ce177cf70da146c8dc8">OPTIONS</a></li>
+                        <li class="heading-2"><a href="#compute-specific-diagnostics">Compute++-specific Diagnostics</a></li>
+                        <li class="heading-2"><a href="#compute-internal-diagnostics">Compute++ Internal Diagnostics</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="734f232ff80e79ed0c9efb44fd579418">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

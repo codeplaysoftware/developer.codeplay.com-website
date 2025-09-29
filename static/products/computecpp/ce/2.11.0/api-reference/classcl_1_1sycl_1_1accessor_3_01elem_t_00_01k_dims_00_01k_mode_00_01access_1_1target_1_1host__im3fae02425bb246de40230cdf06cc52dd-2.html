@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt; Class Template Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt; Class Template Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+    <meta name="keywords" content="reference, api, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt; Class Template Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt; Class Template Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Reference/ReferencePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-content-with-side-menu layout-file">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+        <div class="nav-padding">
+            <!-- Title & Version Selector -->
+            <div class="header">
+                <h1 class="file-container-title">
+                    <span class="material-icons">menu_book</span>Reference
+                </h1>
+                <div>
+                    <!-- Version Selector -->
+                    <div class="version-selector disabled">
+                        <div><span class="material-icons">history</span>2.11.0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu -->
+            <ol class="file-menu">
+                <li class="selected"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/annotated" ><div class="icon"></div>Classes</a><ol><li class="selected"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl" ><div class="icon"><span class="type-icon namespace">N</span></div>cl</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl" ><div class="icon"><span class="type-icon namespace">N</span></div>sycl</a><ol></ol></li><li class="selected"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01k_target_00_01is_placeholder_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::accessor&lt; elemT, kDims, kMode, kTarget, isPlaceholder &gt; &gt;</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1info" ><div class="icon"><span class="type-icon namespace">N</span></div>info</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector" ><div class="icon"><span class="type-icon class">C</span></div>device_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_010_00_01k_mode_00_01access_1_1target_1_1local_00_01ac11e61964f98321fc59e3ba211b2ed571" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, 0, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class="selected focused"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image_0099ace1af3eb9921dd135ee22871e171c" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1local_00954080e79c4cab78cbdd7b7477d4a6dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor__error" ><div class="icon"><span class="type-icon class">C</span></div>accessor_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1atomic" ><div class="icon"><span class="type-icon struct">S</span></div>atomic</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits_3_01backend_1_1opencl_01_4" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits&lt; backend::opencl &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer_3_01const_01_t_00_01dims_00_01_allocator_t_01_4" ><div class="icon"><span class="type-icon class">C</span></div>buffer&lt; const T, dims, AllocatorT &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context" ><div class="icon"><span class="type-icon class">C</span></div>context</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1default__selector" ><div class="icon"><span class="type-icon class">C</span></div>default_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__error" ><div class="icon"><span class="type-icon class">C</span></div>device_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1device__type" ><div class="icon"><span class="type-icon struct">S</span></div>device_type</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event" ><div class="icon"><span class="type-icon class">C</span></div>event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception" ><div class="icon"><span class="type-icon class">C</span></div>exception</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1feature__not__supported" ><div class="icon"><span class="type-icon class">C</span></div>feature_not_supported</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1group" ><div class="icon"><span class="type-icon class">C</span></div>group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1id" ><div class="icon"><span class="type-icon class">C</span></div>id</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__context_01_5_00_01context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_context *, context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__platform__id_01_5_00_01platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_platform_id *, platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1intel__selector" ><div class="icon"><span class="type-icon class">C</span></div>intel_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__parameter__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_parameter_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel" ><div class="icon"><span class="type-icon class">C</span></div>kernel</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1link__program__error" ><div class="icon"><span class="type-icon class">C</span></div>link_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range" ><div class="icon"><span class="type-icon class">C</span></div>nd_range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1opencl__selector" ><div class="icon"><span class="type-icon class">C</span></div>opencl_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform__error" ><div class="icon"><span class="type-icon class">C</span></div>platform_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1private__memory" ><div class="icon"><span class="type-icon class">C</span></div>private_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1profiling__error" ><div class="icon"><span class="type-icon class">C</span></div>profiling_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list" ><div class="icon"><span class="type-icon class">C</span></div>property_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1range" ><div class="icon"><span class="type-icon class">C</span></div>range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1sampler" ><div class="icon"><span class="type-icon class">C</span></div>sampler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_012_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 2, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_014_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 4, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1swizzled__vec" ><div class="icon"><span class="type-icon class">C</span></div>swizzled_vec</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1event_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::event &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1kernel_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::kernel &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1program_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::program &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1sampler_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::sampler &gt;</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay" ><div class="icon"><span class="type-icon namespace">N</span></div>codeplay</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1profiling" ><div class="icon"><span class="type-icon namespace">N</span></div>profiling</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1interop__handle" ><div class="icon"><span class="type-icon class">C</span></div>interop_handle</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum" ><div class="icon"><span class="type-icon struct">S</span></div>maximum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>maximum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>minimum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1no__init__impl" ><div class="icon"><span class="type-icon class">C</span></div>no_init_impl</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1profiling_1_1profiling__zone" ><div class="icon"><span class="type-icon class">C</span></div>profiling_zone</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1host__access" ><div class="icon"><span class="type-icon class">C</span></div>host_access</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1use__onchip__memory" ><div class="icon"><span class="type-icon class">C</span></div>use_onchip_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1host__handler" ><div class="icon"><span class="type-icon class">C</span></div>host_handler</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1usm__allocator_1_1rebind" ><div class="icon"><span class="type-icon struct">S</span></div>rebind</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1context__bound" ><div class="icon"><span class="type-icon class">C</span></div>context_bound</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__mutex" ><div class="icon"><span class="type-icon class">C</span></div>use_mutex</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1enable__profiling" ><div class="icon"><span class="type-icon class">C</span></div>enable_profiling</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1experimental" ><div class="icon"><span class="type-icon namespace">N</span></div>experimental</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1sub__group" ><div class="icon"><span class="type-icon struct">S</span></div>sub_group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum" ><div class="icon"><span class="type-icon struct">S</span></div>minimum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1experimental_1_1usm__allocator" ><div class="icon"><span class="type-icon class">C</span></div>usm_allocator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1ext" ><div class="icon"><span class="type-icon namespace">N</span></div>ext</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits" ><div class="icon"><span class="type-icon struct">S</span></div>param_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__host__ptr" ><div class="icon"><span class="type-icon class">C</span></div>use_host_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1queue" ><div class="icon"><span class="type-icon namespace">N</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1in__order__impl" ><div class="icon"><span class="type-icon class">C</span></div>in_order_impl</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accelerator__selector" ><div class="icon"><span class="type-icon class">C</span></div>accelerator_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor" ><div class="icon"><span class="type-icon class">C</span></div>accessor</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__buf15cbef5585a67b9df703426df07becd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_buffer, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__task_00_01_is_placeholder_01_4" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_task, IsPlaceholder &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image__a20b2e286317ab4aba41c67020102515e" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image_array, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1subgroup76e943a636f7dfa8379be4ce805ab016" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::subgroup_local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1amd__selector" ><div class="icon"><span class="type-icon class">C</span></div>amd_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer" ><div class="icon"><span class="type-icon class">C</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1compile__program__error" ><div class="icon"><span class="type-icon class">C</span></div>compile_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1cpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>cpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device" ><div class="icon"><span class="type-icon class">C</span></div>device</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__event" ><div class="icon"><span class="type-icon class">C</span></div>device_event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1elem" ><div class="icon"><span class="type-icon struct">S</span></div>elem</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event__error" ><div class="icon"><span class="type-icon class">C</span></div>event_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception__list" ><div class="icon"><span class="type-icon class">C</span></div>exception_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1gpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>gpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1h__item" ><div class="icon"><span class="type-icon class">C</span></div>h_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1host__selector" ><div class="icon"><span class="type-icon class">C</span></div>host_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1image" ><div class="icon"><span class="type-icon class">C</span></div>image</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__device__id_01_5_00_01device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_device_id *, device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01size__t_01_5_00_01range_3_013_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; size_t *, range&lt; 3 &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_object_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1item" ><div class="icon"><span class="type-icon class">C</span></div>item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel__error" ><div class="icon"><span class="type-icon class">C</span></div>kernel_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1memory__allocation__error" ><div class="icon"><span class="type-icon class">C</span></div>memory_allocation_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01const_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; const void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__item" ><div class="icon"><span class="type-icon class">C</span></div>nd_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range__error" ><div class="icon"><span class="type-icon class">C</span></div>nd_range_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform" ><div class="icon"><span class="type-icon class">C</span></div>platform</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1precision__manipulator" ><div class="icon"><span class="type-icon class">C</span></div>precision_manipulator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler::parallel_for_work_group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program" ><div class="icon"><span class="type-icon class">C</span></div>program</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue" ><div class="icon"><span class="type-icon class">C</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1runtime__error" ><div class="icon"><span class="type-icon class">C</span></div>runtime_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1stream" ><div class="icon"><span class="type-icon class">C</span></div>stream</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_0116_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 16, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_013_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 3, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_018_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 8, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1vec" ><div class="icon"><span class="type-icon class">C</span></div>vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1buffer_3_01_t_00_01dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::buffer&lt; T, dimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1image_3_01k_dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::image&lt; kDimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1queue_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::queue &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1stream_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::stream &gt;</a><ol></ol></li></ol></li>            </ol>
+        </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <h1>cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt; Class Template Reference</h1>
+                </header>
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="contents">
+<p>Specialization for a host image accessor.  
+ <a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd.html#details">More...</a></p>
+<p><code>#include &lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html">host_image_accessor.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt;:</div>
+<div class="dyncontent">
+<div class="center">
+<img src="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd.png">
+<map id="cl::sycl::accessor_3C_20elemT_2C_20kDims_2C_20kMode_2C_20access::target::host_5Fimage_2C_20access::placeholder::false_5Ft_20_3E_map">
+</map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a97adf3dec9a7090e26fc2a5cf0141ef5"><td class="memTemplParams" colspan="2">template&lt;typename AllocatorT &gt; </td></tr>
+<tr class="memitem:a97adf3dec9a7090e26fc2a5cf0141ef5"><td class="memTemplItemLeft"> </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd.html#a97adf3dec9a7090e26fc2a5cf0141ef5">accessor</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1image.html">image</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#adee2e3bdfed43ffe0b7ef0ea737c5a4c">kDims</a>, AllocatorT &gt; &amp;imageRef, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a97adf3dec9a7090e26fc2a5cf0141ef5"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a host image accessor.  <a href="#a97adf3dec9a7090e26fc2a5cf0141ef5">More...</a><br></td></tr>
+<tr class="separator:a97adf3dec9a7090e26fc2a5cf0141ef5"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<a id="details" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename elemT, int kDims, access::mode kMode&gt;<br>
+class cl::sycl::accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt;</h3>
+<p>Specialization for a host image accessor. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">elemT</td><td>Underlying data type </td></tr>
+<tr><td class="paramname">kDims</td><td>Number of accessor dimensions (&gt; 0) </td></tr>
+<tr><td class="paramname">kMode</td><td>Access mode </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html#l00030">30</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html">host_image_accessor.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a97adf3dec9a7090e26fc2a5cf0141ef5" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97adf3dec9a7090e26fc2a5cf0141ef5">◆ </a></span>accessor()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename elemT , int kDims, access::mode kMode&gt; </div>
+<div class="memtemplate">
+template&lt;typename AllocatorT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor.html">cl::sycl::accessor</a>&lt; elemT, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#adee2e3bdfed43ffe0b7ef0ea737c5a4c">kDims</a>, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#af827bc05849ee05ae978679bca689c43">kMode</a>, access::target::host_image, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1access.html#af1c616691dbceeaca9cdd537a8ab0af9a15f2c35ad6e5422c120ea62f6bc14366">access::placeholder::false_t</a> &gt;::<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor.html">accessor</a> </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1image.html">image</a>&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#adee2e3bdfed43ffe0b7ef0ea737c5a4c">kDims</a>, AllocatorT &gt; &amp; </td>
+<td class="paramname"><em>imageRef</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a host image accessor. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">AllocatorT</td><td>Type of the image allocator </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">imageRef</td><td>Image object where access is being requested </td></tr>
+<tr><td class="paramname">propList</td><td>Additional properties </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html#l00047">47</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html">host_image_accessor.h</a>.</p>
+</div>
+</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/host__image__accessor_8h_source.html">host_image_accessor.h</a></li>
+</ul>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="665aa501a57148aed7ba4d7739c0c439">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

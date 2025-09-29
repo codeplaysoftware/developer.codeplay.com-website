@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-for-cuda-developers/migration.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:42:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Migration - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Migration' for ComputeCpp™ Community Edition 2.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Migration - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Migration' for ComputeCpp™ Community Edition 2.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../api-reference/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../download/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home/index.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="../../../api-reference/index.html"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="../../../download/index.html"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="sycl-for-cuda-developers-migration">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.0.0</div>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../index.html">2.0.0</a></li>
+                           <li><a href="../../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="../../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="../release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="../platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="../platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="../platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="../platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="../platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="../what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="../sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="../sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="../sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="../sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="../sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="../sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="../sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="../sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="../sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="../sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="../sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="../computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="../anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="../frameworks-for-computecpp-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="../sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="../compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="../error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="../logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="../configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="../computecpp-profiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Profiler</a><ol></ol></li>               <li class=""><a href="../step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li>               <li class=""><a href="../integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class="selected"><a href="../sycl-for-cuda-developers-2.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class="selected focused"><a href="migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="../tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="../tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="../tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="../eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="../eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="../ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.0.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#migration">
+                            <h1>Migration</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="libraries-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="migrating-from-cuda-to-sycl" href="#migrating-from-cuda-to-sycl"><span class="material-icons">link</span><h1 id="migrating-from-cuda-to-sycl">Migrating from CUDA to SYCL</h1></a>
+<p>In this chapter we provide mapping tables for the main nomenclature differences between
+SYCL, CUDA, and OpenCL. Knowing the equivalent nomenclature for each platform
+is essential to migrate a CUDA code to a SYCL code. The actual function call
+for CUDA terminology can be found in <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html">CUDA C programming
+guide</a>. For
+OpenCL, the function call syntax can be found in <a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/">OpenCL 1.2 reference
+pages</a>. The SYCL syntax function call can be found in <a href="https://www.khronos.org/registry/SYCL/specs/sycl-1.2.1.pdf">Khronos SYCL 1.2.1
+specification</a>.  </p>
+<a class="header-link" id="execution-model-equivalence" href="#execution-model-equivalence"><span class="material-icons">link</span><h2 id="execution-model-equivalence">Execution model equivalence</h2></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="center">CUDA</th>
+<th align="center">SYCL</th>
+<th align="center">OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">SM</td>
+<td align="center">CU</td>
+<td align="center">CU</td>
+</tr>
+<tr>
+<td align="center">SM core</td>
+<td align="center">PE</td>
+<td align="center">PE</td>
+</tr>
+<tr>
+<td align="center">thread</td>
+<td align="center">work-item</td>
+<td align="center">work-item</td>
+</tr>
+<tr>
+<td align="center">block</td>
+<td align="center">work-group</td>
+<td align="center">work-group</td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="memory-model-equivalence" href="#memory-model-equivalence"><span class="material-icons">link</span><h2 id="memory-model-equivalence">Memory model equivalence</h2></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="center">CUDA</th>
+<th align="center">SYCL</th>
+<th align="center">OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">register</td>
+<td align="center">private memory</td>
+<td align="center">private memory</td>
+</tr>
+<tr>
+<td align="center">shared memory</td>
+<td align="center">local memory</td>
+<td align="center">local memory</td>
+</tr>
+<tr>
+<td align="center">constant memory</td>
+<td align="center">constant memory</td>
+<td align="center">constant memory</td>
+</tr>
+<tr>
+<td align="center">global memory</td>
+<td align="center">global memory</td>
+<td align="center">global memory</td>
+</tr>
+<tr>
+<td align="center">local memory</td>
+<td align="center">N/A(device specific)</td>
+<td align="center">N/A(device specific)</td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="host-api-equivalence" href="#host-api-equivalence"><span class="material-icons">link</span><h2 id="host-api-equivalence">Host API equivalence</h2></a>
+<a class="header-link" id="platform-api-equivalence" href="#platform-api-equivalence"><span class="material-icons">link</span><h3 id="platform-api-equivalence">Platform API equivalence</h3></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="center">CUDA</th>
+<th align="center">SYCL</th>
+<th align="center">OpenCL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>cudaStreamCreate()</code></td>
+<td align="center"><code>queue</code> class</td>
+<td align="center"><code>clCreateCommmandQueue()</code></td>
+<td>By default the CUDA stream will be constructed by the CUDA driver.</td>
+</tr>
+<tr>
+<td align="center"><code>cudaStreamDestroy()</code></td>
+<td align="center"><code>N/A</code></td>
+<td align="center"><code>clReleaseCommandQueue()</code></td>
+<td>In CUDA this function is required if the stream is created explicitly.<br> In SYCL this is handled by the run-time</td>
+</tr>
+<tr>
+<td align="center"><code>cuStreamSynchronize()</code> <br> <code>cudaDeviceSynchronize()</code></td>
+<td align="center"><code>queue::wait()</code></td>
+<td align="center"><code>clEnqueueBarrierWithWaitList()</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><code>cuStreamWaitEvent()</code></td>
+<td align="center"><code>event::wait()</code></td>
+<td align="center"><code>clWaitForEvents()</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><code>cudaStreamAddCallback()</code></td>
+<td align="center"><code>N/A</code></td>
+<td align="center"><code>clSetEventCallback()</code></td>
+<td>SYCL does not support a callback function.</td>
+</tr>
+<tr>
+<td align="center"><code>N/A</code></td>
+<td align="center"><code>platform::get()</code></td>
+<td align="center"><code>clGetPlatformIDs()</code></td>
+<td>This is optional in SYCL and it can be handled by the SYCL runtime via <code>device_selector</code></td>
+</tr>
+<tr>
+<td align="center"><code>cuCtxCreate()</code></td>
+<td align="center"><code>context</code> class</td>
+<td align="center"><code>clCreateContext()</code></td>
+<td>By default it will be constructed by the CUDA driver. <br> By default this will be constructed by SYCL via the device selector</td>
+</tr>
+<tr>
+<td align="center"><code>CUDAGetDevice()</code></td>
+<td align="center"><code>device</code> class</td>
+<td align="center"><code>clGetDeviceInfo()</code></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"><code>CUDASetDevice()</code></td>
+<td align="center"><code>device_selector</code> class</td>
+<td align="center"><code>N/A</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="memory-management-api-equivalence" href="#memory-management-api-equivalence"><span class="material-icons">link</span><h3 id="memory-management-api-equivalence">Memory management API equivalence</h3></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>CUDA</th>
+<th align="center">SYCL</th>
+<th align="center">OpenCL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cudaMalloc()</code><br><code>cudaMallocHost()</code> <br> <code>cudaHostAlloc()</code></td>
+<td align="center"><code>buffer</code> class</td>
+<td align="center"><code>clCreateBuffer()</code> <br> <code>clEnqueueMapBuffer()</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cudaHostGetDevicePointer()</code></td>
+<td align="center"><code>accessor</code> class</td>
+<td align="center"><code>N/A</code></td>
+<td>OpenCL does not support a unified memory system.</td>
+</tr>
+<tr>
+<td><code>cudaMemset()</code></td>
+<td align="center"><code>handler::fill()</code></td>
+<td align="center"><code>clEnqueueFillBuffer()</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cudaMemcpyAsync()</code> <br> <code>cudaMemcpy()</code></td>
+<td align="center"><code>handler::copy()</code></td>
+<td align="center"><code>clEnqueueReadBuffer()</code> <br> <code>clEnqueueWriteBuffer()</code> <br> <code>clEnqueueCopyBuffer()</code></td>
+<td>In SYCL explicit copy is optional. This means that a user can explicitly copy the data between host or device. If a user does not provide an explicit copy, the data transfer is handled implicitly.</td>
+</tr>
+<tr>
+<td><code>cudaFree()</code></td>
+<td align="center"><code>N/A</code></td>
+<td align="center"><code>clReleaseMemObject()</code></td>
+<td>The buffer deletion is handled by the SYCL runtime, when an application exits the end of the SYCL scope <code>{}</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="runtime-api-equivalent" href="#runtime-api-equivalent"><span class="material-icons">link</span><h3 id="runtime-api-equivalent">Runtime API equivalent</h3></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th align="center">CUDA</th>
+<th align="center">SYCL</th>
+<th align="center">OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>&lt;&lt;&lt;....&gt;&gt;&gt;</code></td>
+<td align="center"><code>nd_range</code> class</td>
+<td align="center"><code>global_work_size</code> <br> <code>local_work_size</code> variables</td>
+</tr>
+<tr>
+<td align="center"><code>"kernel function name"&lt;&lt;&lt;...&gt;&gt;&gt;()</code></td>
+<td align="center"><code>queue::submit()</code></td>
+<td align="center"><code>clCreateProgramWithSource/Binary()</code> <br> <code>clBuildProgram()</code> <br> <code>clCreateKernel()</code> <br> <code>clCreateKernel()</code> <br> <code>clSetKernelArg()</code> <br> <code>clEnqueueNDRangeKernel()</code></td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="device-api-equivalence" href="#device-api-equivalence"><span class="material-icons">link</span><h2 id="device-api-equivalence">Device API equivalence</h2></a>
+<a class="header-link" id="kernel-functions-qualifiers" href="#kernel-functions-qualifiers"><span class="material-icons">link</span><h3 id="kernel-functions-qualifiers">Kernel functions qualifiers</h3></a>
+<p>Qualifiers are not needed in SYCL as they are all abstracted by the SYCL runtime classes, but OpenCL ones are provided for reference.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>CUDA</th>
+<th align="center">SYCL</th>
+<th>OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__global__</code> function</td>
+<td align="center"><code>N/A</code></td>
+<td><code>__kernel</code> function</td>
+</tr>
+<tr>
+<td><code>__device__</code> function</td>
+<td align="center"><code>N/A</code></td>
+<td><code>N/A</code></td>
+</tr>
+<tr>
+<td><code>__constant__</code> variable declaration</td>
+<td align="center"><code>N/A</code></td>
+<td><code>__constant</code> variable declaration</td>
+</tr>
+<tr>
+<td><code>__device__</code> variable declaration</td>
+<td align="center"><code>N/A</code></td>
+<td><code>__global</code> variable declaration</td>
+</tr>
+<tr>
+<td><code>__shared__</code> variable declaration</td>
+<td align="center"><code>N/A</code></td>
+<td><code>__local</code> variable declaration</td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="indexing-equivalence" href="#indexing-equivalence"><span class="material-icons">link</span><h3 id="indexing-equivalence">Indexing equivalence</h3></a>
+<p>Please note that this is the general mapping between CUDA, OpenCL, and SYCL. Some architectures my not support 3 dimensions.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>CUDA</th>
+<th align="center">SYCL</th>
+<th>OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item</code> class</td>
+<td><code>N/A</code></td>
+</tr>
+<tr>
+<td><code>gridDim.{x, y, z}</code></td>
+<td align="center"><code>nd_item::get_num_group({0,1,2})</code></td>
+<td><code>get_num_group({0,1,2})</code></td>
+</tr>
+<tr>
+<td><code>blockDim.{x, y, z}</code></td>
+<td align="center"><code>nd_item::get_local_range({0,1,2})</code></td>
+<td><code>get_local_size({0,1,2})</code></td>
+</tr>
+<tr>
+<td><code>blockIdx.{x, y, z}</code></td>
+<td align="center"><code>nd_item::get_group({0,1,2})</code></td>
+<td><code>get_group_id({0,1,2})</code></td>
+</tr>
+<tr>
+<td><code>threadIdx.{x, y, z}</code></td>
+<td align="center"><code>nd_item::get_local_id({0,1,2})</code></td>
+<td><code>get_local_id({0,1,2})</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::get_global_id({0,1,2})</code></td>
+<td><code>get_global_id({0,1,2})</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::get_linear_group_id()</code></td>
+<td><code>N/A</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::get_linear_local_id()</code></td>
+<td><code>N/A</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::get_linear_global_id()</code></td>
+<td><code>N/A</code></td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="synchronization-equivalence" href="#synchronization-equivalence"><span class="material-icons">link</span><h3 id="synchronization-equivalence">Synchronization equivalence</h3></a>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>CUDA</th>
+<th align="center">SYCL</th>
+<th>OpenCL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__syncthread()</code></td>
+<td align="center"><code>nd_item::barrier()</code></td>
+<td><code>barrier()</code></td>
+</tr>
+<tr>
+<td><code>__threadfence_block()</code></td>
+<td align="center"><code>nd_item::mem_fence()</code></td>
+<td><code>mem_fence()</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::mem_fence()</code></td>
+<td><code>read_mem_fence()</code></td>
+</tr>
+<tr>
+<td><code>N/A</code></td>
+<td align="center"><code>nd_item::mem_fence()</code></td>
+<td><code>write_mem_fence()</code></td>
+</tr>
+<tr>
+<td><code>__threadfence()</code></td>
+<td align="center"><code>N/A</code></td>
+<td><code>N/A</code></td>
+</tr>
+<tr>
+<td><code>__threadfence_system()</code></td>
+<td align="center"><code>N/A</code></td>
+<td><code>N/A</code></td>
+</tr>
+</tbody>
+</table></div>
+<a class="header-link" id="how-to-rewrite-cuda-multi-gpu-code-for-sycl" href="#how-to-rewrite-cuda-multi-gpu-code-for-sycl"><span class="material-icons">link</span><h2 id="how-to-rewrite-cuda-multi-gpu-code-for-sycl">How to rewrite CUDA multi-GPU code for SYCL</h2></a>
+<p>NVIDIA CUDA supports using multiple GPUs from versions &gt;= 4.0.
+CUDA can dispatch CUDA kernels, data movement, communication and synchronization
+among all NVIDIA GPUs.</p>
+<p>OpenCL supports using multiple OpenCL-enabled devices for dispatching kernels,
+data movement, communication and synchronization only if they reside in
+the same OpenCL context. NVIDIA devices do not have the context restriction as all
+NVIDIA devices share the same context created for the NVIDIA platform.  In general,
+a computer or a device can accommodate more than one OpenCL-enabled device,
+provided by different vendors. An example could be a desktop computer with both
+Intel and AMD GPUs where each of them has its own OpenCL driver.  Therefore,
+each device belongs to a different OpenCL platform and must have a different context.
+In such case, two separate OpenCL buffers must be created. Data movement,
+communication and synchronization must be handled manually. SYCL, on the other
+hand,  not only supports dispatching the kernels to multiple OpenCL devices, but it can also implicitly handle the data
+movement, synchronization and communication among all OpenCL-enabled
+devices, irrespective of the platform they belong to.</p>
+<a class="header-link" id="cuda-multiple-gpu" href="#cuda-multiple-gpu"><span class="material-icons">link</span><h3 id="cuda-multiple-gpu">CUDA multiple GPU</h3></a>
+<p>A single CPU thread can be used for handling multiple GPUs in CUDA. The following
+function is used to get the number of available NVIDIA GPU devices in CUDA:</p>
+<p><code>cudaError_t cudaGetDeviceCount(int* num_gpu);</code></p>
+<p><code>cudaSetDevice</code> can be used to choose a specific device for dispatching a CUDA
+kernel. The following pseudo-code demonstrates dispatching a kernel on multiple
+NVIDIA GPUs:</p>
+<pre><code class="language-cpp">....
+int num_gpu;
+// finding available number of NVIDIA GPU devices
+cudaGetDeviceCount(&amp;num_gpu);
+
+//looping over number of devices and dispatching a kernel per device.
+for (int i = 0; i &lt; ngpus; i++) {
+    // selecting the current device
+    cudaSetDevice(i);
+    // executing a my_kernel on the selected device
+    my_kernel&lt;&lt;&lt;num_blocks, block_size&gt;&gt;&gt;(...);
+    // transfering data between the host and the selected device
+    cudaMemcpy(...);
+}
+....
+</code></pre>
+<p>Note that the above code dispatches a kernel by using a single thread. It is
+possible to parallelize the for loop launching the kernels. However, it is the
+user's responsibility to handle locking when multiple threads use multiple
+devices. See the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-multi-gpu">CUDA C programming
+guide</a>
+for further information.</p>
+<a class="header-link" id="sycl-multiple-devices" href="#sycl-multiple-devices"><span class="material-icons">link</span><h3 id="sycl-multiple-devices">SYCL multiple devices</h3></a>
+<p>The list of SYCL supported platforms can be obtained with the list of devices for 
+each platform by calling <code>get_platforms(</code>) and <code>platform.get_devices()</code>
+respectively. Once we have all the devices,  we can construct a queue per
+device and dispatch different kernels to different queues.</p>
+<p>When there is only one device, kernels can be submitted to the same device.
+The following code snippet represents dispatching multiple kernels to a single
+SYCL device:</p>
+<pre><code class="language-cpp">...;
+
+// constructing the quue for an specefic device
+auto my_queue = cl::sycl::queue(device_selector);
+
+// submitting a kernel to a the sycl queue
+my_queue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+    ....
+  // sycl kernel 1
+  cgh.parallel_for(....);
+});
+
+my_queue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+    ....
+  // sycl kernel 2
+  cgh.parallel_for(....);
+});
+
+my_queue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+    ....
+  // sycl kernel 3
+  cgh.parallel_for(....);
+});
+
+...;
+</code></pre>
+<p>Moreover, when there are multiple devices, the
+kernels can be distributed among all devices. The following code snippet represents dispatching a
+kernel on multiple SYCL devices:</p>
+<pre><code class="language-cpp">...;
+
+// getting the list of all supported sycl platforms
+auto platfrom_list = cl::sycl::platform::get_platforms();
+// getting the list of devices from the platform
+auto device_list = platform.get_devices();
+// looping over platforms
+for (const auto &amp;platform : platfrom_list) {
+  // looping over devices
+  for (const auto &amp;device : device_list) {
+    auto queue = cl::sycl::queue(device);
+    // submitting a kernel to a the sycl queue
+    queue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+      ....
+          // sycl kernel
+          cgh.parallel_for(....);
+    });
+  }
+}
+...;
+</code></pre>
+<p>Unlike CUDA, dispatching kernels to multiple SYCL devices is a thread safe operation, 
+and can be done from different threads of execution.</p>
+<a class="header-link" id="porting-cuda-cpu-library-functions-to-sycl" href="#porting-cuda-cpu-library-functions-to-sycl"><span class="material-icons">link</span><h2 id="porting-cuda-cpu-library-functions-to-sycl">Porting CUDA CPU library functions to SYCL</h2></a>
+<p>At the time of writing this document, the cuBLAS library, which is part of the CUDA 6.0 (and above) ecosystem, is the only library that can be used as a replacement for a CPU BLAS library directly by replacing the link flags in the build system.
+In particular, <a href="https://docs.nvidia.com/cuda/nvblas/index.html">NVBLAS</a> is an interception layer
+that replaces calls to a CPU-based BLAS library into its cuBLAS counterparts.
+No source code modification is required.</p>
+<p>Although technically possible, at the time of writing this document, such intercept layer for SYCL-BLAS has not been added to the SYCL ecosystem.
+In general, the interception layer mechanism is suitable for C-based interfaces, where the symbol name is clearly identifiable in the generated binary. C++-based interfaces rely on template meta-programing, which makes the interception of symbols at linki time difficult. However, a new BLAS library project with a C interface could implement this feature.</p>
+<a class="header-link" id="porting-cuda-debug-code-to-sycl" href="#porting-cuda-debug-code-to-sycl"><span class="material-icons">link</span><h2 id="porting-cuda-debug-code-to-sycl">Porting CUDA debug code to SYCL</h2></a>
+<a class="header-link" id="error-handling-and-reporting" href="#error-handling-and-reporting"><span class="material-icons">link</span><h3 id="error-handling-and-reporting">Error-handling and reporting</h3></a>
+<p>In CUDA, all synchronous functions return an error code.
+Note that asynchronous functions (such as kernel execution) cannot possibly return an error code via its interface, so a later invocation to a function may return an error that comes from a previous API call.
+Typically, the error code returned by <code>cudaDeviceSynchronize</code> is used to query for the error of a previous kernel execution, although <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#error-checking">more advanced functionality is available</a>.
+Developers are encouraged to write their own checking macros to wrap API calls and catch synchronous errors.</p>
+<p>In SYCL, error reporting is done via the C++ exception mechanism. 
+Synchronous operations will throw exceptions derived from <code>cl::sycl::exception</code> and can be catch in-place by developers, like in the example below:</p>
+<pre><code class="language-cpp">try {
+    mySyclProgram.build_with_kernel_type&lt;class myKernel&gt;()
+} catch (cl::sycl::compile_program_error e) {
+    std::cout &lt;&lt; " The program failed to build " &lt;&lt; std::endl;
+}
+</code></pre>
+<p>Asynchronous operations are captured and stored automatically by the SYCL runtime.
+Multiple exceptions are stored in the order they are captured in a list, of type <code>cl::sycl::exception_list</code>.
+On construction of a queue, an optional functor - the <em>asynchronous handler</em> - can be specified.
+Whenever a user calls the <code>wait_and_throw</code> or <code>async_throw</code> methods of the SYCL queue, 
+this functor is called. 
+Developers can use this function to handle custom behavior for dealing with exceptions, such as
+reducing the multiple exceptions in a list to the most severe one and re-throwing it.
+If neither of those methods are called, the exceptions are discarded when the queue object is destroyed.
+The <a href="https://github.com/codeplaysoftware/computecpp-sdk/blob/master/samples/async-handler/async-handler.cpp">async_handler example of the ComputeCpp SDK</a> illustrates the usage of this mechanism to rethrow and display exceptions.</p>
+<p>In both synchronous and asynchronous cases, when a SYCL-related error occurs, an object of type
+<code>cl::sycl::exception</code> will be thrown. SYCL exception objects are derived from the standard exception type <code>std::exception</code>. 
+Whenever a specific exception type is available, the SYCL exception type can inherit from the particular exception type and throw a more elaborate report regarding the captured error. Refer to the SYCL specification Section 4.9.2 for details on the Exception Class Interface.
+All SYCL exception objects contain a description message, whose contents are implementation defined.
+Whenever possible, a low-level OpenCL error and/or a pointer to a SYCL context is also provided.</p>
+<a class="header-link" id="debugging-sycl-code" href="#debugging-sycl-code"><span class="material-icons">link</span><h3 id="debugging-sycl-code">Debugging SYCL code</h3></a>
+<p>The CUDA ecosystem includes a CUDA debugger, <a href="https://docs.nvidia.com/cuda/cuda-gdb/index.html">cuda-gdb</a>, which is based on gdb with some extensions to facilitate debugging of GPU code.
+Developers can also use printf inside CUDA kernels to display intermediate results.
+In addition, a functional correctness checking suite called <a href="https://docs.nvidia.com/cuda/cuda-memcheck/index.html">cuda-memcheck</a> is available to check different aspects of CUDA applications.</p>
+<p>In SYCL, we have to distinguish two kinds of debugging: (A) Debugging the host application or (B) debugging the device-specific behavior. 
+There is no standard solution for (B), as the code executed on the device can only be debugged within a debugger that contains supports for the given platform. This is inherently device-specific.
+On the other hand, (A) can be dealt with easily in SYCL. Any code that executes on a device must run on the host using a host queue. Hence, replacing a device-queue with a host queue will have the same expected output (minus device-specific behavior) as the original device queue.
+Since the host queue is implemented in pure C++, normal C++ debuggers can be used to inspect the behavior of the kernels on host.
+A host queue can be created on the host simply by creating a queue from a host device. A simple option to enable simple debugging on the host is to use a pre-processor macro when creating a custom debug build, as shown below:</p>
+<pre><code class="language-cpp">#if __DEBUG_IN_HOST_DEVICE
+// Construct a host device
+host_device hd;
+// Create a queue with a host device
+queue myQueue(hD);
+#else
+// Use the default selector of the platform
+queue myQueue;
+#endif
+</code></pre>
+<p>The rest of the code remains unchanged.</p>
+<p>Using the same mechanism, any C++ check tool can be used to inspect the behavior of the application on the host. For example, <a href="http://valgrind.org/">valgrind</a> can be used to detect out of bounds access to arrays when using the host device without requiring special configuration options.</p>
+<p>To display intermediate results, SYCL developers can still use the low-level printf function, with equivalent behavior as the <a href="https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/printfFunction.html">OpenCL printf function</a>.
+For device kernels, C++ <em>iostream</em> operations (e.g, cout or cerr) are not available.
+However, a replacement SYCL stream class with equivalent functionality is available on the device.
+The SYCL stream class is defined in Section 4.12 of the SYCL 1.2.1 specification.
+The example <a href="https://github.com/codeplaysoftware/computecpp-sdk/blob/master/samples/hello-world/hello-world.cpp">hello-world in the ComputeCpp SDK</a> illustrates the usage of the stream object.
+The output of the stream object is displayed when the kernel execution completes.</p>
+<a class="header-link" id="measuring-sycl-application-performance" href="#measuring-sycl-application-performance"><span class="material-icons">link</span><h2 id="measuring-sycl-application-performance">Measuring SYCL application performance</h2></a>
+<p>SYCL application performance can be measured by enabling profiling in each SYCL
+queue. Queue profiling can be enabled by passing the SYCL property list with</p>
+<p><code>cl::sycl::property::queue::enable_profiling()</code> to a SYCL queue. </p>
+<p>Once profiling is enabled, the kernel execution submit time,
+kernel execution start time, and the kernel execution end time can be extracted.</p>
+<p>The following code snippet represents how to enable profiling and extract
+the execution time from a sycl application.</p>
+<pre><code class="language-cpp">int main() {
+
+  // ...
+
+  // enabling SYCL queue profiling
+  auto property_list =
+      cl::sycl::property_list{cl::sycl::property::queue::enable_profiling()};
+
+  // adding the property list with profiling enabled option to the sycl queue. 
+  auto sycl_queue = cl::sycl::queue(property_list);
+
+  //....
+
+  // submitting sycl kernel
+  auto event = sycl_queue.submit([&amp;](cl::sycl::handler&amp; cgh){
+
+    //...
+
+  });
+
+  // waiting for the kernel to finish
+  event.wait();
+
+  // getting kernel submission time
+  auto submit_time =
+        event.get_profiling_info&lt;
+                cl::sycl::info::event_profiling::command_submit&gt;();
+
+  // getting kernel start time
+  auto start_time = event.get_profiling_info&lt;
+                              cl::sycl::info::event_profiling::command_start&gt;();
+
+  // getting kernel end time
+  auto end_time = event.get_profiling_info&lt;
+                            cl::sycl::info::event_profiling::command_end&gt;();
+
+  // calculating the duration between submitting a sycl kernel and executing 
+  // sycl kernel in milliseconds.
+  auto submission_time = (start_time - submit_time) / 1000000.0f;
+
+  // calculating the kernel execution time in milliseconds
+  auto execution_time = (end_time - start_time) / 1000000.0f;
+
+  // .....
+
+}
+</code></pre>
+<a class="header-link" id="porting-cuda-build-system-to-sycl" href="#porting-cuda-build-system-to-sycl"><span class="material-icons">link</span><h2 id="porting-cuda-build-system-to-sycl">Porting CUDA build system to SYCL</h2></a>
+<p>The CUDA platform offers a single unified compiler that is capable of generating a final application binary from CUDA code, <code>nvcc</code>.
+Different versions of the CUDA platform offer different capabilities, refer to <a href="https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html">The nvcc documentation</a> for details.
+The CUDA compiler can also be used to build only the device code, and use another standard compiler (e.g, gcc) to link and compile on the host.</p>
+<p>In the SYCL standard, two mechanisms of compilation are described: (A) Single unified compiler and (B) Multiple compilers for the same source.
+Different SYCL implementations may implement (A), (B) or both.
+In this document we focus on Codeplay's ComputeCpp implementation. The details of the build system can be found in <a href="integration-guide.html">the ComputeCpp integration guide</a>. 
+The integration guide contains detailed examples on integration of different build systems and different compilation options.</p>
+<a class="header-link" id="switching-from-nvcc-to-compute" href="#switching-from-nvcc-to-compute"><span class="material-icons">link</span><h3 id="switching-from-nvcc-to-compute">Switching from nvcc to compute++</h3></a>
+<p>The simplest way to switch from the NVIDIA CUDA compiler to the ComputeCpp SYCL compiler is to replace the former with the later.
+<code>compute++</code> is a clang driver, hence any standard clang and/or llvm options will be valid.
+For example, building a simple hello world cuda file:</p>
+<pre><code class="language-cpp">$ nvcc hello_world.cu -o hello_world.exe
+</code></pre>
+<p>Is equivalent to using compute++ to build the SYCL C++ source:</p>
+<pre><code class="language-cpp">$ compute++ hello_world.cpp -o hello_world.exe
+</code></pre>
+<p>Note compute++ builds C++ files, whereas CUDA builds <code>.cu</code> files. 
+CUDA is not considered standard C++, hence uses a different file type.
+This implies that CUDA files need to be converted to C++ sources before they can be built with SYCL C++.</p>
+<p>The following table shows the equivalence between <code>nvcc</code>-specific options and <code>compute++</code>.
+<code>nvcc</code>-specific options not listed here are not suported or not applicable to <code>compute++</code>.
+For all the standard options, refer to the <a href="https://clang.llvm.org/docs/ClangCommandLineReference.html">clang command line documentation</a></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>nvcc</th>
+<th align="center">compute++</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(default behavior)</em></td>
+<td align="center">-sycl-driver</td>
+<td>Compiles both host and device code into a single output binary</td>
+</tr>
+<tr>
+<td>--fatbin , --ptx, --cubin --device-c</td>
+<td align="center">-sycl -c  or -sycl-device-only</td>
+<td>Outputs only the <a href="integration-guide.html">integration header</a></td>
+</tr>
+<tr>
+<td>--gpu-architecture, --gpu</td>
+<td align="center">-sycl-target ptx64 --cuda-gpu-arch</td>
+<td>Only when using <em>ptx64</em> target</td>
+</tr>
+</tbody>
+</table></div>
+<p>If the SYCL compiler-driver is used, there is no need to install any host-side compiler. If
+Single-source multiple-compiler passes is used, the
+installation of a host-side compiler, like g++, is required.</p>
+<a class="header-link" id="porting-cuda-stream-to-sycl-queue" href="#porting-cuda-stream-to-sycl-queue"><span class="material-icons">link</span><h2 id="porting-cuda-stream-to-sycl-queue">Porting CUDA stream to SYCL queue</h2></a>
+<a class="header-link" id="cuda-stream" href="#cuda-stream"><span class="material-icons">link</span><h3 id="cuda-stream">CUDA stream</h3></a>
+<p>A CUDA stream is a sequence of CUDA operations, submitted from host code. These
+operations are executed asynchronously in order of submission.
+It is always users'  responsibility to synchronize the operation
+before using the result. If no CUDA stream is given, a default CUDA stream is
+created and all operations are submitted to the default stream. </p>
+<p>It is possible to overlap the execution of multiple CUDA operations by creating
+multiple CUDA streams and submitting them to different streams. This can be
+used to overlap submission of kernels with data transfer operations.</p>
+<p>The following code snippet demonstrates how to define, create, and release a
+CUDA stream object. See the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#streams">CUDA C programming guide</a> for
+more information.</p>
+<pre><code class="language-cpp">// defining a CUDA stream object
+cudaStream_t stream;
+// creating a CUDA stream object
+cudaError_t err = cudaStreamCreate(&amp;stream);
+// releasing a CUDA stream object
+cudaError_t err = cudaStreamDestroy(stream);
+</code></pre>
+<a class="header-link" id="sycl-queue-0353ab4cbed5beae847a7ff6e220b5cf" href="#sycl-queue-0353ab4cbed5beae847a7ff6e220b5cf"><span class="material-icons">link</span><h3 id="sycl-queue-0353ab4cbed5beae847a7ff6e220b5cf">SYCL queue</h3></a>
+<p>In a similar fashion to CUDA streams, SYCL queues submit command groups for
+execution asynchronously.  However, SYCL is a higher-level programming model,
+and data transfer operations are implicitly deduced from the dependencies of
+the kernels submitted to any queue. Furthermore, SYCL queues can map to
+multiple OpenCL queues, enabling transparent overlapping of data-transfer and
+kernel execution.  The SYCL runtime handles the execution order of the
+different command groups (kernel + dependencies) automatically across multiple
+queues in different devices.</p>
+<p>We can create a SYCL queue by instantiating the queue class.</p>
+<p><code>cl::sycl::queue myQueue{device_selector}</code></p>
+<p>The <code>device_selector</code> determines the SYCL device we are going to use.The system
+resources required by the queue are released automatically after it goes out of
+scope following C++ RAII rules.  </p>
+<a class="header-link" id="event-mechanism" href="#event-mechanism"><span class="material-icons">link</span><h3 id="event-mechanism">Event mechanism</h3></a>
+<a class="header-link" id="cuda-event-function" href="#cuda-event-function"><span class="material-icons">link</span><h4 id="cuda-event-function">CUDA event function</h4></a>
+<p>A CUDA event is a marker associated with a certain point in the stream. A CUDA
+event can be used either to synchronize the stream execution or to monitor the
+progress in the device. The following code snippet represents the declaration,
+construction and releasing of a CUDA event. More information can be found in
+<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#events">CUDA C programming guide</a> </p>
+<pre><code class="language-cpp">// declaration of a CUDA event
+cudaEvent_t event;
+// creation of a CUDA event
+cudaError_t cudaEventCreate(&amp;event);
+
+// using the event here ...
+
+// releasing a CUDA event
+cudaError_t cudaEventDestroy(event);
+</code></pre>
+<a class="header-link" id="sycl-event-object" href="#sycl-event-object"><span class="material-icons">link</span><h4 id="sycl-event-object">SYCL event object</h4></a>
+<p>An event in SYCL is an abstraction of the OpenCL <code>cl_event</code> object. An OpenCL
+event is used to synchronize memory transfers, dispatch of kernels and
+signaling barriers.  As an abstraction layer on OpenCL events, SYCL events
+accommodate synchronization between different contexts, devices and platforms.
+The <code>submit</code> method in a SYCL queue returns a <code>cl::sycl::event</code>. SYCL events can
+be used to manually define synchronization points irrespective of the
+underlying device and, thus, can be used also to synchronize operations on host
+queues.</p>
+<pre><code class="language-cpp">{
+// SYCL events are returned from a command group submission
+auto event = syclQueue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+        /** SYCL command group **/
+      });
+// Users can wait on a specific event, regardless on where is submitted
+event.wait();
+// Event is released automatically at the end of the scope
+}
+</code></pre>
+<a class="header-link" id="triggering-user-functions-from-device-events" href="#triggering-user-functions-from-device-events"><span class="material-icons">link</span><h3 id="triggering-user-functions-from-device-events">Triggering user functions from device events</h3></a>
+<a class="header-link" id="cuda-callback-function" href="#cuda-callback-function"><span class="material-icons">link</span><h4 id="cuda-callback-function">CUDA callback function</h4></a>
+<p>A stream callback function enables the execution of a host function provided by
+the application after all the previous operations in the stream have completed.
+A stream callback can be submitted to a CUDA stream by calling the following
+function:</p>
+<pre><code class="language-cpp">cudaError_t cudaStreamAddCallback(cudaStream_t stream,
+cudaStreamCallback_t callback, void *userData, unsigned int flags);
+</code></pre>
+<p>Where the <code>callback</code> is the callback function and the <code>userData</code> is the
+parameter passed to the callback function.</p>
+<p>A CUDA stream callback has the following restrictions: </p>
+<ul>
+<li>A callback function cannot call any CUDA API function</li>
+<li>A callback function cannot contain any synchronization function.</li>
+</ul>
+<p>The following code snippet represents the usage of the CUDA callback example.</p>
+<pre><code class="language-cpp">void CUDART_CB callback_func(cudaStream_t stream, cudaError_t status, void *) {
+  printf("callback function is called);
+}
+// defining a CUDA stream object
+cudaStream_t stream;
+// creating a CUDA stream object
+cudaError_t err = cudaStreamCreate(&amp;stream);
+// launching the first lernel
+first_kernel&lt;&lt;&lt;numBlock, blockSize, 0, stream&gt;&gt;&gt;();
+second_kernel&lt;&lt;&lt;numBlock, blockSize, 0, stream&gt;&gt;&gt;&gt;();
+third_kernel&lt;&lt;&lt;numBlock, blockSize, 0, stream&gt;&gt;&gt;&gt;();
+cudaStreamAddCallback(stream, callback_func, NULL, 0);
+// releasing a CUDA stream object
+cudaError_t err = cudaStreamDestroy(stream);
+</code></pre>
+<a class="header-link" id="sycl-callback-function" href="#sycl-callback-function"><span class="material-icons">link</span><h4 id="sycl-callback-function">SYCL callback function</h4></a>
+<p>There is no direct functionality in SYCL to trigger a host callback from a device function.
+Developers can manually wait on an event and call the callback function afterwards. 
+The following code snippet represents an example of a callback function implementation using this mechanism.</p>
+<pre><code class="language-cpp">std::function&lt;void(std::string)&gt; my_callback =
+    [](std::string my_string) { std::cout &lt;&lt; my_string &lt;&lt; std::endl; }
+// constructing the SYCL queue
+auto queue = cl::sycl::queue{default_selector};
+// data on host
+auto vec = std::vector&lt;float&gt;{100, 1};
+// constructing a SYCL buffer
+auto buffer = cl::sycl::buffer&lt;float, 1&gt;{vec.data(), cl::sycl::range&lt;1&gt;{100}};
+
+// submitting the kernel to the queue
+auto event = queue.submit([&amp;](cl::sycl::handler &amp;cgh) {
+  // getting a read_write access over SYCL buffer
+  auto acc = buffer.get_access&lt;cl::sycl::access::mode::read_write&gt;(cgh);
+  // SYCL device kernel
+  cgh.parallel_for&lt;class kernel&gt;(
+      cl::sycl::range&lt;1&gt;{100},
+      [](cl::sycl::id&lt;1&gt; id) { acc[id] += acc[id]; });
+});
+
+// The future can be waited or stored elsewhere, and the callback will execute 
+//asynchronously.
+auto fut = std::async([&amp;]() {
+  // wait for the kernels to finish
+  event.wait();
+  // calling the callback function after the kernel execution
+  my_callback("This is a callback function");
+});
+</code></pre>
+<p>This achieves the same result as a CUDA callback, using pure C++ features.</p>
+<p>Codeplay has proposed to the SYCL standard a new type of handler, the <em>host_handler</em>, 
+that is capable of executing a single task on the host and can be submitted directly to the
+SYCL device queue. It ensures that this task is executed asynchronously and
+in-order w.r.t the other command groups on the same queue. See the <a href="https://github.com/codeplaysoftware/standards-proposals/blob/master/asynchronous-data-flow/sycl-2.2/03_interacting_with_data_on_the_host.md#enqueuing-host-tasks-on-sycl-queues">Enqueuing
+host tasks on SYCL
+queues</a>
+proposal in SYCL for further information. 
+This feature is available since ComputeCpp 0.5.1 and above as a vendor extension.</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-for-cuda-developers/migration.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:42:29 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="migration.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="memory-model-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Memory Model</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="libraries-2.html"
+                            >
+                            <div>
+                                <h1>Libraries</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#migration">Migration</a></li>
+                        <li class="heading-1"><a href="#migrating-from-cuda-to-sycl">Migrating from CUDA to SYCL</a></li>
+                        <li class="heading-2"><a href="#execution-model-equivalence">Execution model equivalence</a></li>
+                        <li class="heading-2"><a href="#memory-model-equivalence">Memory model equivalence</a></li>
+                        <li class="heading-2"><a href="#host-api-equivalence">Host API equivalence</a></li>
+                        <li class="heading-2"><a href="#device-api-equivalence">Device API equivalence</a></li>
+                        <li class="heading-2"><a href="#how-to-rewrite-cuda-multi-gpu-code-for-sycl">How to rewrite CUDA multi-GPU code for SYCL</a></li>
+                        <li class="heading-2"><a href="#porting-cuda-cpu-library-functions-to-sycl">Porting CUDA CPU library functions to SYCL</a></li>
+                        <li class="heading-2"><a href="#porting-cuda-debug-code-to-sycl">Porting CUDA debug code to SYCL</a></li>
+                        <li class="heading-2"><a href="#measuring-sycl-application-performance">Measuring SYCL application performance</a></li>
+                        <li class="heading-2"><a href="#porting-cuda-build-system-to-sycl">Porting CUDA build system to SYCL</a></li>
+                        <li class="heading-2"><a href="#porting-cuda-stream-to-sycl-queue">Porting CUDA stream to SYCL queue</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="f419a2c4d36fc751b171cb83c70e542c">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../../oneapi/construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../oneapi/nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

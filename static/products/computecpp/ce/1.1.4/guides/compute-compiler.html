@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/1.1.4/guides/compute-compiler.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:45:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Compute++ Compiler - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Compute++ Compiler' for ComputeCpp™ Community Edition 1.1.4 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Compute++ Compiler - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Compute++ Compiler' for ComputeCpp™ Community Edition 1.1.4 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../home/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../api-reference/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../download/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../home/index.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="../../api-reference/index.html"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="../../download/index.html"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="compute-compiler">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>1.1.4</div>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2.11.0/guides/index.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/index.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/index.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/index.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/index.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/index.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/index.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/index.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/index.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/index.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/index.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/index.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/index.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/index.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/index.html">1.1.5</a></li>
+                           <li><a href="index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class=""><a href="sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging</a><ol></ol></li><li class=""><a href="sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="frameworks-for-computecpp-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>manual</a><ol></ol></li>               <li class=""><a href="error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="profiling-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Profiling ComputeCpp</a><ol></ol></li>               <li class="selected focused"><a href="compute-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compute++ Compiler</a><ol></ol></li>               <li class=""><a href="integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="sycl-for-cuda-developers-2.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="tensorflow-guide/tensorflow-generic-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Generic Setup</a><ol></ol></li><li class=""><a href="tensorflow-guide/tensorflow-arm-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow ARM Setup</a><ol></ol></li></ol></li>               <li class=""><a href="eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 1.1.4.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#compute---compiler">
+                            <h1>Compute++ Compiler</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="integration-guide-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="compute-information-manual" href="#compute-information-manual"><span class="material-icons">link</span><h1 id="compute-information-manual">﻿compute++ Information Manual</h1></a>
+<a class="header-link" id="name-6a9aeddfc689c1d0e3b9ccc3ab651bc5" href="#name-6a9aeddfc689c1d0e3b9ccc3ab651bc5"><span class="material-icons">link</span><h2 id="name-6a9aeddfc689c1d0e3b9ccc3ab651bc5">NAME</h2></a>
+<p>compute++ - ComputeCpp SYCL compiler based on clang 6.0</p>
+<a class="header-link" id="synopsis-0f49c89d1e7298bb9930789c8ed59d48" href="#synopsis-0f49c89d1e7298bb9930789c8ed59d48"><span class="material-icons">link</span><h2 id="synopsis-0f49c89d1e7298bb9930789c8ed59d48">SYNOPSIS</h2></a>
+<p>compute++ (-sycl | -sycl-device-only | -sycl-driver) [-sycl-target <target>] [options] &lt;input file&gt;)</target></p>
+<a class="header-link" id="description-46ba9f2a6976570b0353203ec4474217" href="#description-46ba9f2a6976570b0353203ec4474217"><span class="material-icons">link</span><h2 id="description-46ba9f2a6976570b0353203ec4474217">DESCRIPTION</h2></a>
+<p>compute++ is the integrated SYCL driver and compiler for ComputeCpp.</p>
+<p>When using <em>-sycl</em> or <em>-sycl-device-only</em> flag, compute++ takes in a C++ source file, compiles any SYCL kernels it finds (and any functions called from kernels) and outputs the ComputeCpp <em>integration header</em>. The integration header is a C++ header file, generated by compute++, which contains the compiled kernel in the binary format, along with all the required information for the runtime to manage the kernels. Note that <em>-sycl</em> and <em>-sycl-device-only</em> are aliases, there is no difference between them.</p>
+<p>When using <em>-sycl-driver</em> flag, compute++ act as an integrated driver combining the device and host compilation step. It takes in a C++ source file, compiles any SYCL kernels it finds (and any functions called from kernels) and outputs the ComputeCpp <em>integration header</em> as a temporary file. In a second compilation step, it compiles the combined C++ source file and integration header to produce an object file or executable.</p>
+<p>The compiler is based on Clang/LLVM and can support C++11 and partially C++14 with view on supporting increasingly more C++ standards.</p>
+<p>If none of <em>-sycl</em>, <em>-sycl-device-only</em> and <em>-sycl-driver</em> is used, <strong>compute++</strong> acts as the normal clang compiler so it can be used as the host compiler too. Refer to the clang/llvm documentation for general compilation information. Note that <em>-sycl-host-only</em> suppress the effect of <em>-sycl</em>, <em>-sycl-device-only</em> and <em>-sycl-driver</em> when provided after .</p>
+<a class="header-link" id="examples-0e01938fc48a2cfb5f2217fbfb00722d" href="#examples-0e01938fc48a2cfb5f2217fbfb00722d"><span class="material-icons">link</span><h2 id="examples-0e01938fc48a2cfb5f2217fbfb00722d">EXAMPLES</h2></a>
+<p>The basic invocation of compute++ to produce an integration header:</p>
+<p><strong>compute++ device compiler invocation</strong></p>
+<pre><code class="language-cpp">compute++ -sycl -c
+</code></pre>
+<p>This constitutes the bare minimum to produce the integration header from the SYCL kernels in a C++ source file.</p>
+<p>The option <em>-sycl</em> enables the compute++ SYCL specific code paths to extract and compile its kernels to SPIR and emit the integration header. The <em>-sycl</em> option also makes the compiler assume that the input is a C++11 source file. The other option "<em>-c</em>" is a standard clang option to only perform the compilation step (no linking).</p>
+<p>The basic invocation of compute++ to produce a host object file containing the device kernels:</p>
+<p><strong>compute++ integrated driver invocation</strong></p>
+<pre><code class="language-cpp">compute++ -sycl-driver -c
+</code></pre>
+<p>This constitutes the bare minimum to produce an object containing host code and device kernels the SYCL kernels in a C++ source file.</p>
+<p>The option <em>-sycl-driver</em> schedules calls to the compiler to first run with the <em>-sycl</em> flag to extract kernels and emit the integration header and then run without the <em>-sycl</em> flag and automatically include the integration header. The <em>-sycl-driver</em> option also makes the compiler assume that the input is a C++11 source file.</p>
+<a class="header-link" id="integration-header-16a5cdae362b8d27a1d8f8c7b78b4330" href="#integration-header-16a5cdae362b8d27a1d8f8c7b78b4330"><span class="material-icons">link</span><h3 id="integration-header-16a5cdae362b8d27a1d8f8c7b78b4330">INTEGRATION HEADER</h3></a>
+<p>By using <em>-sycl</em>, compute++ will create an integration header. By convention, the integration header will have the extension "<em>.sycl</em>".</p>
+<p>The following invocation:</p>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp
+</code></pre>
+<p>will create the integration header as myFile.sycl in the same folder as myFile.cpp. You can have more control over the output file by using <em>-o</em> or <em>-sycl-ih</em>:</p>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp -o integration.hpp.sycl
+</code></pre>
+<pre><code class="language-cpp">compute++ -sycl -c myFile.cpp -sycl-ih integration.hpp.sycl
+</code></pre>
+<p>compute++ will then create integration.hpp.sycl instead of myFile.sycl.</p>
+<a class="header-link" id="options-918317b57931b6b7a7d29490fe5ec9f9" href="#options-918317b57931b6b7a7d29490fe5ec9f9"><span class="material-icons">link</span><h3 id="options-918317b57931b6b7a7d29490fe5ec9f9">OPTIONS</h3></a>
+<pre><code class="language-cpp">-no-serial-memop
+</code></pre>
+<p>Deactivate memcpy/memset intrinsics replacement by serial functions.</p>
+<p>To work around some driver issues, memcpy and memset are replaced by serial functions (this can impact performances). If the used driver is not impacted by such issue, this option prevents this replacement and can have a positive impact on performance.</p>
+<pre><code class="language-cpp">-sycl-device-only
+</code></pre>
+<pre><code class="language-cpp">-sycl
+</code></pre>
+<p>Enables the SYCL extension to C++.</p>
+<p>This enables the SYCL kernel extraction, diagnostics and integration header production. The flags will also force the compiler to assume the input file is a C++11 file.</p>
+<p>If the clang option <code>-std</code> is also used, its argument must be a C++ standard that covers C++11. If the language standard provided to <code>-std</code> is incompatible with SYCL, the language standard will be overridden to C++11.</p>
+<pre><code class="language-cpp">-sycl-driver
+</code></pre>
+<p>Enables the integrated SYCL driver.</p>
+<p>This enable the compiler to first run in device mode (with the <em>-sycl</em> flag) to produce the integration header and then run in host mode with the integration header automatically included. The flags will also force the compiler to assume the input file is a C++11 file.</p>
+<p>If the clang option <code>-std</code> is also used, its argument must be a C++ standard that covers C++11. If the language standard provided to <code>-std</code> is incompatible with SYCL, the language standard will be overridden to C++11.</p>
+<pre><code class="language-cpp">-sycl-host-only
+</code></pre>
+<p>Only perform the host compilation step, equivalent to omitting any of the <em>-sycl-device-only</em>, <em>-sycl</em> and <em>-sycl-driver</em>.</p>
+<p>Note: Only the last of <em>-sycl-device-only</em>, <em>-sycl</em>, <em>-sycl-driver</em>, <em>-sycl-host-only</em> is considered. The flag <em>-sycl-host-only</em> is useful to suppress the action of the other flags.</p>
+<pre><code class="language-cpp">-sycl-compress-name
+</code></pre>
+<p>Generate compressed SYCL kernel names.</p>
+<p>This option will rename SYCL kernel functors to shorter names for use with OpenCL device drivers. You should use this option if you get an error from an OpenCL device driver when using heavily-templated kernels. There is a risk that using this option will create name collisions in kernels when using heavily templated code, so this option is not enabled by default. However, some OpenCL drivers, such as AMD®’s GPU drivers, will require this option when kernel names have a large number of template parameters.</p>
+<pre><code class="language-cpp">-sycl-keep-unused-args
+</code></pre>
+<p>Instructs the compiler to keep unused kernel arguments.</p>
+<p>By default, all unused SYCL kernel arguments are removed to speed up kernel enqueue at runtime. This flag disables this behavior.</p>
+<pre><code class="language-cpp">-sycl-keep-attr=&lt;value&gt;
+</code></pre>
+<p>Don’t allow the compiler to remove the specified attribute.</p>
+<p>To strictly follow SPIR 1.2 specifications, some attributes used internally are removed before the module emission. To prevent the suppression, the attribute name to keep can be specified.</p>
+<p>Current value supported:</p>
+<pre><code class="language-cpp">noduplicate
+</code></pre>
+<pre><code class="language-cpp">-sycl-target &lt;target&gt;
+</code></pre>
+<p>Specify the target of the device compilation step.</p>
+<p>Valid values are:</p>
+<pre><code class="language-cpp">**spir**: SPIR 32-bits target
+
+**spir64**: SPIR 64-bits target
+
+**spirv**: SPIR-V 32-bits target
+
+**spirv64**: SPIR-V 64-bits target
+
+**ptx64**: PTX 64-bits target (experimental)
+</code></pre>
+<p>If the option is emitted, the compiler will default to <strong>spir</strong> if the host target is a 32-bits architecture and <strong>spir64</strong> if the host target is a 64-bits architecture.</p>
+<p>Note:</p>
+<ul>
+<li>
+<p>Option <em>-sycl-spir32</em> should now be replaced by <em>-sycl-target spir</em></p>
+</li>
+<li>
+<p>Option <em>-sycl-spir64</em> should now be replaced by <em>-sycl-target spir64</em>
+<code>-sycl-ih &lt;path&gt;</code>
+    Specify a path to output the integration header.</p>
+</li>
+</ul>
+<p>If no value is specified, the name will be inferred using the output file if specified using <em>-o</em> or the input file.</p>
+<p>Note that this option cannot be used if multiple input files are processed.</p>
+<pre><code class="language-cpp">-fsycl-ih-last
+</code></pre>
+<p>Force the driver to include the integration header after the main source file. Note that this flag has an effect only when used with <em>-sycl-driver</em>.</p>
+<pre><code class="language-cpp">-fsycl-split-modules=&lt;N&gt;
+</code></pre>
+<p>This option lets the compiler generate multiple modules and puts a maximum of <n> kernels into each module. (experimental)</n></p>
+<p>This may improve compilation times when only a small number of kernels are used at run-time and not every module has to be compiled. By default only one module for all kernels will be produced. *-sycl-ocl-target-builtins-path <path>:: Specify a custom path to an OpenCL builtin implementation for the target</path></p>
+<p>By default this flag will be automatically set by the Clang driver when targeting PTX. If you provide your own path it will overwrite the default. The default path is to a binary file containing the implementation of several OpenCL builtins. This option is only used for PTX targets. It will be ignored for any other target.</p>
+<a class="header-link" id="old-options-48aedb8880cab8c45637abc7493ecddd" href="#old-options-48aedb8880cab8c45637abc7493ecddd"><span class="material-icons">link</span><h3 id="old-options-48aedb8880cab8c45637abc7493ecddd">Old Options</h3></a>
+<p>The following options were removed in a previous release, they are no longer recognized</p>
+<pre><code class="language-cpp">–sycl-no-diags
+</code></pre>
+<p>This option had no effect for several releases.</p>
+<pre><code class="language-cpp">-sycl-spir32
+</code></pre>
+<p>This option used to force the compiler to output 32-bit SPIR or SPIR-V bitcode. The target is now specified using the <em>-sycl-target <target></target></em> option.</p>
+<pre><code class="language-cpp">-sycl-spir64
+</code></pre>
+<p>This option used to force the compiler to output 64-bit SPIR or SPIR-V bitcode. The target is now specified using the <em>-sycl-target <target></target></em> option.</p>
+<a class="header-link" id="clang-standard-options-839ab46820b524afda05122893c2fe8e" href="#clang-standard-options-839ab46820b524afda05122893c2fe8e"><span class="material-icons">link</span><h3 id="clang-standard-options-839ab46820b524afda05122893c2fe8e">Clang standard options</h3></a>
+<p>As the compiler is based on clang 6, some of the standard clang 6 options are available. This includes:</p>
+<ul>
+<li>
+<p>Warning and error formatting flags</p>
+</li>
+<li>
+<p>Optimisation flags</p>
+</li>
+</ul>
+<p>For more information about clang usage, refer to the <a href="https://releases.llvm.org/6.0.0/tools/clang/docs/">clang 6.0 manual</a></p>
+<a class="header-link" id="compute-specific-diagnostics-f90f2aca5c640289d0a29417bcb63a37" href="#compute-specific-diagnostics-f90f2aca5c640289d0a29417bcb63a37"><span class="material-icons">link</span><h2 id="compute-specific-diagnostics-f90f2aca5c640289d0a29417bcb63a37">Compute++-specific Diagnostics</h2></a>
+<p>This section describes SYCL specific diagnostics. Compute++ errors, warnings and remarks are in the form of:</p>
+<pre><code class="language-cpp">[Computeccp:CCxxxx] Error message
+</code></pre>
+<p>Where "<em>xxxx</em>" is an error code index.</p>
+<a class="header-link" id="computecpp-cc0001-9c838d2e45b2ad1094d42f4ef36764f6" href="#computecpp-cc0001-9c838d2e45b2ad1094d42f4ef36764f6"><span class="material-icons">link</span><h3 id="computecpp-cc0001-9c838d2e45b2ad1094d42f4ef36764f6">[Computecpp:CC0001]</h3></a>
+<p>a SYCL kernel must be named with a class, struct, enum or union type</p>
+<a class="header-link" id="computecpp-cc0002-1700002963a49da13542e0726b7bb758" href="#computecpp-cc0002-1700002963a49da13542e0726b7bb758"><span class="material-icons">link</span><h3 id="computecpp-cc0002-1700002963a49da13542e0726b7bb758">[Computecpp:CC0002]</h3></a>
+<p>cannot name a SYCL kernel with <type> - class, struct, enum or union expected</type></p>
+<a class="header-link" id="computecpp-cc0003-53c3bce66e43be4f209556518c2fcb54" href="#computecpp-cc0003-53c3bce66e43be4f209556518c2fcb54"><span class="material-icons">link</span><h3 id="computecpp-cc0003-53c3bce66e43be4f209556518c2fcb54">[Computecpp:CC0003]</h3></a>
+<p>an unnamed type is an invalid template argument for
+classes used to name SYCL kernels.</p>
+<p>Valid SYCL kernel names must be a forward declarable class, struct, enum or union type.</p>
+<p>The following examples are valid SYCL kernel names:</p>
+<pre><code class="language-cpp">class ClassKernelName;
+
+struct MyStruct;
+
+enum class MyEnum : int;
+</code></pre>
+<p>The following types are invalid SYCL kernel names:</p>
+<pre><code class="language-cpp">unsigned // not a class, struct, enum or union type
+
+enum MyCpp98Enum {/* Definition */}; // not forward declarable
+</code></pre>
+<a class="header-link" id="computecpp-cc0004-6883966fd8f918a4aa29be29d2c386fb" href="#computecpp-cc0004-6883966fd8f918a4aa29be29d2c386fb"><span class="material-icons">link</span><h3 id="computecpp-cc0004-6883966fd8f918a4aa29be29d2c386fb">[Computecpp:CC0004]</h3></a>
+<p>a SYCL kernel with the name <type> (alias <type>) already exists</type></type></p>
+<p>SYCL kernel names must be unique. Therefore, the same type cannot be used twice to name 2 kernels. In such cases, compute++ will emit a note to provide the location of the original name.</p>
+<pre><code class="language-cpp">class MyName;
+
+[...]
+h.parallel_for&lt;class MyName&gt;(...);
+h.parallel_for&lt;class MyName&gt;(...); // CC0004: the name is used twice
+</code></pre>
+<a class="header-link" id="computecpp-cc0005-49182f81e6a13cf5eaa496d51fea6406" href="#computecpp-cc0005-49182f81e6a13cf5eaa496d51fea6406"><span class="material-icons">link</span><h3 id="computecpp-cc0005-49182f81e6a13cf5eaa496d51fea6406">[Computecpp:CC0005]</h3></a>
+<p>cannot name a SYCL kernel with nested class, struct, enum or union `<type>'</type></p>
+<p>SYCL kernel names cannot be a nested class as it is not forward declarable.</p>
+<pre><code class="language-cpp">struct MyClass {
+  struct Nested {};
+};
+
+h.parallel_for&lt;MyClass::Nested&gt;(...); // CC0005
+</code></pre>
+<a class="header-link" id="computecpp-cc0006-d296c101daa88a51f6ca8cfc1ac79b50" href="#computecpp-cc0006-d296c101daa88a51f6ca8cfc1ac79b50"><span class="material-icons">link</span><h3 id="computecpp-cc0006-d296c101daa88a51f6ca8cfc1ac79b50">[Computecpp:CC0006]</h3></a>
+<p><c construct=""> is not allowed within SYCL device code</c>++&gt;</p>
+<p>C++ constructions that cannot be converted into a valid OpenCL code are invalid in SYCL. These include:</p>
+<ul>
+<li>
+<p>Exceptions (try / catch expressions)</p>
+</li>
+<li>
+<p>Accessing non-const global variables inside device code</p>
+</li>
+<li>
+<p>Function pointers</p>
+</li>
+<li>
+<p>RTTI (dynamic_cast, typeid)</p>
+</li>
+<li>
+<p>Dynamic memory handling: new, delete</p>
+<ul>
+<li>Note: placement new is allowed</li>
+</ul>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0007-9fd81843ad7f202f26c1a174c7357585" href="#computecpp-cc0007-9fd81843ad7f202f26c1a174c7357585"><span class="material-icons">link</span><h3 id="computecpp-cc0007-9fd81843ad7f202f26c1a174c7357585">[Computecpp:CC0007]</h3></a>
+<p>cannot capture <expr> in a SYCL kernel</expr></p>
+<a class="header-link" id="computecpp-cc0008-26e359e83860db1d11b6acca57d8ea88" href="#computecpp-cc0008-26e359e83860db1d11b6acca57d8ea88"><span class="material-icons">link</span><h3 id="computecpp-cc0008-26e359e83860db1d11b6acca57d8ea88">[Computecpp:CC0008]</h3></a>
+<p>a variable of type `<type>' cannot be captured by a SYCL kernel, because it is <reason></reason></type></p>
+<p>A SYCL kernel cannot capture:</p>
+<ul>
+<li>
+<p>By reference</p>
+</li>
+<li>
+<p>The "<em>this</em>" pointer</p>
+</li>
+<li>
+<p>Raw pointers</p>
+</li>
+</ul>
+<p>For instance</p>
+<pre><code class="language-cpp">class example;
+
+[...]
+int *ptr = new int(10); // Initialise a pointer
+cgh.single_task&lt;class example&gt;([=]() {
+    foo(ptr); // Illegal to use that pointer within kernel
+});
+</code></pre>
+<p>The above code would give the error:</p>
+<p>error: a variable of type 'int *' cannot be captured by a SYCL kernel, because it is a pointer type</p>
+<a class="header-link" id="computecpp-cc0009-ef0d3930a7b6c95bd2b32ed45989c61f" href="#computecpp-cc0009-ef0d3930a7b6c95bd2b32ed45989c61f"><span class="material-icons">link</span><h3 id="computecpp-cc0009-ef0d3930a7b6c95bd2b32ed45989c61f">[Computecpp:CC0009]</h3></a>
+<p>cannot capture object instance of class <class name=""> containing field <field name=""> of type `<type>' in a SYCL kernel</type></field></class></p>
+<a class="header-link" id="computecpp-cc0010-94f6d7e04a4d452035300f18b984988c" href="#computecpp-cc0010-94f6d7e04a4d452035300f18b984988c"><span class="material-icons">link</span><h3 id="computecpp-cc0010-94f6d7e04a4d452035300f18b984988c">[Computecpp:CC0010]</h3></a>
+<p>cannot capture object instance of class <class name=""> containing field <field name=""> of type `<type>' in a SYCL kernel (makes class <class name=""> non-standard layout)</class></type></field></class></p>
+<a class="header-link" id="computecpp-cc0011-34ed066df378efacc9b924ec161e7639" href="#computecpp-cc0011-34ed066df378efacc9b924ec161e7639"><span class="material-icons">link</span><h3 id="computecpp-cc0011-34ed066df378efacc9b924ec161e7639">[Computecpp:CC0011]</h3></a>
+<p>cannot capture object <variable> of type `<type>' in a SYCL kernel, because <reason></reason></type></variable></p>
+<a class="header-link" id="computecpp-cc0020-577bcc914f9e55d5e4e4f82f9f00e7d4" href="#computecpp-cc0020-577bcc914f9e55d5e4e4f82f9f00e7d4"><span class="material-icons">link</span><h3 id="computecpp-cc0020-577bcc914f9e55d5e4e4f82f9f00e7d4">[Computecpp:CC0020]</h3></a>
+<p>SYCL kernel parameter `<param>' of type `<type>' is invalid: <reason></reason></type></p>
+<p>A SYCL kernel cannot capture:</p>
+<ul>
+<li>
+<p>Any objects containing raw pointers</p>
+</li>
+<li>
+<p>Any objects that do not have a C++ standard layout, including:</p>
+<ul>
+<li>
+<p>Objects with private AND public fields (either private or public is OK but not both)</p>
+</li>
+<li>
+<p>Containing a non-static field of reference type</p>
+</li>
+<li>
+<p>Any objects that contain virtual methods</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For instance</p>
+<pre><code class="language-cpp">class example;
+
+struct FooClass
+{
+  FooClass(int i): m_pMember(new int(i)) {}
+
+  int *m_pMember;
+};
+
+FooClass instance {1}; // Initialize the instance
+
+cgh.single_task&lt;class example&gt;([=]() {
+    foo(instance.m_pMember); // Illegal to use that pointer within kernel
+});
+</code></pre>
+<p>The above code would give the error:</p>
+<pre><code class="language-cpp"> error: can not capture object instance of type 'struct FooClass' in a SYCL kernel, because it contains a field with a pointer type
+</code></pre>
+<a class="header-link" id="computecpp-cc0012-11b9842e0a271ff252c1903e7132cd68" href="#computecpp-cc0012-11b9842e0a271ff252c1903e7132cd68"><span class="material-icons">link</span><h3 id="computecpp-cc0012-11b9842e0a271ff252c1903e7132cd68">[Computecpp:CC0012]</h3></a>
+<p>class <name> cannot be a parameter to a SYCL kernel, because <reason></reason></name></p>
+<a class="header-link" id="computecpp-cc0013-37bc2f75bf1bcfe8450a1a41c200364c" href="#computecpp-cc0013-37bc2f75bf1bcfe8450a1a41c200364c"><span class="material-icons">link</span><h3 id="computecpp-cc0013-37bc2f75bf1bcfe8450a1a41c200364c">[Computecpp:CC0013]</h3></a>
+<p>`<type>' is an invalid argument type for a SYCL kernel, because it is <reason></reason></type></p>
+<p>One or more SYCL kernel parameter restrictions have been violated, which triggered this error.</p>
+<p>This includes the following:</p>
+<ul>
+<li>
+<p>``it is a non standard-layout type'': To pass as a kernel parameter an object, it needs to be standard-layout.</p>
+</li>
+<li>
+<p>``it contains virtual methods'': Objects of a class that contains virtual methods cannot be supported as they are not standard-layout.</p>
+</li>
+<li>
+<p>``it contains a field with a pointer type'': Host raw pointers cannot be used on device with OpenCL 1.2. To pass a pointer to the device, SYCL buffers and accessors must be used instead.</p>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0014-496e05e1aea0a9c4655800e8a7b9ea28" href="#computecpp-cc0014-496e05e1aea0a9c4655800e8a7b9ea28"><span class="material-icons">link</span><h3 id="computecpp-cc0014-496e05e1aea0a9c4655800e8a7b9ea28">[Computecpp:CC0014]</h3></a>
+<p>SYCL kernel must return void</p>
+<p>SYCL kernel functors or lambdas cannot return a value.</p>
+<a class="header-link" id="computecpp-cc0015-b2eb7349035754953b57a32e2841bda5" href="#computecpp-cc0015-b2eb7349035754953b57a32e2841bda5"><span class="material-icons">link</span><h3 id="computecpp-cc0015-b2eb7349035754953b57a32e2841bda5">[Computecpp:CC0015]</h3></a>
+<p>recursion is not allowed in SYCL functions</p>
+<a class="header-link" id="computecpp-cc0016-8e98d81f8217304975ccb23337bb5761" href="#computecpp-cc0016-8e98d81f8217304975ccb23337bb5761"><span class="material-icons">link</span><h3 id="computecpp-cc0016-8e98d81f8217304975ccb23337bb5761">[Computecpp:CC0016]</h3></a>
+<p>recursion is not allowed in SYCL functions, but a call graph cycle was detected starting in function `<function name="">'</function></p>
+<p>SYCL restrictions disallow the use of recursive functions as OpenCL disallows their use.</p>
+<p><strong>CC00016</strong> is a recursion caused by a succession of calls that forms in the end a recursive loop.</p>
+<pre><code class="language-cpp">int recurse(int i) { // CC0015
+    return i &lt; 0 ? 0 : recurse(i - 1);
+}
+</code></pre>
+<pre><code class="language-cpp">int funcA(int);
+
+int funcB(int i) {
+  return funcA(i - 1) + i;
+}
+
+int funcA(int i) { // CC0016
+    return i &lt; 0 ? 0 : funcB(i - 1);
+}
+</code></pre>
+<a class="header-link" id="computecpp-cc0023-a8c88a0055f636e4a163a5e3d16adab7" href="#computecpp-cc0023-a8c88a0055f636e4a163a5e3d16adab7"><span class="material-icons">link</span><h3 id="computecpp-cc0023-a8c88a0055f636e4a163a5e3d16adab7">[Computecpp:CC0023]</h3></a>
+<p>class <name> is not standard layout, because <reason></reason></name></p>
+<p>This error will accompany _[Computecpp:CC0011] cannot capture object <variable> of type `<type>' in a SYCL kernel, because <reason> _and will be thrown on the object definition directly. The reasons are the same as in that error.</reason></type></variable></p>
+<ul>
+<li>
+<p>Any objects containing raw pointers</p>
+</li>
+<li>
+<p>Any objects that do not have a standard layout, including:</p>
+<ul>
+<li>
+<p>Objects with private AND public fields (either private or public is OK but not both)</p>
+</li>
+<li>
+<p>Containing a non-static field of reference type</p>
+</li>
+<li>
+<p>Any objects that contain virtual methods</p>
+</li>
+</ul>
+</li>
+</ul>
+<a class="header-link" id="computecpp-cc0027-eddea82ad2755b24c4e168c5fc2ebd40" href="#computecpp-cc0027-eddea82ad2755b24c4e168c5fc2ebd40"><span class="material-icons">link</span><h3 id="computecpp-cc0027-eddea82ad2755b24c4e168c5fc2ebd40">[Computecpp:CC0027]</h3></a>
+<p>Some memcpy/memset intrinsics added by the llvm optimizer were replaced by serial functions. This is a workaround for OpenCL drivers that do not support those intrinsics. This may impact performance, consider using -no-serial-memop.</p>
+<p>On certain OpenCL drivers we have found that certain LLVM intrinsic functions are not supported so we replace them with our own code, which will work on all drivers. However, this could stop a vendor compiler which does support these intrinsics from performing certain optimisations so we leave the option -no-serial-memop available to instruct compute++ not to remove it. Generally this remark can be ignored as the code is still valid, but there may be a performance impact.</p>
+<a class="header-link" id="computecpp-cc0028-06eb61b839a0cefee4967c67ccb099dc" href="#computecpp-cc0028-06eb61b839a0cefee4967c67ccb099dc"><span class="material-icons">link</span><h3 id="computecpp-cc0028-06eb61b839a0cefee4967c67ccb099dc">[Computecpp:CC0028]</h3></a>
+<p>OpenCL requires the format string of printf to be a constant string.</p>
+<p>This warning will throw if you attempt to pass a string non-literal as the <em>format</em> string of the printf function. Code like below should produce this warning.</p>
+<pre><code class="language-cpp">const char * str = "somestring"
+printf(str);
+</code></pre>
+<p>The preferred method of printing from a SYCL kernel is to pass a stream object into the kernel.</p>
+<pre><code class="language-cpp">class example;
+
+[...]
+ myQueue.submit([&amp;](handler&amp; handle)
+   stream os(1024, 80, handle);
+      cgh.single_task&lt;class example&gt;([=]() {
+        os &lt;&lt; "somestring" &lt;&lt; endl;
+      });
+ });
+</code></pre>
+<a class="header-link" id="computecpp-cc0029-9dfcd5e558dfa04aaf37f137a1d9d3e5" href="#computecpp-cc0029-9dfcd5e558dfa04aaf37f137a1d9d3e5"><span class="material-icons">link</span><h3 id="computecpp-cc0029-9dfcd5e558dfa04aaf37f137a1d9d3e5">[Computecpp:CC0029]</h3></a>
+<p>The `noduplicate' attribute was removed from some functions in order to guarantee conformance with SPIR 1.2. To keep that attribute the -sycl-keep-attr=<noduplicate> command-line option can be used"&gt;</noduplicate></p>
+<p>This remark will be thrown whenever the compiler removes the attribute "noduplicate’ from a function or function call. This is not a warning or an error, it is a remark as this is expected behavior from the compiler and the code remains valid.</p>
+<a class="header-link" id="computecpp-cc0030-950a4152c2b4aa3ad78bdd6b366cc179" href="#computecpp-cc0030-950a4152c2b4aa3ad78bdd6b366cc179"><span class="material-icons">link</span><h3 id="computecpp-cc0030-950a4152c2b4aa3ad78bdd6b366cc179">[Computecpp:CC0030]</h3></a>
+<p>sycl requires at least C++11, force language standard to C++11</p>
+<p>The SYCL specification is defined to support C++11 features. Therefore, a SYCL program requires a language standard that includes the C++11 feature set.</p>
+<p>The language standard provided to the "<em>-std</em>" command-line option is incompatible with SYCL and the language standard has been forced to <em>C++11</em>.</p>
+<a class="header-link" id="computecpp-cc0031-158f3069a435b314a80bdcb024f8e422" href="#computecpp-cc0031-158f3069a435b314a80bdcb024f8e422"><span class="material-icons">link</span><h3 id="computecpp-cc0031-158f3069a435b314a80bdcb024f8e422">[Computecpp:CC0031]</h3></a>
+<p>`<string>' is not a valid input to spir-keep-attr. Attribute `noduplicate' is the only supported argument</string></p>
+<p>The value <value> given to -sycl-keep-attr is invalid. Currently, only noduplicate is a supported attribute. See -sycl-keep-attr help.</value></p>
+<a class="header-link" id="computecpp-cc0032-758874998f5bd0c393da094e1967a72b" href="#computecpp-cc0032-758874998f5bd0c393da094e1967a72b"><span class="material-icons">link</span><h3 id="computecpp-cc0032-758874998f5bd0c393da094e1967a72b">[Computecpp:CC0032]</h3></a>
+<p>Variadic functions cannot be used in SYCL device code</p>
+<p>SYCL device functions cannot call C-style variadic functions.</p>
+<p>Calls like below are not allowed on device.</p>
+<pre><code class="language-cpp">class example;
+
+void variadic(int, ...);
+
+[...]
+
+myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task&lt;class example&gt;([=]() {
+     variadic(2, 42., "str");
+   });
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0033-deprecated-ad13a2a07ca4b7642959dc0c4c740ab6" href="#computecpp-cc0033-deprecated-ad13a2a07ca4b7642959dc0c4c740ab6"><span class="material-icons">link</span><h2 id="computecpp-cc0033-deprecated-ad13a2a07ca4b7642959dc0c4c740ab6">[Computecpp:CC0033] (deprecated)</h2></a>
+<p>--sycl-no-diags is deprecated and has no effect.</p>
+<p>The flag --sycl-no-diags is now deprecated and the use of this flag does not have any effect any more.</p>
+<a class="header-link" id="computecpp-cc0034-3fe94a002317b5f9259f82690aeea4cd" href="#computecpp-cc0034-3fe94a002317b5f9259f82690aeea4cd"><span class="material-icons">link</span><h3 id="computecpp-cc0034-3fe94a002317b5f9259f82690aeea4cd">[Computecpp:CC0034]</h3></a>
+<p>Function <name> is undefined but referenced on the device and the associated kernels may fail to build or execute at run time</name></p>
+<p>You will see this warning if an undefined function which does not match one of the known OpenCL builtin functions has been referenced in device code. If the function cannot be resolved by the OpenCL implementation, the kernel is unlikely to compile.</p>
+<a class="header-link" id="computecpp-cc0035-5b8add2a5d98b1a652ea7fd72d942dac" href="#computecpp-cc0035-5b8add2a5d98b1a652ea7fd72d942dac"><span class="material-icons">link</span><h3 id="computecpp-cc0035-5b8add2a5d98b1a652ea7fd72d942dac">[Computecpp:CC0035]</h3></a>
+<p>Intrinsic <intrinsic> has been generated in function <function> which is illegal in SPIR and may result in a compilation failure</function>\_name&gt;</intrinsic>\_name&gt;</p>
+<p>The SPIR spec only allows for memset and memcpy intrinsics to be used, anything else is technically illegal and could cause issues with the OpenCL implementation. This warning will tell you if an illegal intrinsic has been generated.</p>
+<a class="header-link" id="computecpp-cc0036-432aca3a1e345e339f35a30c8f65edce" href="#computecpp-cc0036-432aca3a1e345e339f35a30c8f65edce"><span class="material-icons">link</span><h3 id="computecpp-cc0036-432aca3a1e345e339f35a30c8f65edce">[Computecpp:CC0036]</h3></a>
+<p>OpenCL extension cl_khr_fp16 should be enabled before using type half</p>
+<p>This warning will appear if cl::sycl::half (alias to __fp16) is used in code before the OpenCL extension cl_khr_fp16 is enabled. This warning or lack of does not say anything about whether or not the underlaying OpenCL implementation supports half. You must check this manually using the runtime device class "has_extension" method.</p>
+<a class="header-link" id="computecpp-cc0037-8d3bba7425e7c98c50f52ca1b52d3735" href="#computecpp-cc0037-8d3bba7425e7c98c50f52ca1b52d3735"><span class="material-icons">link</span><h3 id="computecpp-cc0037-8d3bba7425e7c98c50f52ca1b52d3735">[Computecpp:CC0037]</h3></a>
+<p>Variable length arrays are not supported in SYCL kernels.</p>
+<p>Variable length arrays (VLA) are disallowed by OpenCL v1.2 s6.9.d, thus cannot be used in a SYCL kernel.</p>
+<p>Note: This is a C99 features but some compilers provide extensions to support it in C++</p>
+<pre><code class="language-cpp">void foo(unsigned n) {
+  int vla[n]; // illegal if called from a kernel
+}
+</code></pre>
+<a class="header-link" id="computecpp-cc0039-320722549d1751cf3f247855f937b982" href="#computecpp-cc0039-320722549d1751cf3f247855f937b982"><span class="material-icons">link</span><h3 id="computecpp-cc0039-320722549d1751cf3f247855f937b982">[Computecpp:CC0039]</h3></a>
+<p>Kernel <sycl kernel="" name="">: conflicting values for attribute <opencl attribute="" name="">
+Attribute <opencl attribute="" name=""> values inherited from <function name="">
+Registered values '<opencl attribute="" values="">'</opencl></function></opencl></opencl></sycl></p>
+<p>OpenCL attributes vec_type_hint, work_group_size_hint and reqd_work_group_size are allowed to be used in SYCL. In SYCL, those attributes are applied to functions (instead of kernel function in OpenCL) and the compiler infers from the function calls which OpenCL attributes should be applied to the kernel. If a function A and a function B both use the same attribute, then they must use the same values. If they do not agree on those values, then the compiler reports an error pointing out the affected kernel and the functions causing the issue.</p>
+<pre><code class="language-cpp">class Ker;
+
+__attribute__((reqd_work_group_size(64, 64, 1)))
+void A() {}
+__attribute__((reqd_work_group_size(64, 1, 1)))
+void B() {}
+
+[...]
+
+myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task&lt;class Ker&gt;([=]() {
+     A();
+     B();
+   });
+});
+</code></pre>
+<p>The example above will generate the following diagnostic</p>
+<p>error: [Computecpp:CC0039]: Kernel Ker: conflicting values for attribute reqd_work_group_size
+note: [Computecpp:CC0039]: Attribute reqd_work_group_size values inherited from A
+note: [Computecpp:CC0039]: Registered values 'i32 64, i32 64, i32 1'
+note: [Computecpp:CC0039]: Attribute reqd_work_group_size values inherited from B
+note: [Computecpp:CC0039]: Registered values 'i32 64, i32 1, i32 1'</p>
+<a class="header-link" id="computecpp-cc0040-caf1a3dfb505ffed0d024130f58c5cfa" href="#computecpp-cc0040-caf1a3dfb505ffed0d024130f58c5cfa"><span class="material-icons">link</span><h3 id="computecpp-cc0040-caf1a3dfb505ffed0d024130f58c5cfa">[Computecpp:CC0040]</h3></a>
+<p>Accessor appears as member of union used as a kernel argument - associated kernel may not run correctly</p>
+<p>Using unions that contain accessor fields in kernel argument is discouraged and has an undefined behavior.</p>
+<pre><code class="language-cpp">class Ker;
+[...]
+myQueue.submit([&amp;](handler&amp; handle)
+   union {
+     accessor&lt;int, 1, access::mode::read_write, access::target::global_buffer&gt; Acc;
+     int IntField;
+   } Arg;
+   cgh.single_task&lt;class Ker&gt;([=]() {
+     Arg.IntField; // CC0040
+   });
+});
+</code></pre>
+<a class="header-link" id="computecpp-cc0042-5737c6ec2e0716f3d8a7a5c4e0de0d9a" href="#computecpp-cc0042-5737c6ec2e0716f3d8a7a5c4e0de0d9a"><span class="material-icons">link</span><h2 id="computecpp-cc0042-5737c6ec2e0716f3d8a7a5c4e0de0d9a">[Computecpp:CC0042]</h2></a>
+<p>Invalid SYCL target <target></target></p>
+<p>The value given to <em>-sycl-target</em> is not a valid device targets.</p>
+<a class="header-link" id="computecpp-cc0043-bc6dc48b743dc5d013b1abaebd2faed2" href="#computecpp-cc0043-bc6dc48b743dc5d013b1abaebd2faed2"><span class="material-icons">link</span><h2 id="computecpp-cc0043-bc6dc48b743dc5d013b1abaebd2faed2">[Computecpp:CC0043]</h2></a>
+<p>Community Edition releases do not support multiple device targets</p>
+<p>Community edition releases are restricted to one device target per kernel.</p>
+<a class="header-link" id="computecpp-cc0047-f2fc990265c712c49d51a18a32b39f0c" href="#computecpp-cc0047-f2fc990265c712c49d51a18a32b39f0c"><span class="material-icons">link</span><h2 id="computecpp-cc0047-f2fc990265c712c49d51a18a32b39f0c">[Computecpp:CC0047]</h2></a>
+<p>'-sycl-spir32' is deprecated, use '-sycl-target spir' instead
+'-sycl-spir64' is deprecated, use '-sycl-target spir64' instead</p>
+<p>Options -sycl-spir32 and -sycl-spir64 are deprecated and may be removed in future releases. They both are now aliases to "-sycl-target spir" and "-sycl-target spir64" and they should be used directly.</p>
+<a class="header-link" id="computecpp-cc0047-89f0fd5c927d466d6ec9a21b9ac34ffa" href="#computecpp-cc0047-89f0fd5c927d466d6ec9a21b9ac34ffa"><span class="material-icons">link</span><h2 id="computecpp-cc0047-89f0fd5c927d466d6ec9a21b9ac34ffa">[Computecpp:CC0047]</h2></a>
+<p>'-sycl-spir32' is deprecated, use '-sycl-target spir' instead
+'-sycl-spir64' is deprecated, use '-sycl-target spir64' instead</p>
+<p>Options -sycl-spir32 and -sycl-spir64 are deprecated and may be removed in future releases. They both are now aliases to "-sycl-target spir" and "-sycl-target spir64" and they should be used directly.</p>
+<a class="header-link" id="computecpp-cc0048-a666587afda6e89aec274a3657558a27" href="#computecpp-cc0048-a666587afda6e89aec274a3657558a27"><span class="material-icons">link</span><h2 id="computecpp-cc0048-a666587afda6e89aec274a3657558a27">[Computecpp:CC0048]</h2></a>
+<p>Kernel name <x> is a local type - consider forward declaring the type inside of an accessible namespace</x></p>
+<p>According to the SYCL specification, kernel name types must be accessible from the global namespace. If a type is locally declared (e. g. in a function), it cannot be accessed from outside that function.</p>
+<p>myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task<class ker="">([=]() {}); // CC0048: Ker is a local type
+});</class></p>
+<p>A possible solution is to forward declare the type to make it non-local</p>
+<p>class Ker;</p>
+<p>[...]</p>
+<p>myQueue.submit([&amp;](handler&amp; handle)
+   cgh.single_task<class ker="">([=]() {}); // CC0048: Ker is a local type
+});</class></p>
+<a class="header-link" id="computecpp-cc0049-b83aac23b9528732c23cc7352950e880" href="#computecpp-cc0049-b83aac23b9528732c23cc7352950e880"><span class="material-icons">link</span><h2 id="computecpp-cc0049-b83aac23b9528732c23cc7352950e880">[Computecpp:CC0049]</h2></a>
+<p>Processor <proc1> cannot be specified for the <target> SYCL target. Please use the default (<proc2>) or a later processor.</proc2></target></proc1></p>
+<p>The specified processor with -msyclarch is not usable for the given target.</p>
+<a class="header-link" id="compute-internal-diagnostics-cd00692c3bfe59267d5ecfac5310286c" href="#compute-internal-diagnostics-cd00692c3bfe59267d5ecfac5310286c"><span class="material-icons">link</span><h2 id="compute-internal-diagnostics-cd00692c3bfe59267d5ecfac5310286c">Compute++ Internal Diagnostics</h2></a>
+<p>The following diagnostics are internal. If the ComputeCpp package is correctly installed, please file a bug report.</p>
+<a class="header-link" id="computecpp-cc0017-6faa8040da20ef399b63a72d0e4ab575" href="#computecpp-cc0017-6faa8040da20ef399b63a72d0e4ab575"><span class="material-icons">link</span><h3 id="computecpp-cc0017-6faa8040da20ef399b63a72d0e4ab575">[Computecpp:CC0017]</h3></a>
+<p>ignored invalid use of SYCL kernel attribute</p>
+<a class="header-link" id="computecpp-cc0018-fe73f687e5bc5280214e0486b273a5f9" href="#computecpp-cc0018-fe73f687e5bc5280214e0486b273a5f9"><span class="material-icons">link</span><h3 id="computecpp-cc0018-fe73f687e5bc5280214e0486b273a5f9">[Computecpp:CC0018]</h3></a>
+<p>template specialization of a SYCL kernel is not a SYCL kernel without the proper attributes</p>
+<a class="header-link" id="computecpp-cc0019-6da37dd3139aa4d9aa55b8d237ec5d4a" href="#computecpp-cc0019-6da37dd3139aa4d9aa55b8d237ec5d4a"><span class="material-icons">link</span><h3 id="computecpp-cc0019-6da37dd3139aa4d9aa55b8d237ec5d4a">[Computecpp:CC0019]</h3></a>
+<p>`%0' is invalid for a SYCL kernel and was ignored</p>
+<a class="header-link" id="computecpp-cc0021-c042f4db68f23406c6cecf84a7ebb0fe" href="#computecpp-cc0021-c042f4db68f23406c6cecf84a7ebb0fe"><span class="material-icons">link</span><h3 id="computecpp-cc0021-c042f4db68f23406c6cecf84a7ebb0fe">[Computecpp:CC0021]</h3></a>
+<p>SYCL kernels can only have one functor parameter: parameter `<param>' of type `<type>' cannot be one, because parameter `<param>' of type `<type>' already is</type></type></p>
+<a class="header-link" id="computecpp-cc0022-deprecated-310dcbbf4cce62f762a2aaa148d556bd" href="#computecpp-cc0022-deprecated-310dcbbf4cce62f762a2aaa148d556bd"><span class="material-icons">link</span><h2 id="computecpp-cc0022-deprecated-310dcbbf4cce62f762a2aaa148d556bd">[Computecpp:CC0022] (deprecated)</h2></a>
+<p>a SYCL kernel cannot also be an OpenCL kernel</p>
+<a class="header-link" id="computecpp-cc0024-2f2b265625d76a6704b08093c652fd79" href="#computecpp-cc0024-2f2b265625d76a6704b08093c652fd79"><span class="material-icons">link</span><h3 id="computecpp-cc0024-2f2b265625d76a6704b08093c652fd79">[Computecpp:CC0024]</h3></a>
+<p>Missing serial function equivalent for intrinsic <name> (expected prototype <name> for serial function)</name></name></p>
+<a class="header-link" id="computecpp-cc0025-f9b902fc3289af4dd08de5d1de54f68f" href="#computecpp-cc0025-f9b902fc3289af4dd08de5d1de54f68f"><span class="material-icons">link</span><h3 id="computecpp-cc0025-f9b902fc3289af4dd08de5d1de54f68f">[Computecpp:CC0025]</h3></a>
+<p>Serial function <name> has no body (equivalent for intrinsic <name>)</name></name></p>
+<a class="header-link" id="computecpp-cc0026-6855456e2fe46a9d49d3d3af4f57443d" href="#computecpp-cc0026-6855456e2fe46a9d49d3d3af4f57443d"><span class="material-icons">link</span><h3 id="computecpp-cc0026-6855456e2fe46a9d49d3d3af4f57443d">[Computecpp:CC0026]</h3></a>
+<p>Serial function <name> has an incorrect signature (equivalent for intrinsic <name>)</name></name></p>
+<a class="header-link" id="computecpp-cc0038-357a6fdf7642bf815a88822c447d9dc4" href="#computecpp-cc0038-357a6fdf7642bf815a88822c447d9dc4"><span class="material-icons">link</span><h3 id="computecpp-cc0038-357a6fdf7642bf815a88822c447d9dc4">[Computecpp:CC0038]</h3></a>
+<p>Invalid SYCL attribute for function <reason>
+Invalid OpenCL attribute for function <reason></reason></reason></p>
+<p>Some internal metadata are not correctly formed.</p>
+<a class="header-link" id="computecpp-cc0043-819f46e52c25763a55cc642422644317" href="#computecpp-cc0043-819f46e52c25763a55cc642422644317"><span class="material-icons">link</span><h3 id="computecpp-cc0043-819f46e52c25763a55cc642422644317">[Computecpp:CC0043]</h3></a>
+<p>Redefinition of binary metadata for target <target> (<arch-size> bits)</arch-size></target></p>
+<a class="header-link" id="computecpp-cc0044-04025959b191f8f9de3f924f0940515f" href="#computecpp-cc0044-04025959b191f8f9de3f924f0940515f"><span class="material-icons">link</span><h3 id="computecpp-cc0044-04025959b191f8f9de3f924f0940515f">[Computecpp:CC0044]</h3></a>
+<p>Redefinition of kernel <kernel name=""> metadata</kernel></p>
+<a class="header-link" id="computecpp-cc0045-40008b9a5380fcacce3976bf7c08af5b" href="#computecpp-cc0045-40008b9a5380fcacce3976bf7c08af5b"><span class="material-icons">link</span><h3 id="computecpp-cc0045-40008b9a5380fcacce3976bf7c08af5b">[Computecpp:CC0045]</h3></a>
+<p>Error reading SYCL metadata file: <file></file></p>
+<a class="header-link" id="computecpp-cc0046-3dd48ab31d016ffcbf3314df2b3cb9ce" href="#computecpp-cc0046-3dd48ab31d016ffcbf3314df2b3cb9ce"><span class="material-icons">link</span><h3 id="computecpp-cc0046-3dd48ab31d016ffcbf3314df2b3cb9ce">[Computecpp:CC0046]</h3></a>
+<p>Expect the same number of binary information placeholders (got <i>) and kernel input files (got <j>)</j></i></p>
+<p>AMD is a registered trademark of Advanced Micro Devices, Inc. Intel is a trademark of Intel Corporation or its subsidiaries in the U.S. and/or other countries. NVIDIA and CUDA are registered trademarks of NVIDIA Corporation</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/1.1.4/guides/compute-compiler.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:45:31 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="compute-compiler.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="profiling-computecpp-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Profiling ComputeCpp</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="integration-guide-2.html"
+                            >
+                            <div>
+                                <h1>Integration Guide</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#compute---compiler">Compute++ Compiler</a></li>
+                        <li class="heading-1"><a href="#compute-information-manual">﻿compute++ Information Manual</a></li>
+                        <li class="heading-2"><a href="#name-6a9aeddfc689c1d0e3b9ccc3ab651bc5">NAME</a></li>
+                        <li class="heading-2"><a href="#synopsis-0f49c89d1e7298bb9930789c8ed59d48">SYNOPSIS</a></li>
+                        <li class="heading-2"><a href="#description-46ba9f2a6976570b0353203ec4474217">DESCRIPTION</a></li>
+                        <li class="heading-2"><a href="#examples-0e01938fc48a2cfb5f2217fbfb00722d">EXAMPLES</a></li>
+                        <li class="heading-2"><a href="#compute-specific-diagnostics-f90f2aca5c640289d0a29417bcb63a37">Compute++-specific Diagnostics</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0033-deprecated-ad13a2a07ca4b7642959dc0c4c740ab6">[Computecpp:CC0033] (deprecated)</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0042-5737c6ec2e0716f3d8a7a5c4e0de0d9a">[Computecpp:CC0042]</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0043-bc6dc48b743dc5d013b1abaebd2faed2">[Computecpp:CC0043]</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0047-f2fc990265c712c49d51a18a32b39f0c">[Computecpp:CC0047]</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0047-89f0fd5c927d466d6ec9a21b9ac34ffa">[Computecpp:CC0047]</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0048-a666587afda6e89aec274a3657558a27">[Computecpp:CC0048]</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0049-b83aac23b9528732c23cc7352950e880">[Computecpp:CC0049]</a></li>
+                        <li class="heading-2"><a href="#compute-internal-diagnostics-cd00692c3bfe59267d5ecfac5310286c">Compute++ Internal Diagnostics</a></li>
+                        <li class="heading-2"><a href="#computecpp-cc0022-deprecated-310dcbbf4cce62f762a2aaa148d556bd">[Computecpp:CC0022] (deprecated)</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="7e0740a55de1d26205b2d86924a82aaa">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../oneapi/construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../oneapi/amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../oneapi/nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

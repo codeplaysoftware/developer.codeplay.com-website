@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2023.2.0/guides/performance/introduction by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:30:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Introduction - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Introduction' for oneAPI for NVIDIA® GPUs 2023.2.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, sycl, cuda, nvidia, a100" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Introduction - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Introduction' for oneAPI for NVIDIA® GPUs 2023.2.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/Nvidia/OneApiForNvidiaShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/Nvidia/Guide/OneApiForNvidiaGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI for NVIDIA® GPUs</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Docs</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../support-packages.html" >
+                        <div>
+
+                            <span class="icon material-icons">support_agent</span>
+
+                            <div>Support</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html" target="_blank">
+                        <div>
+                            <img class="icon material-icons" src="../../../../../../assets/img/products/oneapi/menu-icon-intel.png" alt="Icon" />
+
+
+                            <div>Get Toolkit</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Docs</a>
+                    </li>
+                    <li >
+                        <a href="../../../support-packages.html"
+                           >Support</a>
+                    </li>
+                    <li >
+                        <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html"
+                           target="_blank">Get Toolkit</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="performance-introduction">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2023.2.0</div>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/introduction-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/introduction-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/introduction-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/introduction-2.html">2025.0.0</a></li>
+                           <li><a href="../../../2024.2.1/guides/performance/introduction-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/introduction-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/introduction-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/introduction-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/introduction-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/introduction-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/introduction-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/introduction-2.html">2023.2.1</a></li>
+                           <li><a href="introduction-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/introduction-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI for NVIDIA® GPUs 2023.2.0</a><ol></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Get Started</a><ol><li class=""><a href="../get-started-guide-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Install oneAPI for NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#use-dpc-to-target-nvidia-gpus"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Use DPC++ to Target NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#dpc-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DPC++ Resources</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#sycl-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL Resources</a><ol></ol></li><li class=""><a href="../debugging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging SYCL Applications</a><ol></ol></li><li class=""><a href="../MPI-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>MPI Guide for the CUDA backend</a><ol></ol></li></ol></li>               <li class="selected"><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Performance Guide</a><ol><li class="selected focused"><a href="introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="programming-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Programming Model</a><ol></ol></li><li class=""><a href="optimization-goals.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Optimization Goals</a><ol></ol></li><li class=""><a href="performance-analysis.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Analysis</a><ol></ol></li><li class=""><a href="performance-on-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance on Nvidia GPUs</a><ol></ol></li><li class=""><a href="common-optimizations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Common optimizations</a><ol></ol></li></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Support</a><ol><li class=""><a href="../features-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Features</a><ol></ol></li><li class=""><a href="../changelog-nvidia-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Changelog</a><ol></ol></li><li class=""><a href="../troubleshooting.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Troubleshooting</a><ol></ol></li></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of oneAPI for NVIDIA® GPUs.
+                            This guide was designed for version 2023.2.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#introduction">
+                            <h1>Introduction</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="programming-model-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<section id="introduction">
+
+<p>This guide starts with an introduction to the SYCL programming model and to
+performance on GPUs in general. Then it introduces the basics of performance
+analysis on GPU and the common types of tools used for it. And finally gives
+some information on vendor specific GPUs and available tooling.</p>
+<p>For a list of common SYCL optimizations for GPUs, refer to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="common-optimizations.html"><span class="doc">Common optimizations</span></a></p></li>
+</ul>
+<p>For specific information when targeting Nvidia GPUs, refer to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="performance-on-nvidia.html"><span class="doc">Performance on Nvidia GPUs</span></a></p></li>
+</ul>
+</section>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2023.2.0/guides/performance/introduction by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:30:20 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="for NVIDIA® GPUs" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/nvidia/2023.2.0/guides/performance/introduction" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="../MPI-guide-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>MPI Guide for the CUDA backend</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="programming-model-2.html"
+                            >
+                            <div>
+                                <h1>Programming Model</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#introduction">Introduction</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="cafaed11f1ddb3eaf0a664dc9f44e9bd">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

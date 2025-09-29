@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Floating-Point Requirements - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Floating-Point Requirements' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Floating-Point Requirements - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Floating-Point Requirements' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-hardware-floating-point-requirements">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/hardware/floating-point-requirements">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/hardware/floating-point-requirements">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/hardware/floating-point-requirements">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/hardware/floating-point-requirements">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/overview/hardware/floating-point-requirements">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/overview/hardware/floating-point-requirements">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#floating-point-requirements">
+                            <h1>Floating-Point Requirements</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/hardware/floating-point-requirements.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="floating-point-requirements">
+
+<p>This section describes the floating-point requirements to support OpenCL though
+the oneAPI Construction Kit for a new device.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Floating-point is not required to be natively implemented in hardware, support
+may be emulated to meet conformance. Fast-math mechanisms exposed to
+developers by the oneAPI Construction Kit allow high performance code to be
+written using the precision that exists on hardware.</p>
+</div>
+<p>OpenCL C mandates use of IEEE 754-2008 as the floating-point format to be
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#opencl-numerical-compliance">Numerically Compliant</a> for conformance, and therefore a device should
+support IEEE-754. However, floating-point exceptions are disabled in OpenCL and
+hardware is not expected to handle these. Other optional parts of the IEEE-754
+standard are denormal numbers and fused multiply-add.</p>
+<p>If hardware makes use of any IEEE-754 alternative floating-point formats such
+as <a class="reference external" href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">bfloat16</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Unum_(number_format)#Unum_III">posit</a>, then the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a> interface can be extended to
+support these as part of the work done by Codeplay. oneAPI Construction Kit
+would then expose these types to the user through language extensions, e.g. an
+OpenCL C extension.</p>
+<div class="section" id="floating-point-types">
+<a class="header-link" href="#floating-point-types"><h2 id="floating-point-types">Floating Point Types</h2><span class="material-icons">link</span></a>
+<p>OpenCL defines three different floating-point precision formats which can
+optionally be exposed to developers through
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a>. These are not required
+internally, but if present in hardware then the oneAPI Construction Kit will
+make them available.</p>
+<dl class="simple">
+<dt>Half Precision</dt><dd><p>16-bit floats, a format sometimes known as <em>fp16</em>. <strong>Not required</strong> for a
+device to support OpenCL, this format is optionally available to the user via
+the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_fp16">cl_khr_fp16</a> extension.</p>
+</dd>
+<dt>Single Precision</dt><dd><p>32-bit floats, <strong>required</strong> for devices to support OpenCL.</p>
+</dd>
+<dt>Double Precision</dt><dd><p>64-bit floats, <strong>not required</strong> for a device to support OpenCL as it is an
+optional feature.</p>
+</dd>
+</dl>
+<p>Hardware only needs to handle the scalar datatypes for these formats. ComputeMux
+Compiler will handle vector datatypes in the way most applicable to the hardware.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>32-bit single-precision floating point is mandatory across all OpenCL profiles
+unless of device type <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_DEVICE_TYPE_CUSTOM">CL_DEVICE_TYPE_CUSTOM</a>. Custom OpenCL devices are
+<strong>not</strong> conformant, as they do not fully support OpenCL C. Integer-only
+hardware may either report as a customer device or use a software
+floating-point library in <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>oneAPI Construction Kit tests all three of these IEEE-754 floating-point
+precisions for OpenCL. As <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_fp16">cl_khr_fp16</a> is an OpenCL extension, the OpenCL
+<a class="reference external" href="https://github.com/KhronosGroup/OpenCL-CTS">Conformance Test Suite</a> doesn’t provide any conformance testing, instead
+the oneAPI Construction Kit contains its own comprehensive unit testing for
+the extension.</p>
+</div>
+<div class="section" id="operations">
+<a class="header-link" href="#operations"><h3 id="operations">Operations</h3><span class="material-icons">link</span></a>
+<p>OpenCL compliance defines precision for the add (<code class="docutils literal notranslate">+</code>), subtract (<code class="docutils literal notranslate">-</code>),
+multiply (<code class="docutils literal notranslate">*</code>), and division (<code class="docutils literal notranslate">/</code>) operations on floating-point types.
+A software implementation of these is not a feature of the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a> library, but a ComputeMux Compiler target may
+still implement these in software if hardware is not precise enough. Division
+is the most likely candidate for this as it has stricter precision required for
+conformance compared to the other operations.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html#floating-point-precision-requirements"><span class="std std-ref">Floating-point Precision Requirements</span></a>
+for the precision requirements of these operations.</p>
+</div>
+</div>
+<div class="section" id="conversions">
+<a class="header-link" href="#conversions"><h3 id="conversions">Conversions</h3><span class="material-icons">link</span></a>
+<p><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a> provides a software implementation of all the
+conversions operations defined in OpenCL, including those taking floating-point
+types as an input/output. If hardware doesn’t provide native support for
+conversions then the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a>
+implementation may use the Abacus software conversions instead.</p>
+</div>
+</div>
+<div class="section" id="optimization-options">
+<a class="header-link" href="#optimization-options"><h2 id="optimization-options">Optimization Options</h2><span class="material-icons">link</span></a>
+<p>Developers can pass options to the kernel code compiler when writing high
+performance programs to enable floating-point optimizations. In OpenCL, the
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#optimization-options">Optimization Options</a> relating to floating-point behaviour are:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">-cl-mad-enable</code></dt><dd><p>Allow <code class="docutils literal notranslate">a * b + c</code> to be replaced by a <strong>mad</strong> instruction. The <strong>mad</strong>
+instruction may compute <code class="docutils literal notranslate">a * b + c</code> with reduced accuracy in the embedded
+profile. On some hardware the <strong>mad</strong> instruction may provide better
+performance than the expanded computation.</p>
+</dd>
+<dt><code class="docutils literal notranslate">-cl-no-signed-zeros</code></dt><dd><p>Allow optimizations for floating-point arithmetic that ignore the signedness
+of zero. IEEE-754 arithmetic specifies the distinct behavior of <code class="docutils literal notranslate">+0.0</code> and
+<code class="docutils literal notranslate">-0.0</code> values, which then prohibits simplification of expressions such as
+<code class="docutils literal notranslate">x + 0.0</code> or <code class="docutils literal notranslate">0.0 * x</code> (even with <code class="docutils literal notranslate">-cl-finite-math-only</code>). This option
+implies that the sign of a zero result isn’t significant.</p>
+</dd>
+<dt><code class="docutils literal notranslate">-cl-unsafe-math-optimizations</code></dt><dd><p>Allow optimizations for floating-point arithmetic that (a) assume that
+arguments and results are valid, (b) may violate the IEEE-754 standard, (c)
+assume relaxed OpenCL numerical compliance requirements as defined in the
+unsafe math optimization section of the OpenCL C or OpenCL SPIR-V Environment
+specifications, and (d) may violate edge case behavior in the OpenCL C or
+OpenCL SPIR-V Environment specifications. This option includes the
+<code class="docutils literal notranslate">-cl-no-signed-zeros</code>, <code class="docutils literal notranslate">-cl-mad-enable</code>, and <code class="docutils literal notranslate">-cl-denorms-are-zero</code>
+options.</p>
+</dd>
+<dt><code class="docutils literal notranslate">-cl-finite-math-only</code></dt><dd><p>Allow optimizations for floating-point arithmetic that assume that arguments
+and results are not NaNs, +Inf, -Inf. This option may violate the OpenCL
+numerical compliance requirements for single precision and double precision
+floating-point, as well as edge case behavior.</p>
+</dd>
+<dt><code class="docutils literal notranslate">-cl-fast-relaxed-math</code></dt><dd><p>Sets the optimization options <code class="docutils literal notranslate">-cl-finite-math-only</code> and
+<code class="docutils literal notranslate">-cl-unsafe-math-optimizations</code>. This option causes the preprocessor macro
+<code class="docutils literal notranslate">__FAST_RELAXED_MATH__</code> to be defined in the OpenCL program.</p>
+</dd>
+</dl>
+<p>All these options are passed through the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a> interface in the oneAPI
+Construction Kit for a ComputeMux target to optimize as appropriate. It is also
+possible for the oneAPI Construction Kit to provide new non-standard optimization
+options to the developer for enabling hardware specific optimizations.</p>
+</div>
+<div class="section" id="builtin-maths-functions">
+<a class="header-link" href="#builtin-maths-functions"><h2 id="builtin-maths-functions">Builtin Maths Functions</h2><span class="material-icons">link</span></a>
+<p>Compute languages often define builtin functions for use in kernel code, of
+particular relevance to floating-point is the domain of builtins relating to
+mathematical operations on scalar and vector types. These maths builtins have
+associated precision requirements which must be met for an implementation to be
+conformant, but this level of precision is <strong>not</strong> required for high performance
+code.</p>
+<p>Faster, but less accurate maths builtins are also available to the user in
+in OpenCL for writing high performance code. oneAPI Construction Kit uses these
+to expose the true hardware capabilities without any overhead for extra precision.
+A developer can therefore choose the level of maths precision they need for
+their application, faster native precision or conformant high precision.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The OpenCL single precision <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#math-functions">math functions</a> contain a set of functions
+prefixed with <code class="docutils literal notranslate">native_</code>, of implementation-defined accuracy, which can be
+used by <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><span class="doc">ComputeMux Compiler</span></a> for exposing
+high-performance device instructions.</p>
+</div>
+<p>oneAPI Construction Kit provides the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a> maths
+library which implements OpenCL <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#math-functions">math functions</a> to specification required
+precision. This can be used as a software implementation of builtins where
+hardware isn’t available or does not meet precision requirements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In SPIR-V the math functions are defined in <a class="reference external" href="https://www.khronos.org/registry/spir-v/specs/unified1/OpenCL.ExtendedInstructionSet.100.html#_a_id_math_a_math_extended_instructions">SPIR-V Extended Maths
+Instructions</a> as part of the OpenCL extended instruction set.</p>
+</div>
+<div class="section" id="opencl-full-profile-ulp">
+<a class="header-link" href="#opencl-full-profile-ulp"><h3 id="opencl-full-profile-ulp">OpenCL Full Profile ULP</h3><span class="material-icons">link</span></a>
+<p>High-level compute languages use <em>profiles</em> to mandate different sets minimum
+capabilities that a device must support to be conformant. This allows the
+compute language to be applicable across a range of domains which have each
+have separate concerns.</p>
+<p>The default profile of OpenCL is <em>Full Profile</em> intended for less constrained
+domains, and as a result the precision requirements of <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#math-functions">math functions</a> are
+fairly strict so that OpenCL is applicable to the scientific computing domain.</p>
+<p>OpenCL half, single, and double precision <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#math-functions">math functions</a> all have separate
+ULP requirements defined in the OpenCL specifications.
+Single and Double precision errors are defined as separate tables in the main
+OpenCL C specification under <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#relative-error-as-ulps">Relative Errors As ULPs</a>. The table for 32-bit
+single precision is labelled <strong>ULP values for single precision built-in math
+functions</strong>, and for 64-bit double labelled <strong>ULP values for double precision
+built-in math functions</strong>.</p>
+<p>The OpenCL extension specification defines the half precision requirements in
+a section on <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_fp16-relative-error-as-ulps">cl_khr_fp16 ULP error</a>, there is no allowance for
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#opencl-embedded-profile">Embedded Profile</a> with 16-bit half or 64-bit double.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Precision is measured in ULP (Units in Last Place), defined as:</p>
+<dl class="simple">
+<dt>ULP</dt><dd><p>If <span class="math notranslate nohighlight">\(x\)</span> is a real number that lies between two finite consecutive
+floating-point numbers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, without being equal to one of
+them, then <span class="math notranslate nohighlight">\(ulp(x) = |b - a|\)</span>, otherwise <span class="math notranslate nohighlight">\(ulp(x)\)</span> is the distance
+between the two non-equal finite floating-point numbers nearest <span class="math notranslate nohighlight">\(x\)</span>.
+Moreover, <span class="math notranslate nohighlight">\(ulp(NaN)\)</span> is <span class="math notranslate nohighlight">\(NaN\)</span>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="opencl-embedded-profile-ulp">
+<a class="header-link" href="#opencl-embedded-profile-ulp"><h3 id="opencl-embedded-profile-ulp">OpenCL Embedded Profile ULP</h3><span class="material-icons">link</span></a>
+<p>OpenCL <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#opencl-embedded-profile">Embedded Profile</a> targets low-power devices unlikely to be used in
+the scientific compute domain. Therefore it defines weaker precision
+requirements than <em>Full</em> profile for 32-bit float, allowing devices to implement
+faster maths builtins.</p>
+<p>These ULP error requirements are also defined in a table under
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_C.html#relative-error-as-ulps">Relative Errors As ULPs</a>, labelled <strong>ULP values for the embedded profile</strong>.</p>
+</div>
+</div>
+<div class="section" id="capability-queries">
+<a class="header-link" href="#capability-queries"><h2 id="capability-queries">Capability Queries</h2><span class="material-icons">link</span></a>
+<p>A ComputeMux device reports the level of support provided for each individual
+floating-point format relating to rounding, denormal numbers, and
+availability of optimization operations. The following capabilities are
+reported by the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><span class="doc">ComputeMux Runtime</span></a> for 16-bit, 32-bit,
+and 64-bit floats using the <code class="docutils literal notranslate">mux_floating_point_capabilities_e</code> bitfield.</p>
+<dl>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_full</code></dt><dd><p>Binary format conforms to the IEEE-754 specification.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_fma</code></dt><dd><p>IEEE 754-2008 fused multiply-add is supported.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_soft</code></dt><dd><p>Basic floating-point operations (such as addition, subtraction,
+multiplication) are implemented in software.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_rte</code></dt><dd><p>Round To Nearest Even supported.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Round To Nearest Even is the default rounding mode in kernel code.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_rtz</code></dt><dd><p>Round to Zero supported.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_rtp</code></dt><dd><p>Round to Positive Infinity supported.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_rtn</code></dt><dd><p>Round to Negative Infinity supported.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_inf_nan</code></dt><dd><p>INF and NaNs are supported. Support for signalling NaNs is not required.</p>
+</dd>
+<dt><code class="docutils literal notranslate">mux_floating_point_capabilities_denorm</code></dt><dd><p>Support for denormal (aka subnormal) floating-point numbers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html#abacus"><span class="std std-ref">Abacus</span></a> maths library in the oneAPI Construction
+Kit supports denormal numbers.</p>
+</div>
+</dd>
+</dl>
+<p>oneAPI Construction Kit primarily uses these values to respond to user queries
+made in high-level languages, but the capabilities are also used to determine
+whether the device meets any criteria imposed by the high-level language.</p>
+<div class="section" id="conformance-capabilities">
+<a class="header-link" href="#conformance-capabilities"><h3 id="conformance-capabilities">Conformance Capabilities</h3><span class="material-icons">link</span></a>
+<p>The requirements for OpenCL devices not of type <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_DEVICE_TYPE_CUSTOM">CL_DEVICE_TYPE_CUSTOM</a>, for
+which there are no requirements, are documented in the table below using the
+equivalent OpenCL capability to those reported by ComputeMux. The table
+shows that <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#opencl-embedded-profile">Embedded Profile</a> devices have a reduced set of requirements for
+single precision floating-point compared to the default <em>Full</em> Profile.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Floating-Point Format</strong></p></td>
+<td><p><strong>Required Capabilities</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_fp16-ieee754-compliance">16-bit Half</a></p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_ZERO">CL_FP_ROUND_TO_ZERO</a> or <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_NEAREST">CL_FP_ROUND_TO_NEAREST</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_INF_NAN">CL_FP_INF_NAN</a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_DEVICE_SINGLE_FP_CONFIG">32-bit Single Full Profile</a></p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_NEAREST">CL_FP_ROUND_TO_NEAREST</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_INF_NAN">CL_FP_INF_NAN</a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#embedded-profile-single-fp-config-requirements">32-bit Single Embedded Profile</a></p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_ZERO">CL_FP_ROUND_TO_ZERO</a> or <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_NEAREST">CL_FP_ROUND_TO_NEAREST</a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_DEVICE_DOUBLE_FP_CONFIG">64-bit Double</a></p></td>
+<td><ul class="simple">
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_FMA">CL_FP_FMA</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_ROUND_TO_NEAREST">CL_FP_ROUND_TO_NEAREST</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_INF_NAN">CL_FP_INF_NAN</a></p></li>
+<li><p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#CL_FP_DENORM">CL_FP_DENORM</a></p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:45 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Atomic Requirements</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements"
+                            >
+                            <div>
+                                <h1>Synchronization Requirements</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#floating-point-requirements">Floating-Point Requirements</a></li>
+                        <li class="heading-2"><a href="#floating-point-types">Floating Point Types</a></li>
+                        <li class="heading-2"><a href="#optimization-options">Optimization Options</a></li>
+                        <li class="heading-2"><a href="#builtin-maths-functions">Builtin Maths Functions</a></li>
+                        <li class="heading-2"><a href="#capability-queries">Capability Queries</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="d4f6864207353ad933bfecb5f40db55f">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

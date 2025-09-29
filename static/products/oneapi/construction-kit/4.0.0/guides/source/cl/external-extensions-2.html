@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>OpenCL External Extensions - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'OpenCL External Extensions' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="OpenCL External Extensions - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'OpenCL External Extensions' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/home" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/home"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="source-cl-external-extensions">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl/external-extensions">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl/external-extensions">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl/external-extensions">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl/external-extensions">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions">4.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/3.0.0/guides/source/cl/external-extensions">3.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/oneapi/construction-kit/2.0.0/guides/source/cl/external-extensions">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#opencl-external-extensions">
+                            <h1>OpenCL External Extensions</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/source/cl/external-extensions.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="opencl-external-extensions">
+
+<p>A <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><span class="doc">ComputeMux</span></a> target can provide OpenCL device extensions to expose
+target-specific features. There are two types of device extensions which a
+target can expose:</p>
+<ul class="simple">
+<li><p>Runtime extensions - modify the behaviour of the OpenCL runtime API.</p></li>
+<li><p>Compiler extensions - modify the behaviour of the OpenCL C/SPIR/SPIR-V
+compiler.</p></li>
+</ul>
+<p>The <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><span class="doc">Host CPU</span></a> target includes an example of each extension type, the
+<code class="docutils literal notranslate">codeplay_set_threads</code> runtime extension, and the <code class="docutils literal notranslate">codeplay_host_builtins</code>
+compiler extension.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The external extension mechanism also allows for <em>platform</em> extensions in
+addition to <em>device</em> extensions. Platform extensions are used to extend the
+entire oneAPI Construction Kit platform instead of just one <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><span class="doc">ComputeMux</span></a>
+device, but are otherwise similar to device extensions. Platform extensions
+are beyond the scope of this documentation, since ComputeMux devices should
+generally not need to introduce platform extensions.</p>
+</div>
+<div class="section" id="tutorials">
+<a class="header-link" href="#tutorials"><h2 id="tutorials">Tutorials</h2><span class="material-icons">link</span></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tutorials below focus on the creation of runtime extensions but the
+information is equally applicable to compiler extensions.</p>
+</div>
+<div class="section" id="tutorial-1-confirm-the-example-extension-works">
+<a class="header-link" href="#tutorial-1-confirm-the-example-extension-works"><h3 id="tutorial-1-confirm-the-example-extension-works">Tutorial 1: Confirm the Example Extension Works</h3><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">cl_codeplay_set_threads</code> extension to the <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><span class="doc">Host CPU</span></a> target is
+built by default along with the oneAPI Construction Kit. An example program that
+calls the extension is also built. Test that it works, e.g., on a 64-bit x86 machine
+with:</p>
+<pre><code class="language-shell">$ &lt;ca-build-dir&gt;/bin/cl_ext_codeplay_example
+Available platforms are:
+  1. oneAPI Construction Kit
+
+Selected platform 1
+
+Running example on platform 1
+Available devices are:
+  1. oneAPI Construction Kit x86_64
+
+Selected device 1
+
+Running example on device 1
+Successfully called clSetNumThreadsCODEPLAY_ptr()
+</code>
+</pre>
+<p>If instead the output ends with the following then it is possible that
+the oneAPI Construction Kit was configured with the extension disabled.
+Make sure that the oneAPI Construction Kit is configured with
+<code class="docutils literal notranslate">-DOCL_EXTENSION_cl_codeplay_set_threads=ON</code> (the option defaults to
+<code class="docutils literal notranslate">ON</code>).</p>
+<pre><code class="language-shell">Failed to call clSetNumThreadsCODEPLAY_ptr()
+</code>
+</pre>
+</div>
+<div class="section" id="tutorial-2-create-a-new-runtime-extension-for-host-cpu">
+<a class="header-link" href="#tutorial-2-create-a-new-runtime-extension-for-host-cpu"><h3 id="tutorial-2-create-a-new-runtime-extension-for-host-cpu">Tutorial 2: Create a new runtime extension for Host CPU</h3><span class="material-icons">link</span></a>
+<p>This tutorial shows how to create a new extension for <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><span class="doc">Host CPU</span></a> that
+is a duplicate of the <code class="docutils literal notranslate">codeplay_set_threads</code> extension. The example extension
+provides the bare minimum functionality required of an extension, so this
+tutorial serves as a starting point for creating an extension for a target
+other than <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><span class="doc">Host CPU</span></a> are basically the same, with changes to names,
+file paths, etc.</p>
+<p>The example extension uses the following naming conventions:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Customer name</p></td>
+<td><p><code class="docutils literal notranslate">CODEPLAY</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Extension name</p></td>
+<td><p><code class="docutils literal notranslate">codeplay_set_threads</code></p></td>
+</tr>
+<tr class="row-even"><td><p>Extension fully qualified name</p></td>
+<td><p><code class="docutils literal notranslate">cl_codeplay_set_threads</code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Extension entry point</p></td>
+<td><p><code class="docutils literal notranslate">clSetNumThreadsCODEPLAY()</code></p></td>
+</tr>
+<tr class="row-even"><td><p>Extension tag</p></td>
+<td><p><code class="docutils literal notranslate">host-cl-runtime-exts</code></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>A new extension must have names for all of these fields.</p>
+<p>To duplicate the example extension, follow these steps:</p>
+<div class="section" id="copy-the-extension-directory">
+<a class="header-link" href="#copy-the-extension-directory"><h4 id="copy-the-extension-directory">1. Copy the extension directory</h4><span class="material-icons">link</span></a>
+<p>Copy <code class="docutils literal notranslate">modules/mux/targets/host/extension/cl_ext_codeplay</code> to an appropriate
+location and rename it with a customer-specific name. For example, if the
+customer is ACME Corp. then the directory might be called <code class="docutils literal notranslate">cl_ext_acme</code>. This
+directory will contain the extension sources for the ACME hardware, which will
+have one or more individual extensions.</p>
+</div>
+<div class="section" id="rename-the-source-files">
+<a class="header-link" href="#rename-the-source-files"><h4 id="rename-the-source-files">2. Rename the source files</h4><span class="material-icons">link</span></a>
+<p>Rename the following files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">include/CL/cl_ext_codeplay_host.h</code></p></li>
+<li><p><code class="docutils literal notranslate">include/extension/codeplay_set_threads.h</code></p></li>
+<li><p><code class="docutils literal notranslate">source/codeplay_set_threads.cpp</code></p></li>
+</ul>
+<p><code class="docutils literal notranslate">cl_ext_codeplay_host.h</code> is the single header that defines the interface to
+all of this customer’s extension. For ACME Corp. in might be called
+<code class="docutils literal notranslate">cl_ext_acme.h</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The extension header has a <code class="docutils literal notranslate">_host</code> suffix to avoid a name conflict with
+another extension header in the oneAPI Construction Kit. In general, this
+will not be required.</p>
+</div>
+<p><code class="docutils literal notranslate">codeplay_set_threads.h</code> and <code class="docutils literal notranslate">codeplay_set_threads.cpp</code> are the header and
+source for one particular extension. A customer extension can contain any
+number of extensions, but <code class="docutils literal notranslate">codeplay</code> has only one. If ACME hardware has a
+<code class="docutils literal notranslate">coyote</code> feature, then these files might be called <code class="docutils literal notranslate">acme_coyote.h</code> and
+<code class="docutils literal notranslate">acme_coyote.cpp</code>.</p>
+</div>
+<div class="section" id="update-fields-in-files">
+<a class="header-link" href="#update-fields-in-files"><h4 id="update-fields-in-files">3. Update fields in files</h4><span class="material-icons">link</span></a>
+<p>In <code class="docutils literal notranslate">CMakeLists.txt`</code> update the arguments of
+<span class="target" id="index-0-command:add_ca_cl_runtime_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_runtime_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_runtime_extension()</code></a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">tag</code> is the unique name for this set of extensions, e.g. <code class="docutils literal notranslate">acme_coyote</code>.</p></li>
+<li><p><code class="docutils literal notranslate">EXTENSIONS</code> is the list of all extension names this extension set, e.g.
+<code class="docutils literal notranslate">acme_coyote</code>.</p></li>
+<li><p>The <code class="docutils literal notranslate">HEADER</code> and <code class="docutils literal notranslate">SOURCES</code> fields should be updated with the file names
+used in <a class="reference internal" href="#rename-the-source-files">2. Rename the source files</a>.</p></li>
+</ul>
+<p>In <code class="docutils literal notranslate">include/CL/cl_ext_acme.h</code>:</p>
+<ul class="simple">
+<li><p>Update the header <code class="docutils literal notranslate">#ifndef #define</code> flags.</p></li>
+<li><p>Replace the entry point name, <code class="docutils literal notranslate">clSetNumThreadsCODEPLAY</code>, with an
+appropriate name for the extension, e.g., <code class="docutils literal notranslate">clResetCoyoteACME</code>.</p></li>
+</ul>
+<p>In <code class="docutils literal notranslate">include/extension/acme_coyote.h</code>:</p>
+<ul class="simple">
+<li><p>Update the header <code class="docutils literal notranslate">#ifndef #define</code> flags.</p></li>
+<li><p>Update the extension class name. This should be the same as the name defined
+in the <code class="docutils literal notranslate">EXTENSIONS</code> field in the <code class="docutils literal notranslate">CMakeLists.txt</code> file above. I.e., it is the
+fully qualified name of the extension without a leading <code class="docutils literal notranslate">cl_</code>; for ACME
+Corp., it would be <code class="docutils literal notranslate">acme_coyote</code>.</p></li>
+</ul>
+<p>In <code class="docutils literal notranslate">source/acme_coyote.cpp</code>:</p>
+<ul class="simple">
+<li><p>Update the <code class="docutils literal notranslate">#include</code> commands to point to <code class="docutils literal notranslate">CL/cl_ext_acme.h</code> and
+<code class="docutils literal notranslate">extension/acme_coyote.h</code> (i.e., the ACME header and this extension’s
+header).</p></li>
+<li><p>Update the extension class name to match the extension header.</p></li>
+<li><p>Update the fully qualified extension name string in the class constructor
+(<code class="docutils literal notranslate">cl_codeplay_set_threads</code> =&gt; <code class="docutils literal notranslate">cl_acme_coyote</code>).</p></li>
+<li><p>Update the <code class="docutils literal notranslate">#ifdef</code> to enable or disable the extension. This is of the form
+<code class="docutils literal notranslate">OCL_EXTENSION_&lt;fully_qualified_extension_name&gt;</code>, e.g.,
+<code class="docutils literal notranslate">OCL_EXTENSION_cl_acme_coyote</code>. The option is automagically generated by
+CMake from the <code class="docutils literal notranslate">EXTENSIONS</code> field.</p></li>
+<li><p>Update the <code class="docutils literal notranslate">GetDeviceInfo</code> function to return an error if it’s called with
+a device other than the device the extension is for (not necessary for this
+tutorial as the function already checks for the CPU host device).</p></li>
+<li><p>Update the entry point function name: <code class="docutils literal notranslate">clSetNumThreadsCODEPLAY</code> =&gt;
+<code class="docutils literal notranslate">clResetCoyoteACME</code>. Note that the function name also shows up as a string
+literal in <code class="docutils literal notranslate">GetExtensionFunctionAddressForPlatform()</code>.</p></li>
+</ul>
+</div>
+<div class="section" id="include-the-extension-in-host-cpu">
+<a class="header-link" href="#include-the-extension-in-host-cpu"><h4 id="include-the-extension-in-host-cpu">4. Include the extension in Host CPU</h4><span class="material-icons">link</span></a>
+<p>In <code class="docutils literal notranslate">modules/mux/targets/host/CMakeLists.txt</code>, add the new extension
+directory. If the directory is located outside of the oneAPI Construction Kit
+tree, then <code class="docutils literal notranslate">add_subdirectory()</code> will need to specify a binary directory:</p>
+<pre><code class="language-cmake">add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/extension/cl_ext_codeplay)
+add_subdirectory(${path_to}/cl_ext_acme) # Add this
+</code>
+</pre>
+</div>
+<div class="section" id="configure-and-build">
+<a class="header-link" href="#configure-and-build"><h4 id="configure-and-build">5. Configure and build</h4><span class="material-icons">link</span></a>
+<p>Reconfigure the oneAPI Construction Kit. There is now a new CMake option,
+<code class="docutils literal notranslate">-DOCL_EXTENSION_cl_acme_coyote</code>, which defaults to <code class="docutils literal notranslate">ON</code>. The new extension
+should be listed in the CMake output:</p>
+<pre><code class="language-shell">...
+-- OpenCL extension cl_codeplay_set_threads : ENABLED
+-- OpenCL extension cl_acme_coyote: ENABLED
+...
+</code>
+</pre>
+<p>Install the oneAPI Construction Kit. <code class="docutils literal notranslate">&lt;install_dir&gt;/include/CL/</code> should
+now contain <code class="docutils literal notranslate">cl_ext_acme.h</code> for developers to include in their programs.</p>
+</div>
+<div class="section" id="make-a-test-program">
+<a class="header-link" href="#make-a-test-program"><h4 id="make-a-test-program">6. Make a test program</h4><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">modules/mux/targets/host/extension/example/</code> contains a bare-bones example of
+using the <code class="docutils literal notranslate">cl_codeplay_set_threads</code> extension. Copy this directory to an
+appropriate location. Then update the files as follows:</p>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate">CMakeLists.txt</code>, change all instances of <code class="docutils literal notranslate">cl_ext_codeplay_example</code> to
+the name of the new example program (e.g., <code class="docutils literal notranslate">cl_ext_acme_example</code>).</p></li>
+<li><p>In <code class="docutils literal notranslate">main.c</code>, update the <code class="docutils literal notranslate">#include</code> to use <code class="docutils literal notranslate">CL/cl_ext_acme.h</code>.</p></li>
+<li><p>In <code class="docutils literal notranslate">main.c</code>, update the <code class="docutils literal notranslate">main()</code> function to get and use the new
+extension’s interface. The <code class="docutils literal notranslate">main()</code> function does the following:</p>
+<ol class="arabic simple">
+<li><p>Gets the platform. This does not need to change.</p></li>
+<li><p>Gets the device. This does not need to change.</p></li>
+<li><p>Creates a function pointer to the extension entry point. This must be
+changed to use the types in the new customer header
+(<code class="docutils literal notranslate">CL/cl_ext_acme.h</code>). I.e., <code class="docutils literal notranslate">clSetNumThreadsCODEPLAY</code> =&gt;
+<code class="docutils literal notranslate">clResetCoyoteACME</code>.</p></li>
+<li><p><code class="docutils literal notranslate">clGetExtensionFunctionAddressForPlatform()</code> queries OpenCL for the
+entry point name. The string must be updated to match the one used in
+<code class="docutils literal notranslate">acme_coyote.cpp</code>.</p></li>
+<li><p>Calls the entry point. The name of the entry point should be updated.</p></li>
+</ol>
+</li>
+<li><p>Finally, add the test program’s directory to <code class="docutils literal notranslate">host</code>’s CMake at
+<code class="docutils literal notranslate">modules/mux/targets/host/CMakeLists.txt</code>. If the directory is located
+outside of the oneAPI Construction Kit tree, then <code class="docutils literal notranslate">add_subdirectory()</code>
+will need to specify a binary directory:</p></li>
+</ul>
+<pre><code class="language-cmake">add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/extension/example)
+add_subdirectory(${path_to_acme_example})  # Add this
+</code>
+</pre>
+<p>Reconfigure and build the oneAPI Construction Kit. Then run the new test
+program, e.g., on a 64-bit x86 machine with:</p>
+<pre><code class="language-shell">$ &lt;ca-build-dir&gt;/bin/cl_ext_acme_example
+Available platforms are:
+  1. oneAPI Construction Kit
+
+Selected platform 1
+
+Running example on platform 1
+Available devices are:
+  1. oneAPI Construction Kit x86_64
+
+Selected device 1
+
+Running example on device 1
+Successfully called clResetCoyoteACME_ptr()
+</code>
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="how-to">
+<a class="header-link" href="#how-to"><h2 id="how-to">How to …</h2><span class="material-icons">link</span></a>
+<div class="section" id="how-to-add-a-second-extension">
+<a class="header-link" href="#how-to-add-a-second-extension"><h3 id="how-to-add-a-second-extension">How to Add a Second Extension</h3><span class="material-icons">link</span></a>
+<p>A customer extension can have any number of individual extensions. For example,
+the ACME Corp. from <a class="reference internal" href="#tutorial-2-create-a-new-runtime-extension-for-host-cpu">Tutorial 2: Create a new runtime extension for Host CPU</a>
+might have a second extension, <code class="docutils literal notranslate">cl_acme_anvil</code>, which requires a second entry
+point, <code class="docutils literal notranslate">clDropAnvilACME()</code>. Adding this second extension requires the
+following in the extension’s source:</p>
+<ol class="arabic simple">
+<li><p>The library header in <code class="docutils literal notranslate">include/CL/</code> must <code class="docutils literal notranslate">typedef</code> the entry point
+function pointer and declare the entry point function.</p></li>
+<li><p><code class="docutils literal notranslate">include/extension/</code> must contain a new header for the extension (e.g.,
+<code class="docutils literal notranslate">acme_anvil.h</code>).</p></li>
+<li><p><code class="docutils literal notranslate">source/</code> must contain the source file for the extension (e.g.,
+<code class="docutils literal notranslate">acme_anvil.cpp</code>).</p></li>
+<li><p>In <code class="docutils literal notranslate">CMakeLists.txt</code>, the <code class="docutils literal notranslate">EXTENSIONS</code> parameter on
+<span class="target" id="index-1-command:add_ca_cl_runtime_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_runtime_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_runtime_extension()</code></a> must list both extensions
+(e.g., <code class="docutils literal notranslate">EXTENSIONS acme_coyote acme_anvil</code>).</p></li>
+<li><p>In <code class="docutils literal notranslate">CMakeLists.txt</code>, the <code class="docutils literal notranslate">SOURCES</code> parameter on
+<span class="target" id="index-2-command:add_ca_cl_runtime_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_runtime_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_runtime_extension()</code></a> must list the new source and
+header file.</p></li>
+</ol>
+</div>
+<div class="section" id="how-to-add-a-unitcl-test-of-a-new-extension">
+<a class="header-link" href="#how-to-add-a-unitcl-test-of-a-new-extension"><h3 id="how-to-add-a-unitcl-test-of-a-new-extension">How to Add a UnitCL test of a new Extension</h3><span class="material-icons">link</span></a>
+<p>UnitCL has an interface for adding extra tests, described in
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/test/unitcl.html"><span class="doc">UnitCL</span></a>. An appropriate <code class="docutils literal notranslate">CMakeLists.txt</code> of the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux.html"><span class="doc">ComputeMux</span></a> target pulls in the required test files. An example is the
+<code class="docutils literal notranslate">cl_codeplay_set_threads</code> extension from <a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/host.html"><span class="doc">Host CPU</span></a>. The use of the
+UnitCL interface can be seen in
+<code class="docutils literal notranslate">modules/mux/targets/host/test/CMakeLists.txt</code>. The extension test is
+contained in <code class="docutils literal notranslate">modules/mux/targets/host/test/UnitCL/cl_ext_codeplay.cpp</code>.</p>
+</div>
+</div>
+<div class="section" id="explanation">
+<a class="header-link" href="#explanation"><h2 id="explanation">Explanation</h2><span class="material-icons">link</span></a>
+<div class="section" id="extension-api-headers-in-cl">
+<a class="header-link" href="#extension-api-headers-in-cl"><h3 id="extension-api-headers-in-cl">Extension API Headers in <code class="docutils literal notranslate">CL</code></h3><span class="material-icons">link</span></a>
+<p>Each extension set provides a header in <code class="docutils literal notranslate">CL/&lt;name&gt;.h</code> for developers making
+use of the extensions in that set. This file is merely the developer API, and
+it is the only interface to the extensions. For each extension, it will
+normally define an entry point function and a pointer type for that function.
+It should not define anything internal to the extensions.  Developers will link
+against this file.</p>
+</div>
+<div class="section" id="extension-source">
+<a class="header-link" href="#extension-source"><h3 id="extension-source">Extension Source</h3><span class="material-icons">link</span></a>
+<p>The extension sources (including any headers other than the single header in
+<code class="docutils literal notranslate">CL</code>) are internal to the extensions, and are compiled into the oneAPI
+Construction Kit. Developers writing OpenCL applications will not see these files.
+The only interface into the extension implementation is through the API header in
+<code class="docutils literal notranslate">CL</code>.</p>
+</div>
+<div class="section" id="extension-entry-points">
+<a class="header-link" href="#extension-entry-points"><h3 id="extension-entry-points">Extension Entry Points</h3><span class="material-icons">link</span></a>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>A device extension may be called with a different OpenCL device that does
+not support that extension. <strong>It is the responsibility of the extension
+developer to ensure that a mismatch between extension and device is handled
+correctly</strong>.</p>
+</div>
+<p>The oneAPI Construction Kit queries extensions’ entry points to determine what
+they support. Consequently, a device extension must be able to correctly handle
+a situation where it’s called with a different device. For example, OpenCL users
+use <code class="docutils literal notranslate">clGetDeviceInfo()</code> with either the <code class="docutils literal notranslate">CL_DEVICE_EXTENSIONS</code> or the
+<code class="docutils literal notranslate">CL_DEVICE_EXTENSIONS_WITH_VERSION</code> parameter to determine which extensions a
+device supports. All extensions derive from the <code class="docutils literal notranslate">extension</code> base class, and
+the base class provides the necessary functionality for reporting extension
+name strings in <code class="docutils literal notranslate">extension::GetDeviceInfo()</code>. An extension <strong>must not</strong> allow
+the base class’s <code class="docutils literal notranslate">GetDeviceInfo()</code> to be called if the device does not
+support the extension. Otherwise, the base class will report the extension name
+string, and the OpenCL user will be led to believe that the device supports the
+extension.</p>
+</div>
+<div class="section" id="extension-cmake">
+<a class="header-link" href="#extension-cmake"><h3 id="extension-cmake">Extension CMake</h3><span class="material-icons">link</span></a>
+<p>Extensions are integrated into the oneAPI Construction Kit build system using the
+<span class="target" id="index-3-command:add_ca_cl_runtime_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_runtime_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_runtime_extension()</code></a> and
+<span class="target" id="index-0-command:add_ca_cl_compiler_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_compiler_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_compiler_extension()</code></a> CMake commands. These functions
+store the information required later in the build and is used in
+<code class="docutils literal notranslate">source/cl/source/extension/CMakeLists.txt</code>. Any CMake target which depends
+on the <code class="docutils literal notranslate">CL</code> target also gains access to extensions enabled during CMake
+configuration.</p>
+</div>
+<div class="section" id="extension-testing">
+<a class="header-link" href="#extension-testing"><h3 id="extension-testing">Extension Testing</h3><span class="material-icons">link</span></a>
+<p>Every extension should be thoroughly tested with unit tests. See <a class="reference internal" href="#how-to-add-a-unitcl-test-of-a-new-extension">How to Add a
+UnitCL test of a new Extension</a>.</p>
+<p>Testing should include the extensions’ entry points, all possible return
+values, and any interactions extensions may have with other parts of OpenCL.
+For example, if an extension creates a special type of memory object, unit
+tests should check that existing OpenCL API calls correctly handle this new
+memory object. Existing unit tests of OpenCL calls can be found in
+<code class="docutils literal notranslate">source/cl/test/UnitCL/source</code>.</p>
+</div>
+<div class="section" id="extension-documentation">
+<a class="header-link" href="#extension-documentation"><h3 id="extension-documentation">Extension Documentation</h3><span class="material-icons">link</span></a>
+<p>Extensions should be documented. An example is the
+<a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><span class="doc">cl_codeplay_set_threads</span></a> extension.</p>
+</div>
+</div>
+<div class="section" id="reference">
+<a class="header-link" href="#reference"><h2 id="reference">Reference</h2><span class="material-icons">link</span></a>
+<p>The <span class="target" id="index-4-command:add_ca_cl_runtime_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_runtime_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_runtime_extension()</code></a> and
+<span class="target" id="index-1-command:add_ca_cl_compiler_extension"></span><a class="reference internal" href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/cmake/AddCA.html#command:add_ca_cl_compiler_extension"><code class="xref cmake cmake-command docutils literal notranslate">add_ca_cl_compiler_extension()</code></a> CMake commands should be used to
+integrate target extensions into the oneAPI Construction Kit build.</p>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/external-extensions" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension/cl_intel_required_subgroup_size#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/icd-loader"
+                            >
+                            <div>
+                                <h1>OpenCL ICD Loader</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#opencl-external-extensions">OpenCL External Extensions</a></li>
+                        <li class="heading-2"><a href="#tutorials">Tutorials</a></li>
+                        <li class="heading-2"><a href="#how-to">How to …</a></li>
+                        <li class="heading-2"><a href="#explanation">Explanation</a></li>
+                        <li class="heading-2"><a href="#reference">Reference</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="5a21701cf2f9a7abea1a144300cc7e06">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>RISC-V - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'RISC-V' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="RISC-V - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'RISC-V' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="modules-riscv">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class="selected"><a href="../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class="selected focused"><a href="riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#risc-v">
+                            <h1>RISC-V</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/modules/riscv.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="compiler-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="risc-v">
+
+<p>Codeplay’s reference RISC-V target, for RISC-V implementation. The intention of
+this target is to provide a flexible way of communicating with a variety of
+customer RISC-V targets, with different RISC-V configurations. This target
+supports multiple different variants by using an abstract class (HAL), which is
+used to configure the target and act on commands such as enqueuing kernels and
+allocating and reading or writing to memory. The current version has only been
+tested with an x86_64 host CPU.</p>
+<p>The current in-tree targets are variants of Codeplay’s reference
+architecture(RefSi). This comes in two variants <cite>G</cite> and <cite>M1</cite>. The <cite>riscv</cite> target
+matches <cite>G</cite> and has no need for anything architecture specific except for what is
+needed to support <cite>riscv</cite>. <cite>M1</cite> has additional hardware features, such as DMA.</p>
+<p>The <code class="docutils literal notranslate">riscv</code> target uses a common utility <code class="docutils literal notranslate">riscv</code> compiler library which can be
+used or derived from for different targets.</p>
+<p>The RISC-V target can also be built with just the compiler aspect changed. This
+is shown with <cite>M1</cite> under <code class="docutils literal notranslate">examples/refsi/refsi_m1</code> of the oneAPI Construction Kit.</p>
+<div class="section" id="hal">
+<a class="header-link" href="#hal"><h2 id="hal">HAL</h2><span class="material-icons">link</span></a>
+<p>The HAL is an abstract class which is required to be used with this target. This
+abstract class will be accessed through a shared library which will be opened at
+runtime. This is done in <code class="docutils literal notranslate">hal.cpp</code>, <code class="docutils literal notranslate">riscv::hal_get()</code>, where it uses
+dynamic loading. This provides a <code class="docutils literal notranslate">hal_t</code> class. From this <code class="docutils literal notranslate">hal_t</code> class, we
+can get information about the general HAL target (<code class="docutils literal notranslate">hal_info_t</code>), more detailed
+information about the devices (<code class="docutils literal notranslate">hal_device_info_t</code>) and create or free a HAL
+device (<code class="docutils literal notranslate">hal_device_t</code>).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more detailed information on the HAL, see the <span class="xref std std-doc">specification</span> and <cite>:doc:`dynamic loading
+&lt;/modules/mux/hal/dynamic_loading&gt;</cite>.</p>
+</div>
+<p>From the target’s viewpoint we mostly interact with <code class="docutils literal notranslate">hal_device_info_t</code> for
+information and <code class="docutils literal notranslate">hal_device_t</code> for actions. <code class="docutils literal notranslate">hal_device_t</code> gives us the
+following:</p>
+<ol class="arabic simple">
+<li><p>A method to allocate memory and read and write to memory</p></li>
+<li><p>A method to load a kernel (as an ELF file)</p></li>
+<li><p>A method to enqueue a kernel across a range and a set of arguments.</p></li>
+</ol>
+<p>All methods are currently seen as blocking (or effectively blocking). The HAL
+does not specify anything about the contents of the ELF file in itself, but the
+current compilation makes assumptions that the ELF file will have a certain
+interface to the arguments for each kernel function see
+<a class="reference internal" href="#risc-v-standard-function-arguments">RISC-V standard function arguments</a>.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">hal_device_info_t</code></dt><dd><p>Is a base class which is not RISC-V specific, and there is a RISC-V specific
+one which is derived from this. The HAL is used in the following way:</p>
+</dd>
+</dl>
+<p>1. <code class="docutils literal notranslate">hal_device_info_riscv_t</code> provides information about the type of RISC-V
+processor. This includes extensions and ABI information. This information is
+used in <code class="docutils literal notranslate">modules/mux/targets/riscv/source/kernel.cpp</code> to help it build a linked
+ELF file for this particular processor configuration. At no other point does any
+of the target reference anything specific about RISC-V.</p>
+<p>2. <code class="docutils literal notranslate">hal_device_info_t</code> is expected to give a lot of information which can be
+used to populate oneAPI Construction Kit’s device information. This is not specific to
+RISC-V. This includes information such as global memory size, address size etc.</p>
+<p>3. <code class="docutils literal notranslate">specialized kernel</code> is used to process the incoming arguments and create a
+list of HAL arguments for enqueuing a kernel.</p>
+<p>4. In <code class="docutils literal notranslate">queue.cpp</code>, enqueuing of a kernel across a range is done by using the
+previously created list of HAL arguments, loading the kernel and calling the HAL
+enqueue of NDRange.</p>
+<p>5. In <code class="docutils literal notranslate">queue.cpp</code>, reading, writing and filling of buffers happen by calling the
+equivalent method on the HAL.</p>
+<p>6. In <code class="docutils literal notranslate">memory.cpp</code>, we support reading and writing of memory by calling the
+equivalent function on the HAL.</p>
+<p>The HAL is versioned with respect to any API changes, so if something changes in
+the interface the version must too. The version in <code class="docutils literal notranslate">hal.cpp</code> of
+<code class="docutils literal notranslate">expected_hal_version</code> must match the HAL device. This may be as simple as a
+recompile depending on the change.</p>
+</div>
+<div class="section" id="risc-v-standard-function-arguments">
+<a class="header-link" href="#risc-v-standard-function-arguments"><h2 id="risc-v-standard-function-arguments">RISC-V standard function arguments</h2><span class="material-icons">link</span></a>
+<p>The generated linked ELF file is expected to contain functions that have a
+defined format. For each kernel we have:</p>
+<pre><code class="language-cpp">&lt;function_name&gt;(void *argsStruct, WorkGroupInfo *)
+</code>
+</pre>
+<p><code class="docutils literal notranslate">argsStruct</code> is actually a block of memory which represents all of the
+arguments. Each one is placed in order into the memory and is aligned to a power
+of 2 greater than or equal to the size of the argument. For example if we have a
+<code class="docutils literal notranslate">short</code>, followed by a <code class="docutils literal notranslate">uint</code>, the <code class="docutils literal notranslate">uint</code> would be 4 byte aligned and
+start at 4 byte aligned offset and <code class="docutils literal notranslate">short</code> would be aligned to 2 bytes.
+<code class="docutils literal notranslate">short8</code> would be aligned to 16 bytes.</p>
+<p>The second argument tells us about the current workgroup that is to be acted on.
+The kernel function should work on the whole workgroup for each call to the
+kernel function.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information on this struct see the documentation in the HAL
+repository of oneAPI Construction Kit.</p>
+</div>
+<p>The standard RISC-V ABI is used currently, regardless of any HAL choices.</p>
+</div>
+<div class="section" id="risc-v-device">
+<a class="header-link" href="#risc-v-device"><h2 id="risc-v-device">RISC-V Device</h2><span class="material-icons">link</span></a>
+<p>The information reported by a RISC-V device can vary depending on the build
+configuration of oneAPI Construction Kit. See the
+<a class="reference internal" href="../developer-guide.html#cmake-options"><span class="std std-ref">CMake Options</span></a> for details on the effects of RISC-V
+specific CMake options.</p>
+<div class="section" id="build-options">
+<a class="header-link" href="#build-options"><h3 id="build-options">Build Options</h3><span class="material-icons">link</span></a>
+<p>Currently recommended build options include:</p>
+<pre><code class="language-shell">$ cmake -GNinja \
+  -DCA_RISCV_ENABLED=ON \
+  -DCA_MUX_TARGETS_TO_ENABLE="riscv" \
+  -DCA_LLVM_INSTALL_DIR=&lt;llvm_install_dir&gt;/llvm_install \
+  -DCA_ENABLE_HOST_IMAGE_SUPPORT=OFF \
+  -DCA_CL_ENABLE_ICD_LOADER=ON ..
+</code>
+</pre>
+<p>This will build a ‘G’ compatible version. To build a ‘M’ compatible version we
+can keep the same <code class="docutils literal notranslate">mux</code> target, but use a different compiler target as the ‘M’
+target has additional features. This is done by adding to the build options:</p>
+<pre><code class="language-shell">$ cmake -GNinja \
+  -DCA_RISCV_ENABLED=ON \
+  -DCA_MUX_TARGETS_TO_ENABLE="riscv" \
+  -DCA_LLVM_INSTALL_DIR=&lt;llvm_install_dir&gt;/llvm_install \
+  -DCA_ENABLE_HOST_IMAGE_SUPPORT=OFF \
+  -DCA_CL_ENABLE_ICD_LOADER=ON
+  -DCA_EXTERNAL_MUX_COMPILER_DIRS=&lt;ddk_dir&gt;/examples/refsi/refsi_m1/compiler/refsi_m1
+  -DCA_MUX_COMPILERS_TO_ENABLE="refsi_m1" ..
+</code>
+</pre>
+<p><code class="docutils literal notranslate">CA_EXTERNAL_MUX_COMPILER_DIRS</code> tells us to also use an additional compiler
+directory. <code class="docutils literal notranslate">CA_MUX_COMPILERS_TO_ENABLE</code> tells us to only enable this compiler
+directory; this is needed to stop it also building the <cite>riscv</cite> target as well and
+both being attached to the <code class="docutils literal notranslate">mux</code> target.</p>
+<p>The default HAL is <code class="docutils literal notranslate">hal_refsi</code> and it looks for it in
+<code class="docutils literal notranslate">examples/refsi/hal_refsi</code>. However if a directory
+<code class="docutils literal notranslate">CA_RISCV_EXTERNAL_HAL_DIR</code> is given it will look there. This will currently
+also require <code class="docutils literal notranslate">CA_HAL_NAME</code> to be set if the name differs from the default.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The installed LLVM must have RISCV as an enabled target and build <code class="docutils literal notranslate">lld</code> with
+<code class="docutils literal notranslate">-DLLVM_ENABLE_PROJECTS='clang;lld'</code>.</p>
+</div>
+<p>The following build options can also be useful:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">CA_HAL_NAME</code></dt><dd><p>Defines the default HAL which should be linked in. This will be used to link
+with the shared library, which should be of name <code class="docutils literal notranslate">libhal_&lt;CA_HAL_NAME&gt;.so.</code></p>
+</dd>
+<dt><code class="docutils literal notranslate">HAL_DESCRIPTION</code></dt><dd><p>Is used to help the Mux target set up aspects which have to be done at build
+time. It can also be picked up by the HAL being built to configure the HAL if
+needed. These aspects include the 32/64 bit capabilities and floating point
+and double support. This is largely needed to create the
+<a class="reference internal" href="builtins/abacus.html"><span class="doc">abacus builtins</span></a>. This string should match the RISC-V
+string which it is related to.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_ENABLE_HOST_IMAGE_SUPPORT</code></dt><dd><p>Disabled due to not supporting images but some prebuilt kernels not checking
+the support.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_HAL_LOCK_DEVICE_NAME</code></dt><dd><p>Is a bool (defaulted to true), which can be used to allow loading of a
+different HAL to the default at runtime, as described in the dynamic loading
+documentation in the oneAPI Construction Kit HAL repository.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_RISCV_DEMO_MODE</code></dt><dd><p>Is a bool (defaulted to false), which can be used to set environment variables
+for debug purposes to demonstrate the execution of a kernel on RISC-V. Note
+for a <cite>Refsi M1</cite> example build this will be CA_RISCV_M1_DEMO_MODE.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ICD support is optional.</p>
+</div>
+</div>
+</div>
+<div class="section" id="environment-variables">
+<a class="header-link" href="#environment-variables"><h2 id="environment-variables">Environment Variables</h2><span class="material-icons">link</span></a>
+<p>The following environment variables are currently supported:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">CA_RISCV_VF</code></dt><dd><p>Used for setting the vectorization factor - see <a class="reference internal" href="#compilation">Compilation</a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_HAL_DEVICE</code></dt><dd><p>Allows overriding of the HAL to be used at runtime. Only
+supported if built with <code class="docutils literal notranslate">-DCA_HAL_LOCK_DEVICE_NAME=OFF</code> - see
+the dynamic loading documentation in the oneAPI Construction Kit HAL repository for more
+information.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_RISCV_EARLY_LINK_BUILTINS</code></dt><dd><p>Link builtins before the vectorizer is run if set to 1. This is particularly
+important for use with scalable vectorization for which the builtins do not
+create scalable vector equivalents. When scalable vectorization is enabled
+this will default to true, otherwise false.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_RISCV_DUMP_IR`</code></dt><dd><p>Used to dump the generated IR at the beginning of the “late target passes”
+stage to stdout. Demo mode or debug mode only.</p>
+</dd>
+</dl>
+<p>Additionally the following may be used by HALs to override their local setting,
+although this is not mandatory.</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">CA_RISCV_VLEN_BITS_MIN</code></dt><dd><p>Sets the minimum reported minimum <code class="docutils literal notranslate">VLEN</code> bits - see <a class="reference internal" href="#compilation">Compilation</a>. This may
+override the VLEN if a HAL supports it. This should only be used if the actual VLEN
+used in the device is updated.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_RISCV_SAVE_ELF_PATH</code></dt><dd><p>Path to elf file for dumping built executable. Demo mode or debug mode only.</p>
+</dd>
+<dt><code class="docutils literal notranslate">CA_RISCV_DUMP_ASM</code></dt><dd><p>If defined, output final assembly produced to stdout. Demo mode or debug mode only.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="risc-v-binaries">
+<a class="header-link" href="#risc-v-binaries"><h2 id="risc-v-binaries">RISC-V Binaries</h2><span class="material-icons">link</span></a>
+<p>RISC-V can generate and accept binary executables, possibly containing multiple
+kernels each. They use ELF files generated from LLVM. Both binaries and
+compilation of source is managed in <code class="docutils literal notranslate">executable.cpp</code>. The contents of the
+produced binaries are used in the various kernel classes, before finally being
+loaded to the HAL in <code class="docutils literal notranslate">queue.cpp</code>.</p>
+</div>
+<div class="section" id="executable">
+<a class="header-link" href="#executable"><h2 id="executable">Executable</h2><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">riscvCreateExecutable()</code> is used to either compile a bitcode file or use a
+previously built binary to generate an executable. Builtin kernels are not
+currently supported. For both cases we create a
+<code class="docutils literal notranslate">riscv::binary_executable_data_s</code> which is used to contain the ELF data in a
+dynamic array. This is created as a shared pointer so it can be passed through
+the various kernel types, rather than copying the data multiple times, as the
+executable could be deleted before the kernels are.</p>
+<p>If it is given bitcode, it passes to an upcasted riscv version of the
+<code class="docutils literal notranslate">finalizer</code> object, and calls <code class="docutils literal notranslate">createBinaryFromSource()</code> directly on it,
+which is explained in more detail in <a class="reference internal" href="#compilation">Compilation</a>.</p>
+</div>
+<div class="section" id="kernel-objects">
+<a class="header-link" href="#kernel-objects"><h2 id="kernel-objects">Kernel Objects</h2><span class="material-icons">link</span></a>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">riscv::kernel_s</code></dt><dd><p>The first stage of the kernel objects and just contains the shared executable
+and the kernel name.</p>
+</dd>
+<dt><code class="docutils literal notranslate">riscv::scheduled_kernel_s</code></dt><dd><p>The next stage and contains the local size as well as the shared executable.</p>
+</dd>
+<dt><code class="docutils literal notranslate">riscv::specialized_kernel_s</code></dt><dd><p>The final stage and it is here that the global size as well as the kernel
+arguments are brought in. In <code class="docutils literal notranslate">riscvCreateSpecializedKernel()</code>, we process
+the descriptors passed in as parameters. These descriptors give information
+about each argument. These largely map one to one for each argument to
+equivalent <code class="docutils literal notranslate">hal::hal_arg_t</code>. In this function we create a vector of
+<code class="docutils literal notranslate">hal_arg_t</code> objects and pass it to the created
+<code class="docutils literal notranslate">riscv::specialized_kernel_s</code>. This object also contains the global size of
+<code class="docutils literal notranslate">hal_arg_t</code> values can be created. This specialized kernel is later pushed
+onto the command queue in <code class="docutils literal notranslate">riscvPushNDRange()</code> and processed in
+<code class="docutils literal notranslate">threadPoolProcessCommands()</code> in <code class="docutils literal notranslate">queue.cpp</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="compilation">
+<a class="header-link" href="#compilation"><h2 id="compilation">Compilation</h2><span class="material-icons">link</span></a>
+<p>All actual compilation is done in the <code class="docutils literal notranslate">finalizer</code> class method
+<code class="docutils literal notranslate">createBinaryFromSource()</code>. The first thing we do is upcast the
+<code class="docutils literal notranslate">hal_device_info_t</code> and find out what extensions are supported in order to
+initialize the target machine. We then read in the bitcode and turn it into an
+LLVM Module. At this point we can run all the passes.</p>
+<p>We also set <code class="docutils literal notranslate">--riscv-v-vector-bits-min</code> based on the hal_device_info_t value
+vlen if it exists and is non-zero, and enable <a class="reference internal" href="vecz.html"><span class="doc">Vecz</span></a> if <code class="docutils literal notranslate">CA_RISCV_VF</code> is
+set (or vector flags are enabled at the OpenCL options level).</p>
+<p><code class="docutils literal notranslate">CA_RISCV_VF</code> is defined as a comma separated list as follows:</p>
+<ul class="simple">
+<li><p><strong>S</strong> - Use scalable vectorization</p></li>
+<li><p><strong>V</strong> -  Vectorize only, otherwise produce both scalar and vector kernels</p></li>
+<li><p><strong>A</strong> - Let Vecz automatically choose the vectorization factor</p></li>
+<li><p><strong>1-64</strong> - Vectorization factor multiplier: the fixed amount itself, or the
+value that multiplies the scalable amount</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For example, <code class="docutils literal notranslate">CA_RISCV_VF=4</code> or <code class="docutils literal notranslate">CA_RISCV_VF=S,1</code></p>
+</div>
+<p>All but one of the passes are util or LLVM passes. The util ones are detailed
+<a class="reference internal" href="compiler/utils.html"><span class="doc">Compiler Utilities</span></a>, but the basics are as follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="compiler/utils.html#alignmodulestructspass"><span class="std std-ref">compiler::utils::AlignModuleStructsPass</span></a></p></li>
+<li><p><code class="docutils literal notranslate">riscv::IRToBuiltinReplacementPass</code> -
+A bespoke pass to handle some IR which currently produces link errors. This
+currently only includes <code class="docutils literal notranslate">frem</code> and converts it a call to the <code class="docutils literal notranslate">fmod</code>
+builtin which is then handled by the <a class="reference internal" href="builtins/abacus.html"><span class="doc">abacus builtins</span></a>.</p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#runveczpass"><span class="std std-ref">vecz::RunVeczPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#linkbuiltinspass"><span class="std std-ref">compiler::utils::LinkBuiltinsPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#replacemuxmathdeclspass"><span class="std std-ref">compiler::utils::ReplaceMuxMathDeclsPass</span></a></p></li>
+<li><p><code class="docutils literal notranslate">llvm::InternalizePass</code> - Used to help remove dead barrier calls after
+inlining</p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#fixupcallingconventionpass"><span class="std std-ref">compiler::utils::FixupCallingConventionPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#workitemloopspass"><span class="std std-ref">compiler::utils::WorkItemLoopsPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#addschedulingparameterspass"><span class="std std-ref">compiler::utils::AddSchedulingParametersPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#definemuxbuiltinspass"><span class="std std-ref">compiler::utils::DefineMuxBuiltinsPass</span></a></p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#addkernelwrapperpass"><span class="std std-ref">compiler::utils::AddKernelWrapperPass</span></a> - Note that the use of this
+does not pack the args, but uses alignment to the power of 2 equal to or
+above the size of each argument</p></li>
+<li><p><a class="reference internal" href="compiler/utils.html#replacelocalmodulescopevariablespass"><span class="std std-ref">compiler::utils::ReplaceLocalModuleScopeVariablesPass</span></a></p></li>
+</ul>
+<p>After running these passes all kernels should have the appropriate function
+signature of the argument structure and the schedule struct.</p>
+<p>We then emit to a file and call LLD to link the final object. The
+<code class="docutils literal notranslate">hal_device_info_t</code> gives the linker script to use. At this point we have an
+ELF file which will be untouched until it gets passed to the HAL to load.</p>
+</div>
+<div class="section" id="processing-commands">
+<a class="header-link" href="#processing-commands"><h2 id="processing-commands">Processing commands</h2><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">riscv::command_group_s</code> is used to maintain a vector of commands which are
+later processed in <code class="docutils literal notranslate">queue.cpp</code>. This is identical to the <a class="reference internal" href="host.html"><span class="doc">Host CPU</span></a>
+code, except it does not support images and <code class="docutils literal notranslate">host</code> is renamed to <code class="docutils literal notranslate">riscv</code>.</p>
+<p>The riscv device maintains a threadpool. This is more complicated than it needs
+to be for our needs. Its main role here is to process the queued command and
+signal semaphores as needed when operations are done.</p>
+<p>The main function of interest is <code class="docutils literal notranslate">threadPoolProcessCommands()</code>. This acts on
+the command from the queue. This command can be one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">command_type_read_buffer</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_write_buffer</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_fill_buffer</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_copy_buffer</code> - read, write, fill and copy map directly onto
+<code class="docutils literal notranslate">hal_device_t</code> equivalents</p></li>
+<li><p><code class="docutils literal notranslate">command_type_user_callback</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_begin_query</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_end_query</code></p></li>
+<li><p><code class="docutils literal notranslate">command_type_reset_query_pool</code> - These do not touch the HAL and use the
+query pool code in <code class="docutils literal notranslate">query_pool.cpp</code>, which is very similar to that of
+<code class="docutils literal notranslate">host</code> target.</p></li>
+<li><p><code class="docutils literal notranslate">command_type_ndrange</code> - calls <code class="docutils literal notranslate">exec_command_type_ndrange()</code>, see below.</p></li>
+</ul>
+<p><code class="docutils literal notranslate">exec_command_type_ndrange()</code> uses multiple <code class="docutils literal notranslate">hal_device_t</code> methods. It does
+the following:</p>
+<ol class="arabic simple">
+<li><p>Loads the ELF file from the specialized kernel onto the device using
+<code class="docutils literal notranslate">hal_device-&gt;program_load()</code>.</p></li>
+<li><p>It finds the entry point of the kernel, using
+<code class="docutils literal notranslate">hal_device-&gt;program_find_kernel()</code></p></li>
+<li><p>It executes the kernel across the ndrange using
+<code class="docutils literal notranslate">hal_device-&gt;kernel_exec()</code>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:34 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/modules/riscv.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="mux/targets/host/debug-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Host Debug Features</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="compiler-2.html"
+                            >
+                            <div>
+                                <h1>Compiler</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#risc-v">RISC-V</a></li>
+                        <li class="heading-2"><a href="#hal">HAL</a></li>
+                        <li class="heading-2"><a href="#risc-v-standard-function-arguments">RISC-V standard function arguments</a></li>
+                        <li class="heading-2"><a href="#risc-v-device">RISC-V Device</a></li>
+                        <li class="heading-2"><a href="#environment-variables">Environment Variables</a></li>
+                        <li class="heading-2"><a href="#risc-v-binaries">RISC-V Binaries</a></li>
+                        <li class="heading-2"><a href="#executable">Executable</a></li>
+                        <li class="heading-2"><a href="#kernel-objects">Kernel Objects</a></li>
+                        <li class="heading-2"><a href="#compilation">Compilation</a></li>
+                        <li class="heading-2"><a href="#processing-commands">Processing commands</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="38f7266c2f28c84b297d9eb99db590f4">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

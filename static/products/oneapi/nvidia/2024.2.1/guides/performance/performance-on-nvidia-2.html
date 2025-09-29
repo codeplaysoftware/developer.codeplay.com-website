@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2024.2.1/guides/performance/performance-on-nvidia by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:30:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Performance on Nvidia GPUs - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Performance on Nvidia GPUs' for oneAPI for NVIDIA® GPUs 2024.2.1 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, sycl, cuda, nvidia, a100" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Performance on Nvidia GPUs - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Performance on Nvidia GPUs' for oneAPI for NVIDIA® GPUs 2024.2.1 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/Nvidia/OneApiForNvidiaShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/Nvidia/Guide/OneApiForNvidiaGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI for NVIDIA® GPUs</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Docs</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../../support-packages.html" >
+                        <div>
+
+                            <span class="icon material-icons">support_agent</span>
+
+                            <div>Support</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html" target="_blank">
+                        <div>
+                            <img class="icon material-icons" src="../../../../../../assets/img/products/oneapi/menu-icon-intel.png" alt="Icon" />
+
+
+                            <div>Get Toolkit</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Docs</a>
+                    </li>
+                    <li >
+                        <a href="../../../support-packages.html"
+                           >Support</a>
+                    </li>
+                    <li >
+                        <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html"
+                           target="_blank">Get Toolkit</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="performance-performance-on-nvidia">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2024.2.1</div>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../../2025.2.0/guides/performance/performance-on-nvidia-2.html">2025.2.0</a></li>
+                           <li><a href="../../../2025.1.1/guides/performance/performance-on-nvidia-2.html">2025.1.1</a></li>
+                           <li><a href="../../../2025.1.0/guides/performance/performance-on-nvidia-2.html">2025.1.0</a></li>
+                           <li><a href="../../../2025.0.0/guides/performance/performance-on-nvidia-2.html">2025.0.0</a></li>
+                           <li><a href="performance-on-nvidia-2.html">2024.2.1</a></li>
+                           <li><a href="../../../2024.2.0/guides/performance/performance-on-nvidia-2.html">2024.2.0</a></li>
+                           <li><a href="../../../2024.1.2/guides/performance/performance-on-nvidia-2.html">2024.1.2</a></li>
+                           <li><a href="../../../2024.1.0/guides/performance/performance-on-nvidia-2.html">2024.1.0</a></li>
+                           <li><a href="../../../2024.0.2/guides/performance/performance-on-nvidia-2.html">2024.0.2</a></li>
+                           <li><a href="../../../2024.0.1/guides/performance/performance-on-nvidia-2.html">2024.0.1</a></li>
+                           <li><a href="../../../2024.0.0/guides/performance/performance-on-nvidia-2.html">2024.0.0</a></li>
+                           <li><a href="../../../2023.2.1/guides/performance/performance-on-nvidia-2.html">2023.2.1</a></li>
+                           <li><a href="../../../2023.2.0/guides/performance/performance-on-nvidia-2.html">2023.2.0</a></li>
+                           <li><a href="../../../2023.1.0/guides/performance/performance-on-nvidia-2.html">2023.1.0</a></li>
+                           <li><a href="../../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI for NVIDIA® GPUs 2024.2.1</a><ol></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Get Started</a><ol><li class=""><a href="../get-started-guide-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Install oneAPI for NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#use-dpc-to-target-nvidia-gpus"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Use DPC++ to Target NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#dpc-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DPC++ Resources</a><ol></ol></li><li class=" anchor"><a href="../get-started-guide-nvidia-2.html#sycl-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL Resources</a><ol></ol></li><li class=""><a href="../debugging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging SYCL Applications</a><ol></ol></li><li class=""><a href="../MPI-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>MPI Guide</a><ol></ol></li></ol></li>               <li class="selected"><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Performance Guide</a><ol><li class=""><a href="introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="programming-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Programming Model</a><ol></ol></li><li class=""><a href="optimization-goals.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Optimization Goals</a><ol></ol></li><li class=""><a href="performance-analysis.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Analysis</a><ol></ol></li><li class="selected focused"><a href="performance-on-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance on Nvidia GPUs</a><ol></ol></li><li class=""><a href="common-optimizations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Common Optimizations</a><ol></ol></li></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Support</a><ol><li class=""><a href="../features-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Features</a><ol></ol></li><li class=""><a href="../changelog-nvidia-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Changelog</a><ol></ol></li><li class=""><a href="../troubleshooting.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Troubleshooting</a><ol></ol></li><li class=""><a href="../license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>License</a><ol></ol></li></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of oneAPI for NVIDIA® GPUs.
+                            This guide was designed for version 2024.2.1.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#performance-on-nvidia-gpus">
+                            <h1>Performance on Nvidia GPUs</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="common-optimizations-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<section id="performance-on-nvidia-gpus">
+
+<p>The purpose of this section is to describe Nvidia GPU architecture and related
+performance considerations within the context of the SYCL programming model.
+Readers are encouraged to consult appropriate <a class="reference external" href="https://docs.nvidia.com/">Nvidia documentation</a>
+for up to date details of Nvidia architecture specific performance
+considerations.</p>
+<section id="architecture">
+<a class="header-link" href="#architecture"><h2 id="architecture">Architecture</h2><span class="material-icons">link</span></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section only provides a quick parallel between CUDA and SYCL
+terminology, for a more thorough description, refer to ComputeCpp’s
+<a class="reference external" href="../../../../../computecpp/ce/2.11.0/guides/sycl-for-cuda-developers.html">SYCL for CUDA
+guide</a>.
+Note however that the ComputeCpp guide only covers SYCL 1.2;
+therefore several important features introduced in SYCL 2020 such as USM
+are not discussed.</p>
+</div>
+<p>The basic compute unit of an NVIDIA GPU is called a <em>streaming multiprocessor</em>
+or SM. An SM executes sub-groups composed of 32 work-items. NVIDIA calls the
+sub-group a <em>warp</em>.  The entity that executes a work-item is called a <em>thread</em>.</p>
+<p>A work-group is called a <em>thread block</em> or a <em>cooperative thread array</em>
+(CTA). The usual rules apply: a CTA is guaranteed to run concurrently on the
+same SM, and can use local resources like SYCL local memory (which CUDA calls shared
+memory), and can synchronize
+between work-items.</p>
+<p>This table summarizes the mapping between NVIDIA/CUDA terminology and SYCL
+terminology:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>NVIDIA/CUDA</p></th>
+<th class="head"><p>SYCL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>streaming multiprocessor (SM)</p></td>
+<td><p>compute unit (CU)</p></td>
+</tr>
+<tr class="row-odd"><td><p>warp</p></td>
+<td><p>sub-group</p></td>
+</tr>
+<tr class="row-even"><td><p>thread</p></td>
+<td><p>work-item</p></td>
+</tr>
+<tr class="row-odd"><td><p>thread block</p></td>
+<td><p>work-group</p></td>
+</tr>
+<tr class="row-even"><td><p>cooperative thread array (CTA)</p></td>
+<td><p>work-group</p></td>
+</tr>
+<tr class="row-odd"><td><p>shared memory</p></td>
+<td><p>local memory</p></td>
+</tr>
+<tr class="row-even"><td><p>global memory</p></td>
+<td><p>global memory</p></td>
+</tr>
+<tr class="row-odd"><td><p>local memory</p></td>
+<td><p>private memory</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The work-group size should always be a multiple of the sub-group size of 32. The
+optimal work-group size is typically chosen to maximize occupancy, and depends
+on the resources used by the particular kernel. It cannot exceed 1024.</p>
+<p>On NVIDIA GPUS, the device query <code class="docutils literal notranslate">sycl::info::device::sub_group_sizes</code> returns a
+vector with a single element with the value 32.</p>
+<p>Once the work-group size is chosen, we can pick the global size. It is often
+useful to make the global size a multiple of the number of compute units to
+help in load balancing. The device query <code class="docutils literal notranslate">sycl::info::device::max_compute_units</code>
+returns the number of compute units.</p>
+<p>Then, we can write the kernel code so that each work-item (kernel instance)
+operates on multiple items of the problem. Thus the launch parameters can be
+tuned based on hardware layout without regard to the specific problem size.</p>
+<p>For example the following snippet of SYCL code determines the launch parameters
+based on the hardware layout, and then uses a loop inside the kernel to adjust
+to the problem size. In CUDA this type of inner loop is called a <em>grid-stride</em>.</p>
+<pre><code class="language-cpp">    int N = some_big_number;
+    int wgsize = 256;
+    int ncus = dev.get_info&lt;info::device::max_compute_units&gt;();
+    int nglobal = 32 * ncus;
+    cgh.parallel_for(nd_range&lt;1&gt;(nglobal * wgsize, wgsize),
+      [=](nd_item&lt;1&gt; item)
+      {
+        int global_size = item.get_global_range()[0];
+        for (int i = item.get_global_id(0); i &lt; N; i += global_size)
+          y[i] = a * x[i] + y[i];
+      });
+</code>
+</pre>
+<section id="sms">
+<a class="header-link" href="#sms"><h3 id="sms">SMs</h3><span class="material-icons">link</span></a>
+<p>NVIDIA SMs are partitioned into four processing blocks, called <a class="reference external" href="https://docs.nvidia.com/nsight-compute/ProfilingGuide/"><em>SM sub
+partitions</em></a>.
+Individual warps reside in a single sub partition for their entire duration.
+When a warp is stalled, the hardware warp scheduler is able to switch to
+another ready warp. This all implies that there should be an ample number of
+warps available to execute at any given time. Later we will see how to use
+hardware metrics to evaluate the efficiency of the warp scheduler and the time
+spent in stalls.</p>
+</section>
+<section id="memory">
+<a class="header-link" href="#memory"><h3 id="memory">Memory</h3><span class="material-icons">link</span></a>
+<p>Several kinds of memory are available:</p>
+<ul class="simple">
+<li><p><strong>SYCL global memory</strong> (NVIDIA global memory) is located on the device, though
+some global addresses may refer to cuda managed memory (using SYCL shared USM)
+that resides on the host or another device. All global memory accesses go
+through the L2 cache that is shared between all CUs. Data that is read only for
+the lifetime of the kernel can also be cached in the per-CU L1 cache using the
+<code class="docutils literal notranslate">sycl::ext::oneapi::experimental::cuda::ldg</code> function.</p></li>
+<li><p><strong>SYCL private memory</strong> (NVIDIA local memory) is accessible only by a specific
+work-item, but maps to global memory, so has no performance advantage over
+global memory. It is mapped at the same address for every work-item. It is used
+for work-item stacks, register spills, and other work-item local data.</p></li>
+<li><p><strong>SYCL local memory</strong> (NVIDIA shared memory) can be used by a work-group.
+It has higher bandwidth and lower latency than global memory. SYCL local memory
+has 32 banks. Consecutive 32-bit words are assigned to different banks.</p></li>
+<li><p><strong>SYCL shared memory</strong> (NVIDIA managed memory) may be located on the host, or
+any device (see global memory description above) where it is accessed. The
+migration of such memory between host and device, or device and device, is
+managed by the runtime. However, the user may provide performance hints in order
+to influence this behavior via the <code class="docutils literal notranslate">prefetch</code> and <code class="docutils literal notranslate">mem_advise</code> SYCL 2020 APIs.</p></li>
+</ul>
+<section id="bank-conflicts">
+<a class="header-link" href="#bank-conflicts"><h4 id="bank-conflicts">Bank conflicts</h4><span class="material-icons">link</span></a>
+<p>Imagine a stride-1 loop accessing a 32-byte float
+array in SYCL local memory.
+In the first sub-group, work-item 0 would access array element 0, work item 1
+array element 1, and so on. Thus the sub-group as a whole would access array
+elements 0:31 and there would be no bank conflicts.</p>
+<p>If on the other hand the loop was stride-32, then the work items would access
+elements 32, 64, 96, .. and the sub-group would access 32 locations that were 32
+elements apart, resulting in a 32-way bank conflict, and reducing SYCL local
+memory bandwidth by a factor of 32.</p>
+<p><a class="reference external" href="https://on-demand.gputechconf.com/gtc/2018/presentation/s81006-volta-architecture-and-performance-optimization.pdf">This talk on Volta</a>
+has a good description of shared memory bank conflicts on slides 54-72.</p>
+<p>There are hardware metrics to measure bank conflicts.</p>
+</section>
+<section id="local-memory-size">
+<a class="header-link" href="#local-memory-size"><h4 id="local-memory-size">Local memory size</h4><span class="material-icons">link</span></a>
+<p>By default kernels are limited to 48KB of SYCL local memory per thread block.
+For platforms supporting larger allocations (compute capability 7.0 and above)
+they have to be explicitly enabled by setting the
+<code class="docutils literal notranslate">SYCL_PI_CUDA_MAX_LOCAL_MEM_SIZE</code> environmental variable to the desired
+allocation maximum in bytes. The device query
+<code class="docutils literal notranslate">sycl::info::device::local_mem_size</code> returns the current SYCL local memory
+maximum.</p>
+<p>Since compute capability 7.0 the SYCL local memory and the L1 cache are
+physically located on the same memory die. This means that their sum is a fixed
+value. As such allocating a lot of shared memory may impact performance by
+shrinking the available L1 cache.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As mentioned above for compute capability 7.0 and newer cards the L1 cache and
+local memory are linked together by hardware. While shared memory can be set to
+any arbitrary size within the platform capabilities L1 does not have such
+flexibility and can only use one of the predetermined values (called carveouts).
+As such allocating only slightly more local memory may cause the driver to snap
+to the next carveout value limiting L1 by a more noticeable amount.</p>
+</div>
+<p>The split between the memory types is chosen by the driver at runtime. It bases
+its decision on the actual amount of memory allocated using
+<code class="docutils literal notranslate">sycl::local_accessor</code>. As such setting an overly generous
+<code class="docutils literal notranslate">SYCL_PI_CUDA_MAX_LOCAL_MEM_SIZE</code> will not have a negative impact on the chosen
+L1 cache amount.</p>
+<p>The exact values for these settings for any given compute capability can be
+found in the
+<a class="reference external" href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#features-and-technical-specifications-technical-specifications-per-compute-capability">CUDA C programming guide</a>.
+It is important to keep in mind that Nvidia uses the terms “L1 cache” and
+“texture cache” interchangeably: they mean the same thing.</p>
+</section>
+<section id="memory-coalescence">
+<a class="header-link" href="#memory-coalescence"><h4 id="memory-coalescence">Memory coalescence</h4><span class="material-icons">link</span></a>
+<p>Different work-items will usually access different locations in global memory.
+If the addresses accessed by a given sub-group in the same load
+instruction are to the same set of of cache lines, then the memory system will
+issue the minimal number of global memory accesses. This is called <em>memory
+coalescing</em>. This requirement can easily be satisfied by work-items accessing
+adjacent memory locations.
+Additional performance
+improvement can be achieved by aligning data structures on 32-byte boundaries.
+Obviously, indirect accesses and/or large strides may make this hard to
+achieve.</p>
+<p>Recent NVIDIA GPUs have much more sophisticated cache and memory systems that
+make it more likely that global memory accesses will be coalesced. There are
+hardware metrics that can help to measure coalescence.</p>
+</section>
+</section>
+<section id="caches">
+<a class="header-link" href="#caches"><h3 id="caches">Caches</h3><span class="material-icons">link</span></a>
+<p>All GPU units share an L2 cache. The L2 cache is physically addressed. It
+includes facilities for data compression and global atomic (e.g., floating
+point add).</p>
+<p>Each SM has an L1 cache which is used for multiple functions. L1 throughput
+can be a performance limiter.</p>
+</section>
+<section id="occupancy">
+<a class="header-link" href="#occupancy"><h3 id="occupancy">Occupancy</h3><span class="material-icons">link</span></a>
+<p>NVIDIA defines occupancy as the number of simultaneously active CUs divided by
+the maximum possible number of simultaneous CUs. Obviously increasing
+occupancy will increase GPU utilization, which is expected to increase
+performance. Theoretical occupancy is determined by hardware limits, by the
+number of registers used for a kernel, and by the amount of shared memory used
+for a kernel.</p>
+<p>Theoretical occupancy gives some guidelines for determining work-group sizes
+and launch parameters for a specific kernel. NVIDIA profiling tools can provide
+actual and theoretical occupancy for each kernel launch. It can be useful to
+vary the work-group size at runtime and benchmark the results to pick the best
+work-group size. However, it is often helpful to have an estimate of theoretical
+occupancy without having to run the code.</p>
+<p>NVIDIA provides an
+<a class="reference external" href="https://web.archive.org/web/20220616071017/https://docs.nvidia.com/cuda/cuda-occupancy-calculator/CUDA_Occupancy_Calculator.xls">online spreadsheet</a>.
+While it is officially deprecated, it provides the same functionality as the
+Nsight Compute Occupancy section and can be very helpful when one is trying to
+understand how theoretical occupancy is determined.
+They suggest to use <a class="reference external" href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html#occupancy-calculator">Nsight
+Compute</a>
+instead.</p>
+</section>
+</section>
+<section id="performance-tools">
+<a class="header-link" href="#performance-tools"><h2 id="performance-tools">Performance Tools</h2><span class="material-icons">link</span></a>
+<p>In general all the performance tools provided by Nvidia for CUDA also
+seamlessly handle SYCL applications using the DPC++ CUDA plugin.</p>
+<p>This section contains a non-exhaustive introduction to some of these
+performance tools.</p>
+</section>
+<section id="nsight-systems-nsys">
+<a class="header-link" href="#nsight-systems-nsys"><h2 id="nsight-systems-nsys">Nsight Systems (nsys)</h2><span class="material-icons">link</span></a>
+<p><a class="reference external" href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>
+includes a command line tool <em>nsys</em> and a GUI <em>nsys-ui</em>.
+Additionally, the
+<a class="reference external" href="https://nvidia.github.io/NVTX/doxygen/index.html">NVTX</a>
+tracing library can be used in an
+application to restrict nsys analysis to regions of interest and to add additional
+application-specific events to the nsys analysis.</p>
+<section id="basic-usage">
+<a class="header-link" href="#basic-usage"><h3 id="basic-usage">Basic Usage</h3><span class="material-icons">link</span></a>
+<pre><code class="language-none">nsys profile &lt;command&gt; &lt;arguments&gt;
+</code>
+</pre>
+<p>This command will run the given command with the given arguments and collect a
+profile with the default settings. The output is written to a report file in an
+NVIDIA-specific format.</p>
+<p>Note that nsys monitors the entire system. The command can be anything; nsys will
+simply start the command, start monitoring, and continue monitoring until the
+command exits.</p>
+<pre><code class="language-none">nsys stats &lt;report file&gt;
+</code>
+</pre>
+<p>This command will create an sqlite database from the report file and run several
+reports on the database. Reports include API usage, memory copies involving GPUs,
+and GPU kernel timings. The results are printed to the console by default. There
+are also options to write reports to files in csv format.</p>
+<p>The nsys-ui command can be used to graphically examine a report file. This
+requires an attached display, either locally or through some sort of remote X
+viewer like VNC. The report file can be moved to a local system such as a laptop
+and the GUI run there. The report files can be quite large, and may require more
+memory than is available on many laptops.</p>
+<p>With strategic use of NVTX annotation in the application and additional command
+line arguments, the report size can be dramatically reduced, facilitating the
+analysis workflow.</p>
+<p>Reports can also be exported in JSON format. This contains the same data as the
+sqlite database but may be easier to parse for those who aren’t experts in SQL.</p>
+</section>
+<section id="nvtx-annotations">
+<a class="header-link" href="#nvtx-annotations"><h3 id="nvtx-annotations">NVTX Annotations</h3><span class="material-icons">link</span></a>
+<p>NVTX is an instrumentation API provided by NVIDIA for use with their performance
+tools. It is a header-only API made available by including <code class="docutils literal notranslate">nvToolsExt.h</code>; there
+are no libraries that need to be linked in.</p>
+<p>NVTX can be very helpful for very large application to restrict data collection
+of the other Nvidia tools to a specific part of the application.</p>
+<p>Note that NVTX can only be used to instrument host code, not device code.</p>
+<p>Refer to the <a class="reference external" href="https://github.com/NVIDIA/NVTX/blob/release-v3/README.md">Nvidia
+documentation</a> for
+more information on how to use NVTX and what it can do.</p>
+</section>
+</section>
+<section id="nsight-compute-ncu">
+<a class="header-link" href="#nsight-compute-ncu"><h2 id="nsight-compute-ncu">Nsight Compute (ncu)</h2><span class="material-icons">link</span></a>
+<p>Previous sections discussed Nsight Systems (nsys). Nsight Compute (ncu)
+is a companion tool that focuses on GPU hardware performance. ncu allows
+access to the many available hardware counters in NVIDIA GPUs, as well
+as presenting a number of predefined analysis types (called sections)
+that aid in understanding how well a given kernel is using the GPU.</p>
+<p>ncu has a GUI but as in the nsys discussion we will
+focus on using the command line together with some
+processing scripts. The ncu CLI is documented at
+<a class="reference external" href="https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html">https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html</a>.</p>
+<section id="ncu-overhead">
+<a class="header-link" href="#ncu-overhead"><h3 id="ncu-overhead">ncu Overhead</h3><span class="material-icons">link</span></a>
+<p>ncu can greatly inflate the runtime of an application. There are several
+reasons for this:</p>
+<ul class="simple">
+<li><p>Collecting specified metrics may require that a kernel be executed multiple times.</p></li>
+<li><p>Some metrics require binary instrumentation of the kernel which can have high overhead.</p></li>
+<li><p>Kernel execution is usually serialized, reducing concurrency.</p></li>
+</ul>
+<p>See the <a class="reference external" href="https://docs.nvidia.com/nsight-compute/ProfilingGuide/">Kernel Profiling Guide</a> for
+more details.</p>
+<p>Because of this slowdown, it is usually necessary to limit the collection
+process. NVIDIA provides several methods to do this:</p>
+<ul class="simple">
+<li><p>Instrument the application with NVTX as described in the previous
+section on nsys, and instruct ncu to include or exclude specific NVTX
+ranges using the command-line options <code class="docutils literal notranslate">--nvtx</code> and <code class="docutils literal notranslate">--nvtx-include</code> or
+<code class="docutils literal notranslate">--nvtx-exclude</code>. Note that the syntax to specify a range in a domain is
+backwards from nsys: <code class="docutils literal notranslate">domain@range</code> rather than <code class="docutils literal notranslate">range@domain</code>. Also,
+the ncu syntax is quite rich and complicated. See the <a class="reference external" href="https://docs.nvidia.com/nsight-compute/ProfilingGuide/">NVTX
+Filtering</a>
+section.</p></li>
+<li><p>Collect data for only one kernel using <code class="docutils literal notranslate">-k kernelname</code>. Regular expressions can be used in the kernel
+name. Note: C++ users may want to use the mangled name by specifying
+<code class="docutils literal notranslate">--kernel-name-base=mangled</code>.</p></li>
+<li><p>Collect a specified number of kernel
+launches using <code class="docutils literal notranslate">--launch-count</code> and <code class="docutils literal notranslate">--launch-skip</code>.</p></li>
+</ul>
+<p>The above methods can be combined.</p>
+</section>
+<section id="sections">
+<a class="header-link" href="#sections"><h3 id="sections">Sections</h3><span class="material-icons">link</span></a>
+<p>ncu has a number of predefined sets of metrics called sections. Each
+section is designed to help answer a specific performance question, e.g.,
+is this application memory bound?</p>
+<p>The sections can be listed with <code class="docutils literal notranslate">ncu --list-sections</code>. Here is the output
+for ncu version 2022.1.1.0:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Display Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ComputeWorkloadAnalysis</p></td>
+<td><p>Compute Workload Analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>InstructionStats</p></td>
+<td><p>Instruction Statistics</p></td>
+</tr>
+<tr class="row-even"><td><p>LaunchStats</p></td>
+<td><p>Launch Statistics</p></td>
+</tr>
+<tr class="row-odd"><td><p>MemoryWorkloadAnalysis</p></td>
+<td><p>Memory Workload Analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>MemoryWorkloadAnalysis_Chart</p></td>
+<td><p>Memory Workload Analysis Chart</p></td>
+</tr>
+<tr class="row-odd"><td><p>MemoryWorkloadAnalysis_Deprecated</p></td>
+<td><p>(Deprecated) Memory Workload Analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>MemoryWorkloadAnalysis_Tables</p></td>
+<td><p>Memory Workload Analysis Tables</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nvlink</p></td>
+<td><p>NVLink</p></td>
+</tr>
+<tr class="row-even"><td><p>Nvlink_Tables</p></td>
+<td><p>NVLink Tables</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nvlink_Topology</p></td>
+<td><p>NVLink Topology</p></td>
+</tr>
+<tr class="row-even"><td><p>Occupancy</p></td>
+<td><p>Occupancy</p></td>
+</tr>
+<tr class="row-odd"><td><p>SchedulerStats</p></td>
+<td><p>Scheduler Statistics</p></td>
+</tr>
+<tr class="row-even"><td><p>SourceCounters</p></td>
+<td><p>Source Counters</p></td>
+</tr>
+<tr class="row-odd"><td><p>SpeedOfLight</p></td>
+<td><p>GPU Speed Of Light Throughput</p></td>
+</tr>
+<tr class="row-even"><td><p>SpeedOfLight_HierarchicalDoubleRooflineChart</p></td>
+<td><p>GPU Speed Of Light Hierarchical Roofline Chart (Double Precision)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SpeedOfLight_HierarchicalHalfRooflineChart</p></td>
+<td><p>GPU Speed Of Light Hierarchical Roofline Chart (Half Precision)</p></td>
+</tr>
+<tr class="row-even"><td><p>SpeedOfLight_HierarchicalSingleRooflineChart</p></td>
+<td><p>GPU Speed Of Light Hierarchical Roofline Chart (Single Precision)</p></td>
+</tr>
+<tr class="row-odd"><td><p>SpeedOfLight_HierarchicalTensorRooflineChart</p></td>
+<td><p>GPU Speed Of Light Hierarchical Roofline Chart (Tensor Core)</p></td>
+</tr>
+<tr class="row-even"><td><p>SpeedOfLight_RooflineChart</p></td>
+<td><p>GPU Speed Of Light Roofline Chart</p></td>
+</tr>
+<tr class="row-odd"><td><p>WarpStateStats</p></td>
+<td><p>Warp State Statistics</p></td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<section id="metrics">
+<a class="header-link" href="#metrics"><h3 id="metrics">Metrics</h3><span class="material-icons">link</span></a>
+<p>Instead of sections, ncu can be directed to collect specific metrics with
+<code class="docutils literal notranslate">--metrics</code>. The available metrics can be queried with <code class="docutils literal notranslate">--query-metrics</code>.</p>
+</section>
+<section id="output">
+<a class="header-link" href="#output"><h3 id="output">Output</h3><span class="material-icons">link</span></a>
+<p>The examples in this section use the <code class="docutils literal notranslate">--csv</code> option to create output
+that is easy to parse. The <code class="docutils literal notranslate">--log-file</code> option will send this output,
+together with some other output, to a file rather than to <code class="docutils literal notranslate">stdout</code>.</p>
+<p>The profiling report is used by the ncu gui. It can be saved using the
+<code class="docutils literal notranslate">--export</code> option. That file could then be moved to a different machine
+and viewed locally with <code class="docutils literal notranslate">ncu-gui</code>:.</p>
+<p>Mangled names in the output can be selected with
+<code class="docutils literal notranslate">--print-kernel-base=mangled</code>.</p>
+</section>
+</section>
+<section id="extract-kernel-assembly">
+<a class="header-link" href="#extract-kernel-assembly"><h2 id="extract-kernel-assembly">Extract kernel assembly</h2><span class="material-icons">link</span></a>
+<p>In some cases to understand the performance behavior of a given kernel, it may
+be helpful to inspect the assembly, or in the Nvidia case the PTX generated by
+the compiler for the kernel.</p>
+<p>To extract the PTX from a SYCL application built for Nvidia GPU, simply run the
+application with the environment variable <code class="docutils literal notranslate">SYCL_DUMP_IMAGES</code> set to <code class="docutils literal notranslate">1</code>. This
+will create files in the current working directory with names such as
+<code class="docutils literal notranslate">sycl_nvptx641.bin</code>. These files are CUDA <em>fat binaries</em>, they contain PTX,
+which is Nvidia’s target independent virtual assembly language, and SASS, which
+is machine code for one or multiple specific targets.</p>
+<p>From that fat binary, the CUDA tool
+<a class="reference external" href="https://docs.nvidia.com/cuda/cuda-binary-utilities/index.html#cuobjdump"><code class="docutils literal notranslate">cuobjdump</code></a>
+can then be used to extract both PTX and SASS, as follows:</p>
+<pre><code class="language-plaintext"># Extract PTX
+cuobjdump --dump-ptx sycl_nvptx641.bin
+
+# Extract SASS
+cuobjdump -sass sycl_nvptx641.bin
+</code>
+</pre>
+<p>Note that the GUI version of NVIDIA’s Nsight Compute tool should also be able to
+show disassembly.</p>
+</section>
+<section id="module-split-and-loading-times">
+<a class="header-link" href="#module-split-and-loading-times"><h2 id="module-split-and-loading-times">Module split and loading times</h2><span class="material-icons">link</span></a>
+<p>Compiled device code is embedded in the output binary (executable or shared
+library) in self-contained sections called “modules”. Each module may comprise
+one or multiple kernels and may contain just the PTX or both PTX and SASS. When
+a program needs to execute a kernel, it will load the module into the host
+memory and ask the driver to load the corresponding device code onto the device.
+If the right SASS for the given device architecture is available, it is loaded
+directly. Otherwise, just-in-time compilation from PTX to SASS is triggered. If
+a module contains multiple kernels, the entire module is loaded on the first use
+of one of its kernels.</p>
+<p>Merging multiple kernels into a single module may be generally better for
+performance if most of its kernels are used over the course of the program’s run
+time. It may reduce the overheads of reading the device code from the binary
+file and launching the JIT compilation and memory transfers. On the other hand,
+it will lead to unnecessary work being performed if a module contains many
+kernels and only a small fraction of them are ever used. The unused kernels will
+still need to be loaded and potentially compiled, and will take up memory space.
+There are arguments for and against each solution, but it is worth noting that
+CUDA (NVCC) by default creates a separate module for each kernel, whereas DPC++
+tends to combine multiple kernels into a larger module.</p>
+<p>This may be problematic when building shared libraries with templated kernels
+which need to provide many template instantiations - tens or even hundreds.
+Imagine a function template with three template typename parameters supporting
+five types each and resulting in 125 combinations. If the device code for all
+these kernels is bundled into a single module, this will require loading all of
+them even when a typical use-case only requires one combination. When analysing
+the performance of such a program in <code class="docutils literal notranslate">nsys</code>, this may show up in the CUDA API
+section as a significant time spent in the <code class="docutils literal notranslate">cuModuleLoadDataEx</code> call. If this
+turns out to be a limitation for the application’s performance, it might be
+worth splitting the kernels into separate modules.</p>
+<p>The module splitting in DPC++ can be modified using the <code class="docutils literal notranslate">-fsycl-device-code-split</code> flag.
+Its default value (<code class="docutils literal notranslate">auto</code>) instructs the compiler to use its built-in heuristics
+to find an optimal split. The outcome may depend on how the source code is
+structured and divided into translation units, and may not always be the best
+choice for the intended use case (as in the shared library example above).
+Forcing the compiler to produce a separate module for each kernel by setting
+<code class="docutils literal notranslate">-fsycl-device-code-split=per_kernel</code> may be beneficial in this situation.</p>
+</section>
+</section>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2024.2.1/guides/performance/performance-on-nvidia by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:30:17 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="for NVIDIA® GPUs" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/nvidia/2024.2.1/guides/performance/performance-on-nvidia" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="performance-analysis-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Performance Analysis</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="common-optimizations-2.html"
+                            >
+                            <div>
+                                <h1>Common Optimizations</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#performance-on-nvidia-gpus">Performance on Nvidia GPUs</a></li>
+                        <li class="heading-2"><a href="#architecture">Architecture</a></li>
+                        <li class="heading-2"><a href="#performance-tools">Performance Tools</a></li>
+                        <li class="heading-2"><a href="#nsight-systems-nsys">Nsight Systems (nsys)</a></li>
+                        <li class="heading-2"><a href="#nsight-compute-ncu">Nsight Compute (ncu)</a></li>
+                        <li class="heading-2"><a href="#extract-kernel-assembly">Extract kernel assembly</a></li>
+                        <li class="heading-2"><a href="#module-split-and-loading-times">Module split and loading times</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="d5b8cf0f529fa88ceaff23fe870c0c40">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

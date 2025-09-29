@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Developer Guide - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Developer Guide' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Developer Guide - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Developer Guide' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="developer-guide">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="index.html">4.0.0</a></li>
+                           <li><a href="../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="index.html">4.0.0</a></li>
+                           <li><a href="../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="index.html">4.0.0</a></li>
+                           <li><a href="../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class="selected focused"><a href="developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#developer-guide">
+                            <h1>Developer Guide</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/developer-guide.md" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="tutorials-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="tex2jax_ignore mathjax_ignore section" id="developer-guide">
+
+<div class="section" id="supported-software">
+<a class="header-link" href="#supported-software"><h2 id="supported-software">Supported Software</h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit depends on LLVM and Clang. The compiler information
+section contains a list of <a class="reference internal" href="overview/compiler/supported-llvm-versions.html"><span class="doc std std-doc">supported
+versions</span></a>.</p>
+<p>LLVM and Clang need to be built and installed separately. The oneAPI Construction
+Kit build then uses this installation as a dependency.</p>
+</div>
+<div class="section" id="directory-layout">
+<a class="header-link" href="#directory-layout"><h2 id="directory-layout">Directory layout</h2><span class="material-icons">link</span></a>
+<p>Current directory layout:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">source</code>: Contains source specific to implementing open standards, such as
+OpenCL and Vulkan.</p>
+<ul>
+<li><p><code class="docutils literal notranslate">source/cl</code>: Encapsulates all source code which implements the OpenCL open
+standard, this is an optional component and may not be present dependent on
+license agreement.</p>
+<ul>
+<li><p><code class="docutils literal notranslate">source/cl/source/extension/include</code>: This directory holds the headers
+for the Codeplay specific OpenCL extensions.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">source/vk</code>: Encapsulates all source code which implements the Vulkan open
+standard, this is an optional component and may not be present dependent on
+license agreement.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">modules</code>: Contains shared <em>modules</em> used in the implementation of the open
+standards in <code class="docutils literal notranslate">source</code>. For details on the <em>modules</em> layout in the <a class="reference internal" href="modules.html"><span class="doc std std-doc">modules
+documentation</span></a>. Currently we have the following modules:</p>
+<ul>
+<li><p><code class="docutils literal notranslate">modules/cargo</code>: Generic module containing the implementations of
+containers.</p></li>
+<li><p><code class="docutils literal notranslate">modules/compiler</code>: Module providing the main compilation infrastructure, which
+in turn contains the following parts:</p>
+<ul>
+<li><p><code class="docutils literal notranslate">builtins</code>: Module providing the OpenCL C builtins, math library (abacus)
+and the image library (libimg) are part of this module.</p></li>
+<li><p><code class="docutils literal notranslate">cookie</code> contains template files for generating target implementations.</p></li>
+<li><p><code class="docutils literal notranslate">targets</code> contains target-specific compilation pipeline infrastructure,
+including the <code class="docutils literal notranslate">host</code> device implementation.</p></li>
+<li><p><code class="docutils literal notranslate">tools</code> contains the <code class="docutils literal notranslate">muxc</code> executable.</p></li>
+<li><p><code class="docutils literal notranslate">utils</code> contains various common code for transforming IR and metadata.</p></li>
+<li><p><code class="docutils literal notranslate">vecz</code>: contains the Vectorizer.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">modules/mux</code>: Definition of the Mux API.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">doc</code>: Contains documentation in a structure matching the <code class="docutils literal notranslate">source</code> and
+<code class="docutils literal notranslate">modules</code> directory trees.</p></li>
+<li><p><code class="docutils literal notranslate">cmake</code>: Hold various utility CMake scripts.</p></li>
+<li><p><code class="docutils literal notranslate">platform</code>: Holds CMake toolchains files for the various supported platforms,
+as well as all the necessary information to build the oneAPI Construction Kit
+for the specific platforms.</p></li>
+<li><p><code class="docutils literal notranslate">scripts</code>: Holds various scripts used by the oneAPI Construction Kit,
+includes an OpenCL CTS runner, performance analysis scripts, scripts to help
+with building, and scripts used in continuous integration.</p></li>
+</ul>
+</div>
+<div class="section" id="branches">
+<a class="header-link" href="#branches"><h2 id="branches">Branches</h2><span class="material-icons">link</span></a>
+<p>The two long running branches are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">stable</code>: This branch is merged to on a successful nightly run and should not
+be merged into directly.</p></li>
+<li><p><code class="docutils literal notranslate">main</code>: This is the main branch for on-going development.</p></li>
+</ul>
+<blockquote>
+<div><p>No force pushes are allowed on these two branches.</p>
+</div></blockquote>
+</div>
+<div class="section" id="coding-style">
+<a class="header-link" href="#coding-style"><h2 id="coding-style">Coding style</h2><span class="material-icons">link</span></a>
+<div class="section" id="c-style">
+<a class="header-link" href="#c-style"><h3 id="c-style">C++ Style</h3><span class="material-icons">link</span></a>
+<p>All the C++ code in the oneAPI Construction Kit should be formatted using
+<a class="reference external" href="https://clang.llvm.org/docs/ClangFormat.html"><code class="docutils literal notranslate">clang-format</code></a> version 16, and using the <code class="docutils literal notranslate">.clang-format</code> file
+provided by the project (option: <code class="docutils literal notranslate">-style=file</code>).</p>
+<p>Header include guards should follow the convention of
+<code class="docutils literal notranslate">&lt;MODULE&gt;_&lt;FILE&gt;_H_INCLUDED</code>.</p>
+</div>
+<div class="section" id="cmake-style">
+<a class="header-link" href="#cmake-style"><h3 id="cmake-style">CMake Style</h3><span class="material-icons">link</span></a>
+<p>All the CMake scripts in the oneAPI Construction Kit should be free of
+<a class="reference external" href="https://pypi.org/project/cmakelint/"><code class="docutils literal notranslate">cmakelint</code></a> warnings when the following checks are disabled in the <code class="docutils literal notranslate">.cmakelintrc</code>
+configuration file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">linelength</code> when writing CMake best effort should be made to keep lines
+shorter than 80 characters, however this is not always practical or possible,
+the check is disabled.</p></li>
+<li><p><code class="docutils literal notranslate">syntax</code> it is possible for <a class="reference external" href="https://pypi.org/project/cmakelint/">cmakelint</a> to generate some false
+positives when checking CMake syntax, configuring a build with CMake itself is
+the best method of validating syntax, the check is disabled.</p></li>
+<li><p><code class="docutils literal notranslate">convention/filename</code>/<code class="docutils literal notranslate">package/consistency</code>/<code class="docutils literal notranslate">package/stdargs</code> these checks are
+more strict than CMake’s documentation suggests, they also trigger warnings in
+the modules provided by CMake itself, the checks are disabled.</p></li>
+</ul>
+<p>To run <code class="docutils literal notranslate">cmakelint</code> using the <code class="docutils literal notranslate">.cmakelintrc</code> configuration file in the root of
+the oneAPI Construction Kit repository:</p>
+<pre><code class="language-sh">cmakelint --config=.cmakelintrc &lt;file&gt; [&lt;file&gt;] ...
+</code>
+</pre>
+</div>
+<div class="section" id="python-style">
+<a class="header-link" href="#python-style"><h3 id="python-style">Python Style</h3><span class="material-icons">link</span></a>
+<p>All the Python code in the oneAPI Construction Kit <em>must</em> be formatted using
+<a class="reference external" href="https://pypi.org/project/yapf/"><code class="docutils literal notranslate">yapf</code></a> set to the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">pep8</a> style (default). As with <code class="docutils literal notranslate">clang-format</code>
+it’s not perfect in all situations and occasionally does something baffling,
+but the consistency mostly keeps the holy warriors at bay.</p>
+<p>You may also wish to run Python code run through the <a class="reference external" href="https://pypi.org/project/pylint/">pylint</a>
+(configured in <code class="docutils literal notranslate">.pylintrc</code>) and <a class="reference external" href="https://pypi.org/project/flake8/">flake8</a> linters (configured in
+<code class="docutils literal notranslate">.flake8</code>), though these tools can be noisy and encourage somewhat ugly
+suggestions - so they are not a pre-merge requirement. As with any linter they
+can catch errors such as use of undefined names - so we encourage that you use
+them as part of your development flow.</p>
+<p>Python code must support Python 3.6.+ version streams. Old code can be updated
+using the <code class="docutils literal notranslate">futurize</code> command line tool from the <a class="reference external" href="https://pypi.org/project/future/">future</a> package to find
+issues and suggested solutions.</p>
+</div>
+</div>
+<div class="section" id="khronos-opencl-icd">
+<a class="header-link" href="#khronos-opencl-icd"><h2 id="khronos-opencl-icd">Khronos OpenCL ICD</h2><span class="material-icons">link</span></a>
+<p>The Khronos ICD allows multiple OpenCL implementations to coexist in the same
+system, these implementations will usually be exposed to the OpenCL user as
+individual <code class="docutils literal notranslate">cl_platform_id</code>’s. To inform the system’s OpenCL ICD where to find
+the oneAPI Construction Kit OpenCL driver it needs to be registered. Note that
+we also support fetching and building an ICD within the toolkit through cmake
+options as described <a class="reference internal" href="source/cl/icd-loader.html"><span class="doc std std-doc">here</span></a>.</p>
+<div class="section" id="linux-registration">
+<a class="header-link" href="#linux-registration"><h3 id="linux-registration">Linux Registration</h3><span class="material-icons">link</span></a>
+<p>On Linux the ICD looks for all files with the <code class="docutils literal notranslate">.icd</code> extension in the
+<code class="docutils literal notranslate">/etc/OpenCL/vendors</code> directory. To register the oneAPI Construction Kit
+OpenCL driver issue the following command replacing <code class="docutils literal notranslate">&lt;install_dir&gt;</code> with the
+path to the oneAPI Construction Kit install and <code class="docutils literal notranslate">&lt;bits&gt;</code> bit width of the
+binary. The command will likely require root privileges.</p>
+<pre><code class="language-sh">echo &lt;install_dir&gt;/lib/libCL.so &gt; /etc/OpenCL/vendors/&lt;any_name&gt;.icd
+</code>
+</pre>
+</div>
+<div class="section" id="windows-registration">
+<a class="header-link" href="#windows-registration"><h3 id="windows-registration">Windows Registration</h3><span class="material-icons">link</span></a>
+<p>For Windows the ICD inspects the registry so to register the oneAPI Construction
+Kit OpenCL driver a new registry entry must be added. Add a <code class="docutils literal notranslate">REG_DWORD</code> value
+to the appropriate registry path.</p>
+<ul class="simple">
+<li><p>32-bit - <code class="docutils literal notranslate">HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Khronos\OpenCL\Vendors</code></p></li>
+<li><p>64-bit - <code class="docutils literal notranslate">HKEY_LOCAL_MACHINE\SOFTWARE\Khronos\OpenCL\Vendors</code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate">REG_DWORD</code> value’s name should be the path to the oneAPI Construction Kit
+OpenCL driver and its data should be <code class="docutils literal notranslate">0</code>.</p>
+</div>
+<div class="section" id="android-registration">
+<a class="header-link" href="#android-registration"><h3 id="android-registration">Android Registration</h3><span class="material-icons">link</span></a>
+<p>To register the oneAPI Construction Kit OpenCL driver with the Android ICD
+follow the same instructions as Linux except that the directory containing the
+<code class="docutils literal notranslate">.icd</code> file should be <code class="docutils literal notranslate">/system/vendor/Khronos/OpenCL/vendors/</code>.</p>
+<pre><code class="language-sh">echo &lt;install_dir&gt;/lib/libCL.so &gt; /system/vendor/Khronos/OpenCL/vendors/&lt;any_name&gt;.icd
+</code>
+</pre>
+</div>
+<div class="section" id="building-icd-from-source">
+<a class="header-link" href="#building-icd-from-source"><h3 id="building-icd-from-source">Building ICD From Source</h3><span class="material-icons">link</span></a>
+<p>In order to test the oneAPI Construction Kit OpenCL driver on systems which
+do not already have an installed ICD we must first build it from source. Due to
+the binary redistribution clause in the license oneAPI Construction Kit does not
+bundle the Khronos ICD, it is however open source and can be cloned then built
+from the public <a class="reference external" href="https://github.com/KhronosGroup/OpenCL-ICD-Loader">GitHub</a> repository.</p>
+<p>The Khronos ICD does not provide the OpenCL headers files, those are also
+located on <a class="reference external" href="https://github.com/KhronosGroup/OpenCL-Headers">GitHub</a>.</p>
+<pre><code class="language-sh">git clone https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
+git clone https://github.com/KhronosGroup/OpenCL-Headers.git
+</code>
+</pre>
+<p>The ICD expects to be built against the latest version of the OpenCL headers
+which at the time of writing is OpenCL 2.2. This is fine since the ICD is
+backwards compatible. We must symlink or copy the OpenCL headers into the
+<code class="docutils literal notranslate">./inc</code> directory of the ICD repository.</p>
+<pre><code class="language-sh">ln -s OpenCL-Headers/opencl22/CL OpenCL-ICD-Loader/inc/CL
+</code>
+</pre>
+<p>Now you can follow the instructions on how to build the ICD as seen in the
+<a class="reference external" href="https://github.com/KhronosGroup/OpenCL-ICD-Loader/blob/master/README.txt">README</a>.</p>
+</div>
+</div>
+<div class="section" id="cmake">
+<a class="header-link" href="#cmake"><h2 id="cmake">CMake</h2><span class="material-icons">link</span></a>
+<p>Help regarding the CMake options and targets available in the oneAPI
+Construction Kit when building the project. For advice on modifying the CMake
+code itself see our <a class="reference internal" href="cmake.html"><span class="doc std std-doc">CMake Development</span></a> documentation.</p>
+<div class="section" id="cmake-flags">
+<a class="header-link" href="#cmake-flags"><h3 id="cmake-flags">CMake Flags</h3><span class="material-icons">link</span></a>
+<p>The flags used when invoking CMake on the command line which are used in the
+examples shown later in this document.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">-B&lt;path&gt;</code>: An undocumented option which creates a build directory <code class="docutils literal notranslate">&lt;path&gt;</code> if
+it does not already exist then configures the build system in that directory.
+It is important to specify the source directory position argument otherwise
+you will see unexpected behaviour.</p></li>
+<li><p><code class="docutils literal notranslate">-G&lt;generator&gt;</code>: Specifies the build system generator to use, when not
+specified the platform specific default generator is used.</p></li>
+<li><p><code class="docutils literal notranslate">-D&lt;variable&gt;=&lt;value&gt;</code>: Defines a CMake option stored in <code class="docutils literal notranslate">CMakeCache.txt</code> to
+control how CMake configures the build directory.</p></li>
+</ul>
+</div>
+<div class="section" id="cmake-options">
+<a class="header-link" href="#cmake-options"><h3 id="cmake-options">CMake Options</h3><span class="material-icons">link</span></a>
+<p>The builtin CMake options used when invoking CMake on the command line.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CMAKE_BUILD_TYPE</code>: CMake provides a default set of build types:</p>
+<ul>
+<li><p><code class="docutils literal notranslate">Debug</code>: Enable debug symbols and disable optimizations.</p></li>
+<li><p><code class="docutils literal notranslate">Release</code>: Enable optimizations and disable assertions.</p></li>
+<li><p><code class="docutils literal notranslate">RelWithDebInfo</code>: Enable debug symbols, optimizations, and disable
+assertions.</p></li>
+<li><p><code class="docutils literal notranslate">MinSizeRel</code>: Enable size optimizations and disable assertions.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">CMAKE_INSTALL_PREFIX</code>: Path to write files produced by the <code class="docutils literal notranslate">install</code> target.</p></li>
+<li><p><code class="docutils literal notranslate">CMAKE_TOOLCHAIN_FILE</code>: Path to a CMake script, used to cross-compile a
+project, which defines variables that inform CMake where the compiler,
+assembler, linker, etc. for the target platform reside.</p></li>
+</ul>
+<div class="section" id="oneapi-construction-kit-cmake-options">
+<a class="header-link" href="#oneapi-construction-kit-cmake-options"><h4 id="oneapi-construction-kit-cmake-options">oneAPI Construction Kit CMake Options</h4><span class="material-icons">link</span></a>
+<ul>
+<li><p><code class="docutils literal notranslate">CMAKE_BUILD_TYPE</code>: In addition to the defaults provided by CMake the oneAPI
+Construction Kit extends the builtin build types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">ReleaseAssert</code>: Enable assertions is a Release build.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">CA_USE_SANITIZER</code>: Enable support for dynamic analysis sanitizers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">Address</code>: Enable <a class="reference external" href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> dynamic analysis for
+memory errors.</p></li>
+<li><p><code class="docutils literal notranslate">Thread</code>: Enable <a class="reference external" href="https://clang.llvm.org/docs/ThreadSanitizer.html">ThreadSanitizer</a> dynamic analysis for data
+races.</p></li>
+<li><p><code class="docutils literal notranslate">Undefined</code>: Enable <a class="reference external" href="https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html">UndefinedBehaviourSanitizer</a> dynamic
+analysis for undefined behaviour. This is currently broken with gcc; use
+clang for working ubsan support (CA-4237).</p></li>
+<li><p><code class="docutils literal notranslate">Address,Undefined</code>: Enable combined <a class="reference external" href="https://clang.llvm.org/docs/AddressSanitizer.html">AddressSanitizer</a> and
+<a class="reference external" href="https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html">UndefinedBehaviourSanitizer</a> dynamic analysis.</p></li>
+<li><p><code class="docutils literal notranslate">Fuzzer</code>: Enable <a class="reference external" href="https://llvm.org/docs/LibFuzzer.html">libFuzzer</a> instrumentation.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate">CA_LLVM_INSTALL_DIR</code>: Tells the oneAPI Construction Kit to use the LLVM
+and Clang installation that can be found at this prefix. The LLVM and Clang
+installations must be development installations i.e. they must contain the
+relevant llvm headers and support tools, and their version must match
+a supported LLVM version.</p></li>
+<li><p><code class="docutils literal notranslate">CA_ENABLE_API</code>: Semi-colon separated list of APIs to enable. Valid values
+are <code class="docutils literal notranslate">cl</code> for OpenCL, and <code class="docutils literal notranslate">vk</code> for Vulkan. Enabling an API when an optional
+component is not present dependent on license agreement will result in a CMake
+error. The default is <code class="docutils literal notranslate">cl;vk</code>.</p></li>
+<li><p><code class="docutils literal notranslate">CA_BUILD_32_BITS</code>: Enable compiling in 32-bit mode on Linux, this requires
+to have the proper 32-bit toolchain installed. When used in combination with
+an external LLVM, the external LLVM also needs to be built in 32-bit mode.</p></li>
+<li><p><code class="docutils literal notranslate">CA_EXTERNAL_BUILTINS_DIR</code> is used to specify the directory
+containing pre-generated builtins. This option is mandatory when cross
+compiling. It is usually set to the <code class="docutils literal notranslate">modules/builtins</code> directory in the build
+directory of a host oneAPI Construction Kit build, but can be set to another
+directory as long as it contains generated builtins.</p></li>
+<li><p><code class="docutils literal notranslate">CA_EXTERNAL_BUILTINS</code>: This option is used to specify whether or not builtins
+should be generated. If it is set to <code class="docutils literal notranslate">OFF</code>, <code class="docutils literal notranslate">CA_EXTERNAL_BUILTINS_DIR</code> must be
+provided to indicate which builtins to use instead. This option is set to <code class="docutils literal notranslate">ON</code>
+for cross compile builds.</p></li>
+<li><p><code class="docutils literal notranslate">CA_BUILTINS_TOOLS_DIR</code>: This options makes it possible to specify which tools
+to use in order the build the builtins, executables for the correct versions
+of <code class="docutils literal notranslate">clang</code> and <code class="docutils literal notranslate">llvm-link</code> must be found in this directory. This can also be
+used for cross-compile builds in which case the tools must work on the host.</p></li>
+<li><p><code class="docutils literal notranslate">CA_RUNTIME_COMPILER_ENABLED</code>: This option determines whether the oneAPI
+Construction Kit is built with or without a runtime compiler (LLVM). It
+defaults to <code class="docutils literal notranslate">ON</code>. Without a runtime compiler, only pre-compiled binaries can
+be run, and the oneAPI Construction Kit implements an embedded profile.</p></li>
+<li><p><code class="docutils literal notranslate">CA_CLANG_TIDY_FLAGS</code>: This option specifies a semi-colon separated list of
+additional flags which are passed to <code class="docutils literal notranslate">clang-tidy</code> when invoking <code class="docutils literal notranslate">tidy</code>
+targets.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_ENABLE_BUILTIN_KERNEL</code>: This option enables builtin kernel support
+within the host target. By default, it is set to <code class="docutils literal notranslate">OFF</code>. If enabled this will
+report that host supports builtin kernels and will also enable two test
+kernels that are used by UnitMux and UnitCL to verify functionality.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_ENABLE_FP64</code>: This option determines whether host is built with or
+without double support. By default, it is only enabled on non-Windows
+platforms.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_ENABLE_FP16</code>: This option determines whether host is built with or
+without half support. It is disabled by default since we can’t detect if this
+feature is natively supported by hardware, which is a requirement.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_ENABLE_PAPI_COUNTERS</code>: This option enables performance counter
+support in host via the Mux <code class="docutils literal notranslate">query_pool</code> API and the PAPI performance counter
+API. Requires the PAPI library and headers to be installed on the system.
+Currently this only works on Linux.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_CROSS_COMPILERS</code>: This option specifies a semi-colon separated list
+of compilers registered to enable offline or cross-compilation for non-native
+host CPU’s, e.g. for Linux kernel cross-compile <code class="docutils literal notranslate">arm</code>, <code class="docutils literal notranslate">aarch64</code>, <code class="docutils literal notranslate">x86</code>,
+<code class="docutils literal notranslate">x86_64</code> may be specified, alternatively set to <code class="docutils literal notranslate">all</code> to enable all backends
+which were built during the LLVM install.</p></li>
+<li><p><code class="docutils literal notranslate">CMAKE_SKIP_RPATH</code>: On Linux the oneAPI Construction Kit specifies a relative
+<code class="docutils literal notranslate">RPATH</code> for all targets when they are installed using <code class="docutils literal notranslate">CMAKE_INSTALL_RPATH</code>,
+this ensures that when the <code class="docutils literal notranslate">install</code> target is invoked the user does not need
+to specify <code class="docutils literal notranslate">LD_LIBRARY_PATH</code> to correctly execute a test binary in order to
+use the installed OpenCL or Vulkan library. Do disable this behaviour set
+<code class="docutils literal notranslate">-DCMAKE_SKIP_RPATH=ON</code> when configuring CMake in build directory.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_TARGET_&lt;arch&gt;_CPU</code>, <code class="docutils literal notranslate">CA_HOST_TARGET_&lt;arch&gt;_FEATURES</code>: These options
+are used by the <code class="docutils literal notranslate">host</code> target to optimize for performance on a given CPU.
+<code class="docutils literal notranslate">arch</code> should be a capitalized version of the <code class="docutils literal notranslate">host</code> target architecture e.g.
+<code class="docutils literal notranslate">X86_64</code>, <code class="docutils literal notranslate">RISCV64</code> or <code class="docutils literal notranslate">AARCH64</code>.</p>
+<p><code class="docutils literal notranslate">CPU</code> can be set to <code class="docutils literal notranslate">native</code> to optimize for the CPU being used to compile.
+Otherwise a CPU name can be provided, e.g. <code class="docutils literal notranslate">skylake</code>. This string will be
+passed directly to the LLVM backend; it has to be a valid CPU name. A list of
+CPUs supported by LLVM can be found by running <code class="docutils literal notranslate">clang -mcpu=help</code>.</p>
+<p><code class="docutils literal notranslate">FEATURES</code> should be a comma-separated list of features preceded by either <code class="docutils literal notranslate">+</code>
+or <code class="docutils literal notranslate">-</code> to enable or disable them, e.g. <code class="docutils literal notranslate">+v,-zfencei</code>. The features are the
+same as those supported by the <code class="docutils literal notranslate">-mattr</code> option in LLVM tools such as <code class="docutils literal notranslate">llc</code> and
+<code class="docutils literal notranslate">opt</code> and add to the features supported by default.</p>
+<p>If no <code class="docutils literal notranslate">CPU</code> or <code class="docutils literal notranslate">FEATURES</code> are specified, kernels will be compiled to run on
+any CPU that meets our minimal assumptions.</p>
+<p>Beware that if <code class="docutils literal notranslate">host</code> is compiled with this option set, running kernels on a
+CPU that is not compatible with the one specified (or the one compiled with if
+<code class="docutils literal notranslate">native</code> was specified) is not supported and may result in attempts to execute
+instructions not supported by that CPU.</p>
+</li>
+<li><p><code class="docutils literal notranslate">CA_USE_SPLIT_DWARF</code>: When building with gcc, enable split dwarf debuginfo.
+This significantly reduces binary size (especially when static linking) and
+speeds up the link step. Requires a non-ancient toolchain.</p></li>
+<li><p><code class="docutils literal notranslate">CA_CL_TEST_STATIC_LIB</code>: Forces all of our CL executable targets to link the
+static CL library rather than the normal dynamic one, to force testing with
+the static library.</p></li>
+<li><p><code class="docutils literal notranslate">CA_MUX_TARGETS_TO_ENABLE</code>: A <code class="docutils literal notranslate">;</code> separated list of <code class="docutils literal notranslate">mux</code> targets that should
+be enabled. By default this is set to the <code class="docutils literal notranslate">host</code> target.</p></li>
+<li><p><code class="docutils literal notranslate">CA_EXTERNAL_MUX_TARGET_DIRS</code>: A <code class="docutils literal notranslate">;</code> separated list of external <code class="docutils literal notranslate">mux</code> targets that
+should be built. The base directory name must be that of the target.</p></li>
+<li><p><code class="docutils literal notranslate">CA_EXTERNAL_MUX_COMPILER_DIRS</code>: A <code class="docutils literal notranslate">;</code> separated list of external
+<code class="docutils literal notranslate">compiler</code> targets that should be built. The base directory name must be that of
+the target.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cmake-build-targets">
+<a class="header-link" href="#cmake-build-targets"><h3 id="cmake-build-targets">CMake Build Targets</h3><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">all</code>: The default target, it builds everything which is enabled by default.</p></li>
+<li><p><code class="docutils literal notranslate">install</code>: First builds the <code class="docutils literal notranslate">all</code> target, then installs the files to the path
+specified by <code class="docutils literal notranslate">CMAKE_INSTALL_PREFIX</code>.</p></li>
+<li><p><code class="docutils literal notranslate">clean</code>: Removes all build artifacts, useful if a file exists which is
+suspected of being invalid.</p></li>
+</ul>
+<div class="section" id="oneapi-construction-kit-cmake-build-targets">
+<a class="header-link" href="#oneapi-construction-kit-cmake-build-targets"><h4 id="oneapi-construction-kit-cmake-build-targets">oneAPI Construction Kit CMake Build Targets</h4><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">ComputeAorta</code>: Build the OpenCL and Vulkan libraries, if present, and all
+their test suites.</p></li>
+<li><p><code class="docutils literal notranslate">check-ock</code>/<code class="docutils literal notranslate">check-ock-&lt;target&gt;</code>: Build and run all short running test
+suites, this selection of testing is used by continuous integration to verify
+a baseline of correctness, individual test suites can also be tested in
+isolation by specifying the target to test.</p></li>
+<li><p><code class="docutils literal notranslate">internal_builtins</code>: Builds the compiler builtins functions, this target can
+be used even if automatically building the builtins was disabled with
+<code class="docutils literal notranslate">CA_EXTERNAL_BUILTINS</code>, although this target will fail in cross compile
+builds.</p></li>
+<li><p><code class="docutils literal notranslate">doc_html</code>: Generates HTML documentation for the oneAPI Construction Kit project,
+currently this is only supported for OpenCL. Due to our dependency on the
+<code class="docutils literal notranslate">breathe</code> package which has known memory leaks, building this target can take
+an excessive amount of time or fail with a python <code class="docutils literal notranslate">MemoryError</code>. A workaround
+for this issue is to temporarily delete the file <code class="docutils literal notranslate">api-reference.md</code> to reduce
+demands on the build.</p></li>
+<li><p><code class="docutils literal notranslate">format</code>: When <code class="docutils literal notranslate">clang-format</code> is found by CMake the <code class="docutils literal notranslate">format</code> target is added,
+this target, when invoked, automatically formats all C/C++ source code which
+has been editing and not yet committed to the repository.</p></li>
+<li><p><code class="docutils literal notranslate">tidy</code>/<code class="docutils literal notranslate">tidy-&lt;target&gt;</code>: When <code class="docutils literal notranslate">clang-tidy</code> is found by CMake a number of
+additional targets are added which invoke <code class="docutils literal notranslate">clang-tidy</code> to perform static
+analysis. The <code class="docutils literal notranslate">tidy</code> target runs <code class="docutils literal notranslate">clang-tidy</code> on all targets adding using the
+<code class="docutils literal notranslate">add_ca_{library,exectuable}</code> commands which also add an individual
+<code class="docutils literal notranslate">tidy-&lt;target&gt;</code> target per library or executable.</p></li>
+</ul>
+<div class="section" id="oneapi-construction-kit-opencl-cmake-build-targets">
+<a class="header-link" href="#oneapi-construction-kit-opencl-cmake-build-targets"><h5 id="oneapi-construction-kit-opencl-cmake-build-targets">oneAPI Construction Kit OpenCL CMake Build Targets</h5><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CL</code>: Build only the OpenCL library, only available when OpenCL is enabled.</p></li>
+<li><p><code class="docutils literal notranslate">UnitCL</code>: Build the UnitCL test suite, as well as the OpenCL library.</p></li>
+<li><p><code class="docutils literal notranslate">OpenCLCTS</code>: Build the OpenCL library and all the CTS binaries.</p></li>
+<li><p><code class="docutils literal notranslate">check-ock-cl</code>: Build and run various OpenCL test suites, primarily UnitCL and
+selected short running OpenCL CTS tests.</p></li>
+</ul>
+</div>
+<div class="section" id="oneapi-construction-kit-vulkan-cmake-build-targets">
+<a class="header-link" href="#oneapi-construction-kit-vulkan-cmake-build-targets"><h5 id="oneapi-construction-kit-vulkan-cmake-build-targets">oneAPI Construction Kit Vulkan CMake Build Targets</h5><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">VK</code>: Build only the Vulkan library, only available when Vulkan is enabled.</p></li>
+<li><p><code class="docutils literal notranslate">UnitVK</code>: Build the UnitVK test suite, as well as the Vulkan library.</p></li>
+<li><p><code class="docutils literal notranslate">VKICDManifest</code>: Generates the Vulkan ICD manifest, Linux only.</p></li>
+<li><p><code class="docutils literal notranslate">check-ock-vk</code>: Build and run UnitVK and spirv-ll lit tests.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compiling">
+<a class="header-link" href="#compiling"><h2 id="compiling">Compiling</h2><span class="material-icons">link</span></a>
+<div class="section" id="compiling-llvm">
+<a class="header-link" href="#compiling-llvm"><h3 id="compiling-llvm">Compiling LLVM</h3><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit requires an <a class="reference external" href="https://github.com/llvm/llvm-project">LLVM</a>
+install that includes the <code class="docutils literal notranslate">clang</code> project. First clone the LLVM repository.</p>
+<pre><code class="language-sh">git clone https://github.com/llvm/llvm-project.git --branch $LLVMBranch
+cd llvm-project
+</code>
+</pre>
+<div class="section" id="compiling-llvm-from-upstream-on-linux">
+<a class="header-link" href="#compiling-llvm-from-upstream-on-linux"><h4 id="compiling-llvm-from-upstream-on-linux">Compiling LLVM from Upstream on Linux</h4><span class="material-icons">link</span></a>
+<p>Configure the build directory with CMake, ensuring to enable the <code class="docutils literal notranslate">clang</code>
+project using <code class="docutils literal notranslate">LLVM_ENABLE_PROJECTS</code>. Run this command from the root of the
+repository.</p>
+<pre><code class="language-sh">cmake llvm -GNinja \
+  -Bbuild-x86_64 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-x86_64/install \
+  -DLLVM_ENABLE_PROJECTS=clang;lld \
+  -DLLVM_TARGETS_TO_BUILD='X86;ARM;AArch64;RISCV'
+</code>
+</pre>
+<p>Note that some of the above LLVM targets could be dropped depending on the
+target architecture. <code class="docutils literal notranslate">lld</code> is only needed for most non “host” targets e.g.
+<code class="docutils literal notranslate">refsi</code>.</p>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-x86_64 install
+</code>
+</pre>
+</div>
+<div class="section" id="compiling-llvm-from-upstream-on-windows">
+<a class="header-link" href="#compiling-llvm-from-upstream-on-windows"><h4 id="compiling-llvm-from-upstream-on-windows">Compiling LLVM from Upstream on Windows</h4><span class="material-icons">link</span></a>
+<p>Configure the build directory with CMake, ensuring to enable the <code class="docutils literal notranslate">clang</code>
+project using <code class="docutils literal notranslate">LLVM_ENABLE_PROJECTS</code>. Run this command from the root of the
+repository.</p>
+<pre><code class="language-bat">cmake llvm -G"Visual Studio 16 2019 Win64" ^
+  -Bbuild-x86_64 ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_INSTALL_PREFIX=%CD%\build-x86_64\install ^
+  -DLLVM_TARGETS_TO_BUILD="X86;ARM;AArch64" ^
+  -DLLVM_ENABLE_PROJECTS=clang ^
+</code>
+</pre>
+<blockquote>
+<div><p>Note that using the Ninja generator, <code class="docutils literal notranslate">-GNinja</code>, on Windows may be preferable
+for improve compilation times. <code class="docutils literal notranslate">Ninja</code> can also be used in conjunction with the IDE.</p>
+</div></blockquote>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target. This can be
+done by opening the <code class="docutils literal notranslate">llvm.sln</code> solution in Visual Studio and building the
+<code class="docutils literal notranslate">install</code> target via the GUI for the Release configuration. Alternatively we
+can build on the command line using CMake as shown below.</p>
+<pre><code class="language-bat">cmake --build %CD%\build-x86_64 --target install --config Release
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="compiling-llvm-spirv">
+<a class="header-link" href="#compiling-llvm-spirv"><h3 id="compiling-llvm-spirv">Compiling LLVM-SPIRV</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">llvm-spirv</code> is used to translate bitcode binaries into SPIR-V binaries.</p>
+<p>The <code class="docutils literal notranslate">SPIRV-LLMV-Translator</code> repository should be cloned into its own directory
+and <strong>not</strong> into LLVM’s <code class="docutils literal notranslate">projects</code> sub-directory. In principle, the translator
+can be cloned into the LLVM source tree and built as yet another LLVM
+sub-project. However, this currently causes a CMake conflict in the oneAPI
+Construction Kit on the <code class="docutils literal notranslate">llvm-spirv</code> executable.</p>
+<pre><code class="language-shell">git clone -b llvm_release_80 \
+  https://github.com/KhronosGroup/SPIRV-LLVM-Translator.git
+cd SPIRV-LLVM-Translator
+mkdir build
+cd build
+cmake .. -GNinja \
+  -DLLVM_DIR=/path/to/llvm80/build/install/lib/cmake/llvm/
+ninja llvm-spirv
+</code>
+</pre>
+<p>The executable <code class="docutils literal notranslate">llvm-spirv</code> will be generated in the <code class="docutils literal notranslate">build/tools/llvm-spirv/</code>
+directory.</p>
+<blockquote>
+<div><p>NOTE: The LLVM release version and the <code class="docutils literal notranslate">llvm-spirv</code> branch version must
+match. The vast majority of spir-v binaries have been translated using
+<code class="docutils literal notranslate">llvm-spirv</code> based on LLVM 8.0.</p>
+</div></blockquote>
+</div>
+<div class="section" id="compiling-oneapi-construction-kit">
+<a class="header-link" href="#compiling-oneapi-construction-kit"><h3 id="compiling-oneapi-construction-kit">Compiling oneAPI Construction Kit</h3><span class="material-icons">link</span></a>
+<p>Compiling the oneAPI Construction Kit requires an LLVM install to link against
+and to use the tools as part of the build process when the runtime compiler is
+enabled, follow the <a class="reference internal" href="#compiling-llvm"><span class="std std-doc">LLVM guide</span></a> to build a suitable install.
+In the following examples the <code class="docutils literal notranslate">$LLVMInstall</code> variable specifies the directory
+of the LLVM install. Alternatively, to compile the oneAPI Construction Kit with
+the runtime compiler disabled follow the <a class="reference internal" href="#compiling-the-oneapi-construction-kit-without-llvm"><span class="std std-doc">without LLVM guide</span></a>.</p>
+<p>The examples provided should be sufficient to get up and running, for more fine
+grained control of how to compile the oneAPI Construction Kit consult the list of
+<a class="reference internal" href="#oneapi-construction-kit-cmake-options"><span class="std std-doc">CMake options</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>the oneAPI Construction Kit must use the same <code class="docutils literal notranslate">NDEBUG</code> configuration as LLVM.
+For the most part this should be automatically detected, but if you pass custom
+<code class="docutils literal notranslate">CXXFLAGS</code> to cmake, this cannot be properly detected and may cause ABI issues
+and subsequent crashes that are difficult to debug</p>
+</div>
+<div class="section" id="compiling-oneapi-construction-kit-on-linux">
+<a class="header-link" href="#compiling-oneapi-construction-kit-on-linux"><h4 id="compiling-oneapi-construction-kit-on-linux">Compiling oneAPI Construction Kit on Linux</h4><span class="material-icons">link</span></a>
+<p>To configure the oneAPI Construction Kit build run the following command from
+the root of the oneAPI Construction Kit repository.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-x86_64 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-x86_64/install \
+  -DCA_LLVM_INSTALL_DIR=$LLVMInstall
+</code>
+</pre>
+<p>This will build a <code class="docutils literal notranslate">host</code> target, which will run device code on the same machine
+that the oneAPI Construction Kit runs on.</p>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-x86_64 install
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">check</code> target will run the oneAPI Construction Kit’s test suites to
+ensure the build is working as expected.</p>
+<pre><code class="language-sh">ninja -C build-x86_64 check
+</code>
+</pre>
+<div class="section" id="compiling-debug-oneapi-construction-kit-on-linux">
+<a class="header-link" href="#compiling-debug-oneapi-construction-kit-on-linux"><h5 id="compiling-debug-oneapi-construction-kit-on-linux">Compiling Debug oneAPI Construction Kit on Linux</h5><span class="material-icons">link</span></a>
+<p>Non-Release build times of the oneAPI Construction Kit can benefit from using a
+Release install of LLVM, this is because tools such as <code class="docutils literal notranslate">clang</code>, <code class="docutils literal notranslate">llvm-dis</code>,
+<code class="docutils literal notranslate">FileCheck</code>, and others from a Non-Release LLVM install are used as part of the
+build. To enable faster build times set the <code class="docutils literal notranslate">CA_BUILTINS_TOOLS_DIR</code> variable to
+point to a Release install of LLVM, here <code class="docutils literal notranslate">$LLVMReleaseInstall</code> specifies the path
+to the root of the install.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-x86_64-Debug \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-x86_64-Debug/install \
+  -DCA_LLVM_INSTALL_DIR=$LLVMInstall \
+  -DCA_BUILTINS_TOOLS_DIR=$LLVMReleaseInstall/bin
+</code>
+</pre>
+<p>Now the build directory is configured, you can build the oneAPI Construction Kit
+and run the checks as above.</p>
+</div>
+</div>
+<div class="section" id="compiling-oneapi-construction-kit-on-windows">
+<a class="header-link" href="#compiling-oneapi-construction-kit-on-windows"><h4 id="compiling-oneapi-construction-kit-on-windows">Compiling oneAPI Construction Kit on Windows</h4><span class="material-icons">link</span></a>
+<p>To configure a oneAPI Construction Kit build run the following command from the
+root of the oneAPI Construction Kit repository.</p>
+<pre><code class="language-bat">cmake . -G"Visual Studio 16 2019 Win64" ^
+  -Bbuild-x86_64 ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_INSTALL_PREFIX=%CD%\build-x86_64\install ^
+  -DCA_LLVM_INSTALL_DIR=%LLVMInstall%
+</code>
+</pre>
+<blockquote>
+<div><p>Note that using the Ninja generator, <code class="docutils literal notranslate">-GNinja</code>, on Windows may be preferable
+for improve compilation times.</p>
+</div></blockquote>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target. This can be
+done by opening the <code class="docutils literal notranslate">ComputeAorta.sln</code> solution in Visual Studio and building
+the <code class="docutils literal notranslate">install</code> target via the GUI for a Release configuration. Alternatively we
+can build on the command line using CMake as shown below.</p>
+<pre><code class="language-bat">cmake --build %CD%\build-x86_64 --target install --config Release
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">check</code> target will run the oneAPI Construction Kit’s test suites to ensure
+the build is working as expected.</p>
+<pre><code class="language-bat">cmake --build %CD%\build-x86_64 --target check --config Release
+</code>
+</pre>
+</div>
+<div class="section" id="compiling-debug-oneapi-construction-kit-on-windows">
+<a class="header-link" href="#compiling-debug-oneapi-construction-kit-on-windows"><h4 id="compiling-debug-oneapi-construction-kit-on-windows">Compiling Debug oneAPI Construction Kit on Windows</h4><span class="material-icons">link</span></a>
+<p>Non-Release build times of the oneAPI Construction Kit can benefit from using a
+Release install of LLVM, this is because tools such as <code class="docutils literal notranslate">clang</code>, <code class="docutils literal notranslate">llvm-dis</code>,
+<code class="docutils literal notranslate">FileCheck</code>, and others from a Non-Release LLVM install are used as part of the
+build. To enable faster build times set the <code class="docutils literal notranslate">CA_BUILTINS_TOOLS_DIR</code> variable to
+point to a Release install of LLVM, here <code class="docutils literal notranslate">%LLVMReleaseInstall%</code> specifies the
+path to the root of the install.</p>
+<pre><code class="language-bat">cmake . -G"Visual Studio 16 2019 Win64" ^
+  -Bbuild-x86_64-Debug ^
+  -DCMAKE_BUILD_TYPE=Debug ^
+  -DCMAKE_INSTALL_PREFIX=%CD%\build-x86_64-Debug\install ^
+  -DCA_LLVM_INSTALL_DIR=%LLVMInstall% ^
+  -DCA_BUILTINS_TOOLS_DIR=%LLVMReleaseInstall%\bin
+</code>
+</pre>
+<blockquote>
+<div><p>Note that using the Ninja generator, <code class="docutils literal notranslate">-GNinja</code>, on Windows may be preferable
+for improve compilation times.</p>
+</div></blockquote>
+<p>Now the build directory is configured, you can build the oneAPI Construction Kit
+and run the checks, changing the <code class="docutils literal notranslate">--config</code> parameter to Debug.</p>
+<pre><code class="language-bat">cmake --build %CD%\build-x86_64-Debug --target install --config Debug
+</code>
+</pre>
+<pre><code class="language-bat">cmake --build %CD%\build-x86_64-Debug --target check --config Debug
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="compiling-the-oneapi-construction-kit-without-llvm">
+<a class="header-link" href="#compiling-the-oneapi-construction-kit-without-llvm"><h3 id="compiling-the-oneapi-construction-kit-without-llvm">Compiling the oneAPI Construction Kit without LLVM</h3><span class="material-icons">link</span></a>
+<p>Compiling the oneAPI Construction Kit without LLVM is also referred to as an
+offline-only configuration or disabling the runtime compiler. In this mode the
+oneAPI Construction Kit does not include a JIT compiler for OpenCL, offline-only
+is currently not supported for Vulkan and is disabled in the configuration.</p>
+<div class="section" id="compiling-the-oneapi-construction-kit-without-llvm-on-linux">
+<a class="header-link" href="#compiling-the-oneapi-construction-kit-without-llvm-on-linux"><h4 id="compiling-the-oneapi-construction-kit-without-llvm-on-linux">Compiling the oneAPI Construction Kit without LLVM on Linux</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">clc</code> offline compiler, which includes LLVM, must be provided. To build
+<code class="docutils literal notranslate">clc</code> follow the <a class="reference internal" href="#compiling-oneapi-construction-kit-on-linux"><span class="std std-doc">guide</span></a> above, the
+<code class="docutils literal notranslate">$ONEAPI_CON_KIT_INSTALL</code> variable specifies the path to the root of this install.</p>
+<p>To configure the oneAPI Construction Kit build without LLVM run following command
+from the root of the oneAPI Construction Kit repository.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-offline \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-offline/install \
+  -DCA_RUNTIME_COMPILER_ENABLED=OFF \
+  -DCA_EXTERNAL_CLC=$ONEAPI_CON_KIT_INSTALL/bin/clc \
+  -DCA_ENABLE_API=cl
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-offline install
+</code>
+</pre>
+</div>
+<div class="section" id="compiling-oneapi-construction-kit-without-llvm-on-windows">
+<a class="header-link" href="#compiling-oneapi-construction-kit-without-llvm-on-windows"><h4 id="compiling-oneapi-construction-kit-without-llvm-on-windows">Compiling oneAPI Construction Kit without LLVM on Windows</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">clc</code> offline compiler, which includes LLVM, must be provided. To build
+<code class="docutils literal notranslate">clc</code> follow the <a class="reference internal" href="#compiling-oneapi-construction-kit-on-windows"><span class="std std-doc">guide</span></a> above,
+the <code class="docutils literal notranslate">%ONEAPI_CON_KIT_INSTALL%</code> variable specifies the path to the root of this
+install.</p>
+<p>The configure the oneAPI Construction Kit build without LLVM run the following
+command from the root of the oneAPI Construction Kit repository.</p>
+<pre><code class="language-bat">cmake . -G"Visual Studio 16 2019 Win64" ^
+  -Bbuild-offline ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_INSTALL_PREFIX=%CD%\build-offline\install ^
+  -DCA_RUNTIME_COMPILER_ENABLED=OFF ^
+  -DCA_EXTERNAL_CLC=%ONEAPI_CON_KIT_INSTALL%\bin\clc ^
+  -DCA_ENABLE_API=cl
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target. This can be
+done by opening the <code class="docutils literal notranslate">ComputeAorta.sln</code> solution in Visual Studio and building
+the <code class="docutils literal notranslate">install</code> target via the GUI for a Release configuration. Alternatively we
+can build on the command line using CMake as shown below.</p>
+<pre><code class="language-bat">cmake --build %CD%\build-offline --target install --config Release
+</code>
+</pre>
+</div>
+<div class="section" id="compiling-oneapi-construction-kit-without-llvm-on-windows-using-mingw">
+<a class="header-link" href="#compiling-oneapi-construction-kit-without-llvm-on-windows-using-mingw"><h4 id="compiling-oneapi-construction-kit-without-llvm-on-windows-using-mingw">Compiling oneAPI Construction Kit without LLVM on Windows using MinGW</h4><span class="material-icons">link</span></a>
+<p>MinGW can be used instead of Visual Studio to compile the oneAPI Construction
+Kit. On Windows, only offline-only the oneAPI Construction Kit can be built
+with MinGW, so the build is of limited practical value. The build is configured
+as follows:</p>
+<pre><code class="language-bat">cmake . -GNinja ^
+  -DCMAKE_C_COMPILER=gcc.exe ^
+  -DCMAKE_CXX_COMPILER=g++.exe ^
+  -Bbuild-offline ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_INSTALL_PREFIX=%CD%\build-offline\install ^
+  -DCA_RUNTIME_COMPILER_ENABLED=OFF ^
+  -DCA_CL_ENABLE_OFFLINE_KERNEL_TESTS=OFF ^
+  -DCA_ENABLE_API=cl
+</code>
+</pre>
+<p>Then, install with:</p>
+<pre><code class="language-bat">cmake --build %CD%\build-offline --target install --config Release
+</code>
+</pre>
+<blockquote>
+<div><p>Note: MinGW must be installed with structured exception handling (SEH) and
+POSIX threads. The <code class="docutils literal notranslate">choco</code> command is
+<code class="docutils literal notranslate">choco install mingw -y -params "/exception:seh /threads:posix"</code>.</p>
+</div></blockquote>
+<p>Note that this is not part of the regular testing of OCK, but should work.</p>
+</div>
+</div>
+</div>
+<div class="section" id="cross-compiling">
+<a class="header-link" href="#cross-compiling"><h2 id="cross-compiling">Cross-compiling</h2><span class="material-icons">link</span></a>
+<blockquote>
+<div><p>Note: Cross-compilation is only supported on Linux.</p>
+</div></blockquote>
+</div>
+<div class="section" id="cross-platform-building-llvm-and-oneapi-construction-kit-for-linux">
+<a class="header-link" href="#cross-platform-building-llvm-and-oneapi-construction-kit-for-linux"><h2 id="cross-platform-building-llvm-and-oneapi-construction-kit-for-linux">Cross-platform building LLVM and oneAPI Construction Kit for Linux</h2><span class="material-icons">link</span></a>
+<p>All CMake cross-compilation configurations set <code class="docutils literal notranslate">CMAKE_TOOLCHAIN_FILE</code> to inform
+CMake how to compile for the target architecture, this sets up various CMake
+variables which specify the locations of executables such as the C and C++
+compilers, assembler, linker, target file system root, etc.</p>
+<p>The examples provided should be sufficient to get up and running, for more fine
+grained control of how to compile the oneAPI Construction Kit consult the list of
+<a class="reference internal" href="#oneapi-construction-kit-cmake-options"><span class="std std-doc">CMake options</span></a>.</p>
+<p>Cross-compilation requires – in most cases – both a native build of LLVM and
+a specialised build of of LLVM for the cross-compilation target. In this guide,
+the following environment variables are assumed.</p>
+<pre><code class="language-sh"># path to upstream LLVM build
+LLVMNativeBuild=/absolute/path/to/native_llvm/build
+
+# usually equivalent to ${LLVMNativeBuild}/install
+LLVMNativeInstall=${CMAKE_INSTALL_PREFIX}
+</code>
+</pre>
+<div class="section" id="cross-compiling-llvm">
+<a class="header-link" href="#cross-compiling-llvm"><h3 id="cross-compiling-llvm">Cross-compiling LLVM</h3><span class="material-icons">link</span></a>
+<div class="section" id="cross-compiling-llvm-from-upstream">
+<a class="header-link" href="#cross-compiling-llvm-from-upstream"><h4 id="cross-compiling-llvm-from-upstream">Cross-compiling LLVM from Upstream</h4><span class="material-icons">link</span></a>
+<p>To cross-compile LLVM the appropriate CMake toolchain file from the oneAPI
+Construction Kit repository is required, the path to this will be specified
+by the <code class="docutils literal notranslate">$ONEAPI_CON_KIT</code> variable in the following examples.</p>
+<div class="section" id="cross-compiling-llvm-for-arm-from-upstream">
+<a class="header-link" href="#cross-compiling-llvm-for-arm-from-upstream"><h5 id="cross-compiling-llvm-for-arm-from-upstream">Cross-compiling LLVM for Arm from Upstream</h5><span class="material-icons">link</span></a>
+<p>For cross-compilation targeting Arm only the <code class="docutils literal notranslate">ARM</code> target back end is enabled.
+Run the following command to configure an LLVM build targeting Arm from the root
+of the repository.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-arm \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_TOOLCHAIN_FILE=$ONEAPI_CON_KIT/scripts/toolchains/arm-toolchain.cmake \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-arm/install \
+  -DLLVM_TARGET_ARCH=ARM \
+  -DLLVM_TARGETS_TO_BUILD=ARM \
+  -DLLVM_HOST_TRIPLE=arm-unknown-linux-gnu \
+  -DLLVM_DEFAULT_TARGET_TRIPLE=arm-unknown-linux-gnu \
+  -DLLVM_ENABLE_ZLIB=OFF \
+  -DLLVM_ENABLE_ZSTD=OFF \
+  -DLLVM_TABLEGEN=$LLVMNativeInstall/bin/llvm-tblgen \
+  -DCLANG_TABLEGEN=$LLVMNativeBuild/bin/clang-tblgen
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-arm install
+</code>
+</pre>
+</div>
+<div class="section" id="cross-compiling-llvm-for-aarch64-from-upstream">
+<a class="header-link" href="#cross-compiling-llvm-for-aarch64-from-upstream"><h5 id="cross-compiling-llvm-for-aarch64-from-upstream">Cross-compiling LLVM for AArch64 from Upstream</h5><span class="material-icons">link</span></a>
+<p>For cross-compilation targeting AArch64 only the <code class="docutils literal notranslate">AArch64</code> target back end is
+enabled. Run the following command to configure an LLVM build targeting Arm from
+the root of the repository.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-aarch64 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_TOOLCHAIN_FILE=$ONEAPI_CON_KIT/scripts/toolchains/aarch64-toolchain.cmake \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-aarch64/install \
+  -DLLVM_TARGET_ARCH=AArch64 \
+  -DLLVM_TARGETS_TO_BUILD=AArch64 \
+  -DLLVM_HOST_TRIPLE=aarch64-unknown-linux-gnu \
+  -DLLVM_DEFAULT_TARGET_TRIPLE=aarch64-unknown-linux-gnu \
+  -DLLVM_ENABLE_ZLIB=OFF \
+  -DLLVM_ENABLE_ZSTD=OFF \
+  -DLLVM_TABLEGEN=$LLVMNativeInstall/bin/llvm-tblgen \
+  -DCLANG_TABLEGEN=$LLVMNativeBuild/bin/clang-tblgen
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-aarch64 install
+</code>
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="cross-compiling-the-oneapi-construction-kit">
+<a class="header-link" href="#cross-compiling-the-oneapi-construction-kit"><h3 id="cross-compiling-the-oneapi-construction-kit">Cross-compiling the oneAPI Construction Kit</h3><span class="material-icons">link</span></a>
+<p>Cross-compiling the oneAPI Construction Kit requires a LLVM install to link
+against, follow the <a class="reference internal" href="#cross-compiling-llvm"><span class="std std-doc">LLVM guide</span></a> to build a suitable
+install, the <code class="docutils literal notranslate">$LLVMInstall</code> variable specifies the path to this install.</p>
+<p>oneAPI Construction Kit uses tools from an LLVM install during the build
+process. For a native x86_64 build no additional install is required, although
+build times can be <a class="reference internal" href="#compiling-debug-oneapi-construction-kit-on-linux"><span class="std std-doc">improved</span></a>
+by doing so. For cross-compilation a native LLVM install is also required, the
+<code class="docutils literal notranslate">$LLVMNativeInstall</code> variable specifies the path to this install.</p>
+<div class="section" id="cross-compiling-the-oneapi-construction-kit-for-arm">
+<a class="header-link" href="#cross-compiling-the-oneapi-construction-kit-for-arm"><h4 id="cross-compiling-the-oneapi-construction-kit-for-arm">Cross-compiling the oneAPI Construction Kit for Arm</h4><span class="material-icons">link</span></a>
+<p>Configure an Arm cross-compile build using the following command.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-arm \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_TOOLCHAIN_FILE=$PWD/platform/arm-linux/arm-toolchain.cmake \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-arm/install \
+  -DCA_LLVM_INSTALL_DIR=$LLVMInstall \
+  -DCA_BUILTINS_TOOLS_DIR=$LLVMNativeInstall/bin
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-arm install
+</code>
+</pre>
+<p>If <code class="docutils literal notranslate">qemu-arm</code> is installed on the system <code class="docutils literal notranslate">arm-toolchain.cmake</code> will
+automatically detect it and set the <code class="docutils literal notranslate">CMAKE_CROSSCOMPILING_EMULATOR</code> variable,
+the oneAPI Construction Kit uses this to enable emulated testing using the
+<code class="docutils literal notranslate">check</code> target.</p>
+<pre><code class="language-sh">ninja -C build-arm check
+</code>
+</pre>
+</div>
+<div class="section" id="cross-compiling-the-oneapi-construction-kit-for-aarch64">
+<a class="header-link" href="#cross-compiling-the-oneapi-construction-kit-for-aarch64"><h4 id="cross-compiling-the-oneapi-construction-kit-for-aarch64">Cross-compiling the oneAPI Construction Kit for AArch64</h4><span class="material-icons">link</span></a>
+<p>Configure an AArch64 cross-compile build using the following command.</p>
+<pre><code class="language-sh">cmake . -GNinja \
+  -Bbuild-aarch64 \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_TOOLCHAIN_FILE=$PWD/platform/arm-linux/aarch64-toolchain.cmake \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-aarch64/install \
+  -DCA_LLVM_INSTALL_DIR=$LLVMInstall \
+  -DCA_BUILTINS_TOOLS_DIR=$LLVMNativeInstall/bin
+</code>
+</pre>
+<p>Now the build directory is configured, build the <code class="docutils literal notranslate">install</code> target.</p>
+<pre><code class="language-sh">ninja -C build-aarch64 install
+</code>
+</pre>
+<p>If <code class="docutils literal notranslate">qemu-aarch64</code> is installed on the system <code class="docutils literal notranslate">aarch64-toolchain.cmake</code> will
+automatically detect it and set the <code class="docutils literal notranslate">CMAKE_CROSSCOMPILING_EMULATOR</code> variable,
+the oneAPI Construction Kit uses this to enable emulated testing using the
+<code class="docutils literal notranslate">check</code> target.</p>
+<pre><code class="language-sh">ninja -C build-aarch64 check
+</code>
+</pre>
+</div>
+<div class="section" id="cross-compiling-the-oneapi-construction-kit-for-windows-with-the-mingw-toolchain">
+<a class="header-link" href="#cross-compiling-the-oneapi-construction-kit-for-windows-with-the-mingw-toolchain"><h4 id="cross-compiling-the-oneapi-construction-kit-for-windows-with-the-mingw-toolchain">Cross-compiling the oneAPI Construction Kit for Windows with the MinGW toolchain</h4><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit for Windows can be built on Linux using MinGW. This
+requires LLVM that has been built with MinGW. Note that MinGW kernels cannot be
+compiled offline using an external clc, so we disable their tests.</p>
+<pre><code class="language-shell">cmake -GNinja \
+  -Bbuild-mingw \
+  -DCMAKE_INSTALL_PREFIX=$PWD/build-mingw/install \
+  -DCMAKE_TOOLCHAIN_FILE=$PWD/platform/mingw-w64/mingw-w64-toolchain.cmake \
+  -DCA_LLVM_INSTALL_DIR=/path/to/mingw/llvm/build \
+  -DCMAKE_BUILD_TYPE=ReleaseAssert \
+  -DCA_BUILTINS_TOOLS_DIR=/path/to/llvm_tools \
+  -DCA_CL_ENABLE_OFFLINE_KERNEL_TESTS=OFF \
+  .
+
+cmake --build build-mingw --target ComputeAorta
+</code>
+</pre>
+<p>This is not part of the regular testing, but should work.</p>
+</div>
+</div>
+</div>
+<div class="section" id="testing">
+<a class="header-link" href="#testing"><h2 id="testing">Testing</h2><span class="material-icons">link</span></a>
+<!-- TODO: Document gtest suites -->
+<!-- TODO: Document lit test suites -->
+<!-- TODO: Document check targets -->
+<div class="section" id="testing-opencl">
+<a class="header-link" href="#testing-opencl"><h3 id="testing-opencl">Testing OpenCL</h3><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p>UnitCL: Is our primary OpenCL test suite, it extensively tests the API part of
+OpenCL in various situations. It is composed of one self-contained binary.
+UnitCL also contains a series of kernel execution tests built to test the
+vectorizer as well as compilation stages. We add regression tests to UnitCL
+when we fix previously uncaught bugs and when we add new functionality to
+the oneAPI Construction Kit. See the <a class="reference internal" href="source/cl/test/unitcl.html"><span class="doc std std-doc">UnitCL documentation</span></a>
+for more details on UnitCL.</p></li>
+<li><p>OpenCL CTS: We have our own runner for the OpenCL CTS, you can refer to its
+<code class="docutils literal notranslate">scripts/testing/README.md</code> for how to use it.</p></li>
+<li><p>CLSmith and C-Reduce: <a class="reference external" href="https://github.com/ChrisLidbury/CLSmith">CLSmith</a> is a
+tool to generate random OpenCL kernels, accompanied by a helper application to
+run them. If a bug is found in a kernel,
+<a class="reference external" href="https://embed.cs.utah.edu/creduce/">C-Reduce</a> can help reduce the code size
+of the test down to a manageable size.</p></li>
+</ul>
+<div class="section" id="testing-opencl-with-clsmith">
+<a class="header-link" href="#testing-opencl-with-clsmith"><h4 id="testing-opencl-with-clsmith">Testing OpenCL with CLSmith</h4><span class="material-icons">link</span></a>
+<p><a class="reference external" href="https://github.com/ChrisLidbury/CLSmith">CLSmith</a> is a tool (based on
+<a class="reference external" href="https://embed.cs.utah.edu/csmith/">CSmith</a>) used to generate random OpenCL
+kernels. It also provides a launcher application (<code class="docutils literal notranslate">cl_launcher</code>) to run the
+generated kernels and produce an output. Specifically, the output is generated
+by hashing together all the variables in the kernel.</p>
+<p>Build instructions for CLSmith are available on the Github repository. After
+building it, the easiest way to start using it is with the <code class="docutils literal notranslate">cl_setup_test.py</code>
+script found in the <code class="docutils literal notranslate">scripts</code> directory. The script accepts one argument, a
+directory name, and it will create that directory in <code class="docutils literal notranslate">$HOME</code>. In there it will
+place all the files necessary for creating a running a kernel, such as the
+<code class="docutils literal notranslate">CLSmith</code> and <code class="docutils literal notranslate">cl_launcher</code> executables, as well as some headers required by the
+generated kernels. So, for example, in order to generate and run a random
+kernel, one would do the following:</p>
+<pre><code class="language-sh">cd CLSmith/scripts
+./cl_setup_test.py cltest
+cd ~/cltest
+./CLSmith
+./cl_launcher -f CLProg.c -p 0 -d 0
+</code>
+</pre>
+<p>This will run the random kernel on the first device of the first OpenCL platform
+(<code class="docutils literal notranslate">-p 0 -d 0</code>). It is also possible to specify local and global workgroup sizes
+with the <code class="docutils literal notranslate">-l</code> and <code class="docutils literal notranslate">-g</code> arguments, such as</p>
+<pre><code class="language-sh">./cl_launcher -f CLProg.c -p 0 -d 0 -l 1,1,1 -g 1,1,1
+</code>
+</pre>
+<p>This will run only one work item, which can help to make the testing faster.</p>
+<p><code class="docutils literal notranslate">cl_launcher</code> itself is not a testing application, which means that the user can
+write their own tests around it. For example, a simple test would be to detect
+if the compilation failed or not. Another test can be constructed by running the
+kernel on multiple OpenCL implementations and comparing the results. Finally,
+it is possible to run with and without optimization and compare the results.</p>
+</div>
+<div class="section" id="testing-opencl-with-c-reduce">
+<a class="header-link" href="#testing-opencl-with-c-reduce"><h4 id="testing-opencl-with-c-reduce">Testing OpenCL with C-Reduce</h4><span class="material-icons">link</span></a>
+<p>The kernels generated from CLSmith can be hundreds or thousands of lines long,
+which can make narrowing down the issue difficult.
+<a class="reference external" href="https://embed.cs.utah.edu/creduce/">C-Reduce</a> is a tool that can take a source
+file and a test script and reduce the size of the source file while making sure
+that the test still fails.</p>
+<pre><code class="language-sh">creduce test.sh CLProg.c
+</code>
+</pre>
+<p>C-Reduce is C-aware, using clang to perform C specific changes to the source
+code. Since clang also supports OpenCL, it is possible to use C-Reduce with
+OpenCL kernels, although it will not perform OpenCL specific transformation,
+such as propagation of constant vectors etc.</p>
+<p>The first argument for C-Reduce is called the “interestingness” test. This is
+the test that determines if the transformed source code is still interesting,
+i.e. if it still exhibits the issue that we are interested in debugging. A
+simple interestingness test could be the following:</p>
+<pre><code class="language-sh">./cl_launcher -f CLProg.c -p 0 -d 0 -l 1,1,1 -g 1,1,1 || return 0
+</code>
+</pre>
+<p>The interestingness test should return 0 if the test is interesting. The test
+above runs the kernel and if <code class="docutils literal notranslate">cl_launcher</code> fails for some reason, then it
+returns 0 (<code class="docutils literal notranslate">||</code> is a short-circuited boolean OR in bash). While bash scripts are
+common, the test can be anything that can be executed, such as python scripts or
+executables.</p>
+<p>C-Reduce is a fairly simple application to use (<a class="reference external" href="https://embed.cs.utah.edu/creduce/using/">online
+documentation</a>), but there are some
+gotchas:</p>
+<ol class="simple">
+<li><p>The input file needs to be given as a relative path, while everything else
+needs to be in absolute paths. C-Reduce will copy the input file in a
+temporary directory and work on it from there, so all the paths need to be
+adjusted accordingly.</p></li>
+<li><p>Multiple interestingness tests will be run in parallel, so special care needs
+to be taken when outputting into files etc.</p></li>
+<li><p>C-Reduce will not do anything other than run the interestingness test to
+determine whether to keep a transformation or not. This can lead to
+transformations being applied that produce code that compiles but exhibits
+undefined behaviour. For this reason, it is also important to incorporate
+some sort of correctness test in the interestingness test. For example, if
+testing for runtime failures in OpenCL kernels, it is possible to use tools
+like Oclgrind to check the kernel for undefined behaviour.</p></li>
+<li><p>The interestingness test has to be specific, because otherwise it is possible
+to switch to a different bug during the reduction, or produce code that is
+completely invalid. For example, it is better to check for a specific output
+or error message than just a compilation failure in general.</p></li>
+<li><p>The test should be optimized for performance. During the reduction process,
+it might be run thousands of times, so if the test is slow the reduction
+process will also be extremely slow.</p></li>
+<li><p>When it comes to files generated from CLSmith, it is easier to test them if
+they are passed though the C preprocessor before testing them, since this
+will eliminate all the include directives.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="testing-oneapi-construction-kit-application-examples-using-official-intel-oneapi-base-toolkit">
+<a class="header-link" href="#testing-oneapi-construction-kit-application-examples-using-official-intel-oneapi-base-toolkit"><h3 id="testing-oneapi-construction-kit-application-examples-using-official-intel-oneapi-base-toolkit">Testing oneapi-construction-kit application examples using official Intel oneAPI Base Toolkit</h3><span class="material-icons">link</span></a>
+<p>Download the official Intel OneAPI Base Toolkit following the instructions
+mentioned <span class="xref myst">here</span>.</p>
+<p>To compile the tests follow the steps below:</p>
+<pre><code class="language-sh">mkdir build_tests
+cmake -GNinja -Bbuild_tests \
+  -DCMAKE_CXX_COMPILER=/path/to/intel_oneapi/bin/clang++ \
+  /path/to/oneapi-construction-kit/examples/applications \
+  -DOpenCL_LIBRARY=/path/to/build/lib/libCL.so \
+  -DOpenCL_INCLUDE_DIR=/path/to/build-riscv/include
+ninja -C build_tests
+</code>
+</pre>
+<p>To test the binaries compiled above, set the environment variables as follows:</p>
+<pre><code class="language-sh">export LD_LIBRARY_PATH=/path/to/build/lib:/path/to/intel_oneapi/lib/libsycl.so:/path/to/intel_oneapi/lib:$LD_LIBRARY_PATH
+export CMAKE_CXX_COMPILER=/path/to/intel_oneapi/bin/clang++
+export CMAKE_C_COMPILER=/path/to/intel_oneapi/bin/clang
+export CA_HAL_DEBUG=1
+export CA_PROFILE_LEVEL=3
+export ONEAPI_DEVICE_SELECTOR=opencl:fpga
+export OCL_ICD_FILENAMES=/path/to/build/lib/libCL.so
+# As the oneAPI basetoolkit release has a whitelist of devices, it filters out RefSi.
+# To override it, as a temporary solution we can point SYCL_CONFIG_FILE_NAME to ``.
+# This way it doesn't set the default sycl.conf.
+export SYCL_CONFIG_FILE_NAME=""
+</code>
+</pre>
+<p>The tests can be run using <code class="docutils literal notranslate">ctest</code> command.</p>
+<pre><code class="language-sh">cd build_tests
+ctest
+</code>
+</pre>
+<p>The generated output should be as follows:</p>
+<pre><code class="language-plain">Test project /path/to/build_tests
+    Start 1: simple_vector_add
+1/7 Test #1: simple_vector_add ..................   Passed    0.06 sec
+    Start 2: vector_addition-load-store
+2/7 Test #2: vector_addition-load-store .........   Passed    0.04 sec
+    Start 3: vector_addition-predicated
+3/7 Test #3: vector_addition-predicated .........   Passed    0.03 sec
+    Start 4: vector_addition-masked-store
+4/7 Test #4: vector_addition-masked-store .......   Passed    0.04 sec
+    Start 5: vector_addition-tiled-load-store
+5/7 Test #5: vector_addition-tiled-load-store ...   Passed    0.03 sec
+    Start 6: syclAvgPooling
+6/7 Test #6: syclAvgPooling .....................   Passed    0.03 sec
+    Start 7: clVectorAddition
+7/7 Test #7: clVectorAddition ...................   Passed    0.04 sec
+
+100% tests passed, 0 tests failed out of 7
+</code>
+</pre>
+<p>More information can be gathered by passing <code class="docutils literal notranslate">--verbose</code> to the <code class="docutils literal notranslate">ctest</code> command.</p>
+</div>
+</div>
+<div class="section" id="providing-extra-options">
+<a class="header-link" href="#providing-extra-options"><h2 id="providing-extra-options">Providing extra options</h2><span class="material-icons">link</span></a>
+<p>The following environment variables are mostly used for testing and trying out
+options without having to modify the source.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CA_EXTRA_COMPILE_OPTS</code>: This option is used to specify additional
+compile options when building a kernel.</p></li>
+<li><p><code class="docutils literal notranslate">CA_EXTRA_LINK_OPTS</code>: This option is used to specify additional link
+options in the same manner as <code class="docutils literal notranslate">CA_EXTRA_COMPILE_OPTS</code>.</p></li>
+<li><p><code class="docutils literal notranslate">CA_LLVM_OPTIONS</code>: This environment variable allows the injection of LLVM
+flags <strong>only</strong> when either <code class="docutils literal notranslate">NDEBUG</code> is not defined (i.e. <code class="docutils literal notranslate">Debug</code> and
+<code class="docutils literal notranslate">ReleaseAssert</code> build configurations) or when the cmake variables
+<code class="docutils literal notranslate">CA_ENABLE_LLVM_OPTIONS_IN_RELEASE</code> or <code class="docutils literal notranslate">CA_ENABLE_DEBUG_SUPPORT</code> is set in
+CMake. See <a class="reference internal" href="#debugging-the-llvm-compiler"><span class="std std-doc">below</span></a> for example of how this can
+be used.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_NUM_THREADS</code>: Sets the maximum number of threads the <code class="docutils literal notranslate">host</code> device
+will create. <code class="docutils literal notranslate">host</code> may create fewer threads than this value.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_TARGET_CPU</code>, <code class="docutils literal notranslate">CA_HOST_TARGET_FEATURES</code>: These environment variables
+can be used in debug builds to override the default CPU and features. They
+behave the same way as the <code class="docutils literal notranslate">CA_HOST_TARGET_&lt;arch&gt;_CPU</code> and
+<code class="docutils literal notranslate">CA_HOST_TARGET_&lt;arch&gt;_FEATURES</code> CMake options and the same caveats about
+<code class="docutils literal notranslate">"native"</code> apply here.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_DEFERRED_COMPILATION</code>. This allows overriding of whether the <code class="docutils literal notranslate">host</code>
+device supports deferring compilation, often known as jitting. Setting to <code class="docutils literal notranslate">0</code>
+will disable deferred compilation, setting to <code class="docutils literal notranslate">1</code> will enable it. If unset,
+deferred compilation is enabled except on targets where it is known not to
+work, such as RISC-V. Only available with debug support.</p></li>
+<li><p><code class="docutils literal notranslate">CA_HOST_DUMP_ASM</code>. This supports dumping of generated assembly. Requires a
+target which disables deferred compilation, such as <code class="docutils literal notranslate">RISC-V</code> or setting
+<code class="docutils literal notranslate">CA_HOST_DEFERRED_COMPILATION</code> to 0. This should be set to <code class="docutils literal notranslate">1</code> or unset and
+handling of other values is subject to change. Only available with debug
+support.</p></li>
+</ul>
+</div>
+<div class="section" id="debugging-the-llvm-compiler">
+<a class="header-link" href="#debugging-the-llvm-compiler"><h2 id="debugging-the-llvm-compiler">Debugging the LLVM compiler</h2><span class="material-icons">link</span></a>
+<p>Developers can use a variety of methods to debug the running of LLVM compiler
+pipelines <em>without having to recompile the oneAPI Construction Kit</em>. The
+following suggestions involve passing additional options via <code class="docutils literal notranslate">CA_LLVM_OPTIONS</code>
+(detailed <a class="reference internal" href="#providing-extra-options"><span class="std std-doc">above</span></a>).</p>
+<div class="section" id="print-after-all-and-print-before-all">
+<a class="header-link" href="#print-after-all-and-print-before-all"><h3 id="print-after-all-and-print-before-all">-print-after-all (and -print-before-all)</h3><span class="material-icons">link</span></a>
+<p>This option prints the state of the compiler IR after (/before) every compiler
+pass. This can be useful for:</p>
+<ul class="simple">
+<li><p>understanding compiler flow</p></li>
+<li><p>identifying the source of an unknown bug</p></li>
+<li><p>tracing a known bug through the pipeline</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note:</strong> Passes print the <em>unit of IR</em> on which they work: module passes
+print the whole module; function passes print just the function; loops print
+only the loop. This can occasionally interfere with bug discovery.</p>
+</div></blockquote>
+</div>
+<div class="section" id="print-after-x-and-print-before-x">
+<a class="header-link" href="#print-after-x-and-print-before-x"><h3 id="print-after-x-and-print-before-x">-print-after=X (and -print-before=X)</h3><span class="material-icons">link</span></a>
+<p>This option prints the state of the compiler IR after (/before) a specific
+compiler pass. When given a <a class="reference internal" href="#pass-names"><span class="std std-doc">pass name</span></a> or comma-separated list of
+pass names, it prints the IR before or after every instance of those passes, on
+every unit of IR:</p>
+<pre><code class="language-llvm">&gt; CA_LLVM_OPTIONS=-print-after=early-cse,mem2reg ...
+
+*** IR Dump After EarlyCSEPass on foo ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @foo(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !10
+  %mul = mul nsw i32 %0, 5
+  %arrayidx1 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx1, align 4, !tbaa !10
+  ret void
+}
+*** IR Dump After EarlyCSEPass on bar ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @bar(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !10
+  %mul = mul nsw i32 %0, 5
+  %arrayidx2 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx2, align 4, !tbaa !10
+  ret void
+}
+*** IR Dump After PromotePass on foo ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @foo(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) local_unnamed_addr #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #2
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !10
+  %mul = mul nsw i32 %0, 5
+  %arrayidx1 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx1, align 4, !tbaa !10
+  ret void
+}
+; &lt;... and on&gt;
+</code>
+</pre>
+<p>The two options can be combined, e.g., to better inspect the result of a
+specific pass:</p>
+<pre><code class="language-llvm">&gt; CA_LLVM_OPTIONS="-print-before=early-cse -print-after=early-cse" ...
+
+*** IR Dump Before EarlyCSEPass on bar ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @bar(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %call1 = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call1
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !10
+  %mul = mul nsw i32 %0, 5
+  %arrayidx2 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx2, align 4, !tbaa !10
+  ret void
+}
+*** IR Dump After EarlyCSEPass on bar ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @bar(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !10
+  %mul = mul nsw i32 %0, 5
+  %arrayidx2 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx2, align 4, !tbaa !10
+  ret void
+}
+</code>
+</pre>
+<p>This option is useful for visually inspecting the result of a pass, whether for
+comprehension or to inspect a compiler bug narrowed down to a specific pass.</p>
+<blockquote>
+<div><p><strong>Note:</strong> This uses the same output format as with
+<code class="docutils literal notranslate">-print-after-all</code>/<code class="docutils literal notranslate">-print-before-all</code> as noted above.</p>
+</div></blockquote>
+<div class="section" id="pass-names">
+<a class="header-link" href="#pass-names"><h4 id="pass-names">Pass names</h4><span class="material-icons">link</span></a>
+<p>The name of the pass can typically be found in any of the <em>pass registry
+files</em>. The main ComputeMux pass registry is found at
+<code class="docutils literal notranslate">modules/compiler/source/base/source/base_module_pass_registry.def</code>, but
+targets may define their own. LLVM also defines its own, found (through access
+to the LLVM source code) at <code class="docutils literal notranslate">llvm/lib/Passes/PassRegistry.def</code>.</p>
+<p>Since LLVM ComputeMux use the same style of pass registration, both contain
+lines such as:</p>
+<pre><code class="language-cpp">MODULE_PASS("always-inline", AlwaysInlinerPass())
+
+MODULE_PASS("add-sched-params", utils::AddSchedulingParametersPass())
+
+FUNCTION_PASS_WITH_PARAMS("early-cse",
+                          "EarlyCSEPass",
+                           [](bool UseMemorySSA) {
+                             return EarlyCSEPass(UseMemorySSA);
+                           },
+                          parseEarlyCSEPassOptions,
+                          "memssa")
+</code>
+</pre>
+<p>The pass name in each is the first token. For example, <code class="docutils literal notranslate">always-inline</code>.</p>
+<div class="section" id="pass-name-conventions">
+<a class="header-link" href="#pass-name-conventions"><h5 id="pass-name-conventions">Pass name conventions</h5><span class="material-icons">link</span></a>
+<p>When adding a new pass, you should ensure its name is properly registered in
+order that it is testable independently with tools such as <code class="docutils literal notranslate">muxc</code>.</p>
+<p>Use meaningful names for the string literal pass name following the conventions
+already present in the global registry: terse pass names separated that
+describe actions are most understandable; dashes separate words; lowercase
+words separated by dashes where appropriate. This makes them easy to read,
+understand, type, and require no shell quoting, e.g., <code class="docutils literal notranslate">remove-fences</code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="print-changed">
+<a class="header-link" href="#print-changed"><h3 id="print-changed">-print-changed</h3><span class="material-icons">link</span></a>
+<p>This option works like
+<a class="reference internal" href="#print-after-all-and-print-before-all"><span class="std std-doc">-print-after-all</span></a> but only when the
+pass makes a change to the IR.</p>
+<pre><code class="language-llvm">*** IR Dump After CoroEarlyPass on [module] omitted because no change ***
+*** IR Dump After LowerExpectIntrinsicPass on bar omitted because no change ***
+*** IR Dump After SimplifyCFGPass on bar omitted because no change ***
+*** IR Dump After EarlyCSEPass on bar ***
+; Function Attrs: norecurse nounwind
+define dso_local spir_kernel void @bar(ptr addrspace(1) align 4 %a, ptr addrspace(1) align 4 %b) #0 {
+entry:
+  %call = call spir_func i64 @_Z13get_global_idj(i32 0) #3
+  %arrayidx = getelementptr inbounds i32, ptr addrspace(1) %a, i64 %call
+  %0 = load i32, ptr addrspace(1) %arrayidx, align 4, !tbaa !9
+  %mul = mul nsw i32 %0, 5
+  %arrayidx2 = getelementptr inbounds i32, ptr addrspace(1) %b, i64 %call
+  store i32 %mul, ptr addrspace(1) %arrayidx2, align 4, !tbaa !9
+  ret void
+}
+</code>
+</pre>
+<p>Values can be passed to this option to control its behaviour:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">-print-changed=quiet</code> - Only prints changed IR, suppressing all other
+messages including the starting IR</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note:</strong> There are other values to this option that LLVM supports, like
+<code class="docutils literal notranslate">diff</code> and <code class="docutils literal notranslate">cdiff</code>, which print changes in a useful <code class="docutils literal notranslate">diff</code>-compatible form.
+These options currently trigger crashes after certain passes used by the
+ComputeMux compiler so are not recommended for use.</p>
+</div></blockquote>
+</div>
+<div class="section" id="verify-each">
+<a class="header-link" href="#verify-each"><h3 id="verify-each">-verify-each</h3><span class="material-icons">link</span></a>
+<p>This option invokes LLVM’s IR verifier before and after every pass. The default
+behaviour is to verify the IR at the beginning and end of every compiler
+pipeline, so may miss temporal verification errors that are masked by later
+changes.</p>
+<p>This option is useful for identifying whether a compiler pass is generating
+invalid IR.</p>
+</div>
+<div class="section" id="debug-pass-manager">
+<a class="header-link" href="#debug-pass-manager"><h3 id="debug-pass-manager">-debug-pass-manager</h3><span class="material-icons">link</span></a>
+<p>This option gives an overview of each compiler pipeline, listing the passes and
+analyses running at each point.</p>
+<pre><code class="language-plain">&gt; CA_LLVM_OPTIONS=-debug-pass-manager
+
+Running pass: ForceFunctionAttrsPass on [module]
+Running analysis: InnerAnalysisManagerProxy&lt;llvm::FunctionAnalysisManager, llvm::Module&gt; on [module]
+Running pass: compiler::SoftwareDivisionPass on bar (24 instructions)
+  Running analysis: PreservedCFGCheckerAnalysis on bar
+Running pass: compiler::StripFastMathAttrs on bar (24 instructions)
+; &lt;and on&gt;
+</code>
+</pre>
+<p>Values can be passed to this option to control its behaviour:</p>
+<ul>
+<li><p><code class="docutils literal notranslate">-debug-pass-manager=quiet</code> - Skips printing of analyses</p>
+<pre><code class="language-plain">Running pass: ForceFunctionAttrsPass on [module]
+Running pass: compiler::SoftwareDivisionPass on bar (24 instructions)
+Running pass: compiler::StripFastMathAttrs on bar (24 instructions)
+; &lt;and on&gt;
+</code>
+</pre>
+</li>
+<li><p><code class="docutils literal notranslate">-debug-pass-manager=verbose</code> - Prints additional information about pass
+managers and adaptors.</p>
+<pre><code class="language-plain">Running pass: ForceFunctionAttrsPass on [module]
+Running pass: ModuleToFunctionPassAdaptor on [module]
+  Running analysis: InnerAnalysisManagerProxy&lt;llvm::FunctionAnalysisManager, llvm::Module&gt; on [module]
+  Running pass: compiler::SoftwareDivisionPass on bar (24 instructions)
+    Running analysis: PreservedCFGCheckerAnalysis on bar
+Running pass: ModuleToFunctionPassAdaptor on [module]
+  Running pass: compiler::StripFastMathAttrs on bar (24 instructions)
+; &lt;and on&gt;
+</code>
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="time-passes">
+<a class="header-link" href="#time-passes"><h3 id="time-passes">-time-passes</h3><span class="material-icons">link</span></a>
+<p>Prints timing information summaries at the end of each compiler pipeline, with
+a breakdown of how long each individual pass took. This is useful for
+understanding compile-time performance issues.</p>
+<pre><code class="language-plain">&gt; CA_LLVM_OPTIONS=-time-passes
+
+===-------------------------------------------------------------------------===
+                      ... Pass execution timing report ...
+===-------------------------------------------------------------------------===
+  Total Execution Time: 0.0044 seconds (0.0044 wall clock)
+
+   ---User Time---   --System Time--   --User+System--   ---Wall Time---  --- Name ---
+   0.0013 ( 28.9%)   0.0000 (  0.0%)   0.0013 ( 28.9%)   0.0013 ( 28.8%)  ModuleInlinerWrapperPass
+   0.0011 ( 24.6%)   0.0000 (  0.0%)   0.0011 ( 24.5%)   0.0011 ( 24.5%)  DevirtSCCRepeatedPass
+   0.0005 ( 10.5%)   0.0000 (  0.0%)   0.0005 ( 10.5%)   0.0005 ( 10.5%)  SimplifyCFGPass
+   0.0004 (  9.1%)   0.0000 (  0.0%)   0.0004 (  9.0%)   0.0004 (  9.0%)  TargetIRAnalysis
+   ; &lt;and on&gt;
+</code>
+</pre>
+</div>
+<div class="section" id="debugging-passes-with-the-muxc-tool">
+<a class="header-link" href="#debugging-passes-with-the-muxc-tool"><h3 id="debugging-passes-with-the-muxc-tool">Debugging passes with the <code class="docutils literal notranslate">muxc</code> tool</h3><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">muxc</code> is a tool, similar to <code class="docutils literal notranslate">opt</code>, which can be used to run compiler
+pipelines made of the oneAPI Construction Kit utility passes or provided by
+the target. This is detailed <a class="reference internal" href="modules/compiler/tools/muxc.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+</div>
+<div class="section" id="running-with-extra-debug-support">
+<a class="header-link" href="#running-with-extra-debug-support"><h2 id="running-with-extra-debug-support">Running with extra debug support</h2><span class="material-icons">link</span></a>
+<p>In non-release mode environment variables can be used for debugging.
+This can also be supported in release mode if the CMake option
+<code class="docutils literal notranslate">CA_ENABLE_DEBUG_SUPPORT</code> is set to <code class="docutils literal notranslate">ON</code>.</p>
+<p>On Bash or similar shells environment variables can be set as follows:</p>
+<pre><code class="language-sh">export CA_OCL_DEBUG_PRINT_KERNELS=1
+</code>
+</pre>
+<p>On Windows console:</p>
+<pre><code class="language-batch">SET CA_OCL_DEBUG_PRINT_KERNELS=1
+</code>
+</pre>
+<div class="section" id="extracting-kernels-from-tests">
+<a class="header-link" href="#extracting-kernels-from-tests"><h3 id="extracting-kernels-from-tests">Extracting Kernels From Tests</h3><span class="material-icons">link</span></a>
+<p>It is possible to extract the source of a kernel being compiled into a file
+while running the the oneAPI Construction Kit compiler. This is, for example,
+helpful for extracting kernels from failing test cases in a test suite. Setting
+the <code class="docutils literal notranslate">CA_OCL_DEBUG_PRINT_KERNELS</code> environment variable to <code class="docutils literal notranslate">1</code> will enable the
+feature.</p>
+<p>The kernels will be printed in unique files named <code class="docutils literal notranslate">cl_program_ID.cl</code> the next
+time the compiler is run, where ID is an incremental numerical value padded with
+zeroes. Note that the filenames are chosen simply to be unique without any
+consideration of the contents of the file, so it is possible to get the same
+kernel in different files, if the kernel is compiled multiple times.</p>
+</div>
+</div>
+<div class="section" id="perf-support-for-linux-cpu-kernels">
+<a class="header-link" href="#perf-support-for-linux-cpu-kernels"><h2 id="perf-support-for-linux-cpu-kernels">Perf Support for Linux CPU kernels</h2><span class="material-icons">link</span></a>
+<p>For Linux hosts which support perf hardware events, we can get various metrics
+by setting the environment variable <code class="docutils literal notranslate">CA_ENABLE_PERF_INTERFACE=1</code> and then
+running the executable with perf. Since the kernel is being <em>JIT’ed</em>, on Linux
+hosts.</p>
+<ol class="simple">
+<li><p>The compiled kernel object will be placed in <code class="docutils literal notranslate">/tmp/perf-$\{pid\}.o</code></p></li>
+<li><p>A map file with details about the kernel entry function required by perf,
+are placed in <code class="docutils literal notranslate">/tmp/perf-${pid}.map</code></p></li>
+</ol>
+<p>It is possible to disassemble the object code in /tmp/perf-${pid}.o using a
+disassembler. For a list of hardware events that are supported by perf :</p>
+<pre><code class="language-sh">perf list
+</code>
+</pre>
+<p>Some useful events that help with performance analysis are :</p>
+<ol class="simple">
+<li><p>branch-instructions</p></li>
+<li><p>branch-misses</p></li>
+<li><p>cache-misses</p></li>
+<li><p>cache-references</p></li>
+<li><p>cpu-cycles</p></li>
+<li><p>instructions</p></li>
+<li><p>mem-loads</p></li>
+<li><p>mem-stores</p></li>
+</ol>
+<p>To record hardware events for perf, for all the above events,</p>
+<pre><code class="language-sh">CA_ENABLE_PERF_INTERFACE=1 perf record \
+-e branch-instructions:u,branch-misses:u,cache-misses:u,cache-references:u\
+,cpu-cycles:u,instructions:u,mem-loads:u,mem-stores:u &lt;executable&gt; &lt;options&gt;
+</code>
+</pre>
+<p>After recording the profile, you can view the statistics using perf report</p>
+<blockquote>
+<div><p><strong>Note :</strong> Be aware that if you run <em>perf report</em> with the <em>-a</em> option to
+enable profiling on all the CPUs,  all processes running on the OS will be
+profiled and percentage calculations will take all of them into account. This
+is most likely <strong>Not</strong> what you want.</p>
+</div></blockquote>
+</div>
+<div class="section" id="reducing-rebuild-times-with-ccache">
+<a class="header-link" href="#reducing-rebuild-times-with-ccache"><h2 id="reducing-rebuild-times-with-ccache">Reducing Rebuild Times With <code class="docutils literal notranslate">ccache</code></h2><span class="material-icons">link</span></a>
+<p>On supported platforms, such a Linux distribution, it is possible to use
+<a class="reference external" href="https://ccache.samba.org/"><code class="docutils literal notranslate">ccache</code></a> to reduce rebuilds times.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate">ccache</code> is a compiler cache. It speeds up recompilation by caching previous
+compilations and detecting when the same compilation is being done again.</p>
+</div></blockquote>
+<p>It can be installed on Ubuntu as follows:</p>
+<pre><code class="language-sh">sudo apt install ccache
+</code>
+</pre>
+<p>Once installed <code class="docutils literal notranslate">ccache</code> is not enabled by default, to use it the <code class="docutils literal notranslate">PATH</code>
+environment variable must be updated.</p>
+<pre><code class="language-sh">export PATH=/usr/lib/ccache:$PATH
+</code>
+</pre>
+<blockquote>
+<div><p>Note that to make this change permanent add the command above to your shell’s
+configuration file, for example <code class="docutils literal notranslate">~/.bashrc</code>.</p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate">/usr/lib/ccache</code> directory contains a number of symbolic links which alias
+common names for compilers installed on the system including; <code class="docutils literal notranslate">cc</code>, <code class="docutils literal notranslate">c++</code>,
+<code class="docutils literal notranslate">gcc</code>, <code class="docutils literal notranslate">g++</code>, <code class="docutils literal notranslate">clang</code> and <code class="docutils literal notranslate">clang++</code>. These all point to the <code class="docutils literal notranslate">/usr/bin/ccache</code>
+executable which handles the caching, when compilation is required <code class="docutils literal notranslate">ccache</code>
+dispatches to the actual compiler executable.</p>
+<p>If you have installed <code class="docutils literal notranslate">clang</code> from LLVM’s <a class="reference external" href="https://apt.llvm.org/">apt
+repositories</a> <code class="docutils literal notranslate">ccache</code> will not cache compilation because
+the executables have a version suffix such as <code class="docutils literal notranslate">clang-9</code>. There are two choices
+to enable caching:</p>
+<p>Using <code class="docutils literal notranslate">update-alternatives</code> to manage which <code class="docutils literal notranslate">clang</code> executable <code class="docutils literal notranslate">/usr/bin/clang</code>
+targets, you can do this using:</p>
+<pre><code class="language-sh">sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-9 600
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-9 600
+</code>
+</pre>
+<p>Adding symbolic link targeting <code class="docutils literal notranslate">/usr/bin/ccache</code> called <code class="docutils literal notranslate">clang-9</code>, in this
+example lets assume <code class="docutils literal notranslate">~/.local/bin</code> is at the beginning of <code class="docutils literal notranslate">PATH</code> and will be
+found before <code class="docutils literal notranslate">/usr/bin/clang</code>.</p>
+<pre><code class="language-sh">ln -s /usr/bin/ccache $HOME/.local/bin/clang-9
+ln -s /usr/bin/ccache $HOME/.local/bin/clang++-9
+</code>
+</pre>
+<p>By default <code class="docutils literal notranslate">ccache</code> has a cache size of 5 Gigabytes which can fill up quickly
+when working with multiple debug build directories, to increase the cache size
+to 20 Gigabytes:</p>
+<pre><code class="language-sh">ccache -M 20G
+</code>
+</pre>
+<p>With <code class="docutils literal notranslate">ccache</code> installed any existing build directories will need to be deleted
+because the originals will not be using the <code class="docutils literal notranslate">ccache</code> symbolic links. New build
+directories can be configured as normal however please verify that
+<code class="docutils literal notranslate">/usr/lib/ccache</code> is found in the <code class="docutils literal notranslate">PATH</code> before doing so:</p>
+<pre><code class="language-sh">echo $PATH
+</code>
+</pre>
+<p>Now everything is set up we can verify <code class="docutils literal notranslate">ccache</code> is working as expected using the
+<code class="docutils literal notranslate">watch</code> command in combination with <code class="docutils literal notranslate">ccache -s</code>, which provides cache
+statistics, in another terminal whilst a build is in progress:</p>
+<pre><code class="language-sh">watch ccache -s
+</code>
+</pre>
+<p>If in the rare event <code class="docutils literal notranslate">ccache</code> may result in bad builds, such as in the event of
+a hash collision in the cache, the cache can be cleared:</p>
+<pre><code class="language-sh">ccache -C
+</code>
+</pre>
+<blockquote>
+<div><p>Unfortunately it is not possible to cache all the oneAPI Construction Kit build
+steps such as building bitcode for the <a class="reference internal" href="modules/builtins.html"><span class="doc std std-doc">builtins</span></a> module,
+this is due to <code class="docutils literal notranslate">ccache</code> not being aware of the compiler flags passed to <code class="docutils literal notranslate">clang</code>
+to generate these outputs.</p>
+</div></blockquote>
+</div>
+<div class="section" id="enhanced-gdb-debugging">
+<a class="header-link" href="#enhanced-gdb-debugging"><h2 id="enhanced-gdb-debugging">Enhanced GDB Debugging</h2><span class="material-icons">link</span></a>
+<div class="section" id="pretty-printers">
+<a class="header-link" href="#pretty-printers"><h3 id="pretty-printers">Pretty Printers</h3><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit makes use of many non-standard C++ types, such as those in
+<span class="xref myst">cargo</span>, which do not produce helpful output when used with the GDB
+<a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb/Data.html#index-print">print</a> command in a debugging session. To aid in such situations
+<a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb">GDB</a> is extensible using the <a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb/Python-API.html#Python-API">Python API</a>, this can be used to
+register custom pretty printers for C++ types. <span class="xref myst">cargo</span> provides a set of
+pretty printers for the types it defines, these can be found in
+<code class="docutils literal notranslate">modules/cargo/scripts/gdb/prettyprinters.py</code>. To enable them, issue the
+following command in a <a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb">GDB</a> session:</p>
+<pre><code class="language-plain">(gdb) source modules/cargo/scripts/gdb/prettyprinters.py
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="tracer-guards">
+<a class="header-link" href="#tracer-guards"><h2 id="tracer-guards">Tracer Guards</h2><span class="material-icons">link</span></a>
+<p>Limited internal profiling can be achived with tracer guards. If enabled a
+.trace file is produced which can be viewed inside chrome, by typing
+<code class="docutils literal notranslate">chrome://tracing</code> in the address bar space, clicking <code class="docutils literal notranslate">Load</code> and selecting your
+trace file.</p>
+<p>You must do two things to get a trace. First build with the any of the following
+flags (or all of them) <code class="docutils literal notranslate">-DCA_TRACE_CL=1</code>, <code class="docutils literal notranslate">-DCA_TRACE_CORE=1</code>, and
+<code class="docutils literal notranslate">-DCA_TRACE_IMPLEMENTATION=1</code>. The tracer flags can be set manually in
+<code class="docutils literal notranslate">tracer.h</code> or built as part of CMake. Each flag will enable a trace for that
+layer of the oneAPI Construction Kit.</p>
+<p>And second set the environment variable <code class="docutils literal notranslate">CA_TRACE_FILE=/path/to/save/your.trace</code>
+E.g: <code class="docutils literal notranslate">export CA_TRACE_FILE=/tmp/ca.trace</code>. Now when your run your application
+a .trace file should be written to the location specified.</p>
+<p>By default on Linux tracer will stream to a temporary fixed size file using an
+atomic counter, this removes the need for a mutex on the file. Setting the
+environment variable <code class="docutils literal notranslate">CA_TRACE_FILE_BUFFER_MB</code> you can override the default
+buffer size (1GB). It also has a max size of 75GB which represents the largest
+tested value.</p>
+</div>
+<div class="section" id="benchmarking-driver-performance-with-flamegraphs">
+<a class="header-link" href="#benchmarking-driver-performance-with-flamegraphs"><h2 id="benchmarking-driver-performance-with-flamegraphs">Benchmarking driver performance with Flamegraphs</h2><span class="material-icons">link</span></a>
+<ol>
+<li><p>Ensure that symbol information is retained when building the oneAPI
+Construction Kit. This can be done by passing the
+<code class="docutils literal notranslate">-DCA_ENABLE_DEBUG_BACKTRACE=ON</code> CMake option. See
+<code class="docutils literal notranslate">source/cl/CMakeLists.txt:180</code> for more information. Without this step, the
+<code class="docutils literal notranslate">perf</code> report will not contain anything useful.</p></li>
+<li><p>Build the oneAPI Construction Kit and the benchmark you’ll be using to
+benchmark the driver (for example, a benchmark from PerfCL).</p></li>
+<li><p>Clone the Flamegraphs repository: <a class="reference external" href="https://github.com/brendangregg/FlameGraph">https://github.com/brendangregg/FlameGraph</a></p></li>
+<li><p>cd to your benchmark, then use the <code class="docutils literal notranslate">perf</code> tool to execute your benchmark and
+record some stack samples:</p>
+<p><code class="docutils literal notranslate">perf record -g --call-graph dwarf ./jacobi1D</code> (if running the <code class="docutils literal notranslate">jacobi1D</code>
+benchmark from PerfCL)</p>
+<p>Don’t forget to ensure the the oneAPI Construction Kit CL driver is being
+loaded correctly by the ICD, or you use <code class="docutils literal notranslate">OCL_ICD_FILENAMES</code> to override the
+CL driver:</p>
+<p><code class="docutils literal notranslate">export OCL_ICD_FILENAMES=&lt;path-to-install&gt;/lib/libCL.so</code></p>
+<ul class="simple">
+<li><p>TIP: <code class="docutils literal notranslate">perf script</code> is extremely slow on Debian and Ubuntu because it relies
+on forking to <code class="docutils literal notranslate">addr2line</code> for each stack captured (hundreds of MB’s of data).
+If you build <code class="docutils literal notranslate">perf</code> from source with <code class="docutils literal notranslate">libbfd</code> installed, it will be up to
+60x faster. See <a class="reference external" href="https://eighty-twenty.org/2021/09/09/perf-addr2line-speed-improvement">https://eighty-twenty.org/2021/09/09/perf-addr2line-speed-improvement</a>
+for more information.</p></li>
+</ul>
+</li>
+<li><p>Follow the instructions in the FlameGraph repository to generate a nice SVG:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">perf script &gt; out.perf</code></p></li>
+<li><p><code class="docutils literal notranslate">$HOME/Work/FlameGraph/stackcollapse-perf.pl out.perf &gt; out.folded</code></p></li>
+<li><p><code class="docutils literal notranslate">$HOME/Work/FlameGraph/flamegraph.pl out.folded &gt; framegraph.svg</code></p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:48 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/developer-guide.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="specifications/mux-compiler-spec-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>ComputeMux Compiler Specification</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="tutorials-2.html"
+                            >
+                            <div>
+                                <h1>Tutorials</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#developer-guide">Developer Guide</a></li>
+                        <li class="heading-2"><a href="#supported-software">Supported Software</a></li>
+                        <li class="heading-2"><a href="#directory-layout">Directory layout</a></li>
+                        <li class="heading-2"><a href="#branches">Branches</a></li>
+                        <li class="heading-2"><a href="#coding-style">Coding style</a></li>
+                        <li class="heading-2"><a href="#khronos-opencl-icd">Khronos OpenCL ICD</a></li>
+                        <li class="heading-2"><a href="#cmake">CMake</a></li>
+                        <li class="heading-2"><a href="#compiling">Compiling</a></li>
+                        <li class="heading-2"><a href="#cross-compiling">Cross-compiling</a></li>
+                        <li class="heading-2"><a href="#cross-platform-building-llvm-and-oneapi-construction-kit-for-linux">Cross-platform building LLVM and oneAPI Construction Kit for Linux</a></li>
+                        <li class="heading-2"><a href="#testing">Testing</a></li>
+                        <li class="heading-2"><a href="#providing-extra-options">Providing extra options</a></li>
+                        <li class="heading-2"><a href="#debugging-the-llvm-compiler">Debugging the LLVM compiler</a></li>
+                        <li class="heading-2"><a href="#running-with-extra-debug-support">Running with extra debug support</a></li>
+                        <li class="heading-2"><a href="#perf-support-for-linux-cpu-kernels">Perf Support for Linux CPU kernels</a></li>
+                        <li class="heading-2"><a href="#reducing-rebuild-times-with-ccache">Reducing Rebuild Times With ccache</a></li>
+                        <li class="heading-2"><a href="#enhanced-gdb-debugging">Enhanced GDB Debugging</a></li>
+                        <li class="heading-2"><a href="#tracer-guards">Tracer Guards</a></li>
+                        <li class="heading-2"><a href="#benchmarking-driver-performance-with-flamegraphs">Benchmarking driver performance with Flamegraphs</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="6529910f26d312e22bc8354b177952d2">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Debugging on an OpenCL Device - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Debugging on an OpenCL Device' for ComputeCpp™ Community Edition 2.7.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Debugging on an OpenCL Device - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'Debugging on an OpenCL Device' for ComputeCpp™ Community Edition 2.7.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="sycl-guide-debugging-debugging-on-an-opencl-device">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.7.0</div>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.11.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.10.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.10.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.9.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.9.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.8.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.8.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.7.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.6.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.6.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.5.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.5.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.4.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.4.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.2.1/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.2.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.1.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.1.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/2.0.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">2.0.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.3.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.3.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.2.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.2.0</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.6/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.6</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.5/guides/sycl-guide/debugging/debugging-on-an-opencl-device">1.1.5</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.4/guides">1.1.4</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.3/guides">1.1.3</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.2/guides">1.1.2</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.1/guides">1.1.1</a></li>
+                           <li><a href="http://127.0.0.1/products/computecpp/ce/1.1.0/guides">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/release-notes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Release Notes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting ARM</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting Windows</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/platform-support/targeting-nvidia-ptx.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Targeting NVIDIA PTX</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-2020-feature-support.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL 2020 Feature Support</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL</a><ol></ol></li>               <li class="selected"><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Handling</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/template-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Template Functions</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/parallelism.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class="selected"><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class="selected focused"><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple Kernels</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/frameworks-for-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-compiler-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Compiler Manual</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/compute-experimental-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compute++ Experimental Compiler</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Extensions</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error Codes</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/logging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Configuration file</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeCpp Profiler</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler/step-by-step-profiler-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Step by Step Profiler Guide</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/computecpp-profiler/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Integration Guide</a><ol></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL for CUDA Developers</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/migration.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migration</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/libraries.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Libraries</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-for-cuda-developers/examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Examples</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-native-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Native Compilation</a><ol></ol></li><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/tensorflow-guide/tensorflow-cross-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow Cross Compilation</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/eigen-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Guide</a><ol><li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/eigen-guide/options-for-building-eigen.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen</a><ol></ol></li></ol></li>               <li class=""><a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/ce-license.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CE_LICENSE</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of ComputeCpp™ Community Edition.
+                            This guide was designed for version 2.7.0.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#debugging-on-an-opencl-device">
+                            <h1>Debugging on an OpenCL Device</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/multiple-kernels" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><a class="header-link" id="debugging-on-an-opencl-device" href="#debugging-on-an-opencl-device"><span class="material-icons">link</span><h1 id="debugging-on-an-opencl-device">Debugging on an OpenCL Device</h1></a>
+<p>While debugging on the host device works for the most part, not every situation is the same. There may be cases where developers run into problems that can be only be observed in a device.
+If you happen to find yourself in a situation where an issue only occurs when running on an OpenCL device, you have to debug it on the device.</p>
+<p>Fortunately, there are existing tools that are capable of simulating an OpenCL device as well as providing validation of the OpenCL (1.2) code.</p>
+<p><a href="https://github.com/jrprice/Oclgrind">Oclgrind</a> is the go to tool for this purpose; it is an OpenCL device simulator and debugger that can interpret OpenCL SPIR (1.2). <em>You can learn more about SPIR by having a look at its <a href="https://www.khronos.org/registry/SPIR/specs/spir_spec-1.2.pdf">specification</a> hosted by the Khronos Group.</em>
+At its core, Oclgrind simulates how an OpenCL device executes a kernel independently from any specific architecture. This is particularly useful when facing portability issues during development.</p>
+<a class="header-link" id="setting-up-oclgrind" href="#setting-up-oclgrind"><span class="material-icons">link</span><h3 id="setting-up-oclgrind">Setting up Oclgrind</h3></a>
+<p>The easiest way to install <em>oclgrind</em> from an OS package manager that maintains a stable version of the project.
+For example, on Ubuntu, using the APT package manager, you can simply type the following command in the Terminal:</p>
+<pre><code class="language-cpp">sudo apt-get install oclgrind
+</code></pre>
+<p>This will get you the latest stable version of the tool maintained for your Ubuntu version. For Ubuntu-16/17/18 this will get you <em>oclgrind</em> 15.5. To check the version you have install, simply type:</p>
+<pre><code class="language-cpp">oclgrind --version
+</code></pre>
+<p>In case you want to install the latest version of <em>oclgrind</em> (18.3 at the time of writing) which is usually not maintained by most Linux package managers such Ubuntu's APT, it is best to install directly from the the project source files.
+The <a href="https://github.com/jrprice/Oclgrind/wiki/Building-and-Installing">Building and Installing</a> section on their Github wiki gives a thorough explanations on how to proceed this way, even explaining how to run oclgrind with via the Khronos' OpenCL ICD loader. As a prerequisite, you will need to CMake installed for you platform.
+This approach works almost identically on both Linux and OSX based platforms. Additionally, this section includes a paragraph on how to build the sources on Windows-based platforms as well.</p>
+<a class="header-link" id="using-oclgrind" href="#using-oclgrind"><span class="material-icons">link</span><h3 id="using-oclgrind">Using Oclgrind</h3></a>
+<p>Fortunately, <em>oclgrind</em> is no hard to use. Because it implements the full OpenCL 1.2 runtime API, developers are not required to do any manual changes to their SYCL (1.2.1) or OpenCL programs.</p>
+<p>Here are a few examples, simply to scratch the surface of what's possible as well as demonstrate how easy it is to do things like, for example, enabling data-race detection in the kernel or collect kernel information such as the count of instructions called during execution on the OpenCL device simulator. In addition to the above, you can do things like checking for errors in API calls, dump OpenCL SPIR and generate IR (intermediate representation) files.</p>
+<p>Oclgrind incorporates a simple plugin for detecting Invalid memory access which is a well-known and common problem when the in area of GPU compute. It may be the case that the platform you are running on may not provide a meaningful feedback about what went wrong, while <em>oclgrind</em> comes with a plugin that checks each memory access that your OpenCL kernels perform to ensure they do not access memory that they shouldn't, and is enabled by default. If an error is encountered, the plugin will provide a diagnostic on it and a feedback including the failing code with an error message.</p>
+<a class="header-link" id="checking-for-runtime-api-errors" href="#checking-for-runtime-api-errors"><span class="material-icons">link</span><h3 id="checking-for-runtime-api-errors">Checking for runtime API errors</h3></a>
+<p>There’s plenty of issues that can arise when using the various runtime API functions from the host. Unfortunately, the error messages returned from these API calls can often be confusing or point to multiple possible causes. To make the case of detecting API errors, oclgrind provides a plugin called check-api that needs to be manually specified as a flag when running the application with oclgrind.</p>
+<p>Consider the following attempt to launching a kernel with NDRange where the value for the <em>local work size</em> does not divide that of the <em>global work size</em>. The <a href="https://github.com/codeplaysoftware/computecpp-sdk/blob/master/samples/simple-local-barrier.cpp">simple-local-barrier</a> sample from the SDK is a handy code for the purpose of this demonstration.</p>
+<pre><code class="language-cpp">const int size = 65;
+
+[...] // program logic.
+
+cgh.parallel_for&lt;example_kernel&gt;(nd_range&lt;1&gt;(range&lt;1&gt;{size}, range&lt;1&gt;{2}), [=](nd_item&lt;1&gt; item) {
+  [...] // kernel logic.
+}
+</code></pre>
+<p>Now we can run the program by adding the <code>--check-api</code> flag to <code>oclgrind</code> to enable error checking for the underlying OpenCL API calls as follows.</p>
+<pre><code class="language-cpp">oclgrind --check-api ./simple-local-barrier
+</code></pre>
+<p>In this scenario, the result of dividing the <em>global work size</em>, which is 65, by the local work size of 2 returns a fraction - 32.5 and this fraction can't be used to define the number of work groups for execution. Instead what we need is a natural, whole number to specify the work groups count.
+Thus, the code generated from the API call doesn't have a successful return due to the description of the error detected by <code>oclgrind</code> (below).</p>
+<pre><code class="language-cpp">Oclgrind - OpenCL runtime error detected
+    Function: clEnqueueNDRangeKernel
+    Error:    CL_INVALID_WORK_GROUP_SIZE
+    Dimension 0: local_work_size (2) does not divide global_work_size (65)
+</code></pre>
+<p>In addition, another case of invoking the <code>CL_INVALID_WORK_GROUP_SIZE</code> error could be having set a too large <em>local work size</em> which <code>oclgrind</code> will report with an appropriate error message.</p>
+<a class="header-link" id="detecting-race-conditions-577ef1154f3240ad5b9b413aa7346a1e" href="#detecting-race-conditions-577ef1154f3240ad5b9b413aa7346a1e"><span class="material-icons">link</span><h3 id="detecting-race-conditions-577ef1154f3240ad5b9b413aa7346a1e">Detecting race conditions</h3></a>
+<p>Similarly to the valgrind <em>--memcheck</em> tool, you can check for race conditions using <em>oclgrind</em>. If the said behavior can only be observed when running on an OpenCL device, we can enable the data-race detection plugin in <code>oclgrind</code> by passing the <code>–data-races</code> flags.</p>
+<pre><code class="language-cpp">oclgrind --data-races ./application
+</code></pre>
+<p>In case of detecting a data race, the tool will output the address at which the condition has been detected, followed by the address memory space and the failing instruction alongside other useful debugging information if available.</p>
+<p>An example for a race condition inside a kernel could be one where a work-item with one <code>local id</code> assigns a value to some variable and a work-item with another <code>local id</code> tries to read and use that same variable with no synchronization between the work-items in the work-group.</p>
+<p>Consider the following SYCL kernel code:</p>
+<pre><code class="language-cpp">auto inAcc = bufIn.get_access&lt;access::mode::read&gt;(cgh);
+auto outAcc = bufOut.get_access&lt;access::mode::write&gt;(cgh);
+accessor&lt;int, 1, access::mode::read_write, access::target::local&gt; localAcc(range&lt;1&gt;{1}, cgh);
+
+cgh.parallel_for&lt;racy_kernel&gt;(nd_range&lt;1&gt;(globalRange, localRange),
+[=](nd_item&lt;1&gt; item) {
+  const auto localId = item.get_local_id(0);
+  if (localId == 1) {
+    localAcc[0] = inAcc[localId];
+  }
+  if (localId == 0) {
+    outAcc[localId] = localAcc[0];
+  }
+});
+</code></pre>
+<p>This code implements a case of a race condition inside a SYCL kernel as described above. Running it through <code>oclgrind</code> with the <code>data-races</code> plugin enabled we will get the following output:</p>
+<pre><code class="language-cpp">Read-write data race at local memory address 0x1000000000000
+    Kernel: SYCL_class_racy_kernel
+
+    First entity:  Global(1,0,0) Local(1,0,0) Group(0,0,0)
+      store i32 %7, i32 addrspace(3)* %0, align 4, !tbaa !11
+    Debugging information not available.
+
+
+    Second entity: Global(0,0,0) Local(0,0,0) Group(0,0,0)
+      %9 = load i32, i32 addrspace(3)* %0, align 4, !tbaa !11
+    Debugging information not available.
+</code></pre>
+<p>Adding a work-group <code>barrier</code> with memory ordering on the local address space betweem the two lines of assignment.</p>
+<pre><code class="language-cpp">item.barrier(access::fence_space::local_space);
+</code></pre>
+<p>With this the application will run without any data races being introduced. In the case of an OpenCL program, where the kernel is separated from the host source, you will get the line of where the race condition has been detected and the faulty code but this information is not available in our case. However, you can deduce where this is happening in the code by interpreting the returned SPIR instructions.</p>
+<a class="header-link" id="collecting-profiling-information" href="#collecting-profiling-information"><span class="material-icons">link</span><h3 id="collecting-profiling-information">Collecting profiling information</h3></a>
+<p>Another interesting function is, if you are familiar with the LLVM instruction set, is the <code>--inst-counts</code> option that can be passed to <em>oclgrind</em>. Even if you are not that familiar, the SPIR spec includes a <a href="https://www.khronos.org/registry/SPIR/specs/spir_spec-1.2.pdf#page=21">reference table (p. 20, 21)</a> to all LLVM instructions that may be used in SPIR.
+Back to the reduction sample we used in the <em>Debugging on Host Device</em> section, we will run it with <code>oclgrind</code> passing the <code>--inst-counts</code> flag.</p>
+<pre><code class="language-cpp">oclgrind --inst-counts ./reduction
+</code></pre>
+<p>Oclgrind outputs a histogram in the terminal, which shows the collected counts of instructions (as well as the actual instructions) that were executed while running the kernel. In more detail, the counts for the memory loads and stores which are in the <em>Memory Access &amp; Addressing</em> LLVM Instruction Family are split into the separate address spaces to show the number of bytes read or written for the correct space (e.g., <em>global</em> or <em>local</em>).</p>
+<pre><code class="language-cpp">Device Name: Oclgrind Simulator
+Platform Name: Oclgrind
+Instructions executed for kernel 'SYCL_class_sycl_reduction_int_':
+           2,688 - br
+           2,304 - icmp
+           1,024 - call _Z7barrierj()
+           1,024 - phi
+             896 - lshr
+             512 - getelementptr
+             382 - add
+             255 - load local (1,020 bytes)
+             255 - store local (1,020 bytes)
+             128 - call _Z12get_group_idj()
+             128 - call _Z12get_local_idj()
+             128 - call _Z13get_global_idj()
+             128 - load global (512 bytes)
+             128 - ret
+             128 - sdiv
+             128 - select
+             128 - sext
+             128 - trunc
+               1 - store global (4 bytes)
+</code></pre>
+<p>This functionality is particularly helpful for optimizing kernels, involving synchronizations between the work-items in a work-group executing the kernel. For example, in the reduction sample we have 1024 <em>barrier</em> calls, which may be too big of a number in this case but in general is a helpful indicator in cases of slow kernels to have an overview of the number of synchronizations (between work-items) being performed.</p>
+<a class="header-link" id="interactive-style-debugger-stepping-through-the-kernel" href="#interactive-style-debugger-stepping-through-the-kernel"><span class="material-icons">link</span><h3 id="interactive-style-debugger-stepping-through-the-kernel">Interactive-style debugger - Stepping through the kernel</h3></a>
+<p>In case you want to step through the kernel, you can do that by running <em>oclgrind</em> in interactive mode - that provides a simple <code>gdb</code>-style step-through debugger with a limited subset of the commands supported by gdb.</p>
+<pre><code class="language-cpp">Command list:
+  backtrace    (bt)
+  break        (b)
+  continue     (c)
+  delete       (d)
+  gmem         (gm)
+  help         (h)
+  info         (i)
+  list         (l)
+  next         (n)
+  lmem         (lm)
+  pmem         (pm)
+  print        (p)
+  quit         (q)
+  step         (s)
+  workitem     (wi)
+</code></pre>
+<p>Running an application with oclgrind in interactive mode is done as follows:</p>
+<pre><code class="language-cpp">oclgrind --interactive ./application # or just type -i for short
+</code></pre>
+<p>Oclgrind will automatically break at the start of each kernel invocation. Additionally, the interactive debugger plugin also interacts perfectly with the other <em>oclgrind</em> plugins, which means it can automatically break into a prompt if an error is encountered (e.g. invalid memory access).
+You can manually set breakpoints for specific source lines is done just like in gdb using the <code>break</code> command. You can also switch between work-items. Although, oclgrind will do a sequential execution of the work-items, you can use the <code>workitem</code> command to do the switch.</p>
+<p>Other command features include the viewing a variable and inspecting regions of memory.</p>
+<ul>
+<li>Variables can't be watched but you can use the <code>print</code> command to view the contents of a variable.</li>
+<li>To inspect regions of memory, you can use the <code>mem</code> commands - <code>lmem</code>, <code>pmem</code> and <code>gmem</code>.</li>
+</ul>
+<p>Furthermore, to get a general overview of the <code>NDRange</code> of the kernel you are debugging, you can use the <code>info</code> command in the debugger.
+Example with the reduction kernel:</p>
+<pre><code class="language-cpp">(oclgrind) info
+Running kernel 'SYCL_class_sycl_reduction_int_'
+-&gt; Global work size:   (128,1,1)
+-&gt; Global work offset: (0,0,0)
+-&gt; Local work size:    (128,1,1)
+</code></pre>
+<p>The SYCL host device makes debugging much easier for developers. Since SYCL is written entirely in standard C++, we can use common and robust tools to debug SYCL applications. It's also possible to use OpenCL debugging tools out of the box without any code modifications. This makes the debugging of kernel specific errors possible without vendor-dependent tools.</p>
+<p>If you'd like to find out about how to profile your SYCL application, read our <a href="https://www.codeplay.com/portal/08-27-19-optimizing-your-sycl-code-using-profiling">Optimizing Your SYCL Code Using Profiling</a> guide.</p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:43 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-an-opencl-device" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/debugging/debugging-on-a-sycl-host-device#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Debugging on a SYCL Host Device</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="http://127.0.0.1/products/computecpp/ce/2.7.0/guides/sycl-guide/multiple-kernels"
+                            >
+                            <div>
+                                <h1>Multiple Kernels</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#debugging-on-an-opencl-device">Debugging on an OpenCL Device</a></li>
+                        <li class="heading-1"><a href="#debugging-on-an-opencl-device">Debugging on an OpenCL Device</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="8358f0ee2f8dc54ae5c013992075f23f">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

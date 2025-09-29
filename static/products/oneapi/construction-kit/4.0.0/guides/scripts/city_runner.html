@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts/city_runner.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>City Runner - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'City Runner' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="City Runner - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'City Runner' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="scripts-city-runner">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../index.html">4.0.0</a></li>
+                           <li><a href="../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#city-runner">
+                            <h1>City Runner</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/scripts/city_runner.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="city-runner">
+
+<p>CityRunner is a command-line tool that can run batches of OpenCL Conformance
+Test Suite (CTS) tests. Tests can be executed in different ways (e.g. locally,
+remotely, using emulation, etc) through the profile system. Multiple tests are
+executed in parallel when possible to leverage multi-core systems and minimize
+run time.</p>
+<p>There are two use cases for CityRunner: automated testing within a Continuous
+Integration system (such as Jenkins) and developer testing.</p>
+<div class="section" id="continuous-integration">
+<a class="header-link" href="#continuous-integration"><h2 id="continuous-integration">Continuous Integration</h2><span class="material-icons">link</span></a>
+<p>In this kind of environment a pre-set list of tests is run automatically at
+regular intervals and as such testing should be robust (i.e. not require human
+intervention). In particular tests should not be allowed to hang and block other
+testing jobs (due to issues like deadlocks). Per-test timeout puts an upper
+bound to how long an individual test can run before being aborted, aborted tests
+are placed in the <code class="docutils literal notranslate">Timeout</code> result category. CityRunner can also integrate
+with CI systems like Jenkins by generating JUnit test result files which allows
+easy tracking of test regressions over time.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See our Jenkins handbook page on CTS testing for more information on how
+CityRunner is used in Jenkins.</p>
+</div>
+</div>
+<div class="section" id="developer-testing">
+<a class="header-link" href="#developer-testing"><h2 id="developer-testing">Developer Testing</h2><span class="material-icons">link</span></a>
+<p>Developers can also use CityRunner to ensure that their work does not cause
+obvious regressions before committing it to source control. Running every
+single test usually takes too long to run multiple times a day. It is possible
+to specify patterns that filter the list of tests to run. This allows running
+small sets of tests (perhaps even only the test that the developer is trying to
+fix).</p>
+<div class="section" id="basic-operation">
+<a class="header-link" href="#basic-operation"><h3 id="basic-operation">Basic Operation</h3><span class="material-icons">link</span></a>
+<p>At a minimum, CityRunner needs the following to run CTS tests:</p>
+<ul class="simple">
+<li><p>A CSV file containing a list of tests to run (e.g.
+<code class="docutils literal notranslate">opencl_conformance_tests_subtests.csv</code>). This is specified using the <code class="docutils literal notranslate">-s</code>
+option. For the actual format of this file, see the <a class="reference internal" href="#csv-file-format">CSV File Format</a>
+section.</p></li>
+<li><p>A directory that contains CTS executables (e.g. <code class="docutils literal notranslate">conformance_test_basic</code>)
+and is used as the working directory. This is specified using the <code class="docutils literal notranslate">-b</code>
+option.</p></li>
+</ul>
+<p>For example, let’s assume that the current directory contains another directory,
+<code class="docutils literal notranslate">CTS-output</code>, where the test executables are located, and a CSV test list
+file. Starting a test batch that includes all tests from the CSV files is done
+like this:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -b CTS-output
+
+Running 1552 tests using 8 workers.
+
+[  0 %] [0:0:1/1552] PASS cl12/allocations/multiple_5_image2d_read
+...
+</code>
+</pre>
+<p>Selecting a single test is done by simply passing its name on the command-line:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py -s \
+  opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -b CTS-output \
+  cl12/basic/if
+
+Running 1 tests using 8 workers.
+
+[100 %] [0:0:1/1] PASS cl12/basic/if
+
+Finished in 0:00:01
+
+Passed:        1 (100.0 %)
+Failed:        0 (  0.0 %)
+Timeouts:      0 (  0.0 %)
+Skipped:       0 (  0.0 %)
+CTS Pass:      1 (100.0 %)
+</code>
+</pre>
+<p>By default no test output is shown if the test passes. This can be changed by
+passing the verbose <code class="docutils literal notranslate">-v</code> option:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -b CTS-output \
+  cl12/basic/if \
+  -v
+
+Running 1 tests using 8 workers.
+
+[100 %] [0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:00.189471 ********************
+/path/to/CTS-output/conformance_test_basic if
+
+Initializing random seed to 0.
+
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz, Compute Device Vendor = Intel(R) Corporation, Compute Device Version = OpenCL 1.2 (Build 8), CL C Version = OpenCL C 1.2
+Supports single precision denormals: YES
+sizeof( void*) = 8  (host)
+sizeof( void*) = 8  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:        1 (100.0 %)
+Failed:        0 (  0.0 %)
+Timeouts:      0 (  0.0 %)
+Skipped:       0 (  0.0 %)
+CTS Pass:      1 (100.0 %)
+</code>
+</pre>
+<p>In the previous examples the default OpenCL implementation (i.e. the one that
+can be found from the system path) was used. In order to test a different OpenCL
+implementation it is possible to alter the system library search path. If the
+OpenCL library we want to test is found in the <code class="docutils literal notranslate">bin</code> directory in the current
+directory, we can select it using the <code class="docutils literal notranslate">-L</code> option:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -b CTS-output \
+  -L bin \
+  cl12/basic/if \
+  -v
+
+Running 1 tests using 8 workers.
+
+[100 %] [0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:00.027088 ********************
+LD_LIBRARY_PATH='/path/to/bin' /path/to/CTS-output/conformance_test_basic if
+
+Initializing random seed to 0.
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = X86, Compute Device Vendor = Codeplay Software Ltd, Compute Device Version = OpenCL 1.2 ComputeSuite::OCL 0.2.0.0, CL C Version = OpenCL C 1.2 ComputeSuite OCL
+Supports single precision denormals: NO
+sizeof( void*) = 8  (host)
+sizeof( void*) = 8  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:        1 (100.0 %)
+Failed:        0 (  0.0 %)
+Timeouts:      0 (  0.0 %)
+Skipped:       0 (  0.0 %)
+CTS Pass:      1 (100.0 %)
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="profile-system">
+<a class="header-link" href="#profile-system"><h2 id="profile-system">Profile System</h2><span class="material-icons">link</span></a>
+<p>It is possible to run tests built for architectures other than the local
+machine’s (e.g., running tests built for Arm when the local machine is x86).
+This can be done either by emulating the test executables on the local machine
+(using <a class="reference external" href="https://www.qemu.org/">QEMU</a>) or by executing these executables remotely (using tools such as
+<code class="docutils literal notranslate">ssh</code> or <code class="docutils literal notranslate">adb</code>). The profile system has been designed to allow running
+tests in different ways to allow these use cases.</p>
+<div class="section" id="android-profile">
+<a class="header-link" href="#android-profile"><h3 id="android-profile">Android Profile</h3><span class="material-icons">link</span></a>
+<p>Profiles are selected by using the <code class="docutils literal notranslate">-p</code> option on the command-line. For example,
+to execute a test on the Android device connected to the local machine, we would
+execute the following command:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -p android \
+  -b /data/local/tmp \
+  cl12/basic/if \
+  -v
+
+Running 1 tests using 1 workers.
+
+[100 %] [0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:00.431332 ********************
+adb shell "cd /data/local/tmp &amp;&amp; export LD_LIBRARY_PATH='/data/local/tmp' &amp;&amp; /data/local/tmp/conformance_test_basic if"
+
+Initializing random seed to 0.
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = ARM, Compute Device Vendor = Codeplay Software Ltd, Compute Device Version = OpenCL 1.2 ComputeSuite::OCL 0.2.0.0, CL C Version = OpenCL C 1.2 ComputeSuite OCL
+Supports single precision denormals: NO
+sizeof( void*) = 4  (host)
+sizeof( void*) = 4  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:        1 (100.0 %)
+Failed:        0 (  0.0 %)
+Timeouts:      0 (  0.0 %)
+Skipped:       0 (  0.0 %)
+CTS Pass:      1 (100.0 %)
+</code>
+</pre>
+<p>Note how the working directory was changed to <code class="docutils literal notranslate">/data/local/tmp</code>. This is the
+directory where the CTS test executables and OpenCL library were previously
+copied to on the Android device. The number of workers (number of concurrent
+tests) is one as CityRunner is not able to remotely detect the number of cores
+on the device.</p>
+<p>The <code class="docutils literal notranslate">--device-serial</code> option can be used to select a specific Android device
+in the case multiple devices are connected to the same machine. Currently only
+one Android device can be used. In the future it may be possible to run tests
+concurrently on multiple Android devices.</p>
+<p>The <code class="docutils literal notranslate">--adb</code> option can be used to select a specific <code class="docutils literal notranslate">adb</code> executable in
+case it is not located in the system path.</p>
+</div>
+<div class="section" id="ssh-profile">
+<a class="header-link" href="#ssh-profile"><h3 id="ssh-profile">SSH Profile</h3><span class="material-icons">link</span></a>
+<p>Most profiles also require passing profile-specific options. For examples, to
+use the <code class="docutils literal notranslate">ssh</code> profile we need to specify the remote host and login:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -p ssh \
+  --ssh-host arm-device \
+  --ssh-user user \
+  -b /path/to/ocl \
+  cl12/basic/if \
+  -v
+
+Running 1 tests using 1 workers.
+
+[100 %] [0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:00.791614 ********************
+/usr/bin/ssh "-p 22" user@arm-device "cd /path/to/ocl &amp;&amp; export LD_LIBRARY_PATH='/path/to/ocl' &amp;&amp; /path/to/ocl/conformance_test_basic if"
+
+Initializing random seed to 0.
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = ARM, Compute Device Vendor = Codeplay Software Ltd, Compute Device Version = OpenCL 1.2 ComputeSuite::OCL 0.2.0.0, CL C Version = OpenCL C 1.2 ComputeSuite OCL
+Supports single precision denormals: NO
+sizeof( void*) = 4  (host)
+sizeof( void*) = 4  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:        1 (100.0 %)
+Failed:        0 (  0.0 %)
+Timeouts:      0 (  0.0 %)
+Skipped:       0 (  0.0 %)
+CTS Pass:      1 (100.0 %)
+</code>
+</pre>
+<p>The <code class="docutils literal notranslate">--ssh</code> option can be used to select a specific SSH executable in case it
+is not located in the system path or to use a specific client (e.g. PuTTY on
+Windows).</p>
+<p>The <code class="docutils literal notranslate">--ssh-port</code> option allows the change the remote port to use (default:
+<code class="docutils literal notranslate">22</code>).</p>
+<div class="section" id="reboot-on-fail">
+<a class="header-link" href="#reboot-on-fail"><h4 id="reboot-on-fail">Reboot On Fail</h4><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">--ssh-reboot-on-fail</code> option will send a <code class="docutils literal notranslate">reboot</code> command to the
+device over ssh. This requires root access to the device and is intended to
+reset the device in case external issues affect test reliability.</p>
+</div>
+<div class="section" id="support-for-multiple-devices">
+<a class="header-link" href="#support-for-multiple-devices"><h4 id="support-for-multiple-devices">Support For Multiple Devices</h4><span class="material-icons">link</span></a>
+<p><code class="docutils literal notranslate">--ssh-devices</code> option allows users to target multiple devices while using ssh
+profile. The option expects a file containing values describing username, host
+and port number to be used while connecting to a remote device. The format is
+as follows:</p>
+<pre><code class="language-default">username_1 hostname_1:port_1
+username_2 hostname_2:port_2
+</code>
+</pre>
+<p>Please note, that the values stored in ssh-devices file take precedence over
+those specified using <code class="docutils literal notranslate">-ssh-user</code>, <code class="docutils literal notranslate">-ssh-host</code> or <code class="docutils literal notranslate">-ssh-port</code>.</p>
+<p>In order to be able to perform a hardware reboot when using multiple boards,
+users need to provide <code class="docutils literal notranslate">-ssh-pdu-map</code> file, that links pdu devices with hosts.
+Expected format of the entries is as follows:</p>
+<pre><code class="language-default">device_hostname_1 pdu_hostname_1:pdu_port_1
+device_hostname_2 pdu_hostname_2:pdu_port_2
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="qemu-profile">
+<a class="header-link" href="#qemu-profile"><h3 id="qemu-profile">QEMU Profile</h3><span class="material-icons">link</span></a>
+<p>Tests built for another architecture can also be emulated on the local machine
+using <a class="reference external" href="https://www.qemu.org/">QEMU</a>. This requires a few profile-specific options:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s /path/to/opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -p qemu \
+  --qemu '/usr/bin/qemu-arm -L /usr/arm-linux-gnueabihf' \
+  -b /path/to/build/bin \
+  cl12/basic/if \
+  -v
+Running 1 tests using 8 workers.
+
+[100 %] [0:0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:01.405060 ********************
+/usr/bin/qemu-arm -L /usr/arm-linux-gnueabihf /path/to/build/bin/conformance_test_basic if
+
+Initializing random seed to 0.
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = ComputeAorta Arm, Compute Device Vendor = Codeplay Software Ltd., Compute Device Version = OpenCL 1.2 ComputeAorta 1.36.0 LLVM 9.0.0svn (RelWithDebInfo), CL C Version = OpenCL C 1.2 Clang 9.0.0svn
+Supports single precision denormals: NO
+sizeof( void*) = 4  (host)
+sizeof( void*) = 4  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:            1 (100.0 %)
+Failed:            0 (  0.0 %)
+Timeouts:          0 (  0.0 %)
+Skipped:           0 (  0.0 %)
+Overall Pass:      1 (100.0 %)
+Overall Fail:      0 (  0.0 %)
+</code>
+</pre>
+<p>Here the <code class="docutils literal notranslate">--qemu</code> option is used to select the <a class="reference external" href="https://www.qemu.org/">QEMU</a> executable that is
+able to emulate the executable for the desired architecture, it includes
+<code class="docutils literal notranslate">-L /usr/arm-linux-gnueabihf</code> to specify the <code class="docutils literal notranslate">ld</code> prefix path. For example,
+<code class="docutils literal notranslate">qemu-mipsel</code> could have been use to emulate MIPS little endian executables.</p>
+<p>Alternatively the <code class="docutils literal notranslate">--ld</code> option can be used if an executable is unable to
+find a shared library it depends upon. This is incompatible with specifying
+<code class="docutils literal notranslate">-L /usr/arm-linux-gnueabihf</code> as part of the <code class="docutils literal notranslate">--qemu</code> option and will
+result in a <code class="docutils literal notranslate">loader cannot load itself</code> error message.</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py \
+  -s /path/to/opencl_conformance_tests_subtests_codeplay_wimpy.csv \
+  -p qemu \
+  --qemu /usr/bin/qemu-arm \
+  --ld /usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 \
+  -L /usr/arm-linux-gnueabihf/lib \
+  -L /path/to/build/lib \
+  -b /path/to/build/bin \
+  cl12/basic/if \
+  -v
+Running 1 tests using 8 workers.
+
+[100 %] [0:0:0:1/1] PASS cl12/basic/if
+******************** cl12/basic/if PASS in 0:00:01.395500 ********************
+/usr/bin/qemu-arm /usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3 --library-path /usr/arm-linux-gnueabihf/lib:/path/to/build/lib /path/to/build/bin/conformance_test_basic if
+
+Initializing random seed to 0.
+Requesting Default device based on command line for platform index 0 and device index 0
+Compute Device Name = ComputeAorta Arm, Compute Device Vendor = Codeplay Software Ltd., Compute Device Version = OpenCL 1.2 ComputeAorta 1.36.0 LLVM 9.0.0svn (RelWithDebInfo), CL C Version = OpenCL C 1.2 Clang 9.0.0svn
+Supports single precision denormals: NO
+sizeof( void*) = 4  (host)
+sizeof( void*) = 4  (device)
+if...
+IF test passed
+if passed
+PASSED test.
+
+********************************************************************************
+
+Finished in 0:00:01
+
+Passed:            1 (100.0 %)
+Failed:            0 (  0.0 %)
+Timeouts:          0 (  0.0 %)
+Skipped:           0 (  0.0 %)
+Overall Pass:      1 (100.0 %)
+Overall Fail:      0 (  0.0 %)
+</code>
+</pre>
+</div>
+<div class="section" id="google-test-profile">
+<a class="header-link" href="#google-test-profile"><h3 id="google-test-profile">Google Test Profile</h3><span class="material-icons">link</span></a>
+<p>CityRunner can be used to run tests from <a class="reference external" href="https://github.com/google/googletest">Google Test</a> executables using the
+<code class="docutils literal notranslate">gtest</code> profile. This includes <a class="reference internal" href="../source/cl/test/unitcl.html"><span class="doc">UnitCL</span></a>, <code class="docutils literal notranslate">UnitMux</code>,
+<code class="docutils literal notranslate">UnitCompiler</code>, and <code class="docutils literal notranslate">UnitCargo</code>. Through the <a class="reference external" href="https://github.com/google/googletest">Google Test</a>
+<code class="docutils literal notranslate">--gtest_list_tests</code> argument we can query the binary for the list of tests to
+run, then invoke them individually with <code class="docutils literal notranslate">--gtest_test_filter</code>.</p>
+<p>As a result if the <code class="docutils literal notranslate">-s</code> argument for a CSV file isn’t provided to
+<code class="docutils literal notranslate">run_cities.py</code> we can still find tests. A CSV file can still be used with
+the <code class="docutils literal notranslate">gtest</code> profile but the format is different from CTS tests and takes a
+single qualified test name.</p>
+<p>Using the <code class="docutils literal notranslate">gtest</code> profile provides benefits over standalone execution of the
+binary including parallelism, configurable timeouts, and better crash handling.</p>
+<p>In order to forward options to the <a class="reference external" href="https://github.com/google/googletest">Google Test</a> executable the
+<code class="docutils literal notranslate">--gtest_argument</code> option can be passed to CityRunner with a quoted string.
+Use this multiples times to pass more than one option.</p>
+<p>The GTest profile can also be run over SSH, all the CityRunner arguments
+available to the SSH profile are inherited by GTest. To enable this feature
+combine the <code class="docutils literal notranslate">-p gtest</code> and <code class="docutils literal notranslate">--ssh-user</code> options.</p>
+<p>Any argument passed to <code class="docutils literal notranslate">--gtest_argument</code> that contains the special string
+<code class="docutils literal notranslate">${TEST_NAME}</code> will be expanded by CityRunner to the name of the test
+executing, when it executes. For example,
+<code class="docutils literal notranslate">--gtest_argument"--gtest_output=xml:${TEST_NAME}_output.xml"</code> will produce
+an output file <code class="docutils literal notranslate">expanded_test_name_output.xml</code> for each test executed by
+CityRunner in the test list.</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py -b \
+  bin/UnitCL \
+  -p gtest \
+  --gtest_argument="--unitcl_test_include=test/UnitCL/test_include" \
+  --gtest_argument="--unitcl_kernel_directory=test/UnitCL/kernels" \
+  --gtest_argument="--gtest_filter=Execution*" \
+  -v \
+  -t 00:10
+
+...
+
+[100 %] [0:1:0:335/336] PASS Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31
+******************** Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31 PASS in 0:00:00.130328 ********************
+bin/UnitCL --unitcl_test_include=test/UnitCL/test_include --unitcl_kernel_directory=test/UnitCL/kernels --gtest_filter=Execution* --gtest_filter=Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31
+
+Note: Google Test filter = Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from Execution/ExecutionWG
+[ RUN      ] Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31
+[       OK ] Execution/ExecutionWG.Compiler_Barrier_03_Odd_Work_Group_Size/31 (33 ms)
+[----------] 1 test from Execution/ExecutionWG (33 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (37 ms total)
+[  PASSED  ] 1 test.
+
+********************************************************************************
+
+Finished in 0:00:11
+
+Passed:          335 ( 99.7 %)
+Failed:            0 (  0.0 %)
+Timeouts:          0 (  0.0 %)
+Skipped:           1 (  0.3 %)
+Overall Pass:    335 (100.0 %)
+Overall Fail:      0 (  0.0 %)
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="response-files">
+<span id="unitcl"></span><a class="header-link" href="#response-files"><h2 id="response-files">Response Files</h2><span class="material-icons">link</span></a>
+<p>While the flexibility of the profile system allows a set of tests to be easily
+run on devices with different architectures, the downside is long command-lines
+due to the many options to fill in. Since many of these options are set to the
+same value no matter which tests are run, it would make sense to allow sets of
+options to be saved to a file and re-used. The ‘response file’ feature allows a
+list of options to be read from a file and treated as if the options were passed
+on the command-line as usual.</p>
+<p>Response files are simple text files, where each line represents a command-line
+argument. For example, the following <code class="docutils literal notranslate">arm_qemu</code> file would contain the options
+used to run ARM tests using <a class="reference external" href="https://www.qemu.org/">QEMU</a>:</p>
+<pre><code class="language-default">-s
+/opencl_conformance_tests_subtests_codeplay_wimpy.csv
+-p
+qemu
+--qemu
+/usr/bin/qemu-arm
+--ld
+/usr/arm-linux-gnueabihf/lib/ld-linux-armhf.so.3
+-L
+/usr/arm-linux-gnueabihf/lib
+-L
+bin
+-b
+CTS-output
+</code>
+</pre>
+<p>Running the <code class="docutils literal notranslate">if</code> test would then be done in the following way:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py @arm_qemu cl12/basic/if -v
+</code>
+</pre>
+<p>Note how the <code class="docutils literal notranslate">@</code> sign precedes the name of the response file to replace by
+its content on the command-line. Multiple response files can be loaded in the
+same way. This can be useful for running a list of failed tests. Let’s suppose
+we run all the tests first, generating the <code class="docutils literal notranslate">arm-qemu.fail</code> fail file:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py @arm_qemu -r arm-qemu.fail
+...
+Failed tests:
+  cl12/spir/atomics
+  cl12/spir/basic
+  cl12/spir/conversions
+  cl12/spir/geometrics
+  cl12/spir/half
+  cl12/spir/math_brute_force
+...
+</code>
+</pre>
+<p>Looking at the output of the failed tests revealed the issue with the tests,
+which we fix. Now, we can easily re-run just those tests using the response file
+feature:</p>
+<pre><code class="language-shell">$ /path/to/run_cities.py @arm_qemu @arm-qemu.fail
+...
+[100 %] [0:0:6/6] PASS cl12/spir/math_brute_force
+...
+</code>
+</pre>
+</div>
+<div class="section" id="other-options">
+<a class="header-link" href="#other-options"><h2 id="other-options">Other Options</h2><span class="material-icons">link</span></a>
+<dl class="simple">
+<dt><code class="docutils literal notranslate">--fail-file</code>, <code class="docutils literal notranslate">-f</code></dt><dd><p>This option can be used to specify the path to a fail file. A list of failed
+tests is written to this file after tests have been run.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--jobs</code>, <code class="docutils literal notranslate">-j</code></dt><dd><p>This option determines the number of concurrent tests to run. When profiles
+that execute tests on the local machine are selected, this is set to the
+number of cores of the machine by default. For other profiles the default is
+one.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--repeat</code>, <code class="docutils literal notranslate">-r</code></dt><dd><p>This option specifies the number of times to repeat the tests.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--junit-result-file</code>, <code class="docutils literal notranslate">-r</code></dt><dd><p>This option can be used to specify the path to a JUnit XML file. Per-test
+results (<code class="docutils literal notranslate">PASS</code>/<code class="docutils literal notranslate">FAIL</code>/<code class="docutils literal notranslate">TIMEOUT</code>, duration, output message) are written
+to this file using a format that is accepted by Jenkins.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--log-file</code> <code class="docutils literal notranslate">-l</code></dt><dd><p>This option can be used to specify the path to a log file. The output of
+every test is written to this file as well as the test result summary.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--color={auto,always,never}</code></dt><dd><p>This option controls the use of color since not all terminals support this
+feature. When <code class="docutils literal notranslate">auto</code> is specified, if <code class="docutils literal notranslate">stdout</code> is a tty on a supported
+platform color output will be enabled. When <code class="docutils literal notranslate">always</code> is specified color
+output is always emitted. When <code class="docutils literal notranslate">never</code> is specified color output is
+completely disabled.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--timeout</code>, <code class="docutils literal notranslate">-t</code></dt><dd><p>This option can be used to limit how long an individual test can run before
+being aborted. By default no timeout is used, tests are never aborted. The
+format is: <code class="docutils literal notranslate">[HH:]MM:SS</code></p>
+</dd>
+<dt><code class="docutils literal notranslate">--relaxed</code></dt><dd><p>This option can be used to affect CityRunner’s exit code. By default exit
+code <code class="docutils literal notranslate">1</code> is returned when tests fail. By using this option an exit code
+<code class="docutils literal notranslate">0</code> is returned when tests fail.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--add-lib-path</code>, <code class="docutils literal notranslate">-L</code></dt><dd><p>This option can be used to add a directory to the library search path.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--add-env-var</code>, <code class="docutils literal notranslate">-e</code></dt><dd><p>This option can be used to define an environment variable when invoking test
+executables.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--disabled-source</code>, <code class="docutils literal notranslate">-d</code></dt><dd><p>A csv file containing a list of tests to mark as <code class="docutils literal notranslate">Disabled</code> in the original
+test list. Tests marked as <code class="docutils literal notranslate">Disabled</code> are not run and counted as failures.
+This is only supported for the CTS profile at the moment.</p>
+</dd>
+<dt><code class="docutils literal notranslate">--ignored-source</code>, <code class="docutils literal notranslate">-i</code></dt><dd><p>A csv file containing a list of tests to mark as <code class="docutils literal notranslate">Ignored</code> in the original
+test list. Tests marked as <code class="docutils literal notranslate">Ignored</code> are not run and not counted.
+This is only supported for the CTS and GTest profiles at the moment.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="csv-file-format">
+<a class="header-link" href="#csv-file-format"><h2 id="csv-file-format">CSV File Format</h2><span class="material-icons">link</span></a>
+<p>CityRunner uses the CSV file format implicitly defined by the Khronos CTS
+runner:</p>
+<ul class="simple">
+<li><p>Each line describes one test and contains two to five fields separated by
+commas:</p>
+<ul>
+<li><p>An optional device type specifier that starts with <code class="docutils literal notranslate">CL_DEVICE_TYPE_</code>.
+CityRunner currently doesn’t use this field.</p></li>
+<li><p>A description of the test as human readable information to help describe
+its purpose and group related tests. Dropped by the framework in parsing,
+see <code class="docutils literal notranslate">TestList.from_file()</code> in <code class="docutils literal notranslate">test_info.py</code>.</p></li>
+<li><p>The name of a test executable, followed by a list of arguments to pass to
+the test executable.</p></li>
+<li><p>An optional <a class="reference internal" href="#attributes"><span class="std std-ref">attribute</span></a> from the following list:
+<code class="docutils literal notranslate">Ignore</code>, <code class="docutils literal notranslate">Disabled</code>, <code class="docutils literal notranslate">Unimplemented</code>.</p></li>
+<li><p>An optional <a class="reference internal" href="#pools"><span class="std std-ref">pool</span></a> from the following list: <code class="docutils literal notranslate">Normal</code>,
+<code class="docutils literal notranslate">Thread</code>, <code class="docutils literal notranslate">Memory</code>.</p></li>
+</ul>
+</li>
+<li><p>Lines starting with <code class="docutils literal notranslate">#</code> are considered to be comments and are ignored.
+Empty lines are also ignored.</p></li>
+</ul>
+<div class="section" id="attributes">
+<span id="id1"></span><a class="header-link" href="#attributes"><h3 id="attributes">Attributes</h3><span class="material-icons">link</span></a>
+<dl class="simple">
+<dt>Ignore</dt><dd><p>Tests marked with the <code class="docutils literal notranslate">Ignore</code> attribute are not run but are counted as a
+pass towards the CTS pass rate.</p>
+</dd>
+<dt>Disabled</dt><dd><p>Tests marked with the <code class="docutils literal notranslate">Disabled</code> attribute are expected fails. They are not
+run but included as a <code class="docutils literal notranslate">FAIL</code> in the final results.</p>
+</dd>
+<dt>Unimplemented</dt><dd><p>Tests marked with the <code class="docutils literal notranslate">Unimplemented</code> attribute are not run but are counted
+as a passed test towards the final CTS pass rate. This attribute is
+associated with tests which have been left unimplemented by the CTS, or test
+things that aren’t in CL 1.x.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="pools">
+<span id="id2"></span><a class="header-link" href="#pools"><h3 id="pools">Pools</h3><span class="material-icons">link</span></a>
+<p>Pools provide more granular control than the <code class="docutils literal notranslate">-j</code> flag over how tests are run
+in parallel. By restricting concurrency between the most resource intensive
+tests we can avoid fails due to not having all the platform’s resources
+dedicated to their execution.</p>
+<dl class="simple">
+<dt>Normal</dt><dd><p>Default if no pool is specified in the CSV, these tests will be
+allowed to run concurrently with any other test.</p>
+</dd>
+<dt>Thread</dt><dd><p>Thread intensive tests which should be constrained in executing
+concurrently with each other. A maximum of half the number of jobs
+specified by <code class="docutils literal notranslate">-j</code> will be be available to the thread pool. Default for
+<code class="docutils literal notranslate">conversions</code> and <code class="docutils literal notranslate">bruteforce</code> CTS tests.</p>
+</dd>
+<dt>Memory</dt><dd><p>Tests which allocate large amounts of memory. Memory pool annotated
+tests can run in parallel with at most one other memory pool assigned test.
+Default for <code class="docutils literal notranslate">allocations</code> and <code class="docutils literal notranslate">integer_ops</code> CTS tests.</p>
+</dd>
+</dl>
+<p>For example, CityRunner at <code class="docutils literal notranslate">-j8</code> will be able to run <code class="docutils literal notranslate">8</code> tests in parallel.
+Of these <code class="docutils literal notranslate">8</code> tests, at most two may be memory-intensive jobs and at most four
+may be thread-intensive. Tests from both these categories are permitted to run
+concurrently with each other, leading to the situation where the <code class="docutils literal notranslate">8</code>
+concurrently running tests are: two memory-intensive, four thread-intensive,
+and two other uncategorized normal tests.</p>
+</div>
+</div>
+<div class="section" id="extensions">
+<a class="header-link" href="#extensions"><h2 id="extensions">Extensions</h2><span class="material-icons">link</span></a>
+<p>The extensions folder of CityRunner is designed to contain customer specific
+functionality. Python scripts will need to be placed here manually for imports
+to pick them up. This segregation prevents sensitive IP and implementation
+details leaking into the oneAPI Construction Kit.</p>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts/city_runner.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:58 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/scripts/city_runner.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1></h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a 
+                            class="disabled">
+                            <div>
+                                <h1></h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#city-runner">City Runner</a></li>
+                        <li class="heading-2"><a href="#continuous-integration">Continuous Integration</a></li>
+                        <li class="heading-2"><a href="#developer-testing">Developer Testing</a></li>
+                        <li class="heading-2"><a href="#profile-system">Profile System</a></li>
+                        <li class="heading-2"><a href="#response-files">Response Files</a></li>
+                        <li class="heading-2"><a href="#other-options">Other Options</a></li>
+                        <li class="heading-2"><a href="#csv-file-format">CSV File Format</a></li>
+                        <li class="heading-2"><a href="#extensions">Extensions</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="667cca2724330c2991782d58c8c52f79">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

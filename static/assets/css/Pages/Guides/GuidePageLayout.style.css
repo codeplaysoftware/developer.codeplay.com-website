@@ -1,0 +1,147 @@
+/**
+ * Content with Side Menu Layout
+ */
+:root {
+    --defaultMenuWidth: 400px;
+    --insetSidePadding: 4rem;
+    --layoutContentMaxWidth: 1000px;
+    --slidePanelWidth: 300px;
+}
+
+.layout-file {
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.layout-file > div:nth-of-type(1) {
+    background-color: var(--backgroundColor);
+    box-shadow: inset -5px -1px 8px -1px rgb(0 0 0 / 4%);
+    border-right: rgba(0, 0, 0, .1) 1px solid;
+}
+
+.dark-mode .layout-file > div:nth-of-type(1) {
+    box-shadow: inset -5px -1px 8px -1px rgb(0 0 0 / 4%);
+    border-right: rgba(255, 255, 255, .1) 1px solid;
+}
+
+.layout-file > div:nth-of-type(2) {
+    display: flex;
+    background-color: var(--foregroundColor);
+    container-type: inline-size;
+    flex: 1;
+}
+
+.layout-file > div:nth-of-type(2) > div:nth-of-type(1) {
+    max-width: var(--layoutContentMaxWidth);
+    min-width: 630px;
+    width: 100%;
+}
+
+.layout-file > div:nth-of-type(2) > div:nth-of-type(2) {
+    display: none;
+}
+
+.layout-file .sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+@media screen and (max-width: 970px) {
+    .layout-file {
+        display: block;
+    }
+
+    .layout-file > div:nth-of-type(1) {
+        display: none;
+    }
+}
+
+@container (min-width: 1000px) {
+    .layout-file > div:nth-of-type(2) > div:nth-of-type(2) {
+        background-color: var(--foregroundColor);
+        display: flex;
+    }
+}
+
+.layout-file .jump-list-container,
+.layout-file .file-content-container {
+    padding: 2rem var(--insetSidePadding);
+}
+
+.file-menu-container {
+    box-shadow: inset -5px -1px 8px -1px rgb(0 0 0 / 4%);
+    border-right: rgba(0, 0, 0, .1) 1px solid;
+    min-width: 300px;
+    max-width: 600px;
+    width: var(--defaultMenuWidth);
+}
+
+.dark-mode .file-menu-container {
+    box-shadow: inset -5px -1px 8px -1px rgb(0 0 0 / 4%);
+    border-right: rgba(255, 255, 255, .1) 1px solid;
+}
+
+@media screen and (max-width: 970px) {
+    .layout-file {
+        display: block;
+    }
+
+    .layout-file > div:nth-of-type(1) {
+        display: none;
+    }
+}
+
+/**
+ * Notices
+ */
+.notice {
+    display: flex;
+    background: var(--hintColor);
+    color: var(--whiteColor);
+    padding: 1.4rem 2rem;
+    border-radius: var(--borderRadius);
+    font-size: .9rem;
+}
+
+.notice > div:nth-of-type(1) {
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.notice > div:nth-of-type(2) {
+    flex: 1;
+}
+
+/**
+ * View Resizer
+ */
+.sep {
+    width: 8px;
+    height: 100%;
+    background: rgba(0, 0, 0, .03);
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: col-resize;
+    opacity: 0;
+    z-index: 999999;
+}
+
+.dark-mode .sep {
+    background: rgba(255, 255, 255, .03);
+}
+
+.sep:hover {
+    opacity: .9 !important;
+    background: var(--hintColor);
+}
+
+@media screen and (max-width: 970px) {
+    .sep {
+        display: none;
+    }
+}

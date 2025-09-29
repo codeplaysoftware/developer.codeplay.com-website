@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2023.2.1/guides/get-started-guide-nvidia.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:07:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Install oneAPI for NVIDIA GPUs - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Install oneAPI for NVIDIA GPUs' for oneAPI for NVIDIA® GPUs 2023.2.1 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, sycl, cuda, nvidia, a100" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Install oneAPI for NVIDIA GPUs - Guides - oneAPI for NVIDIA® GPUs - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Install oneAPI for NVIDIA GPUs' for oneAPI for NVIDIA® GPUs 2023.2.1 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/Nvidia/OneApiForNvidiaShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/OneApi/Nvidia/Guide/OneApiForNvidiaGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI for NVIDIA® GPUs</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Docs</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../support-packages.html" >
+                        <div>
+
+                            <span class="icon material-icons">support_agent</span>
+
+                            <div>Support</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html" target="_blank">
+                        <div>
+                            <img class="icon material-icons" src="../../../../../assets/img/products/oneapi/menu-icon-intel.png" alt="Icon" />
+
+
+                            <div>Get Toolkit</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../guides/index.html"
+                           >Docs</a>
+                    </li>
+                    <li >
+                        <a href="../../support-packages.html"
+                           >Support</a>
+                    </li>
+                    <li >
+                        <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html"
+                           target="_blank">Get Toolkit</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="get-started-guide-nvidia">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2023.2.1</div>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../2025.2.0/guides/index-2.html">2025.2.0</a></li>
+                           <li><a href="../../2025.1.1/guides/index-2.html">2025.1.1</a></li>
+                           <li><a href="../../2025.1.0/guides/index-2.html">2025.1.0</a></li>
+                           <li><a href="../../2025.0.0/guides/index-2.html">2025.0.0</a></li>
+                           <li><a href="../../2024.2.1/guides/index-2.html">2024.2.1</a></li>
+                           <li><a href="../../2024.2.0/guides/index-2.html">2024.2.0</a></li>
+                           <li><a href="../../2024.1.2/guides/index-2.html">2024.1.2</a></li>
+                           <li><a href="../../2024.1.0/guides/index-2.html">2024.1.0</a></li>
+                           <li><a href="../../2024.0.2/guides/index-2.html">2024.0.2</a></li>
+                           <li><a href="../../2024.0.1/guides/index-2.html">2024.0.1</a></li>
+                           <li><a href="../../2024.0.0/guides/index-2.html">2024.0.0</a></li>
+                           <li><a href="index-2.html">2023.2.1</a></li>
+                           <li><a href="../../2023.2.0/guides/index-2.html">2023.2.0</a></li>
+                           <li><a href="../../2023.1.0/guides/index-2.html">2023.1.0</a></li>
+                           <li><a href="../../2023.0.0/guides/index-2.html">2023.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="index.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI for NVIDIA® GPUs 2023.2.1</a><ol></ol></li>               <li class="selected"><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Get Started</a><ol><li class="selected focused"><a href="get-started-guide-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Install oneAPI for NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-nvidia-2.html#use-dpc-to-target-nvidia-gpus"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Use DPC++ to Target NVIDIA GPUs</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-nvidia-2.html#dpc-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DPC++ Resources</a><ol></ol></li><li class=" anchor"><a href="get-started-guide-nvidia-2.html#sycl-resources"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL Resources</a><ol></ol></li><li class=""><a href="debugging.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging SYCL Applications</a><ol></ol></li><li class=""><a href="MPI-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>MPI Guide for the CUDA backend</a><ol></ol></li></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Performance Guide</a><ol><li class=""><a href="performance/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="performance/programming-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Programming Model</a><ol></ol></li><li class=""><a href="performance/optimization-goals.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Optimization Goals</a><ol></ol></li><li class=""><a href="performance/performance-analysis.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Analysis</a><ol></ol></li><li class=""><a href="performance/performance-on-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance on Nvidia GPUs</a><ol></ol></li><li class=""><a href="performance/common-optimizations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Common optimizations</a><ol></ol></li></ol></li>               <li class=""><a ><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Support</a><ol><li class=""><a href="features-nvidia.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Features</a><ol></ol></li><li class=""><a href="changelog-nvidia-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Changelog</a><ol></ol></li><li class=""><a href="troubleshooting.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Troubleshooting</a><ol></ol></li></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+                    <div class="notice deprecated">
+                        <div><span class="material-icons">info</span></div>
+                        <div>Please note that you are viewing a guide targeting an older version
+                            of oneAPI for NVIDIA® GPUs.
+                            This guide was designed for version 2023.2.1.</div>
+                    </div>
+
+                    <div class="title">
+                        <a class="header-link" href="#install-oneapi-for-nvidia-gpus">
+                            <h1>Install oneAPI for NVIDIA GPUs</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="debugging-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<p>This guide contains information on using DPC++ to run SYCL™ applications on
+NVIDIA® GPUs via the DPC++ CUDA® plugin.</p>
+<p>For general information about DPC++, refer to the
+<a class="reference internal" href="#dpc-resources"><span class="std std-doc">DPC++ Resources</span></a> section.</p>
+<section id="install-oneapi-for-nvidia-gpus">
+
+<section id="supported-platforms">
+<a class="header-link" href="#supported-platforms"><h2 id="supported-platforms">Supported Platforms</h2><span class="material-icons">link</span></a>
+<p>This release has been tested on the following platforms:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>GPU Hardware</p></th>
+<th class="head"><p>Architecture</p></th>
+<th class="head"><p>Operating System</p></th>
+<th class="head"><p>CUDA</p></th>
+<th class="head"><p>GPU Driver</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NVIDIA A100-PCIE-40GB</p></td>
+<td><p>Ampere - sm_80</p></td>
+<td><p>Ubuntu 22.04.2 LTS</p></td>
+<td><p>12.0</p></td>
+<td><p>525.85.12</p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><p>This release should work across a wide array of NVIDIA GPUs and CUDA versions,
+but Codeplay cannot guarantee correct operation on untested platforms.</p></li>
+<li><p>The package has been tested on Ubuntu 22.04 only, but can be installed on
+any Linux systems.</p></li>
+<li><p>This release of oneAPI for NVIDIA GPUs is not available for Windows, but a
+Windows package will be available in a future release.</p></li>
+<li><p>The plugin relies on CUDA being installed on your system. As CUDA no longer
+supports macOS®, a oneAPI for NVIDIA GPUs package is not available for macOS.</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<a class="header-link" href="#prerequisites"><h2 id="prerequisites">Prerequisites</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Install C++ development tools.</p>
+<p>You will need the following C++ development tools installed in order to
+build and run oneAPI applications: <code class="docutils literal notranslate">cmake</code>, <code class="docutils literal notranslate">gcc</code>, <code class="docutils literal notranslate">g++</code>, <code class="docutils literal notranslate">make</code> and
+<code class="docutils literal notranslate">pkg-config</code>.</p>
+<p>The following console commands will install the above tools on the most
+popular Linux distributions:</p>
+<p><strong>Ubuntu</strong></p>
+<pre><code class="language-shell">sudo apt update
+sudo apt -y install cmake pkg-config build-essential
+</code>
+</pre>
+<p><strong>Red Hat and Fedora</strong></p>
+<pre><code class="language-shell">sudo yum update
+sudo yum -y install cmake pkgconfig
+sudo yum groupinstall "Development Tools"
+</code>
+</pre>
+<p><strong>SUSE</strong></p>
+<pre><code class="language-shell">sudo zypper update
+sudo zypper --non-interactive install cmake pkg-config
+sudo zypper --non-interactive install pattern devel_C_C++
+</code>
+</pre>
+<p>Verify that the tools are installed by running:</p>
+<pre><code class="language-shell">which cmake pkg-config make gcc g++
+</code>
+</pre>
+<p>You should see output similar to:</p>
+<pre><code class="language-shell">/usr/bin/cmake
+/usr/bin/pkg-config
+/usr/bin/make
+/usr/bin/gcc
+/usr/bin/g++
+</code>
+</pre>
+</li>
+<li><p>Install an <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html">Intel® oneAPI Toolkit </a>
+version 2023.2.1 that contains the DPC++/C++ Compiler.</p>
+<ul class="simple">
+<li><p>For example, the “Intel oneAPI Base Toolkit” should suit most use cases.</p></li>
+<li><p>The Toolkit must be version 2023.2.1 - otherwise oneAPI for
+NVIDIA GPUs cannot be installed.</p></li>
+</ul>
+</li>
+<li><p>Install the GPU driver and CUDA software stack for the NVIDIA GPU by
+following the steps described in the
+<a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">NVIDIA CUDA Installation Guide for Linux</a>.</p></li>
+</ol>
+</section>
+<section id="installation">
+<a class="header-link" href="#installation"><h2 id="installation">Installation</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Download the latest oneAPI for NVIDIA GPUs (beta) installer:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="../../download/index.html">Directly via Website</a></p></li>
+<li><p><a class="reference external" href="../../../../../settings/api/download/index.html">Using Download API with cURL or WGET</a>
+<em>(requires an account)</em></p></li>
+</ol>
+</li>
+<li><p>Run the downloaded self-extracting installer:</p>
+<p><code> sh oneapi-for-nvidia-gpus-2023.2.1-cuda-12.0-linux.sh</code></p>
+<ul class="simple">
+<li><p>The installer will search for an existing Intel oneAPI Toolkit version
+2023.2.1 installation in common locations. If you have
+installed an Intel oneAPI Toolkit in a custom location, use <code class="docutils literal notranslate">--install-dir /path/to/intel/oneapi</code>.</p></li>
+<li><p>If your Intel oneAPI Toolkit installation is outside your home directory,
+you may be required to run this command with elevated privileges, e.g.
+<code class="docutils literal notranslate">sudo</code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="set-up-your-environment">
+<a class="header-link" href="#set-up-your-environment"><h2 id="set-up-your-environment">Set Up Your Environment</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>To set up your oneAPI environment in your current session, source the
+Intel-provided <code class="docutils literal notranslate">setvars.sh</code> script.</p>
+<p>For system-wide installations:</p>
+<pre><code class="language-shell">. /opt/intel/oneapi/setvars.sh --include-intel-llvm
+</code>
+</pre>
+<p>For private installations (in the default location):</p>
+<pre><code class="language-shell">. ~/intel/oneapi/setvars.sh --include-intel-llvm
+</code>
+</pre>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate">--include-intel-llvm</code> option is required in order to add LLVM tools
+such as <code class="docutils literal notranslate">clang++</code> to the path.</p></li>
+<li><p>Note that you will have to run this script in every new terminal session.
+For options to handle the setup automatically each session, see the
+relevant Intel oneAPI Toolkit documentation, such as <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/oneapi-base-toolkit/get-started-guide-linux/2023-2/before-you-begin.html#GUID-338EB548-7DB6-410E-B4BF-E65C017389C4">Set Environment
+Variables for CLI
+Development</a></p></li>
+</ul>
+</li>
+<li><p>Ensure that the CUDA libraries and tools can be found in your environment.</p>
+<ol class="arabic">
+<li><p>Run <code class="docutils literal notranslate">nvidia-smi</code> - if it runs without any obvious errors in the output
+then your environment should be set up correctly.</p></li>
+<li><p>Otherwise, set your environment variables manually:</p>
+<pre><code class="language-shell">export PATH=/PATH_TO_CUDA_ROOT/bin:$PATH
+export LD_LIBRARY_PATH=/PATH_TO_CUDA_ROOT/lib:$LD_LIBRARY_PATH
+</code>
+</pre>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="verify-your-installation">
+<a class="header-link" href="#verify-your-installation"><h2 id="verify-your-installation">Verify Your installation</h2><span class="material-icons">link</span></a>
+<p>To verify the DPC++ CUDA plugin installation, the DPC++ <code class="docutils literal notranslate">sycl-ls</code> tool can be
+used to make sure that SYCL now exposes the available NVIDIA GPUs. You should
+see something similar to the following in the <code class="docutils literal notranslate">sycl-ls</code> output if NVIDIA GPUs
+are found:</p>
+<pre><code class="language-plaintext">[ext_oneapi_cuda:gpu:0] NVIDIA CUDA BACKEND, TITAN RTX 0.0 [CUDA 11.0]
+</code>
+</pre>
+<ul class="simple">
+<li><p>If the available NVIDIA GPUs are correctly listed, then the DPC++ CUDA
+plugin was correctly installed and set up.</p></li>
+<li><p>Otherwise, see the “Missing devices in sycl-ls output” section of the
+<a class="reference internal" href="troubleshooting.html"><span class="doc std std-doc">Troubleshooting</span></a> documentation.</p></li>
+<li><p>Note that this command may also list other devices such as OpenCL™
+devices, Intel GPUs, or AMD GPUs, based on the available hardware
+and DPC++ plugins installed.</p></li>
+</ul>
+</section>
+<section id="run-a-sample-application">
+<a class="header-link" href="#run-a-sample-application"><h2 id="run-a-sample-application">Run a Sample Application</h2><span class="material-icons">link</span></a>
+<ol class="arabic">
+<li><p>Create a file <code class="docutils literal notranslate">simple-sycl-app.cpp</code> with the following C++/SYCL code:</p>
+<pre><code class="language-cpp">#include &lt;sycl/sycl.hpp&gt;
+
+int main() {
+  // Creating buffer of 4 ints to be used inside the kernel code
+  sycl::buffer&lt;sycl::cl_int, 1&gt; Buffer(4);
+
+  // Creating SYCL queue
+  sycl::queue Queue;
+
+  // Size of index space for kernel
+  sycl::range&lt;1&gt; NumOfWorkItems{Buffer.size()};
+
+  // Submitting command group(work) to queue
+  Queue.submit([&amp;](sycl::handler &amp;cgh) {
+    // Getting write only access to the buffer on a device
+    auto Accessor = Buffer.get_access&lt;sycl::access::mode::write&gt;(cgh);
+    // Executing kernel
+    cgh.parallel_for&lt;class FillBuffer&gt;(
+        NumOfWorkItems, [=](sycl::id&lt;1&gt; WIid) {
+          // Fill buffer with indexes
+          Accessor[WIid] = (sycl::cl_int)WIid.get(0);
+        });
+  });
+
+  // Getting read only access to the buffer on the host.
+  // Implicit barrier waiting for queue to complete the work.
+  const auto HostAccessor = Buffer.get_access&lt;sycl::access::mode::read&gt;();
+
+  // Check the results
+  bool MismatchFound = false;
+  for (size_t I = 0; I &lt; Buffer.size(); ++I) {
+    if (HostAccessor[I] != I) {
+      std::cout &lt;&lt; "The result is incorrect for element: " &lt;&lt; I
+                &lt;&lt; " , expected: " &lt;&lt; I &lt;&lt; " , got: " &lt;&lt; HostAccessor[I]
+                &lt;&lt; std::endl;
+      MismatchFound = true;
+    }
+  }
+
+  if (!MismatchFound) {
+    std::cout &lt;&lt; "The results are correct!" &lt;&lt; std::endl;
+  }
+
+  return MismatchFound;
+}
+</code>
+</pre>
+</li>
+<li><p>Compile the application with:</p>
+<pre><code class="language-shell">icpx -fsycl -fsycl-targets=nvptx64-nvidia-cuda simple-sycl-app.cpp -o simple-sycl-app
+</code>
+</pre>
+<p>Depending on your CUDA version, you may see this warning, which can be safely ignored:</p>
+<pre><code class="language-shell">icpx: warning: CUDA version is newer than the latest supported version 12.1 [-Wunknown-cuda-version]
+</code>
+</pre>
+</li>
+<li><p>Run the application with:</p>
+<pre><code class="language-shell">ONEAPI_DEVICE_SELECTOR="cuda:*" SYCL_PI_TRACE=1 ./simple-sycl-app
+</code>
+</pre>
+<p>You should see output like:</p>
+<pre><code class="language-plaintext">Warning: ONEAPI_DEVICE_SELECTOR environment variable is set to opencl:*.
+To see the correct device id, please unset ONEAPI_DEVICE_SELECTOR.
+
+SYCL_PI_TRACE[basic]: Plugin found and successfully loaded: libpi_cuda.so [ PluginVersion: 13.32.1 ]
+SYCL_PI_TRACE[all]: Selected device: -&gt; final score = 1500
+SYCL_PI_TRACE[all]:   platform: NVIDIA CUDA BACKEND
+SYCL_PI_TRACE[all]:   device: NVIDIA GeForce RTX 2060
+The results are correct!
+</code>
+</pre>
+<p>If so, you have successfully set up and verified your oneAPI for NVIDIA GPUs
+development environment, and you can begin developing oneAPI applications.</p>
+<p>The rest of this document provides general information on compiling and
+running oneAPI applications on NVIDIA GPUs.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="use-dpc-to-target-nvidia-gpus">
+<a class="header-link" href="#use-dpc-to-target-nvidia-gpus"><h1 id="use-dpc-to-target-nvidia-gpus">Use DPC++ to Target NVIDIA GPUs</h1><span class="material-icons">link</span></a>
+<section id="compile-for-nvidia-gpus">
+<a class="header-link" href="#compile-for-nvidia-gpus"><h2 id="compile-for-nvidia-gpus">Compile for NVIDIA GPUs</h2><span class="material-icons">link</span></a>
+<p>To compile a SYCL application for NVIDIA GPUs, use the <code class="docutils literal notranslate">icpx</code> compiler
+provided with DPC++. For example:</p>
+<pre><code class="language-shell">icpx -fsycl -fsycl-targets=nvptx64-nvidia-cuda sycl-app.cpp -o sycl-app
+</code>
+</pre>
+<p>The following flags are required:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">-fsycl</code>: Instructs the compiler to build the C++ source file in
+SYCL mode. This flag will also implicitly enable C++17 and automatically
+link against the SYCL runtime library.</p></li>
+<li><p><code class="docutils literal notranslate">-fsycl-targets=nvptx64-nvidia-cuda</code>: Instructs the compiler to
+build SYCL kernels for the NVIDIA GPU target.</p></li>
+</ul>
+<p>It is also possible to build the SYCL kernels for a specific NVIDIA
+architecture using the following flags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">-Xsycl-target-backend=nvptx64-nvidia-cuda --cuda-gpu-arch=sm_80</code></p></li>
+</ul>
+<p>Note that kernels are built for <code class="docutils literal notranslate">sm_50</code> by default, allowing them to work on a
+wider range of architectures, but limiting the usage of more recent CUDA
+features.</p>
+<p>For more information on available SYCL compilation flags, see the
+<a class="reference external" href="https://intel.github.io/llvm-docs/UsersManual.html">DPC++ Compiler User’s Manual</a>
+or for information on all DPC++ compiler options see the
+<a class="reference external" href="https://www.intel.com/content/www/us/en/docs/dpcpp-cpp-compiler/developer-guide-reference/2023-2/compiler-options.html">Compiler Options</a>
+section of the Intel oneAPI DPC++/C++ Compiler Developer Guide and Reference.</p>
+</section>
+<section id="using-the-icpx-compiler">
+<a class="header-link" href="#using-the-icpx-compiler"><h2 id="using-the-icpx-compiler">Using the <code class="docutils literal notranslate">icpx</code> compiler</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">icpx</code> compiler is by default a lot more aggressive with optimizations than
+the regular <code class="docutils literal notranslate">clang++</code> driver, as it uses both <code class="docutils literal notranslate">-O2</code> and <code class="docutils literal notranslate">-ffast-math</code>. In many
+cases this can lead to better performance but it can also lead to some issues
+for certain applications. In such cases it is possible to disable <code class="docutils literal notranslate">-ffast-math</code>
+by using <code class="docutils literal notranslate">-fno-fast-math</code> and to change the optimization level by passing a
+different <code class="docutils literal notranslate">-O</code> flag. It is also possible to directly use the <code class="docutils literal notranslate">clang++</code> driver
+which can be found in <code class="docutils literal notranslate">$releasedir/compiler/latest/linux/bin-llvm/clang++</code>, to
+get regular <code class="docutils literal notranslate">clang++</code> behavior.</p>
+<p>There are currently a few known issues with the <code class="docutils literal notranslate">icpx</code> compiler which are
+listed below. See the <a class="reference internal" href="troubleshooting.html"><span class="doc std std-doc">Troubleshooting Page</span></a> for more
+details:</p>
+<ul class="simple">
+<li><p>Hangs with SYCL Group algorithms when using double precision floating points:
+<code class="docutils literal notranslate">broadcast</code>, <code class="docutils literal notranslate">joint_exclusive_scan</code>, <code class="docutils literal notranslate">joint_inclusive_scan</code>,
+<code class="docutils literal notranslate">exclusive_scan_over_group</code>, <code class="docutils literal notranslate">inclusive_scan_over_group</code></p></li>
+</ul>
+</section>
+<section id="compile-for-multiple-targets">
+<a class="header-link" href="#compile-for-multiple-targets"><h2 id="compile-for-multiple-targets">Compile for Multiple Targets</h2><span class="material-icons">link</span></a>
+<p>In addition to targeting NVIDIA GPUs, you can build SYCL applications that can
+be compiled once and then run on a range of hardware. The following example
+shows how to output a single binary including device code that can run on NVIDIA
+GPUs, AMD GPUs, or any device that supports SPIR e.g. Intel GPUs.</p>
+<pre><code class="language-shell">icpx -fsycl -fsycl-targets=amdgcn-amd-amdhsa,nvptx64-nvidia-cuda,spir64 \
+        -Xsycl-target-backend=amdgcn-amd-amdhsa --offload-arch=gfx1030 \
+        -Xsycl-target-backend=nvptx64-nvidia-cuda --offload-arch=sm_80 \
+        -o sycl-app sycl-app.cpp
+</code>
+</pre>
+</section>
+<section id="run-sycl-applications-on-nvidia-gpus">
+<a class="header-link" href="#run-sycl-applications-on-nvidia-gpus"><h2 id="run-sycl-applications-on-nvidia-gpus">Run SYCL Applications on NVIDIA GPUs</h2><span class="material-icons">link</span></a>
+<p>After compiling your SYCL application for an NVIDIA target, you should also
+ensure that the correct SYCL device representing the NVIDIA GPU is selected at
+runtime.</p>
+<p>In general, simply using the default device selector should select one of the
+available NVIDIA GPUs. However in some scenarios, users may want to change their
+SYCL application to use a more precise SYCL device selector, such as the GPU
+selector, or even a custom selector.</p>
+<p>The environment variable <code class="docutils literal notranslate">ONEAPI_DEVICE_SELECTOR</code> may be used to help the SYCL
+device selectors by restricting the set of devices that can be used. For
+example, to only allow devices exposed by the DPC++ CUDA plugin:</p>
+<pre><code class="language-shell">export ONEAPI_DEVICE_SELECTOR="cuda:*"
+</code>
+</pre>
+<p>For more details on this environment variable, see the
+<a class="reference external" href="https://intel.github.io/llvm-docs/EnvironmentVariables.html#sycl-device-filter">Environment Variables section of the oneAPI DPC++ Compiler documentation</a>.
+Note: this environment variable will be deprecated in a subsequent release.</p>
+</section>
+</section>
+<section id="dpc-resources">
+<a class="header-link" href="#dpc-resources"><h1 id="dpc-resources">DPC++ Resources</h1><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/videos/dpc-part-1-introduction-to-new-programming-model.html">Intel DPC++ Overview</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/GetStartedGuide.html">DPC++ Getting Started Guide</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/UsersManual.html">DPC++ Compiler User’s Manual</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/design/CompilerAndRuntimeDesign.html">DPC++ Compiler and Runtime Architecture Design</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/llvm-docs/EnvironmentVariables.html">DPC++ Environment Variables</a></p></li>
+</ul>
+</section>
+<section id="sycl-resources">
+<a class="header-link" href="#sycl-resources"><h1 id="sycl-resources">SYCL Resources</h1><span class="material-icons">link</span></a>
+<ul class="simple">
+<li><p><a class="reference external" href="https://registry.khronos.org/SYCL/specs/sycl-2020/html/sycl-2020.html">SYCL 2020 Spec</a></p></li>
+<li><p><a class="reference external" href="https://github.com/codeplaysoftware/syclacademy">SYCL Academy Learning Materials</a></p></li>
+<li><p><a class="reference external" href="https://www.codingame.com/playgrounds/48226/introduction-to-sycl/introduction-to-sycl-2">Codingame interactive SYCL tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.iwocl.org/iwocl-2020/sycl-tutorials/">IWOCL SYCL talks</a></p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-1-4842-5574-2">Free DPC++ eBook</a></p></li>
+<li><p><a class="reference external" href="https://sycl.tech/">Find out the latest SYCL news, learning materials and projects</a></p></li>
+</ul>
+</section>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/nvidia/2023.2.1/guides/get-started-guide-nvidia.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:07:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="for NVIDIA® GPUs" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/nvidia/2023.2.1/guides/get-started-guide-nvidia.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="index-3.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>oneAPI for NVIDIA® GPUs 2023.2.1</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="debugging-2.html"
+                            >
+                            <div>
+                                <h1>Debugging SYCL Applications</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#install-oneapi-for-nvidia-gpus">Install oneAPI for NVIDIA GPUs</a></li>
+                        <li class="heading-2"><a href="#supported-platforms">Supported Platforms</a></li>
+                        <li class="heading-2"><a href="#prerequisites">Prerequisites</a></li>
+                        <li class="heading-2"><a href="#installation">Installation</a></li>
+                        <li class="heading-2"><a href="#set-up-your-environment">Set Up Your Environment</a></li>
+                        <li class="heading-2"><a href="#verify-your-installation">Verify Your installation</a></li>
+                        <li class="heading-2"><a href="#run-a-sample-application">Run a Sample Application</a></li>
+                        <li class="heading-1"><a href="#use-dpc-to-target-nvidia-gpus">Use DPC++ to Target NVIDIA GPUs</a></li>
+                        <li class="heading-2"><a href="#compile-for-nvidia-gpus">Compile for NVIDIA GPUs</a></li>
+                        <li class="heading-2"><a href="#using-the-icpx-compiler">Using the icpx compiler</a></li>
+                        <li class="heading-2"><a href="#compile-for-multiple-targets">Compile for Multiple Targets</a></li>
+                        <li class="heading-2"><a href="#run-sycl-applications-on-nvidia-gpus">Run SYCL Applications on NVIDIA GPUs</a></li>
+                        <li class="heading-1"><a href="#dpc-resources">DPC++ Resources</a></li>
+                        <li class="heading-1"><a href="#sycl-resources">SYCL Resources</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="ca7288e87db4e016363ff4b0e893538f">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

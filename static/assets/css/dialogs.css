@@ -1,0 +1,591 @@
+/**
+ * Search Dialog
+ */
+#searchDialog {
+    overflow: hidden !important;
+    box-shadow: var(--shadow);
+}
+
+@media screen and (min-width: 1000px) {
+    #searchDialog {
+        width: 1000px !important;
+        max-height: 800px !important;
+    }
+}
+
+#searchDialog .message {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+    color: #666;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    display: none;
+}
+
+#searchDialog .loading {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+}
+
+#searchDialog .loading span {
+    position: absolute;
+    animation: spin 1s infinite linear;
+    font-size: 25px;
+}
+
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(359deg);}
+}
+
+#searchDialog .message p {
+    font-size: inherit;
+}
+
+#searchDialog .message.no-search {
+    display: flex;
+}
+
+#searchDialog * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#searchDialog > div:nth-of-type(1) {
+    padding: 1.5rem 2rem;
+}
+
+#searchDialog > div:nth-of-type(1) .search-input {
+    position: relative;
+}
+
+#searchDialog > div:nth-of-type(1) input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border: var(--borderDefault);
+    background: var(--foregroundColor);
+    border-radius: 6px;
+    outline-width: 0;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 3rem;
+}
+
+
+#searchDialog > div:nth-of-type(1) .search-input span {
+    position: absolute;
+    top: .9rem;
+    left: 1rem;
+}
+
+#searchDialog > div:nth-of-type(2) {
+    text-align: left;
+    overflow: auto;
+    height: 100%;
+    background: var(--foregroundColor);
+}
+
+@media screen and (min-width: 56.25rem) {
+    #searchDialog > div:nth-of-type(2) {
+        height: 500px;
+    }
+}
+
+
+#searchDialog > div:nth-of-type(2) ul.search-results {
+    list-style: none;
+    padding: 2rem;
+    display: none;
+}
+
+
+#searchDialog > div:nth-of-type(2) .search-results li {
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background-color: var(--backgroundColor);
+    box-shadow: 8px 8px 8px -4px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    opacity: .7;
+    transition: .1s all;
+}
+
+#searchDialog > div:nth-of-type(2) ul.search-results:not(:hover) > li:first-of-type,
+#searchDialog > div:nth-of-type(2) .search-results li:hover {
+    opacity: 1;
+    box-shadow: 8px 8px 8px -4px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+
+#searchDialog > div:nth-of-type(2) .search-results li a {
+    display: flex;
+    padding: 1.5rem;
+    text-decoration: none;
+}
+
+#searchDialog > div:nth-of-type(2) .search-results li a > div:nth-of-type(1) {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+#searchDialog .message ul {
+    list-style: none;
+    font-size: 1.1rem;
+}
+
+#searchDialog .message ul li {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+#searchDialog .message small {
+    padding-top: 1.5rem;
+    font-size: 1.1rem;
+    opacity: .6;
+    display: block;
+}
+
+#searchDialog .message ul li:not(:last-of-type) {
+    border-bottom: rgba(0, 0, 0, .2) 1px dotted;
+}
+
+.dark-mode #searchDialog .message ul li:not(:last-of-type) {
+    border-bottom: rgba(255, 255, 255, .2) 1px dotted;
+}
+
+#searchDialog .tag {
+    background-color: #111;
+    color: var(--whiteColor);
+    display: inline-block;
+    padding: .5rem .7rem;
+    border-radius: 3px;
+    font-size: .7rem;
+}
+
+#searchDialog .tag.acoranprocessordevelopers,
+#searchDialog .tag.acoranprocessordevelopersddk,
+#searchDialog .tag.blog {
+    background-image: linear-gradient(45deg, #e30043 20%, #0005c7 73%) !important;
+}
+
+#searchDialog .tag.computecppce,
+#searchDialog .tag.computecpppe {
+    background: #0672d3 !important;
+}
+
+#searchDialog .tag.computesuiteforrcarce,
+#searchDialog .tag.computesuiteforrcarpe {
+    background: #dc5400 !important;
+}
+
+#searchDialog .tag.oneapinvidia {
+    background: #328d00 !important;
+}
+
+#searchDialog .tag.oneapiamd {
+    background: #c30000 !important;
+}
+
+#searchDialog .tag.settings {
+    background: #ff4f01 !important;
+}
+
+#searchDialog .tag.oneapiconstructionkit {
+    background-color: #3100ff !important;
+}
+
+#searchDialog > div:nth-of-type(2) li h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#searchDialog > div:nth-of-type(2) li h2 {
+    font-size: .9rem;
+    font-weight: normal;
+    opacity: .8;
+    margin-top: .3rem;
+}
+
+
+/**
+ * Product Selector Dialog
+ */
+#productSelectorDialog {
+    border-radius: 12px;
+    width: 800px !important;
+    height: 560px !important;
+    box-shadow: var(--shadow);
+    cursor: default;
+    display: none;
+}
+
+#productSelectorDialog .side-by-side-panel {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#productSelectorDialog .side-by-side-panel > * {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+}
+
+#productSelectorDialog #products {
+    width: 290px;
+    text-align: left;
+    box-shadow: inset -13px 0px 38px 0px rgba(0, 0, 0, 0.05);
+}
+
+#productSelectorDialog #products > div {
+    padding: 0 3rem 0 3rem;
+    line-height: 80px;
+    height: 80px;
+    background: var(--highlightColor);
+}
+
+#productSelectorDialog #products > div > h1 {
+    font-size: 1rem;
+    display: inline;
+    font-weight: normal;
+}
+
+#productSelectorDialog #products * {
+    box-sizing: border-box;
+}
+
+#productSelectorDialog #products > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    height: calc(100% - 80px);
+}
+
+#productSelectorDialog #products > ul > li {
+    padding: 0;
+    margin: 0;
+}
+
+#productSelectorDialog #products > ul > li:last-child {
+    border-bottom: 0;
+}
+
+#productSelectorDialog #products > ul > li > a {
+    padding: 2rem 3rem;
+    display: block;
+    opacity: .5;
+    cursor: pointer;
+    transition: .4s all;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#productSelectorDialog #products > ul > li:hover > a,
+#productSelectorDialog #products > ul > li.selected > a {
+    background-color: rgba(0, 0, 0, .1);
+    opacity: 1;
+}
+
+#productSelectorDialog #products > ul > li img {
+    max-width: 170px;
+    width: auto;
+}
+
+#productSelectorDialog #products > ul a.acoran img {
+    max-width: 130px !important;
+}
+
+#productSelectorDialog #products > ul > li p {
+    font-size: .6rem;
+    opacity: .4;
+}
+
+#no-product {
+    display: none;
+}
+
+#productSelectorDialog #product-selection {
+    box-sizing: border-box;
+    width: 390px;
+    text-align: left;
+    background: var(--foregroundColor);
+}
+
+
+#productSelectorDialog #product-selection h1 {
+    margin: 2rem 2rem 0 0;
+    font-size: 1.7rem;
+}
+
+#productSelectorDialog #product-selection .logo {
+    max-width: 200px;
+}
+
+#productSelectorDialog #product-selection p {
+    font-size: 1rem;
+    margin: 2rem 0rem 0 0rem;
+}
+
+#productSelectorDialog #product-selection > div {
+    padding: 1rem 4rem 0 4rem;
+}
+
+#productSelectorDialog #product-selection > div a {
+    text-align: center;
+    border: 0;
+    display: block;
+    padding: 1rem 0 1rem 0;
+    width: 100%;
+    text-decoration: none;
+    transition: .4s all;
+    font-size: 1rem;
+    opacity: .7;
+    font-weight: bold;
+}
+
+#productSelectorDialog #product-selection > div a:hover {
+    opacity: 1;
+}
+
+#productSelectorDialog #variants {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0rem 4rem 0rem;
+}
+
+#productSelectorDialog #variants li {
+    display: table;
+    cursor: pointer;
+    transition: .4s all;
+    text-align: left;
+    width: 100%;
+}
+
+#productSelectorDialog #variants li > a {
+    display: table;
+}
+
+#productSelectorDialog #variants li > a > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#productSelectorDialog #variants li > a > *:first-child {
+    text-align: left;
+}
+
+#productSelectorDialog #variants > li:not(:last-child) {
+    border-bottom: rgba(0, 0, 0, .1) 1px solid;
+}
+
+#productSelectorDialog #variants li > a > div:last-child {
+    padding-left: 1rem;
+}
+
+#productSelectorDialog #variants p {
+    font-size: .8rem;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+#productSelectorDialog .product-view:not(:first-of-type) {
+    display: none;
+}
+
+
+/**
+ * Dialog: Site Selector
+ */
+@media screen and (min-width: 56.25rem) {
+    div#dialogContainer #siteSelectorDialog {
+        width: 450px !important;
+        cursor: default;
+        margin: 0 auto;
+        text-align: left;
+        display: none;
+        box-shadow: var(--shadow);
+    }
+}
+
+#siteSelectorDialog header {
+    display: table;
+    width: 100%;
+    padding: 3rem 1.5rem 3rem 0;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 12px 2px rgba(0, 0, 0, 0.30);
+    text-align: left;
+    background: var(--backgroundColor);
+}
+
+#siteSelectorDialog header > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#siteSelectorDialog header > *:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+
+#siteSelectorDialog header h1 {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+}
+
+#siteSelectorDialog header h2 {
+    font-size: 1rem;
+    opacity: .7;
+    padding: 0;
+    margin: .1rem 0 0 0;
+    font-weight: normal;
+}
+
+#siteSelectorDialog header .material-icons {
+    font-size: 3rem;
+}
+
+#siteSelectorDialog ul {
+    padding: 0 0 2rem 0;
+    margin: 0;
+    list-style: none;
+    text-align: left;
+    background: var(--foregroundColor);
+}
+
+#siteSelectorDialog ul > li {
+    border-bottom: var(--borderDefault);
+    transition: all .2s;
+}
+
+.dark-mode #siteSelectorDialog ul > li {
+    border-bottom:  var(--borderDefault);
+}
+
+
+#siteSelectorDialog ul > li:last-child {
+    border-bottom: 0;
+}
+
+
+#siteSelectorDialog ul > li.selected,
+#siteSelectorDialog ul > li:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.dark-mode #siteSelectorDialog ul > li.selected,
+.dark-mode #siteSelectorDialog ul > li:hover {
+    background-color: var(--backgroundColor);
+}
+
+
+#siteSelectorDialog ul > li * {
+    padding: 0 3rem 0 3rem;
+    margin: 0;
+}
+
+#siteSelectorDialog ul > li a {
+    color: inherit;
+    text-decoration: inherit;
+    padding: 1rem 0 1rem 0;
+    display: block;
+}
+
+#siteSelectorDialog ul > li h1 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#siteSelectorDialog ul > li p {
+    font-size: .9rem;
+    opacity: .5;
+    margin-top: .4rem;
+}
+
+#siteSelectorDialog ul > li img {
+    float: right;
+    padding-left: 2rem;
+    margin-top: .7rem;
+}
+
+
+/**
+ * Dialog: Color Scheme
+ */
+#colorSchemeDialog {
+    width: auto !important;
+    height: auto !important;
+}
+
+#colorSchemeDialog * {
+    padding: 0;
+    margin: 0;
+}
+
+#colorSchemeDialog > div {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#colorSchemeDialog > div > div {
+    display: flex;
+    flex-direction: column;
+    transition: .3s all;
+}
+
+#colorSchemeDialog > div > div {
+    filter: brightness(85%);
+    cursor: pointer;
+}
+
+#colorSchemeDialog > div > div:hover {
+    filter: brightness(100%);
+}
+
+
+#colorSchemeDialog > div > div > div:nth-of-type(1) {
+    flex: 1;
+    background-color: #0d5ced;
+}
+
+#colorSchemeDialog > div > div:nth-of-type(1) > div:nth-of-type(1) {
+    padding: 1rem .5rem 1rem 1rem;
+}
+
+
+#colorSchemeDialog > div > div:nth-of-type(2) > div:nth-of-type(1) {
+    padding: 1rem 1rem 1rem .5rem;
+}
+
+#colorSchemeDialog > div > div > div:nth-of-type(2) {
+    padding: 1.5rem;
+    background-color: #323232;
+    color: var(--whiteColor);
+}
+
+#colorSchemeDialog > div > div > div:nth-of-type(2) > div {
+    display: inline-block;
+}
+
+#colorSchemeDialog i {
+    padding-bottom: .5rem;
+}
+
+#colorSchemeDialog p {
+    opacity: .5;
+}

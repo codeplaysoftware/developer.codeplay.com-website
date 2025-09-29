@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>OpenCL Extensions - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'OpenCL Extensions' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="OpenCL Extensions - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'OpenCL Extensions' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="source-cl-extension">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class=""><a href="../../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../../overview/preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../../overview/introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../../overview/introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../../overview/introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../../overview/hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../../overview/hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../../overview/hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../../overview/runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../../overview/runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../../overview/runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../../overview/runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../../overview/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../../overview/compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../../overview/compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../../overview/compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../../overview/compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../../overview/example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../../overview/example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../../overview/example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../../overview/toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../../overview/new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../../overview/tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../overview/tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../../overview/tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../../overview/tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../../overview/reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="../../overview/reference-silicon/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="../../overview/reference-silicon/mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class="selected"><a href="../cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class="selected"><a href="extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#opencl-extensions">
+                            <h1>OpenCL Extensions</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/source/cl/extension.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="extension/cl_codeplay_kernel_debug-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="opencl-extensions">
+
+<p>OpenCL extensions are split into three categories:</p>
+<dl class="simple">
+<dt>KHR</dt><dd><p>Extension ratified by Khronos</p>
+</dd>
+<dt>EXT</dt><dd><p>Extension with collaboration from multiple vendors, but not ratified by
+Khronos.</p>
+</dd>
+<dt>Vendor</dt><dd><p>Extension defined by a single vendor, but may be implemented by
+other vendors, e.g oneAPI Construction Kit implements vendor extension
+<code class="docutils literal notranslate">cl_intel_unified_shared_memory</code> and <code class="docutils literal notranslate">cl_intel_required_subgroup_size</code>.</p>
+</dd>
+</dl>
+<p>oneAPI Construction Kit implements several Codeplay vendor extensions,
+specified under the <code class="docutils literal notranslate">extension</code> directory. When adding a new vendor
+extension the official OpenCL-Docs <a class="reference external" href="https://github.com/KhronosGroup/OpenCL-Docs/blob/master/extensions/cl_extension_template.asciidoc">cl_extension_template</a> should be used
+for reference, but written in RST rather than ASCIIdoc.</p>
+<p>When defining new enum valus for an extension, if those enums will be used in
+existing entry-points, then they need to be unique to avoid conflicts with enums
+defined by other vendors. To enable this vendors reserve a range of values in
+16-bit blocks in <a class="reference external" href="https://github.com/KhronosGroup/OpenCL-Docs/blob/master/xml/cl.xml">cl.xml</a>
+Codeplay’s unique range is between <code class="docutils literal notranslate">0x4260</code> &amp; <code class="docutils literal notranslate">0x426F</code> inclusively. If our
+needs exceed this range then another block can be reserved, although it may not
+be contiguous.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The next available value in our range is <cite>0x4263</cite>. Once this value is claimed
+update this text to the new value which is free to use next.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="opencl-c-1-2-khr-opencl-c-1-2">
+<a class="header-link" href="#opencl-c-1-2-khr-opencl-c-1-2"><h2 id="opencl-c-1-2-khr-opencl-c-1-2">OpenCL C 1.2 - <code class="docutils literal notranslate">khr_opencl_c_1_2</code></h2><span class="material-icons">link</span></a>
+<p>The [OpenCL 1.2 extension specification][cl-12-ext] specifies the following set
+of OpenCL C extensions. These extensions have been grouped together into the
+<cite>khr_opencl_c_1_2</cite> extension object.</p>
+<ul class="simple">
+<li><p><cite>cl_khr_global_int32_base_atomics</cite></p></li>
+<li><p><cite>cl_khr_global_int32_extended_atomics</cite></p></li>
+<li><p><cite>cl_khr_local_int32_base_atomics</cite></p></li>
+<li><p><cite>cl_khr_local_int32_extended_atomics</cite></p></li>
+<li><p><cite>cl_khr_byte_addressable_store</cite></p></li>
+<li><p><cite>cl_khr_fp64</cite></p></li>
+</ul>
+<p>The <cite>include/extension/khr_opencl_c_1_2.h</cite> header file and
+<cite>source/extension/khr_opencl_c_1_2.cpp</cite> source file define how the extensions
+listed above are reported to the OpenCL application by extending the
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clGetDeviceInfo">clGetDeviceInfo</a> entry point. This extension does not provided any additional
+OpenCL API entry points.</p>
+</div>
+<div class="section" id="installable-client-driver-icd-cl-khr-icd">
+<a class="header-link" href="#installable-client-driver-icd-cl-khr-icd"><h2 id="installable-client-driver-icd-cl-khr-icd">Installable Client Driver (ICD) - <code class="docutils literal notranslate">cl_khr_icd</code></h2><span class="material-icons">link</span></a>
+<p>The ICD is provided by Khronos to allow multiple hardware vendor’s drivers to
+coexist on the same system and avoid an application suffering from linker errors
+when attempting to link against those drivers.</p>
+<p>The OpenCL entry point definitions do not actually contain the implementation,
+where the work is done, instead they call into the <code class="docutils literal notranslate">cl</code> namespace. For each
+OpenCL entry point, such as <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clGetPlatformIDs">clGetPlatformIDs</a>. There is a matching function
+in the <code class="docutils literal notranslate">cl</code> namespace that is invoked, in this example
+<code class="docutils literal notranslate">cl::GetPlatformIDs</code>. This was done to provide a clean boundary between the
+ICD and the implementation of the OpenCL entry points.</p>
+<pre><code class="language-cpp">CL_API_ENTRY cl_int CL_API_CALL clGetPlatformIDs(const cl_uint num_entries,
+                                                 cl_platform_id *platforms,
+                                                 cl_uint *const num_platforms) {
+  return cl::GetPlatformIDs(num_entries, platforms, num_platforms);
+}
+</code>
+</pre>
+<p>Any object created by the driver, such as <code class="docutils literal notranslate">cl_command_queue</code>, must contain a
+pointer to the ICD dispatch table. This is the mechanism used by the ICD to
+determine which driver an API object works with; it functions in much the same
+way as a C++ virtual function table but because of this similarity the OpenCL
+API objects must not themselves contain a virtual function table. The ICD
+specifies that any object created by the driver must reserve the first
+<code class="docutils literal notranslate">sizeof(void*)</code> bytes in its structure for the ICD dispatch table.</p>
+</div>
+<div class="section" id="kernel-debug-cl-codeplay-kernel-debug">
+<a class="header-link" href="#kernel-debug-cl-codeplay-kernel-debug"><h2 id="kernel-debug-cl-codeplay-kernel-debug">Kernel Debug - <code class="docutils literal notranslate">cl_codeplay_kernel_debug</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_kernel_debug.html"><span class="doc">Kernel Debug - cl_codeplay_kernel_debug</span></a> extension grants developers the
+ability to specify build options which enable attaching a debugger to a kernel
+being executed on a device.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate">-g</code> flag, providing emission of debug symbols in the compiled kernel.</p></li>
+<li><p>The <code class="docutils literal notranslate">-S &lt;path&gt;</code> flag, setting the source code location in debug info to the
+specified path. Our runtime then creates this file if it does not already
+exist on disk, allowing the debugger to display kernel source code without
+manual configuration.</p></li>
+</ul>
+</div>
+<div class="section" id="extra-build-options-cl-codeplay-extra-build-options">
+<a class="header-link" href="#extra-build-options-cl-codeplay-extra-build-options"><h2 id="extra-build-options-cl-codeplay-extra-build-options">Extra build options - <code class="docutils literal notranslate">cl_codeplay_extra_build_options</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_extra_build_options.html"><span class="doc">Extra Build Options - cl_codeplay_extra_build_options</span></a> extension allows the user
+to specify additional flags handled by the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clBuildProgram">clBuildProgram</a> and
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clCompileProgram">clCompileProgram</a> entry-points.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate">-cl-llvm-stats</code> flag allowing llvm to print the statistics from all the
+passes that have any.</p></li>
+<li><p>The <code class="docutils literal notranslate">-cl-precache-local-sizes=&lt;sizes&gt;</code> build option allows for the pre-caching
+of kernel compilation for the specified local work group sizes.</p></li>
+</ul>
+</div>
+<div class="section" id="kernel-exec-info-cl-codeplay-kernel-exec-info">
+<a class="header-link" href="#kernel-exec-info-cl-codeplay-kernel-exec-info"><h2 id="kernel-exec-info-cl-codeplay-kernel-exec-info">Kernel Exec Info - <code class="docutils literal notranslate">cl_codeplay_kernel_exec_info</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_kernel_exec_info.html"><span class="doc">Kernel Exec Info - cl_codeplay_kernel_exec_info</span></a> extension adds support for
+allowing additional information other than argument values to be passed to a
+kernel. This base extension doesn’t provide support for any particular parameter
+types but is intended to be built upon by future extensions that require this
+support. For example Intel USM extension
+<a class="reference internal" href="extension/cl_intel_unified_shared_memory.html"><span class="doc">USM - cl_intel_unified_shared_memory</span></a> requires support for
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clSetKernelExecInfo">clSetKernelExecInfo</a> which is part of the 2.0 API.  Instead, USM will be able
+to use this extension to support 1.2.</p>
+<pre><code class="language-c">cl_int clSetKernelExecInfoCODEPLAY(cl_kernel kernel,
+                                   cl_kernel_exec_info param_name,
+                                   size_t param_value_size,
+                                   const void* param_value)
+</code>
+</pre>
+</div>
+<div class="section" id="performance-counter-cl-codeplay-performance-counters">
+<a class="header-link" href="#performance-counter-cl-codeplay-performance-counters"><h2 id="performance-counter-cl-codeplay-performance-counters">Performance Counter - <code class="docutils literal notranslate">cl_codeplay_performance_counters</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_performance_counters.html"><span class="doc">Performance Counters - cl_codeplay_performance_counters</span></a> extension allows the
+application to enable and get results from a set of supported, likely
+hardware, performance counters.</p>
+<p>The flow of execution is as follows:</p>
+<ol class="arabic simple">
+<li><p>Query the devices’ supported performance counters using <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clGetDeviceInfo">clGetDeviceInfo</a>
+with a <code class="docutils literal notranslate">param_name</code> of <code class="docutils literal notranslate">CL_DEVICE_PERFORMANCE_COUNTERS_CODEPLAY</code>.</p></li>
+<li><p>Create a <code class="docutils literal notranslate">cl_command_queue</code> using <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clCreateCommandQueueWithProperties">clCreateCommandQueueWithProperties</a>
+with a <code class="docutils literal notranslate">properties</code> key of <code class="docutils literal notranslate">CL_QUEUE_PERFORMANCE_COUNTERS_CODEPLAY</code> and
+a value of type <code class="docutils literal notranslate">cl_performance_counter_config_codeplay*</code> containing a
+list of <code class="docutils literal notranslate">cl_performance_counter_desc_codeplay</code> structures specifying
+which performance counters should be enabled using <code class="docutils literal notranslate">uuid</code>s attained in
+step 1.</p></li>
+<li><p>Enqueuing a workload ensuring to provide a <code class="docutils literal notranslate">cl_event</code>.</p></li>
+<li><p>Waiting for the workload to complete execution.</p></li>
+<li><p>Querying the performance counter results using <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clGetEventProfilingInfo">clGetEventProfilingInfo</a>
+with a <code class="docutils literal notranslate">param_name</code> of
+<code class="docutils literal notranslate">CL_PROFILING_COMMAND_PERFORMANCE_COUNTERS_CODEPLAY</code>.</p></li>
+<li><p>Read the performance counter results using the <code class="docutils literal notranslate">storage</code> member of
+<code class="docutils literal notranslate">cl_performance_counter_codeplay</code> to select the correct anonymous union
+member of each <code class="docutils literal notranslate">cl_performance_counter_result_codeplay</code> structure.</p></li>
+</ol>
+</div>
+<div class="section" id="soft-math-cl-codeplay-soft-math">
+<a class="header-link" href="#soft-math-cl-codeplay-soft-math"><h2 id="soft-math-cl-codeplay-soft-math">Soft Math - <code class="docutils literal notranslate">cl_codeplay_soft_math</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_soft_math.html"><span class="doc">Soft Math - cl_codeplay_soft_math</span></a> extension allows a developer to force
+the math builtins used to be sourced from Abacus. An additional build option is
+supported for <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clCompileProgram">clCompileProgram</a> and <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clBuildProgram">clBuildProgram</a> to specify this
+<code class="docutils literal notranslate">"-codeplay-soft-math"</code>.</p>
+<p>When a customer compiler backend consumes an executable, it is free to replace
+builtin functions with the optimized equivalents for the target platform. For
+instance, even though Abacus provides a conformant implementation of the count
+leading zeros <code class="docutils literal notranslate">clz</code> builtin function, many mux targets will have a hardware
+instruction that allows this function to be implemented more efficiently. With
+the <code class="docutils literal notranslate">"-codeplay-soft-math"</code> option specified, the mux backend will not use
+any hardware optimized builtins, and instead rely on the Abacus functionality.</p>
+<p>Being able to specify that the mux target cannot use a more efficient
+implementation of Abacus builtin functionality allows testing and performance
+metrics to be performed much more easily.</p>
+</div>
+<div class="section" id="whole-function-vectorization-cl-codeplay-wfv">
+<a class="header-link" href="#whole-function-vectorization-cl-codeplay-wfv"><h2 id="whole-function-vectorization-cl-codeplay-wfv">Whole Function Vectorization - <code class="docutils literal notranslate">cl_codeplay_wfv</code></h2><span class="material-icons">link</span></a>
+<p>The <a class="reference internal" href="extension/cl_codeplay_wfv.html"><span class="doc">Whole Function Vectorization - cl_codeplay_wfv</span></a> extension provides a mechanism to
+vectorize an OpenCL across the primary work-item dimension, using our whole
+function vectorization library VECZ.</p>
+<p>An additional build option <code class="docutils literal notranslate">-cl-wfv={always|auto|never}</code> is supported for
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clCompileProgram">clCompileProgram</a> and <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clBuildProgram">clBuildProgram</a> to enable/disable whole function
+vectorization. These choices are described in detail in the extension
+specification.</p>
+<p>A new entry point <code class="docutils literal notranslate">clGetKernelWFVInfoCODEPLAY</code> is added to allow whole
+function vectorization information to be queried for a specified kernel, given
+a device and local work size.</p>
+<p><code class="docutils literal notranslate">clGetKernelWFVInfoCODEPLAY</code> supports two parameter queries:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate">CL_KERNEL_WFV_STATUS_CODEPLAY</code> queries the status of whole function
+vectorization.</p></li>
+<li><p><code class="docutils literal notranslate">CL_KERNEL_WFV_WIDTHS_CODEPLAY</code> queries the list of widths for each
+work-item dimension.</p></li>
+</ul>
+</div>
+<div class="section" id="usm-cl-intel-unified-shared-memory">
+<a class="header-link" href="#usm-cl-intel-unified-shared-memory"><h2 id="usm-cl-intel-unified-shared-memory">USM - <code class="docutils literal notranslate">cl_intel_unified_shared_memory</code></h2><span class="material-icons">link</span></a>
+<p>Intel’s <a class="reference internal" href="extension/cl_intel_unified_shared_memory.html"><span class="doc">USM - cl_intel_unified_shared_memory</span></a> extension adds support
+for Unified Shared Memory(USM) to OpenCL, where rather than <code class="docutils literal notranslate">cl_mem</code> handles,
+memory allocations are represented as pointers in the host application. Unified
+Shared Memory additionally provides fine-grained control over placement and
+accessibility of an allocation. This is a device extension rather than a
+platform extension as every device in the OpenCL platform may not provided the
+minimum level of support required to implement the extension.</p>
+<p>Only host and device allocations are supported, <strong>not</strong> shared USM allocations
+which are intended to migrate between the host and one or more devices. This is
+because our goal is to support SYCL 2020 <a class="reference external" href="https://github.com/intel/llvm/blob/sycl/sycl/doc/extensions/USM/USM.adoc#explicit-usm">Explicit USM</a> which does not require
+this capability.</p>
+<p>Extension requires <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_API.html#clSetKernelExecInfo">clSetKernelExecInfo</a> from the OpenCL version 2.0 API which
+we don’t implement as part of our default 1.2 implementation. However, we have
+backported the entry point to 1.2 in extension <code class="docutils literal notranslate">cl_codeplay_kernel_exec_info</code>.
+Therefore to support the USM behaviour provided by <code class="docutils literal notranslate">clSetKernelExecInfo</code> in a
+1.2 build the user can use <code class="docutils literal notranslate">clSetKernelExecInfoCODEPLAY</code> with
+<code class="docutils literal notranslate">cl_codeplay_kernel_exec_info</code> enabled. Alternatively an OpenCL version 3.0
+build of the oneAPI Construction Kit can be used without our
+<code class="docutils literal notranslate">cl_codeplay_kernel_exec_info</code> extension, where the entry point is available
+as core to be optionally implemented.</p>
+<p>The API and enum definitions for USM are part of <code class="docutils literal notranslate">CL/cl_ext.h</code> in the
+external OpenCL-Headers repository.</p>
+<p>USM functionality is tested in UnitCL by the tests found in the directory
+<code class="docutils literal notranslate">source/cl_intel_unified_shared_memory</code> of UnitCL, which can be run with
+<code class="docutils literal notranslate">--gtest_filter=*USM*</code> or build target <code class="docutils literal notranslate">ninja check-ock-UnitCL-USM</code>.</p>
+<p>Support for <code class="docutils literal notranslate">clHostMemAllocINTEL()</code> is an optional feature of the extension
+which may be queried for using <code class="docutils literal notranslate">CL_DEVICE_HOST_MEM_CAPABILITIES_INTEL</code>.
+Currently we only support host USM allocations if a ComputeMux device can use
+host allocated memory by reporting <code class="docutils literal notranslate">mux_allocation_capabilities_cached_host</code>
+and the ComputeMux device has the same pointer size as host.</p>
+</div>
+<div class="section" id="spir-v-usm-generic-storage-class-spv-codeplay-usm-generic-storage-class">
+<a class="header-link" href="#spir-v-usm-generic-storage-class-spv-codeplay-usm-generic-storage-class"><h2 id="spir-v-usm-generic-storage-class-spv-codeplay-usm-generic-storage-class">SPIR-V USM Generic Storage Class - <code class="docutils literal notranslate">SPV_codeplay_usm_generic_storage_class</code></h2><span class="material-icons">link</span></a>
+<p>To support USM functionality in SYCL, ComputeCpp has found it necessary to
+generate SPIR-V without address space information in it. To enable this the
+<a class="reference internal" href="../../modules/spirv-ll/extension/spv_codeplay_usm_generic_storage_class.html"><span class="doc">USM Generic Storage Class - spv_codeplay_usm_generic_storage_class</span></a>
+extension was created. With this extension enabled a SPIR-V module can pass the
+<code class="docutils literal notranslate">Generic</code> storage class for all of its pointer type declarations to indicate
+that no address space information is included in the declaration. Our SPIR-V
+translator interprets all such pointer type declarations as having address
+space 0. This address space was chosen primarily because this is the address
+space ComputeCpp uses internally for this, and secondarily because it means
+that function scope variables can remain as <code class="docutils literal notranslate">alloca</code>s, which is helpful for
+later optimizations.</p>
+<p>Note that this overrides the normal semantics of storage class <code class="docutils literal notranslate">Generic</code>. We
+wrote the extension this way rather than adding a new storage class so we could
+keep using existing SPIR-V tools without needing to fork them to add support.</p>
+</div>
+<div class="section" id="command-buffers-provisional-cl-khr-command-buffer">
+<a class="header-link" href="#command-buffers-provisional-cl-khr-command-buffer"><h2 id="command-buffers-provisional-cl-khr-command-buffer">Command-Buffers (Provisional) - <code class="docutils literal notranslate">cl_khr_command_buffer</code></h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit implements version 0.9.1 of the provisional
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_command_buffer">cl_khr_command_buffer</a> extension.</p>
+<p>The simultaneous-use optional capability is supported, which allows the
+same command-buffer to be repeatedly enqueued without blocking in user
+code.</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_command_buffer">cl_khr_command_buffer</a> is intended as a base extension that other future
+extensions will layer upon. These will provide additional features such as
+recording a command-buffer across multiple command-queues, potentially
+associated with different devices, as well as the ability to modify a
+command-buffer recording in between replays.</p>
+<p>Our implementation currently has the following limitations which need resolved
+before the extension can be turned on by default in the oneAPI Construction Kit:</p>
+<ul class="simple">
+<li><p>Event profiling is not implemented (see CA-3322).</p></li>
+</ul>
+</div>
+<div class="section" id="command-buffers-mutable-dispatch-cl-khr-command-buffer-mutable-dispatch">
+<a class="header-link" href="#command-buffers-mutable-dispatch-cl-khr-command-buffer-mutable-dispatch"><h2 id="command-buffers-mutable-dispatch-cl-khr-command-buffer-mutable-dispatch">Command Buffers: Mutable Dispatch - <code class="docutils literal notranslate">cl_khr_command_buffer_mutable_dispatch</code></h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit implements version 0.9.0 of the provisional
+<a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_command_buffer_mutable_dispatch">cl_khr_command_buffer_mutable_dispatch</a> extension.</p>
+<p><a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_command_buffer_mutable_dispatch">cl_khr_command_buffer_mutable_dispatch</a>  builds upon <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_command_buffer">cl_khr_command_buffer</a>
+to allow users to modify kernel execution commands between enqueues of a
+command-buffer.</p>
+</div>
+<div class="section" id="extended-async-copies-cl-khr-extended-async-copies">
+<a class="header-link" href="#extended-async-copies-cl-khr-extended-async-copies"><h2 id="extended-async-copies-cl-khr-extended-async-copies">Extended Async Copies - <code class="docutils literal notranslate">cl_khr_extended_async_copies</code></h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit implements the <a class="reference external" href="https://www.khronos.org/registry/OpenCL/specs/3.0-unified/html/OpenCL_Ext.html#cl_khr_extended_async_copies">cl_khr_extended_async_copies</a> extension.</p>
+<p>This has a default implementation which does simple copies of memory. This can be
+replaced by a customer implementation where it can be accelerated.</p>
+</div>
+<div class="section" id="required-subgroup-sizes-for-kernels-cl-intel-required-subgroup-size">
+<a class="header-link" href="#required-subgroup-sizes-for-kernels-cl-intel-required-subgroup-size"><h2 id="required-subgroup-sizes-for-kernels-cl-intel-required-subgroup-size">Required subgroup sizes for kernels - <code class="docutils literal notranslate">cl_intel_required_subgroup_size</code></h2><span class="material-icons">link</span></a>
+<p>oneAPI Construction Kit implements the <a class="reference external" href="https://registry.khronos.org/OpenCL/extensions/intel/cl_intel_required_subgroup_size.html">cl_intel_required_subgroup_size</a>
+extension.</p>
+<p>This has a default implementation which does not report any available subgroup
+sizes for any device. The compiler will report an error for any kernel given
+the <code class="docutils literal notranslate">intel_reqd_sub_group_size</code> attribute with a size that is not reported by
+the device. There is currently no handling of the attribute if a target does
+report a set of sub-group sizes, as no in-tree target does so.</p>
+<p>Furthermore, all kernels report the same non-zero value for
+<code class="docutils literal notranslate">CL_KERNEL_SPILL_MEM_SIZE_INTEL</code>.</p>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:49:00 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/source/cl/extension.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="computemux_mapping-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>How OpenCL Concepts Are Mapped Onto ComputeMux</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="extension/cl_codeplay_kernel_debug-2.html"
+                            >
+                            <div>
+                                <h1>Kernel Debug - cl_codeplay_kernel_debug</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#opencl-extensions">OpenCL Extensions</a></li>
+                        <li class="heading-2"><a href="#opencl-c-1-2-khr-opencl-c-1-2">OpenCL C 1.2 - khr_opencl_c_1_2</a></li>
+                        <li class="heading-2"><a href="#installable-client-driver-icd-cl-khr-icd">Installable Client Driver (ICD) - cl_khr_icd</a></li>
+                        <li class="heading-2"><a href="#kernel-debug-cl-codeplay-kernel-debug">Kernel Debug - cl_codeplay_kernel_debug</a></li>
+                        <li class="heading-2"><a href="#extra-build-options-cl-codeplay-extra-build-options">Extra build options - cl_codeplay_extra_build_options</a></li>
+                        <li class="heading-2"><a href="#kernel-exec-info-cl-codeplay-kernel-exec-info">Kernel Exec Info - cl_codeplay_kernel_exec_info</a></li>
+                        <li class="heading-2"><a href="#performance-counter-cl-codeplay-performance-counters">Performance Counter - cl_codeplay_performance_counters</a></li>
+                        <li class="heading-2"><a href="#soft-math-cl-codeplay-soft-math">Soft Math - cl_codeplay_soft_math</a></li>
+                        <li class="heading-2"><a href="#whole-function-vectorization-cl-codeplay-wfv">Whole Function Vectorization - cl_codeplay_wfv</a></li>
+                        <li class="heading-2"><a href="#usm-cl-intel-unified-shared-memory">USM - cl_intel_unified_shared_memory</a></li>
+                        <li class="heading-2"><a href="#spir-v-usm-generic-storage-class-spv-codeplay-usm-generic-storage-class">SPIR-V USM Generic Storage Class - SPV_codeplay_usm_generic_storage_class</a></li>
+                        <li class="heading-2"><a href="#command-buffers-provisional-cl-khr-command-buffer">Command-Buffers (Provisional) - cl_khr_command_buffer</a></li>
+                        <li class="heading-2"><a href="#command-buffers-mutable-dispatch-cl-khr-command-buffer-mutable-dispatch">Command Buffers: Mutable Dispatch - cl_khr_command_buffer_mutable_dispatch</a></li>
+                        <li class="heading-2"><a href="#extended-async-copies-cl-khr-extended-async-copies">Extended Async Copies - cl_khr_extended_async_copies</a></li>
+                        <li class="heading-2"><a href="#required-subgroup-sizes-for-kernels-cl-intel-required-subgroup-size">Required subgroup sizes for kernels - cl_intel_required_subgroup_size</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="982831508ae12c623e4b4709104aa83f">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

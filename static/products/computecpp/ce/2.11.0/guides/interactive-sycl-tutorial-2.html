@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/guides/interactive-sycl-tutorial by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:47:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>Interactive SYCL Tutorial - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'Interactive SYCL Tutorial' for ComputeCpp™ Community Edition 2.11.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="Interactive SYCL Tutorial - Guides - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'Interactive SYCL Tutorial' for ComputeCpp™ Community Edition 2.11.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../home/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../api-reference/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="../../download/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../home/index.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="../../api-reference/index.html"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="../../download/index.html"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="interactive-sycl-tutorial">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>2.11.0</div>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="interactive-sycl-tutorial-2.html">2.11.0</a></li>
+                           <li><a href="../../2.10.0/guides/interactive-sycl-tutorial-2.html">2.10.0</a></li>
+                           <li><a href="../../2.9.0/guides/interactive-sycl-tutorial-2.html">2.9.0</a></li>
+                           <li><a href="../../2.8.0/guides/interactive-sycl-tutorial-2.html">2.8.0</a></li>
+                           <li><a href="../../2.7.0/guides/interactive-sycl-tutorial-2.html">2.7.0</a></li>
+                           <li><a href="../../2.6.0/guides/interactive-sycl-tutorial-2.html">2.6.0</a></li>
+                           <li><a href="../../2.5.0/guides/interactive-sycl-tutorial-2.html">2.5.0</a></li>
+                           <li><a href="../../2.4.0/guides/interactive-sycl-tutorial-2.html">2.4.0</a></li>
+                           <li><a href="../../2.3.0/guides/interactive-sycl-tutorial-2.html">2.3.0</a></li>
+                           <li><a href="../../2.2.1/guides/interactive-sycl-tutorial-2.html">2.2.1</a></li>
+                           <li><a href="../../2.1.0/guides/interactive-sycl-tutorial-2.html">2.1.0</a></li>
+                           <li><a href="../../2.0.0/guides/interactive-sycl-tutorial-2.html">2.0.0</a></li>
+                           <li><a href="../../1.3.0/guides/interactive-sycl-tutorial-2.html">1.3.0</a></li>
+                           <li><a href="../../1.2.0/guides/interactive-sycl-tutorial-2.html">1.2.0</a></li>
+                           <li><a href="../../1.1.6/guides/interactive-sycl-tutorial-2.html">1.1.6</a></li>
+                           <li><a href="../../1.1.5/guides/interactive-sycl-tutorial-2.html">1.1.5</a></li>
+                           <li><a href="../../1.1.4/guides/index.html">1.1.4</a></li>
+                           <li><a href="../../1.1.3/guides/index.html">1.1.3</a></li>
+                           <li><a href="../../1.1.2/guides/index.html">1.1.2</a></li>
+                           <li><a href="../../1.1.1/guides/index.html">1.1.1</a></li>
+                           <li><a href="../../1.1.0/guides/index.html">1.1.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="getting-started-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started with ComputeCpp</a><ol></ol></li>               <li class="selected focused"><a href="interactive-sycl-tutorial.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Interactive SYCL Tutorial</a><ol></ol></li>               <li class=""><a href="computecpp-release-highlights.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Release Highlights</a><ol></ol></li>               <li class=""><a href="changelog.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Changelog</a><ol></ol></li>               <li class=""><a href="platform-support-notes.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Platform Support Notes</a><ol><li class=""><a href="platform-support-notes/hardware-support-tool.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hardware Support Tool</a><ol></ol></li><li class=""><a href="platform-support-notes/getting-started-with-computecpp-for-arm.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started with ComputeCpp for ARM®</a><ol></ol></li><li class=""><a href="platform-support-notes/getting-started-with-computecpp-for-windows.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started with ComputeCpp for Windows®</a><ol></ol></li><li class=""><a href="platform-support-notes/computecpp-with-ptx-for-nvidia-devices.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp with PTX for NVIDIA® Devices</a><ol></ol></li></ol></li>               <li class=""><a href="sycl-2020-feature-support.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>SYCL 2020 Feature Support</a><ol></ol></li>               <li class=""><a href="what-is-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>What is SYCL?</a><ol></ol></li>               <li class=""><a href="sycl-guide.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL Guide</a><ol><li class=""><a href="sycl-guide/creating-computecpp-sycl-projects-with-cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating ComputeCpp (SYCL) projects with CMake</a><ol></ol></li><li class=""><a href="sycl-guide/hello-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Hello SYCL</a><ol></ol></li><li class=""><a href="sycl-guide/error-handling.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Error handling</a><ol></ol></li><li class=""><a href="sycl-guide/templated-function-objects.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Templated function objects</a><ol></ol></li><li class=""><a href="sycl-guide/parallelism-and-performance.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Parallelism and performance</a><ol></ol></li><li class=""><a href="sycl-guide/memory-and-synchronization.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory and synchronization</a><ol></ol></li><li class=""><a href="sycl-guide/limitations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Limitations</a><ol></ol></li><li class=""><a href="sycl-guide/debugging.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Debugging</a><ol><li class=""><a href="sycl-guide/debugging/debugging-on-a-sycl-host-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on a SYCL Host Device</a><ol></ol></li><li class=""><a href="sycl-guide/debugging/debugging-on-an-opencl-device.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debugging on an OpenCL Device</a><ol></ol></li></ol></li><li class=""><a href="sycl-guide/multiple-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Multiple kernels</a><ol></ol></li></ol></li>               <li class=""><a href="computecpp-professional-edition.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Professional Edition</a><ol></ol></li>               <li class=""><a href="anatomy-of-a-computecpp-app.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Anatomy of a ComputeCpp App</a><ol></ol></li>               <li class=""><a href="frameworks-for-computecpp-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Frameworks for ComputeCpp</a><ol></ol></li>               <li class=""><a href="sample-code.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Sample Code</a><ol></ol></li>               <li class=""><a href="compute-information-manual.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>compute++ Information Manual</a><ol></ol></li>               <li class=""><a href="compute-experimental-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compute++ Experimental Compiler</a><ol></ol></li>               <li class=""><a href="computecpp-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Extensions</a><ol></ol></li>               <li class=""><a href="computecpp-error-codes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Error Codes</a><ol></ol></li>               <li class=""><a href="logging-output-in-sycl-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Logging Output in SYCL Kernels</a><ol></ol></li>               <li class=""><a href="computecpp-configuration-file.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Configuration File</a><ol></ol></li>               <li class=""><a href="profiling-computecpp-applications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Profiling ComputeCpp Applications</a><ol><li class=""><a href="profiling-computecpp-applications/profiling-sycl-applications.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Profiling SYCL applications</a><ol></ol></li><li class=""><a href="profiling-computecpp-applications/using-the-tracy-profiler-with-computecpp.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Using the Tracy Profiler with ComputeCpp</a><ol></ol></li></ol></li>               <li class=""><a href="computecpp-integration-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp Integration Guide</a><ol></ol></li>               <li class=""><a href="sycl-for-cuda-developers-2.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>SYCL For CUDA Developers</a><ol><li class=""><a href="sycl-for-cuda-developers/introduction.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Introduction</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/execution-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Execution model</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/memory-model.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Model</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/migrating-from-cuda-to-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Migrating from CUDA to SYCL</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/cuda-and-sycl-ecosystems.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CUDA and SYCL Ecosystems</a><ol></ol></li><li class=""><a href="sycl-for-cuda-developers/cuda-to-sycl-examples.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CUDA to SYCL Examples</a><ol></ol></li></ol></li>               <li class=""><a href="tensorflow-overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>TensorFlow Overview</a><ol><li class=""><a href="tensorflow-overview/tensorflow-native-compilation-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow™ Native Compilation Guide</a><ol></ol></li><li class=""><a href="tensorflow-overview/tensorflow-cross-compilation-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>TensorFlow™ Cross Compilation Guide</a><ol></ol></li></ol></li>               <li class=""><a href="eigen-overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Eigen Overview</a><ol><li class=""><a href="eigen-overview/options-for-building-eigen-sycl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Options for Building Eigen SYCL</a><ol></ol></li></ol></li>               <li class=""><a href="computecpp-community-edition-license-agreement.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeCpp™ Community Edition License Agreement</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#interactive-sycl-tutorial">
+                            <h1>Interactive SYCL Tutorial</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+
+                            <a href="computecpp-release-highlights-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><p>Codeplay have created an interactive SYCL tutorial that allows developers to learn and try out SYCL from within their web browser without installing anything on their computer.</p>
+<p>Try out the <a href="https://tech.io/playgrounds/48226/introduction-to-sycl/">Introduction to SYCL interactive tutorial</a> on the Tech.io website.</p>
+<p><img alt="Tech.io screenshot" src="data:image/png;base64,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24sgypuAYCyO8K6GpKIHn6RM+HUajJkRyPIc7juNEfI/y8JJcWf96nIQ2yzz4Fdo4+vh8TN0QM2evxum2H+ISQ3/AOtH+dS3A/aITZNOy2VroxH9mWRA7ERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREDqe6JKRT3RJQERECnJ75nyP7Vf4pj/ANgf8mn12T3zPkf2q/xTH/sD/k0DxoiIEMvuj4ymXZfdHxlMBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERA/VpDZ5GTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBDafzfaNp/N9pOIENp/N9o2n832k4gQ2n832jafzfaTiBwChU7EQERECnJ75nyP7Vf4pj/2B/yafXZPfM+R/ar/ABTH/sD/AJNA8aIiBDL7o+Mpl2X3R8ZTAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQP1aIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIFOT3zPkf2q/wAUx/7A/wCTT67J75nyP7Vf4pj/ANgf8mgeNERAhl90fGUy7L7o+MpgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIH/9k="></p></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/guides/interactive-sycl-tutorial by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:47:32 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="ComputeCpp™" />
+                        <input type="hidden" name="variant" value="Community Edition" />
+                        <input type="hidden" name="guide" value="interactive-sycl-tutorial-2.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="getting-started-with-computecpp-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>Getting Started with ComputeCpp</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="computecpp-release-highlights-2.html"
+                            >
+                            <div>
+                                <h1>ComputeCpp Release Highlights</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#interactive-sycl-tutorial">Interactive SYCL Tutorial</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="75ad7191ff55c8395e5ee92e8111ba56">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../oneapi/construction-kit/index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../oneapi/amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../oneapi/nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

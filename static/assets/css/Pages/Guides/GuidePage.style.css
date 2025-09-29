@@ -1,0 +1,448 @@
+/**
+ * UI tweaks.
+ */
+.dark-mode nav.main {
+    background-color: rgba(29, 29, 29, .96);
+    border-bottom: rgba(255, 255, 255, .2) 1px solid;
+}
+
+
+/**
+ * File Layout
+ */
+
+
+/**
+ * Article
+ */
+.layout-file article {
+    position: relative;
+}
+
+.layout-file article header h1 {
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+}
+
+/**
+ * Title
+ */
+.layout-file .title {
+    display: flex;
+    align-items: center;
+}
+
+.layout-file .title > a {
+    flex: 1;
+}
+
+.layout-file .title > div a {
+    opacity: .5;
+    transition: .2s all;
+    display: inline-block;
+    padding: .4rem;
+}
+
+.layout-file .title > div a:hover {
+    opacity: 1;
+}
+
+/**
+ * file Menu
+ */
+.file-menu {
+    padding-bottom: 2rem;
+}
+
+.file-menu,
+.file-menu ol {
+    list-style: none;
+    font-size: 95%;
+}
+
+.file-menu a {
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    padding: .4rem 0;
+}
+
+.file-menu > li > a {
+    margin-top: .8rem;
+    font-weight: bold;
+}
+
+.file-menu > li .icon {
+    font-size: 1rem;
+    opacity: .6;
+    margin-right: .1rem;
+}
+
+.file-menu li > a:not([href]) {
+    cursor: default;
+}
+
+.file-menu li > a[href]:hover,
+.file-menu li.selected > a[href] {
+    opacity: 1;
+}
+
+.file-menu li.anchor {
+
+}
+
+.file-menu li.anchor:not(.selected) {
+    opacity: .8;
+}
+
+.file-menu .selected > a {
+    font-weight: bold !important;
+}
+
+.file-menu .focus > a {
+    background-color: var(--highlightColor);
+}
+
+.file-menu li.selected > a .icon {
+    opacity: 1;
+}
+
+.guide .file-menu > li > ol > li ol {
+    display: none;
+}
+
+.guide .file-menu li.selected > ol {
+    display: block;
+}
+
+.file-menu > li > a { padding-left: 2rem; padding-right: 2rem; }
+.file-menu > li > a > span { left: 0 }
+
+.file-menu > li > ol > li > a { padding-left: 2rem; padding-right: 2rem; }
+.file-menu > li > ol > li > a > span { left: 2rem; }
+
+.file-menu > li > ol > li > ol > li > a { padding-left: 3rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > a > span { left: 3rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > a { padding-left: 4rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > a > span { left: 4rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > a { padding-left: 5rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > a > span { left: 5rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > a { padding-left: 6rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > a > span { left: 6rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a { padding-left: 7rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a > span { left: 7rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a { padding-left: 8rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a > span { left: 8rem }
+
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a { padding-left: 9rem; padding-right: 2rem; }
+.file-menu > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > ol > li > a > span { left: 9rem }
+
+
+
+/**
+ * file Menu Header (and version selector)
+ */
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.header > * {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.header div {
+    justify-content: flex-end;
+}
+
+
+/**
+ * Version Selector
+ */
+.version-selector {
+    display: none;
+}
+
+@media screen and (min-width: 65rem) {
+    .version-selector {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        font-size: .9rem;
+    }
+
+    .version-selector div {
+        background: var(--hintColor);
+        color: var(--ligthColor);
+        padding: .5rem .7rem;
+        border-radius: var(--borderRadius);
+        box-shadow: var(--shadow);
+    }
+
+    .version-selector span {
+        vertical-align: text-top;
+        margin-right: .5rem;
+        font-size: 22px;
+    }
+
+    .version-selector:hover {
+        border-radius: 6px 6px 0 0;
+    }
+
+    .version-selector.disabled {
+        opacity: .5;
+        cursor: no-drop;
+    }
+
+    .version-selector ul {
+        display: none;
+        z-index: 999999999999;
+        transition: .5s all;
+        box-shadow: var(--shadow);
+        max-height: 350px;
+        overflow: auto;
+        background-color: var(--foregroundColor);
+        border-radius: 0 0 6px 6px;
+    }
+
+    .version-selector:hover ul {
+        display: block;
+        position: absolute;
+        top: 36px;
+        left: 0;
+        width: 100%;
+        list-style: none;
+        border: var(--borderColor);
+        border-top: 0;
+        z-index: 999999;
+    }
+
+    .version-selector:hover ul > li {
+        cursor: pointer;
+    }
+
+    .version-selector:hover ul > li:hover {
+        background-color: var(--highlightColor);
+    }
+
+    .version-selector:hover ul > li a {
+        padding: .5rem;
+        display: block;
+    }
+
+    .version-selector:hover ul > li:not(:last-of-type) {
+        border-bottom: var(--borderColor);
+    }
+}
+
+
+/**
+ * Jump List
+ */
+.jump-list-container {
+    margin-top: 2rem;
+}
+
+#jump-list-container .sep {
+    opacity: 1;
+}
+
+.in-page-jump-list {
+    list-style: none;
+    margin-top: 2rem;
+    font-size: 95%;
+}
+
+.in-page-jump-list > li:not(.selected):not(:hover) {
+    padding-left: 2px;
+}
+
+.in-page-jump-list > li a {
+    border-left: var(--borderColor) 2px solid;
+    display: block;
+    padding: .5rem 1rem;
+}
+
+.in-page-jump-list > li:hover a,
+.in-page-jump-list > li.selected a {
+    border-left: var(--hintBorderColor) 6px solid;
+    padding-left: calc(1rem - 2px);
+}
+
+.in-page-jump-list > li.heading-1 a {
+    font-weight: bold;
+}
+
+.in-page-jump-list > li.heading-2 a {
+    padding-left: 1.5rem;
+    opacity: .9;
+}
+
+/**
+ * Container Titles
+ */
+h1.file-container-title {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    opacity: .6;
+}
+
+h1.file-container-title span {
+    margin-right: .5rem;
+    vertical-align: middle;
+}
+
+/**
+ * Navigator
+ */
+#navigator {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+}
+
+#navigator * {
+    padding: 0;
+    margin: 0;
+}
+
+#navigator .disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+#navigator a {
+    display: flex;
+    background-color: var(--firstColor);
+    border-radius: var(--borderRadius);
+    text-decoration: none;
+    overflow: hidden;
+    transition: .2s all;
+}
+
+#navigator a:not(.disabled):hover {
+    background-color: var(--secondColor);
+}
+
+#navigator > div:nth-of-type(1) a > div:nth-of-type(1),
+#navigator > div:nth-of-type(2) a > div:nth-of-type(2) {
+    background-color: var(--thirdColor);
+    width: 40px;
+    justify-content: center;
+}
+
+#navigator > div:nth-of-type(1) a:not(.disabled):hover > div:nth-of-type(1),
+#navigator > div:nth-of-type(2) a:not(.disabled):hover > div:nth-of-type(2) {
+    background: var(--hintColor);
+    color: white;
+}
+
+#navigator a > div {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+#navigator a h1 {
+    font-size: 1.1rem;
+}
+
+#navigator > div:nth-of-type(1) a > div:nth-of-type(2),
+#navigator > div:nth-of-type(2) a > div:nth-of-type(1) {
+    flex: 1;
+    padding: 0 2rem;
+}
+
+#navigator > div:nth-of-type(2) a > div:nth-of-type(1) {
+    justify-content: right;
+}
+
+
+/**
+ * Rate
+ */
+
+.rate > div:first-of-type,
+.rate.collapsed {
+    width: 150px;
+}
+
+.rate > div {
+    background: var(--hintColor);
+    color: white;
+    padding: .8rem 0;
+    border-radius: 6px 6px 0 0;
+    text-align: center;
+    font-size: .9rem;
+}
+
+.rate > form {
+    display: flex;
+}
+
+.rate > form > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--firstColor);
+}
+
+.rate > form > div:not(:last-of-type) {
+    width: 75px;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.rate > form > div.selected,
+.rate > form > div:not(:last-of-type):hover {
+    background: var(--thirdColor);
+}
+
+.rate > form > div:last-of-type {
+    flex: 1;
+    padding: .2rem 1rem;
+}
+
+.rate > form > div:last-of-type input {
+    padding: .4rem;
+}
+
+.rate.collapsed > form > div:last-of-type {
+    display: none;
+}
+
+
+/**
+ * Separator Dots
+ */
+.separator {
+    height: 10px;
+    margin: 2rem 0;
+    opacity: .3;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../../img/separator.png);
+}
+
+.dark-mode .separator {
+    filter: invert(1);
+}
+
+/**
+ * Footer
+ */
+#footer-target footer {
+    background-color: transparent;
+    color: inherit;
+    padding: 1rem var(--insetSidePadding) !important;
+}

@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>cl::sycl::queue Class Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'cl::sycl::queue Class Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+    <meta name="keywords" content="reference, api, computecpp, ce, community, sycl, free, dpc++" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="cl::sycl::queue Class Reference - Reference - ComputeCpp™ Community Edition - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="http://127.0.0.1/assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="http://127.0.0.1/" />
+    <meta name="description" property="og:description" content="Read the 'cl::sycl::queue Class Reference' for ComputeCpp™ Community Edition 2.11.0 API reference." />
+
+    <!-- Fonts -->
+    <link href="http://127.0.0.1/assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="http://127.0.0.1/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="http://127.0.0.1/favicon.svg" />
+    <link rel="shortcut icon" href="http://127.0.0.1/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/apple-touch-icon.png" />
+
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Reference/ReferencePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="http://127.0.0.1/assets/css/Pages/Products/ComputeCpp/ComputeCppShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="http://127.0.0.1/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.copyright.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="http://127.0.0.1/assets/js/jquery.popupdialog.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/IndexPage.script.js"></script>
+    <script src="http://127.0.0.1/assets/js/highlight.min.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="http://127.0.0.1/assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="1">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="http://127.0.0.1/">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>ComputeCpp™ Community Edition</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/home/" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/guides/" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="http://127.0.0.1/products/computecpp/ce/api-reference/" >
+                        <div>
+
+                            <span class="icon material-icons">auto_stories</span>
+
+                            <div>Reference</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="http://127.0.0.1/products/computecpp/ce/download/" >
+                        <div>
+
+                            <span class="icon material-icons">cloud_download</span>
+
+                            <div>Download</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="http://127.0.0.1/support/" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>ComputeCpp™ Menu</h1>
+                <ul>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/home/"
+                           >Home</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/guides/"
+                           >Guides</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="http://127.0.0.1/products/computecpp/ce/api-reference/"
+                           >Reference</a>
+                    </li>
+                    <li >
+                        <a href="http://127.0.0.1/products/computecpp/ce/download/"
+                           >Download</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="http://127.0.0.1/">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/ce/">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computecpp/pe/">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/ce/">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="http://127.0.0.1/products/computesuitercar/pe/">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1/cookies">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+    <section class="product-deprecated warning-banner" style="display: block;">
+        <div class="wrapper">
+            <div>
+                <i class="material-icons">info</i> Please note that this product is now discontinued and product support has ceased. For more information, <a href="https://www.codeplay.com/portal/news/2023/07/07/the-future-of-computecpp" target="_blank" rel="noopener">please read the blog</a>
+            </div>
+            <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Container -->
+<div class="layout-content-with-side-menu layout-file">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+        <div class="nav-padding">
+            <!-- Title & Version Selector -->
+            <div class="header">
+                <h1 class="file-container-title">
+                    <span class="material-icons">menu_book</span>Reference
+                </h1>
+                <div>
+                    <!-- Version Selector -->
+                    <div class="version-selector disabled">
+                        <div><span class="material-icons">history</span>2.11.0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu -->
+            <ol class="file-menu">
+                <li class="selected"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/annotated" ><div class="icon"></div>Classes</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl" ><div class="icon"><span class="type-icon namespace">N</span></div>cl</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl" ><div class="icon"><span class="type-icon namespace">N</span></div>sycl</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01k_target_00_01is_placeholder_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::accessor&lt; elemT, kDims, kMode, kTarget, isPlaceholder &gt; &gt;</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1info" ><div class="icon"><span class="type-icon namespace">N</span></div>info</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector" ><div class="icon"><span class="type-icon class">C</span></div>device_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_010_00_01k_mode_00_01access_1_1target_1_1local_00_01ac11e61964f98321fc59e3ba211b2ed571" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, 0, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__im3fae02425bb246de40230cdf06cc52dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image_0099ace1af3eb9921dd135ee22871e171c" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1local_00954080e79c4cab78cbdd7b7477d4a6dd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor__error" ><div class="icon"><span class="type-icon class">C</span></div>accessor_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1atomic" ><div class="icon"><span class="type-icon struct">S</span></div>atomic</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits_3_01backend_1_1opencl_01_4" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits&lt; backend::opencl &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer_3_01const_01_t_00_01dims_00_01_allocator_t_01_4" ><div class="icon"><span class="type-icon class">C</span></div>buffer&lt; const T, dims, AllocatorT &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context" ><div class="icon"><span class="type-icon class">C</span></div>context</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1default__selector" ><div class="icon"><span class="type-icon class">C</span></div>default_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__error" ><div class="icon"><span class="type-icon class">C</span></div>device_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1device__type" ><div class="icon"><span class="type-icon struct">S</span></div>device_type</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event" ><div class="icon"><span class="type-icon class">C</span></div>event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception" ><div class="icon"><span class="type-icon class">C</span></div>exception</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1feature__not__supported" ><div class="icon"><span class="type-icon class">C</span></div>feature_not_supported</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1group" ><div class="icon"><span class="type-icon class">C</span></div>group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1id" ><div class="icon"><span class="type-icon class">C</span></div>id</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__context_01_5_00_01context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_context *, context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__platform__id_01_5_00_01platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_platform_id *, platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1intel__selector" ><div class="icon"><span class="type-icon class">C</span></div>intel_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__parameter__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_parameter_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel" ><div class="icon"><span class="type-icon class">C</span></div>kernel</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1link__program__error" ><div class="icon"><span class="type-icon class">C</span></div>link_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range" ><div class="icon"><span class="type-icon class">C</span></div>nd_range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1opencl__selector" ><div class="icon"><span class="type-icon class">C</span></div>opencl_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform__error" ><div class="icon"><span class="type-icon class">C</span></div>platform_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1private__memory" ><div class="icon"><span class="type-icon class">C</span></div>private_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1profiling__error" ><div class="icon"><span class="type-icon class">C</span></div>profiling_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list" ><div class="icon"><span class="type-icon class">C</span></div>property_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1range" ><div class="icon"><span class="type-icon class">C</span></div>range</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1sampler" ><div class="icon"><span class="type-icon class">C</span></div>sampler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_012_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 2, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_014_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 4, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1swizzled__vec" ><div class="icon"><span class="type-icon class">C</span></div>swizzled_vec</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1context_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::context &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1event_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::event &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1kernel_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::kernel &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1program_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::program &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1sampler_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::sampler &gt;</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay" ><div class="icon"><span class="type-icon namespace">N</span></div>codeplay</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1profiling" ><div class="icon"><span class="type-icon namespace">N</span></div>profiling</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property" ><div class="icon"><span class="type-icon namespace">N</span></div>property</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1interop__handle" ><div class="icon"><span class="type-icon class">C</span></div>interop_handle</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum" ><div class="icon"><span class="type-icon struct">S</span></div>maximum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1maximum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>maximum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum_3_01void_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>minimum&lt; void &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1no__init__impl" ><div class="icon"><span class="type-icon class">C</span></div>no_init_impl</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1profiling_1_1profiling__zone" ><div class="icon"><span class="type-icon class">C</span></div>profiling_zone</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1host__access" ><div class="icon"><span class="type-icon class">C</span></div>host_access</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1codeplay_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1property_1_1buffer_1_1use__onchip__memory" ><div class="icon"><span class="type-icon class">C</span></div>use_onchip_memory</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1codeplay_1_1host__handler" ><div class="icon"><span class="type-icon class">C</span></div>host_handler</a><ol><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1usm__allocator_1_1rebind" ><div class="icon"><span class="type-icon struct">S</span></div>rebind</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1context__bound" ><div class="icon"><span class="type-icon class">C</span></div>context_bound</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__mutex" ><div class="icon"><span class="type-icon class">C</span></div>use_mutex</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1enable__profiling" ><div class="icon"><span class="type-icon class">C</span></div>enable_profiling</a><ol></ol></li></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1experimental" ><div class="icon"><span class="type-icon namespace">N</span></div>experimental</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1sub__group" ><div class="icon"><span class="type-icon struct">S</span></div>sub_group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1experimental_1_1minimum" ><div class="icon"><span class="type-icon struct">S</span></div>minimum</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1experimental_1_1usm__allocator" ><div class="icon"><span class="type-icon class">C</span></div>usm_allocator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1ext" ><div class="icon"><span class="type-icon namespace">N</span></div>ext</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits" ><div class="icon"><span class="type-icon struct">S</span></div>param_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1buffer" ><div class="icon"><span class="type-icon namespace">N</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1buffer_1_1use__host__ptr" ><div class="icon"><span class="type-icon class">C</span></div>use_host_ptr</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl_1_1property_1_1queue" ><div class="icon"><span class="type-icon namespace">N</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property_1_1queue_1_1in__order__impl" ><div class="icon"><span class="type-icon class">C</span></div>in_order_impl</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accelerator__selector" ><div class="icon"><span class="type-icon class">C</span></div>accelerator_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor" ><div class="icon"><span class="type-icon class">C</span></div>accessor</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__buf15cbef5585a67b9df703426df07becd" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_buffer, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1host__task_00_01_is_placeholder_01_4" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::host_task, IsPlaceholder &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1image__a20b2e286317ab4aba41c67020102515e" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::image_array, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1accessor_3_01elem_t_00_01k_dims_00_01k_mode_00_01access_1_1target_1_1subgroup76e943a636f7dfa8379be4ce805ab016" ><div class="icon"><span class="type-icon class">C</span></div>accessor&lt; elemT, kDims, kMode, access::target::subgroup_local, access::placeholder::false_t &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1amd__selector" ><div class="icon"><span class="type-icon class">C</span></div>amd_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1backend__traits" ><div class="icon"><span class="type-icon class">C</span></div>backend_traits</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1buffer" ><div class="icon"><span class="type-icon class">C</span></div>buffer</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1compile__program__error" ><div class="icon"><span class="type-icon class">C</span></div>compile_program_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1cpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>cpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device" ><div class="icon"><span class="type-icon class">C</span></div>device</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__event" ><div class="icon"><span class="type-icon class">C</span></div>device_event</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1elem" ><div class="icon"><span class="type-icon struct">S</span></div>elem</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event__error" ><div class="icon"><span class="type-icon class">C</span></div>event_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1exception__list" ><div class="icon"><span class="type-icon class">C</span></div>exception_list</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1gpu__selector" ><div class="icon"><span class="type-icon class">C</span></div>gpu_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1h__item" ><div class="icon"><span class="type-icon class">C</span></div>h_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1host__selector" ><div class="icon"><span class="type-icon class">C</span></div>host_selector</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1image" ><div class="icon"><span class="type-icon class">C</span></div>image</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01cl__device__id_01_5_00_01device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; cl_device_id *, device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info__convert_3_01size__t_01_5_00_01range_3_013_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>info_convert&lt; size_t *, range&lt; 3 &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1invalid__object__error" ><div class="icon"><span class="type-icon class">C</span></div>invalid_object_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1item" ><div class="icon"><span class="type-icon class">C</span></div>item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1kernel__error" ><div class="icon"><span class="type-icon class">C</span></div>kernel_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1memory__allocation__error" ><div class="icon"><span class="type-icon class">C</span></div>memory_allocation_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1multi__ptr_3_01const_01void_00_01asp_01_4" ><div class="icon"><span class="type-icon class">C</span></div>multi_ptr&lt; const void, asp &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__item" ><div class="icon"><span class="type-icon class">C</span></div>nd_item</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1nd__range__error" ><div class="icon"><span class="type-icon class">C</span></div>nd_range_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1platform" ><div class="icon"><span class="type-icon class">C</span></div>platform</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1precision__manipulator" ><div class="icon"><span class="type-icon class">C</span></div>precision_manipulator</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1handler" ><div class="icon"><span class="type-icon class">C</span></div>handler::parallel_for_work_group</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1program" ><div class="icon"><span class="type-icon class">C</span></div>program</a><ol></ol></li><li class="selected focused"><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue" ><div class="icon"><span class="type-icon class">C</span></div>queue</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1runtime__error" ><div class="icon"><span class="type-icon class">C</span></div>runtime_error</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1stream" ><div class="icon"><span class="type-icon class">C</span></div>stream</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_0116_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 16, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_013_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 3, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1stream__vec_3_018_00_01true_00_01element_t_00_01k_dimensions_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>stream_vec&lt; 8, true, elementT, kDimensions &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1vec" ><div class="icon"><span class="type-icon class">C</span></div>vec</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1buffer_3_01_t_00_01dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::buffer&lt; T, dimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1device_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::device &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1image_3_01k_dimensions_00_01_allocator_t_01_4_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::image&lt; kDimensions, AllocatorT &gt; &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1platform_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::platform &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1queue_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::queue &gt;</a><ol></ol></li><li class=""><a  href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structstd_1_1hash_3_01cl_1_1sycl_1_1stream_01_4" ><div class="icon"><span class="type-icon struct">S</span></div>hash&lt; cl::sycl::stream &gt;</a><ol></ol></li></ol></li>            </ol>
+        </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <h1>cl::sycl::queue Class Reference</h1>
+                </header>
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="contents">
+<p>The <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">cl::sycl::queue</a> object is the SYCL abstraction of the OpenCL object cl_command_queue.  
+ <a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#details">More...</a></p>
+<p><code>#include &lt;<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a86a59a8c84d9cf97f1b2a27c664c697e"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a86a59a8c84d9cf97f1b2a27c664c697e">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a86a59a8c84d9cf97f1b2a27c664c697e"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a default device selector.  <a href="#a86a59a8c84d9cf97f1b2a27c664c697e">More...</a><br></td></tr>
+<tr class="separator:a86a59a8c84d9cf97f1b2a27c664c697e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:adee2e3a7ab57a9c0f4704210ce300d6f"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#adee2e3a7ab57a9c0f4704210ce300d6f">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:adee2e3a7ab57a9c0f4704210ce300d6f"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a default device selector.  <a href="#adee2e3a7ab57a9c0f4704210ce300d6f">More...</a><br></td></tr>
+<tr class="separator:adee2e3a7ab57a9c0f4704210ce300d6f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a9f6397a82d67d76b705e5aec3f5a94a2"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a9f6397a82d67d76b705e5aec3f5a94a2">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp;deviceSelector, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a9f6397a82d67d76b705e5aec3f5a94a2"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a user defined device selector.  <a href="#a9f6397a82d67d76b705e5aec3f5a94a2">More...</a><br></td></tr>
+<tr class="separator:a9f6397a82d67d76b705e5aec3f5a94a2"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a76d1be6736de140db3d9362ffa3e559f"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a76d1be6736de140db3d9362ffa3e559f">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp;deviceSelector, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a76d1be6736de140db3d9362ffa3e559f"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a user defined device selector.  <a href="#a76d1be6736de140db3d9362ffa3e559f">More...</a><br></td></tr>
+<tr class="separator:a76d1be6736de140db3d9362ffa3e559f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7d3948c953739a5a827064c4f774bf6d"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a7d3948c953739a5a827064c4f774bf6d">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp;dev, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a7d3948c953739a5a827064c4f774bf6d"><td class="mdescLeft"> </td><td class="mdescRight">Construct a queue from a given device, creating an implicit context in the process.  <a href="#a7d3948c953739a5a827064c4f774bf6d">More...</a><br></td></tr>
+<tr class="separator:a7d3948c953739a5a827064c4f774bf6d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a7e8e8b09d9d18455e7dff701137d1c5d"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a7e8e8b09d9d18455e7dff701137d1c5d">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp;dev, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a7e8e8b09d9d18455e7dff701137d1c5d"><td class="mdescLeft"> </td><td class="mdescRight">Construct a queue from a given device, creating an implicit context in the process.  <a href="#a7e8e8b09d9d18455e7dff701137d1c5d">More...</a><br></td></tr>
+<tr class="separator:a7e8e8b09d9d18455e7dff701137d1c5d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a634d377e193612e8f1227a12e2bb7708"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a634d377e193612e8f1227a12e2bb7708">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;syclContext, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp;selector, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a634d377e193612e8f1227a12e2bb7708"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a user defined device selector against a specific context.  <a href="#a634d377e193612e8f1227a12e2bb7708">More...</a><br></td></tr>
+<tr class="separator:a634d377e193612e8f1227a12e2bb7708"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a819a51bff1571ceb6289f80c1969c914"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a819a51bff1571ceb6289f80c1969c914">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;syclContext, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp;selector, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a819a51bff1571ceb6289f80c1969c914"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using a user defined device selector against a specific context.  <a href="#a819a51bff1571ceb6289f80c1969c914">More...</a><br></td></tr>
+<tr class="separator:a819a51bff1571ceb6289f80c1969c914"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a85f0582ae191ca14e958b74ab4691022"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a85f0582ae191ca14e958b74ab4691022">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;syclContext, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp;dev, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:a85f0582ae191ca14e958b74ab4691022"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue with properties using an existing device and context.  <a href="#a85f0582ae191ca14e958b74ab4691022">More...</a><br></td></tr>
+<tr class="separator:a85f0582ae191ca14e958b74ab4691022"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abce75e999e9989cbecdd722cca84ba22"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#abce75e999e9989cbecdd722cca84ba22">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;syclContext, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp;dev, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp;propList={})</td></tr>
+<tr class="memdesc:abce75e999e9989cbecdd722cca84ba22"><td class="mdescLeft"> </td><td class="mdescRight">Constructs a queue using an existing device and context.  <a href="#abce75e999e9989cbecdd722cca84ba22">More...</a><br></td></tr>
+<tr class="separator:abce75e999e9989cbecdd722cca84ba22"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3531179a11865e7d627596e7b48bacdc"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a3531179a11865e7d627596e7b48bacdc">queue</a> (cl_command_queue clqueue, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp;s_context, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp;asyncHandler=nullptr)</td></tr>
+<tr class="memdesc:a3531179a11865e7d627596e7b48bacdc"><td class="mdescLeft"> </td><td class="mdescRight">Construct a queue object from a given OpenCL object.  <a href="#a3531179a11865e7d627596e7b48bacdc">More...</a><br></td></tr>
+<tr class="separator:a3531179a11865e7d627596e7b48bacdc"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a3a1576ea17ffa9c0331345c3335ad06e"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a3a1576ea17ffa9c0331345c3335ad06e">queue</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;rhs)=default</td></tr>
+<tr class="memdesc:a3a1576ea17ffa9c0331345c3335ad06e"><td class="mdescLeft"> </td><td class="mdescRight">Construct a queue object by copying the contents of a given queue object.  <a href="#a3a1576ea17ffa9c0331345c3335ad06e">More...</a><br></td></tr>
+<tr class="separator:a3a1576ea17ffa9c0331345c3335ad06e"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aed77ab58b263bf7fa82bfd1041eb2a2f"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#aed77ab58b263bf7fa82bfd1041eb2a2f">operator=</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;rhs)=default</td></tr>
+<tr class="memdesc:aed77ab58b263bf7fa82bfd1041eb2a2f"><td class="mdescLeft"> </td><td class="mdescRight">Completely assigns the contents of the queue to that of another queue.  <a href="#aed77ab58b263bf7fa82bfd1041eb2a2f">More...</a><br></td></tr>
+<tr class="separator:aed77ab58b263bf7fa82bfd1041eb2a2f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a55bb9d96aef1bf3ab04e9412ec10bc57"><td class="memItemLeft"> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a55bb9d96aef1bf3ab04e9412ec10bc57">queue</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;&amp;rhs)=default</td></tr>
+<tr class="memdesc:a55bb9d96aef1bf3ab04e9412ec10bc57"><td class="mdescLeft"> </td><td class="mdescRight">Completely moves the contents of a queue to that of another queue.  <a href="#a55bb9d96aef1bf3ab04e9412ec10bc57">More...</a><br></td></tr>
+<tr class="separator:a55bb9d96aef1bf3ab04e9412ec10bc57"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aae7131b011058cf175ddde9af15997b5"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#aae7131b011058cf175ddde9af15997b5">operator=</a> (<a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;&amp;rhs)=default</td></tr>
+<tr class="memdesc:aae7131b011058cf175ddde9af15997b5"><td class="mdescLeft"> </td><td class="mdescRight">Completely moves the contents of a queue to that of another queue.  <a href="#aae7131b011058cf175ddde9af15997b5">More...</a><br></td></tr>
+<tr class="separator:aae7131b011058cf175ddde9af15997b5"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a47aed61ac4d493405aab9167f634e892"><td class="memTemplParams" colspan="2">template&lt;typename propertyT &gt; </td></tr>
+<tr class="memitem:a47aed61ac4d493405aab9167f634e892"><td class="memTemplItemLeft">bool </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a47aed61ac4d493405aab9167f634e892">has_property</a> () const noexcept</td></tr>
+<tr class="memdesc:a47aed61ac4d493405aab9167f634e892"><td class="mdescLeft"> </td><td class="mdescRight">Returns whether this SYCL queue was constructed with the property specified by propertyT.  <a href="#a47aed61ac4d493405aab9167f634e892">More...</a><br></td></tr>
+<tr class="separator:a47aed61ac4d493405aab9167f634e892"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a74f4a0a5cca1452483558660a1cc3445"><td class="memTemplParams" colspan="2">template&lt;typename propertyT &gt; </td></tr>
+<tr class="memitem:a74f4a0a5cca1452483558660a1cc3445"><td class="memTemplItemLeft">propertyT </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a74f4a0a5cca1452483558660a1cc3445">get_property</a> () const</td></tr>
+<tr class="memdesc:a74f4a0a5cca1452483558660a1cc3445"><td class="mdescLeft"> </td><td class="mdescRight">Returns a copy of the property of type propertyT that this SYCL queue was constructed with.  <a href="#a74f4a0a5cca1452483558660a1cc3445">More...</a><br></td></tr>
+<tr class="separator:a74f4a0a5cca1452483558660a1cc3445"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a6a0bd851c91ff26acdf191db8a138447"><td class="memItemLeft">COMPUTECPP_TEST_VIRTUAL bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a6a0bd851c91ff26acdf191db8a138447">is_host</a> () const</td></tr>
+<tr class="memdesc:a6a0bd851c91ff26acdf191db8a138447"><td class="mdescLeft"> </td><td class="mdescRight">Determine if the queue is executing kernels on the host.  <a href="#a6a0bd851c91ff26acdf191db8a138447">More...</a><br></td></tr>
+<tr class="separator:a6a0bd851c91ff26acdf191db8a138447"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af420ad878406675c109849accecf4d7d"><td class="memTemplParams" colspan="2">template&lt;info::queue param&gt; </td></tr>
+<tr class="memitem:af420ad878406675c109849accecf4d7d"><td class="memTemplItemLeft">COMPUTECPP_EXPORT <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits.html">info::param_traits</a>&lt; info::queue, param &gt;::return_type </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#af420ad878406675c109849accecf4d7d">get_info</a> () const</td></tr>
+<tr class="memdesc:af420ad878406675c109849accecf4d7d"><td class="mdescLeft"> </td><td class="mdescRight">Gets OpenCL information for the queue.  <a href="#af420ad878406675c109849accecf4d7d">More...</a><br></td></tr>
+<tr class="separator:af420ad878406675c109849accecf4d7d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:af53e63f2817a8321e40ff9dc8e0df483"><td class="memItemLeft">COMPUTECPP_TEST_VIRTUAL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#af53e63f2817a8321e40ff9dc8e0df483">get_context</a> () const</td></tr>
+<tr class="memdesc:af53e63f2817a8321e40ff9dc8e0df483"><td class="mdescLeft"> </td><td class="mdescRight">Returns the context associate to the queue.  <a href="#af53e63f2817a8321e40ff9dc8e0df483">More...</a><br></td></tr>
+<tr class="separator:af53e63f2817a8321e40ff9dc8e0df483"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a8edb4ea02ee6c99c98287f336bd32874"><td class="memItemLeft">cl_command_queue </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a8edb4ea02ee6c99c98287f336bd32874">get</a> () const</td></tr>
+<tr class="memdesc:a8edb4ea02ee6c99c98287f336bd32874"><td class="mdescLeft"> </td><td class="mdescRight">Returns the underlying OpenCL cl_command_queue object.  <a href="#a8edb4ea02ee6c99c98287f336bd32874">More...</a><br></td></tr>
+<tr class="separator:a8edb4ea02ee6c99c98287f336bd32874"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ac46bc8ee7cff0a3f77c7afb7d60184b4"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#ac46bc8ee7cff0a3f77c7afb7d60184b4">wait</a> ()</td></tr>
+<tr class="memdesc:ac46bc8ee7cff0a3f77c7afb7d60184b4"><td class="mdescLeft"> </td><td class="mdescRight">Performs a blocking wait for the completion of all enqueued tasks in the queue.  <a href="#ac46bc8ee7cff0a3f77c7afb7d60184b4">More...</a><br></td></tr>
+<tr class="separator:ac46bc8ee7cff0a3f77c7afb7d60184b4"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a2f991915c57bfb1d73992fde421d56c8"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a2f991915c57bfb1d73992fde421d56c8">get_device</a> () const</td></tr>
+<tr class="memdesc:a2f991915c57bfb1d73992fde421d56c8"><td class="mdescLeft"> </td><td class="mdescRight">Returns the Device associated with the queue.  <a href="#a2f991915c57bfb1d73992fde421d56c8">More...</a><br></td></tr>
+<tr class="separator:a2f991915c57bfb1d73992fde421d56c8"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a58e20098a9c4645173a7768b054a64e9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a58e20098a9c4645173a7768b054a64e9"><td class="memTemplItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a58e20098a9c4645173a7768b054a64e9">fill</a> (void *ptr, const T &amp;pattern, size_t count)</td></tr>
+<tr class="memdesc:a58e20098a9c4645173a7768b054a64e9"><td class="mdescLeft"> </td><td class="mdescRight">Enqueues an USM fill operation.  <a href="#a58e20098a9c4645173a7768b054a64e9">More...</a><br></td></tr>
+<tr class="separator:a58e20098a9c4645173a7768b054a64e9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a151c03b61c4762a4192d6f911b0553e3"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a151c03b61c4762a4192d6f911b0553e3">memcpy</a> (void *dest, const void *src, size_t size)</td></tr>
+<tr class="memdesc:a151c03b61c4762a4192d6f911b0553e3"><td class="mdescLeft"> </td><td class="mdescRight">Enqueues an USM memcpy operation.  <a href="#a151c03b61c4762a4192d6f911b0553e3">More...</a><br></td></tr>
+<tr class="separator:a151c03b61c4762a4192d6f911b0553e3"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a5fa26160babd1dcd43df93a50e50865d"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a5fa26160babd1dcd43df93a50e50865d">memcpy</a> (void *dest, const void *src, size_t size, <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> dependency)</td></tr>
+<tr class="memdesc:a5fa26160babd1dcd43df93a50e50865d"><td class="mdescLeft"> </td><td class="mdescRight">Enqueues an USM memcpy operation.  <a href="#a5fa26160babd1dcd43df93a50e50865d">More...</a><br></td></tr>
+<tr class="separator:a5fa26160babd1dcd43df93a50e50865d"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abfa2c2a24041106d62375ff1a9af2630"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#abfa2c2a24041106d62375ff1a9af2630">memcpy</a> (void *dest, const void *src, size_t size, const std::vector&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> &gt; &amp;dependencies)</td></tr>
+<tr class="memdesc:abfa2c2a24041106d62375ff1a9af2630"><td class="mdescLeft"> </td><td class="mdescRight">Enqueues an USM memcpy operation.  <a href="#abfa2c2a24041106d62375ff1a9af2630">More...</a><br></td></tr>
+<tr class="separator:abfa2c2a24041106d62375ff1a9af2630"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a1c19c68c059350d5a87ce0b0c9214f1c"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a1c19c68c059350d5a87ce0b0c9214f1c">experimental_prefetch</a> (const void *ptr, size_t size)</td></tr>
+<tr class="memdesc:a1c19c68c059350d5a87ce0b0c9214f1c"><td class="mdescLeft"> </td><td class="mdescRight">Hints to the SYCL runtime that the data is available earlier than when the USM model would require it.  <a href="#a1c19c68c059350d5a87ce0b0c9214f1c">More...</a><br></td></tr>
+<tr class="separator:a1c19c68c059350d5a87ce0b0c9214f1c"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a97ca98e5e4845285de2fac8ba665cbe9"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a97ca98e5e4845285de2fac8ba665cbe9">prefetch</a> (const void *ptr, size_t size)</td></tr>
+<tr class="memdesc:a97ca98e5e4845285de2fac8ba665cbe9"><td class="mdescLeft"> </td><td class="mdescRight">Hints to the SYCL runtime that the data is available earlier than when the USM model would require it.  <a href="#a97ca98e5e4845285de2fac8ba665cbe9">More...</a><br></td></tr>
+<tr class="separator:a97ca98e5e4845285de2fac8ba665cbe9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0e2b670f269ffd3be305c5d64275df95"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a0e2b670f269ffd3be305c5d64275df95">experimental_mem_advise</a> (const void *ptr, size_t size, int advice)</td></tr>
+<tr class="memdesc:a0e2b670f269ffd3be305c5d64275df95"><td class="mdescLeft"> </td><td class="mdescRight">Provides the SYCL runtime with information about how the allocation is used.  <a href="#a0e2b670f269ffd3be305c5d64275df95">More...</a><br></td></tr>
+<tr class="separator:a0e2b670f269ffd3be305c5d64275df95"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a0620342a45909ff3b3f2243e275a09ae"><td class="memItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a0620342a45909ff3b3f2243e275a09ae">mem_advise</a> (const void *ptr, size_t size, int advice)</td></tr>
+<tr class="memdesc:a0620342a45909ff3b3f2243e275a09ae"><td class="mdescLeft"> </td><td class="mdescRight">Provides the SYCL runtime with information about how the allocation is used.  <a href="#a0620342a45909ff3b3f2243e275a09ae">More...</a><br></td></tr>
+<tr class="separator:a0620342a45909ff3b3f2243e275a09ae"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:abfa510446db9f4edd0c16270b199a232"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#abfa510446db9f4edd0c16270b199a232">wait_and_throw</a> ()</td></tr>
+<tr class="memdesc:abfa510446db9f4edd0c16270b199a232"><td class="mdescLeft"> </td><td class="mdescRight">Performs a blocking wait for the completion of all enqueued tasks in the queue.  <a href="#abfa510446db9f4edd0c16270b199a232">More...</a><br></td></tr>
+<tr class="separator:abfa510446db9f4edd0c16270b199a232"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:ae5c39ed682422e4e525fe0a01e8b7ad9"><td class="memItemLeft">void </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#ae5c39ed682422e4e525fe0a01e8b7ad9">throw_asynchronous</a> ()</td></tr>
+<tr class="memdesc:ae5c39ed682422e4e525fe0a01e8b7ad9"><td class="mdescLeft"> </td><td class="mdescRight">Report any unreported asynchronous errors via the async_handler if provided (lost otherwise)  <a href="#ae5c39ed682422e4e525fe0a01e8b7ad9">More...</a><br></td></tr>
+<tr class="separator:ae5c39ed682422e4e525fe0a01e8b7ad9"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a84f55f9cdbb6f3ac55cf81dd5cbebd7f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a84f55f9cdbb6f3ac55cf81dd5cbebd7f"><td class="memTemplItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a84f55f9cdbb6f3ac55cf81dd5cbebd7f">submit</a> (T cgf)</td></tr>
+<tr class="memdesc:a84f55f9cdbb6f3ac55cf81dd5cbebd7f"><td class="mdescLeft"> </td><td class="mdescRight">Submits a command group functor to execution.  <a href="#a84f55f9cdbb6f3ac55cf81dd5cbebd7f">More...</a><br></td></tr>
+<tr class="separator:a84f55f9cdbb6f3ac55cf81dd5cbebd7f"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:aea6644295c6e2d3d764a2e8b98825d0f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aea6644295c6e2d3d764a2e8b98825d0f"><td class="memTemplItemLeft"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td><td class="memTemplItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#aea6644295c6e2d3d764a2e8b98825d0f">submit</a> (T cgf, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">cl::sycl::queue</a> &amp;fallbackQ)</td></tr>
+<tr class="memdesc:aea6644295c6e2d3d764a2e8b98825d0f"><td class="mdescLeft"> </td><td class="mdescRight">Submits a command group functor to execution with a fallback queue.  <a href="#aea6644295c6e2d3d764a2e8b98825d0f">More...</a><br></td></tr>
+<tr class="separator:aea6644295c6e2d3d764a2e8b98825d0f"><td class="memSeparator" colspan="2"> </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a22a15ede597a9567f93bd9630a508ea0"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a22a15ede597a9567f93bd9630a508ea0">operator==</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;lhs, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a22a15ede597a9567f93bd9630a508ea0"><td class="mdescLeft"> </td><td class="mdescRight">Determines if lhs and rhs are equal.  <a href="#a22a15ede597a9567f93bd9630a508ea0">More...</a><br></td></tr>
+<tr class="separator:a22a15ede597a9567f93bd9630a508ea0"><td class="memSeparator" colspan="2"> </td></tr>
+<tr class="memitem:a24f0e3ed8d6e294fcf219f0ad5e61278"><td class="memItemLeft">bool </td><td class="memItemRight"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html#a24f0e3ed8d6e294fcf219f0ad5e61278">operator!=</a> (const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;lhs, const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a24f0e3ed8d6e294fcf219f0ad5e61278"><td class="mdescLeft"> </td><td class="mdescRight">Determines if lhs and rhs are not equal.  <a href="#a24f0e3ed8d6e294fcf219f0ad5e61278">More...</a><br></td></tr>
+<tr class="separator:a24f0e3ed8d6e294fcf219f0ad5e61278"><td class="memSeparator" colspan="2"> </td></tr>
+</table>
+<a id="details" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">cl::sycl::queue</a> object is the SYCL abstraction of the OpenCL object cl_command_queue. </p>
+<p>It is responsible for constructing the OpenCL cl_command_queue object and all OpenCL API functions that involve enqueuing. As the <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">cl::sycl::queue</a> object can be constructed using different methods, it maintains the ownership over objects that it can potentially be responsible for constructing and destructing. </p>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00174">174</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a86a59a8c84d9cf97f1b2a27c664c697e" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a59a8c84d9cf97f1b2a27c664c697e">◆ </a></span>queue() <span class="overload">[1/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a default device selector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00179">179</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="adee2e3a7ab57a9c0f4704210ce300d6f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee2e3a7ab57a9c0f4704210ce300d6f">◆ </a></span>queue() <span class="overload">[2/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a default device selector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">asyncHandler</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a9f6397a82d67d76b705e5aec3f5a94a2" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f6397a82d67d76b705e5aec3f5a94a2">◆ </a></span>queue() <span class="overload">[3/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp; </td>
+<td class="paramname"><em>deviceSelector</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a user defined device selector. </p>
+<p>The device selector <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html#a9915c112a9fdde466559734827809da7">device_selector::select_device()</a> is called by the constructor to get the device to construct the queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">deviceSelector</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00195">195</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a76d1be6736de140db3d9362ffa3e559f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d1be6736de140db3d9362ffa3e559f">◆ </a></span>queue() <span class="overload">[4/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp; </td>
+<td class="paramname"><em>deviceSelector</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a user defined device selector. </p>
+<p>The device selector <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html#a9915c112a9fdde466559734827809da7">device_selector::select_device()</a> is called by the constructor to get the device to construct the queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">deviceSelector</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> </td></tr>
+<tr><td class="paramname">asyncHandler</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a7d3948c953739a5a827064c4f774bf6d" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3948c953739a5a827064c4f774bf6d">◆ </a></span>queue() <span class="overload">[5/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp; </td>
+<td class="paramname"><em>dev</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a queue from a given device, creating an implicit context in the process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">dev</td><td>The device to use to create the queue </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00215">215</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a7e8e8b09d9d18455e7dff701137d1c5d" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8e8b09d9d18455e7dff701137d1c5d">◆ </a></span>queue() <span class="overload">[6/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp; </td>
+<td class="paramname"><em>dev</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a queue from a given device, creating an implicit context in the process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">dev</td><td>The device to use to create the queue </td></tr>
+<tr><td class="paramname">asyncHandler</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a634d377e193612e8f1227a12e2bb7708" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a634d377e193612e8f1227a12e2bb7708">◆ </a></span>queue() <span class="overload">[7/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>syclContext</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp; </td>
+<td class="paramname"><em>selector</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a user defined device selector against a specific context. </p>
+<p>The device selector <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html#a9915c112a9fdde466559734827809da7">device_selector::select_device()</a> is called by the constructor to get the device to construct the queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">syclContext</td><td>Context in which the queue will be created. </td></tr>
+<tr><td class="paramname">selector</td><td>Used to get a device from the context </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00235">235</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a819a51bff1571ceb6289f80c1969c914" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819a51bff1571ceb6289f80c1969c914">◆ </a></span>queue() <span class="overload">[8/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>syclContext</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html">device_selector</a> &amp; </td>
+<td class="paramname"><em>selector</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using a user defined device selector against a specific context. </p>
+<p>The device selector <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device__selector.html#a9915c112a9fdde466559734827809da7">device_selector::select_device()</a> is called by the constructor to get the device to construct the queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">syclContext</td><td>Context in which the queue will be created. </td></tr>
+<tr><td class="paramname">selector</td><td>Used to get a device from the context </td></tr>
+<tr><td class="paramname">propList</td><td>List of queue properties </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a85f0582ae191ca14e958b74ab4691022" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f0582ae191ca14e958b74ab4691022">◆ </a></span>queue() <span class="overload">[9/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>syclContext</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp; </td>
+<td class="paramname"><em>dev</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue with properties using an existing device and context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">syclContext</td><td>The context the queue will belong to. </td></tr>
+<tr><td class="paramname">dev</td><td>The device that work will be executed on. </td></tr>
+<tr><td class="paramname">asyncHandler</td><td>Handler for asynchronous exceptions </td></tr>
+<tr><td class="paramname">propList</td><td>List of properties for the queue to have. </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+<table class="exception">
+<tr><td class="paramname">sycl_exception</td><td>If dev is not in syclContext </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="abce75e999e9989cbecdd722cca84ba22" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce75e999e9989cbecdd722cca84ba22">◆ </a></span>queue() <span class="overload">[10/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>syclContext</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> &amp; </td>
+<td class="paramname"><em>dev</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1property__list.html">property_list</a> &amp; </td>
+<td class="paramname"><em>propList</em> = <code>{}</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a queue using an existing device and context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">syclContext</td><td>The context the queue will belong to. </td></tr>
+<tr><td class="paramname">dev</td><td>The device work will be queued on. </td></tr>
+<tr><td class="paramname">propList</td><td>List of properties for the queue to have. </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+<table class="exception">
+<tr><td class="paramname">sycl_exception</td><td>If dev is not in syclContext </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00269">269</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a3531179a11865e7d627596e7b48bacdc" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3531179a11865e7d627596e7b48bacdc">◆ </a></span>queue() <span class="overload">[11/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">cl_command_queue </td>
+<td class="paramname"><em>clqueue</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> &amp; </td>
+<td class="paramname"><em>s_context</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> &amp; </td>
+<td class="paramname"><em>asyncHandler</em> = <code>nullptr</code> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a queue object from a given OpenCL object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">clQueue</td><td>a valid OpenCL object for a command queue </td></tr>
+<tr><td class="paramname">s_context</td><td>a valid OpenCL context </td></tr>
+<tr><td class="paramname">asyncHandler</td><td>User defined <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/namespacecl_1_1sycl.html#ad5040b06655698bb2fe2f6714ef975e7">async_handler</a> </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a3a1576ea17ffa9c0331345c3335ad06e" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1576ea17ffa9c0331345c3335ad06e">◆ </a></span>queue() <span class="overload">[12/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Construct a queue object by copying the contents of a given queue object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">rhs</td><td>a queue to be copied over to the returned object </td></tr>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<a id="a55bb9d96aef1bf3ab04e9412ec10bc57" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bb9d96aef1bf3ab04e9412ec10bc57">◆ </a></span>queue() <span class="overload">[13/13]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">cl::sycl::queue::queue </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;&amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Completely moves the contents of a queue to that of another queue. </p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0e2b670f269ffd3be305c5d64275df95" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2b670f269ffd3be305c5d64275df95">◆ </a></span>experimental_mem_advise()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::experimental_mem_advise </td>
+<td>(</td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>ptr</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">int </td>
+<td class="paramname"><em>advice</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Provides the SYCL runtime with information about how the allocation is used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">ptr</td><td>Address of allocation </td></tr>
+<tr><td class="paramname">size</td><td>Number of bytes in the allocation </td></tr>
+<tr><td class="paramname">advice</td><td>Device-defined advice for the specified allocation </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Event associated with the advise operation </dd></dl>
+</div>
+</div>
+<a id="a1c19c68c059350d5a87ce0b0c9214f1c" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c19c68c059350d5a87ce0b0c9214f1c">◆ </a></span>experimental_prefetch()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::experimental_prefetch </td>
+<td>(</td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>ptr</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Hints to the SYCL runtime that the data is available earlier than when the USM model would require it. </p>
+<p>Can only be overlapped with kernel execution when Concurrent or System USM is available. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">ptr</td><td>Pointer to the memory to be prefetched to the device </td></tr>
+<tr><td class="paramname">size</td><td>Number of bytes requested to be prefetched </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Event associated with the memory prefetch </dd></dl>
+</div>
+</div>
+<a id="a58e20098a9c4645173a7768b054a64e9" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e20098a9c4645173a7768b054a64e9">◆ </a></span>fill()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::fill </td>
+<td>(</td>
+<td class="paramtype">void * </td>
+<td class="paramname"><em>ptr</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const T &amp; </td>
+<td class="paramname"><em>pattern</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>count</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Enqueues an USM fill operation. </p>
+<p>Fills the memory pointed by <code>ptr</code>. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">T</td><td>The type of the element. </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">ptr</td><td>Pointer object to fill. </td></tr>
+<tr><td class="paramname">pattern</td><td>The pattern to fill each element of <code>ptr</code> </td></tr>
+<tr><td class="paramname">count</td><td>The number of elements of type T to fill. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>A runtime event representing this operation </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00505">505</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a8edb4ea02ee6c99c98287f336bd32874" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8edb4ea02ee6c99c98287f336bd32874">◆ </a></span>get()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">cl_command_queue cl::sycl::queue::get </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the underlying OpenCL cl_command_queue object. </p>
+<dl><dt>Returns</dt><dd>an OpenCL cl_command_queue object. </dd></dl>
+</div>
+</div>
+<a id="af53e63f2817a8321e40ff9dc8e0df483" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53e63f2817a8321e40ff9dc8e0df483">◆ </a></span>get_context()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">COMPUTECPP_TEST_VIRTUAL <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1context.html">context</a> cl::sycl::queue::get_context </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the context associate to the queue. </p>
+<dl><dt>Returns</dt><dd>The context object. </dd></dl>
+</div>
+</div>
+<a id="a2f991915c57bfb1d73992fde421d56c8" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f991915c57bfb1d73992fde421d56c8">◆ </a></span>get_device()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1device.html">device</a> cl::sycl::queue::get_device </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the Device associated with the queue. </p>
+<dl><dt>Returns</dt><dd>The device object used with the queue. </dd></dl>
+</div>
+</div>
+<a id="af420ad878406675c109849accecf4d7d" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af420ad878406675c109849accecf4d7d">◆ </a></span>get_info()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;info::queue param&gt; </div>
+<table class="memname">
+<tr>
+<td class="memname">COMPUTECPP_EXPORT <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/structcl_1_1sycl_1_1info_1_1param__traits.html">info::param_traits</a>&lt;info::queue, param&gt;::return_type cl::sycl::queue::get_info </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Gets OpenCL information for the queue. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">param</td><td>A info::queue descriptor specifying the information to retrieve. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>The retrieved information as the appropriate return type </dd></dl>
+</div>
+</div>
+<a id="a74f4a0a5cca1452483558660a1cc3445" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f4a0a5cca1452483558660a1cc3445">◆ </a></span>get_property()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename propertyT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">propertyT cl::sycl::queue::get_property </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a copy of the property of type propertyT that this SYCL queue was constructed with. </p>
+<p>Throws an error if the queue was not constructed with the property. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">propertyT</td><td>Property to retrieve </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Copy of the property </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00448">448</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a47aed61ac4d493405aab9167f634e892" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47aed61ac4d493405aab9167f634e892">◆ </a></span>has_property()</h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename propertyT &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool cl::sycl::queue::has_property </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Returns whether this SYCL queue was constructed with the property specified by propertyT. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">propertyT</td><td>Property to check for </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if queue constructed with the property </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00437">437</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a6a0bd851c91ff26acdf191db8a138447" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0bd851c91ff26acdf191db8a138447">◆ </a></span>is_host()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">COMPUTECPP_TEST_VIRTUAL bool cl::sycl::queue::is_host </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td> const</td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Determine if the queue is executing kernels on the host. </p>
+<dl><dt>Returns</dt><dd>true if the queue is executing kernels on the host. </dd></dl>
+</div>
+</div>
+<a id="a0620342a45909ff3b3f2243e275a09ae" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0620342a45909ff3b3f2243e275a09ae">◆ </a></span>mem_advise()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::mem_advise </td>
+<td>(</td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>ptr</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">int </td>
+<td class="paramname"><em>advice</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Provides the SYCL runtime with information about how the allocation is used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">ptr</td><td>Address of allocation </td></tr>
+<tr><td class="paramname">size</td><td>Number of bytes in the allocation </td></tr>
+<tr><td class="paramname">advice</td><td>Device-defined advice for the specified allocation </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Event associated with the advise operation </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00872">872</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a151c03b61c4762a4192d6f911b0553e3" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a151c03b61c4762a4192d6f911b0553e3">◆ </a></span>memcpy() <span class="overload">[1/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::memcpy </td>
+<td>(</td>
+<td class="paramtype">void * </td>
+<td class="paramname"><em>dest</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>src</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Enqueues an USM memcpy operation. </p>
+<p>Copies <code>size</code> bytes from <code>src</code> to <code>dest</code>. This is a utility function that will submit an operation in this queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">dest</td><td>Pointer to the memory location to copy to. </td></tr>
+<tr><td class="paramname">src</td><td>Pointer to the memory location to copy from. </td></tr>
+<tr><td class="paramname">size</td><td>The number of bytes to copy. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>A runtime event representing this operation. </dd></dl>
+</div>
+</div>
+<a id="a5fa26160babd1dcd43df93a50e50865d" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa26160babd1dcd43df93a50e50865d">◆ </a></span>memcpy() <span class="overload">[2/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::memcpy </td>
+<td>(</td>
+<td class="paramtype">void * </td>
+<td class="paramname"><em>dest</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>src</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> </td>
+<td class="paramname"><em>dependency</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Enqueues an USM memcpy operation. </p>
+<p>Copies <code>size</code> bytes from <code>src</code> to <code>dest</code>. This is a utility function that will submit an operation in this queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">dest</td><td>Pointer to the memory location to copy to. </td></tr>
+<tr><td class="paramname">src</td><td>Pointer to the memory location to copy from. </td></tr>
+<tr><td class="paramname">size</td><td>The number of bytes to copy. </td></tr>
+<tr><td class="paramname">dependency</td><td>The event object which must be complete before the command can be executed. </td></tr>
+<tr><td class="paramname">dependency</td><td>The event object which must be complete before the command can be executed. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>A runtime event representing this operation. </dd></dl>
+</div>
+</div>
+<a id="abfa2c2a24041106d62375ff1a9af2630" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa2c2a24041106d62375ff1a9af2630">◆ </a></span>memcpy() <span class="overload">[3/3]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::memcpy </td>
+<td>(</td>
+<td class="paramtype">void * </td>
+<td class="paramname"><em>dest</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>src</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const std::vector&lt; <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> &gt; &amp; </td>
+<td class="paramname"><em>dependencies</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Enqueues an USM memcpy operation. </p>
+<p>Copies <code>size</code> bytes from <code>src</code> to <code>dest</code>. This is a utility function that will submit an operation in this queue. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">dest</td><td>Pointer to the memory location to copy to. </td></tr>
+<tr><td class="paramname">src</td><td>Pointer to the memory location to copy from. </td></tr>
+<tr><td class="paramname">size</td><td>The number of bytes to copy. </td></tr>
+<tr><td class="paramname">dependencies</td><td>Event objects which must be complete before the command can be executed. </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>A runtime event representing this operation. </dd></dl>
+</div>
+</div>
+<a id="aed77ab58b263bf7fa82bfd1041eb2a2f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed77ab58b263bf7fa82bfd1041eb2a2f">◆ </a></span>operator=() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a>&amp; cl::sycl::queue::operator= </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Completely assigns the contents of the queue to that of another queue. </p>
+</div>
+</div>
+<a id="aae7131b011058cf175ddde9af15997b5" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae7131b011058cf175ddde9af15997b5">◆ </a></span>operator=() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a>&amp; cl::sycl::queue::operator= </td>
+<td>(</td>
+<td class="paramtype"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp;&amp; </td>
+<td class="paramname"><em>rhs</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Completely moves the contents of a queue to that of another queue. </p>
+</div>
+</div>
+<a id="a97ca98e5e4845285de2fac8ba665cbe9" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ca98e5e4845285de2fac8ba665cbe9">◆ </a></span>prefetch()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::prefetch </td>
+<td>(</td>
+<td class="paramtype">const void * </td>
+<td class="paramname"><em>ptr</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">size_t </td>
+<td class="paramname"><em>size</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Hints to the SYCL runtime that the data is available earlier than when the USM model would require it. </p>
+<p>Can only be overlapped with kernel execution when Concurrent or System USM is available. </p><dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">ptr</td><td>Pointer to the memory to be prefetched to the device </td></tr>
+<tr><td class="paramname">size</td><td>Number of bytes requested to be prefetched </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>Event associated with the memory prefetch </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00858">858</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a84f55f9cdbb6f3ac55cf81dd5cbebd7f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f55f9cdbb6f3ac55cf81dd5cbebd7f">◆ </a></span>submit() <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::submit </td>
+<td>(</td>
+<td class="paramtype">T </td>
+<td class="paramname"><em>cgf</em></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Submits a command group functor to execution. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">T</td><td>The command group type </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">cgf</td><td>The command group functor </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00917">917</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="aea6644295c6e2d3d764a2e8b98825d0f" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6644295c6e2d3d764a2e8b98825d0f">◆ </a></span>submit() <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname"><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1event.html">event</a> cl::sycl::queue::submit </td>
+<td>(</td>
+<td class="paramtype">T </td>
+<td class="paramname"><em>cgf</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">cl::sycl::queue</a> &amp; </td>
+<td class="paramname"><em>fallbackQ</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Submits a command group functor to execution with a fallback queue. </p>
+<p>If an error occur during the execution of the kernel on the current queue, the runtime will try to run the kernel on the fallback queue.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+<table class="tparams">
+<tr><td class="paramname">T</td><td>The command group type </td></tr>
+</table>
+</dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">cgf</td><td>The command group functor </td></tr>
+<tr><td class="paramname">fallbackQ</td><td>The fallback queue to use in case of error. </td></tr>
+</table>
+</dd>
+</dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00934">934</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="ae5c39ed682422e4e525fe0a01e8b7ad9" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c39ed682422e4e525fe0a01e8b7ad9">◆ </a></span>throw_asynchronous()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::queue::throw_asynchronous </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Report any unreported asynchronous errors via the async_handler if provided (lost otherwise) </p>
+</div>
+</div>
+<a id="ac46bc8ee7cff0a3f77c7afb7d60184b4" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46bc8ee7cff0a3f77c7afb7d60184b4">◆ </a></span>wait()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::queue::wait </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Performs a blocking wait for the completion of all enqueued tasks in the queue. </p>
+<p>Synchronous errors are reported through C++ exceptions. </p>
+</div>
+</div>
+<a id="abfa510446db9f4edd0c16270b199a232" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa510446db9f4edd0c16270b199a232">◆ </a></span>wait_and_throw()</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="memname">
+<tr>
+<td class="memname">void cl::sycl::queue::wait_and_throw </td>
+<td>(</td>
+<td class="paramname"></td><td>)</td>
+<td></td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Performs a blocking wait for the completion of all enqueued tasks in the queue. </p>
+<p>Synchronous errors are reported through C++ exceptions. Asynchronous errors are reported to the async_handler if provided (lost otherwise) </p>
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a24f0e3ed8d6e294fcf219f0ad5e61278" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f0e3ed8d6e294fcf219f0ad5e61278">◆ </a></span>operator!=</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool operator!= </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>lhs</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>rhs</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Determines if lhs and rhs are not equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">lhs</td><td>Left-hand-side object in comparison </td></tr>
+<tr><td class="paramname">rhs</td><td>Right-hand-side object in comparison </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if different underlying objects </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00427">427</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<a id="a22a15ede597a9567f93bd9630a508ea0" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a15ede597a9567f93bd9630a508ea0">◆ </a></span>operator==</h2>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+<tr>
+<td class="mlabels-left">
+<table class="memname">
+<tr>
+<td class="memname">bool operator== </td>
+<td>(</td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>lhs</em>, </td>
+</tr>
+<tr>
+<td class="paramkey"></td>
+<td></td>
+<td class="paramtype">const <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html">queue</a> &amp; </td>
+<td class="paramname"><em>rhs</em> </td>
+</tr>
+<tr>
+<td></td>
+<td>)</td>
+<td></td><td></td>
+</tr>
+</table>
+</td>
+<td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span> </td>
+</tr>
+</table>
+</div><div class="memdoc">
+<p>Determines if lhs and rhs are equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+<table class="params">
+<tr><td class="paramname">lhs</td><td>Left-hand-side object in comparison </td></tr>
+<tr><td class="paramname">rhs</td><td>Right-hand-side object in comparison </td></tr>
+</table>
+</dd>
+</dl>
+<dl><dt>Returns</dt><dd>True if same underlying object </dd></dl>
+<p class="definition">Definition at line <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html#l00418">418</a> of file <a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a>.</p>
+</div>
+</div>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="http://127.0.0.1/products/computecpp/ce/2.11.0/api-reference/queue_8h_source.html">queue.h</a></li>
+</ul>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/computecpp/ce/2.11.0/api-reference/classcl_1_1sycl_1_1queue.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:52:46 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="d6137f1ed164bd74a4af20ab88d5fea7">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/construction-kit/">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/amd/">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://127.0.0.1/products/oneapi/nvidia/">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="http://127.0.0.1/assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="http://127.0.0.1/assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="http://127.0.0.1/cookies/">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-US" class="">
+
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Basics -->
+    <title>RefSi Driver Interface - Guides - oneAPI Construction Kit - Products - Codeplay Developer</title>
+    <meta name="description" content="Read the 'RefSi Driver Interface' for oneAPI Construction Kit 4.0.0 developer guide." />
+    <meta name="keywords" content="guides, tutorials, guide, oneapi, construction, kit, risc-v, arm" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
+    <meta name="title" property="og:title" content="RefSi Driver Interface - Guides - oneAPI Construction Kit - Products - Codeplay Developer" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="image" property="og:image" content="../../../../../../../assets/img/og-header.png" />
+    <meta name="url" property="og:url" content="../../../../../../../index.html" />
+    <meta name="description" property="og:description" content="Read the 'RefSi Driver Interface' for oneAPI Construction Kit 4.0.0 developer guide." />
+
+    <!-- Fonts -->
+    <link href="../../../../../../../assets/css/material.css"
+          rel="stylesheet preload prefetch"
+          as="style" />
+
+    <!-- Fav icon -->
+    <link rel="icon" type="image/png" href="../../../../../../../favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../../../../../favicon.svg" />
+    <link rel="shortcut icon" href="../../../../../../../favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../../apple-touch-icon.html" />
+
+    <link type="text/css"
+          href="../../../../../../../assets/css/responsive.css"
+          rel="stylesheet"/>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="XBWVDDFP" defer></script>
+
+    <!-- Stylesheets -->
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.cookiepolicyprompt.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/jquery.popupdialog.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/dialogs.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/IndexPage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageLayout.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePageFormatting.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Guides/GuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/OneApiConstructionKitShared.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+    <link type="text/css"
+          href="../../../../../../../assets/css/Pages/Products/OneApi/ConstructionKit/Guide/OneApiConstructionKitGuidePage.style.css"
+          rel="stylesheet preload prefetch"
+          as="style"/>
+
+    <!-- Scripts -->
+    <script src="../../../../../../../assets/js/jquery-3.6.3.min.js"></script>
+    <script src="../../../../../../../assets/js/jquery.copyright.js"></script>
+    <script src="../../../../../../../assets/js/jquery.cookiepolicyprompt.js"></script>
+    <script src="../../../../../../../assets/js/jquery.popupdialog.js"></script>
+    <script src="../../../../../../../assets/js/Pages/IndexPage.script.js"></script>
+    <script src="../../../../../../../assets/js/highlight.min.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.headingsinfocus.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/togglebutton.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/jquery.resizable.js"></script>
+    <script src="../../../../../../../assets/js/Pages/Guides/GuidePage.script.js"></script>
+
+    <script>
+        document.querySelectorAll('link').forEach((el) => {this.onload=null;this.rel='stylesheet';});
+    </script>
+</head>
+<body data-deprecated="">
+
+<!-- Header -->
+<header>
+    <nav class="main">
+        <div>
+            <a aria-label="Navigation Bar Logo" href="../../../../../../../index.html">
+                <div id="codeplay-logo"></div>
+            </a>
+        </div>
+        <div>
+            <a title="Click to change production selection">
+                <div>
+                    <h2>Product</h2>
+                    <h1>oneAPI Construction Kit</h1>
+                </div>
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li >
+                    <a href="../../../../home.html" >
+                        <div>
+
+                            <span class="icon material-icons">home</span>
+
+                            <div>Home</div>
+                        </div>
+                    </a>
+                </li>
+                <li  class="selected" >
+                    <a href="../../../../guides/index.html" >
+                        <div>
+
+                            <span class="icon material-icons">menu_book</span>
+
+                            <div>Guides</div>
+                        </div>
+                    </a>
+                </li>
+                <li >
+                    <a href="https://github.com/codeplaysoftware/oneapi-construction-kit" target="_blank">
+                        <div>
+
+                            <span class="icon material-icons">local_library</span>
+
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <a href="../../../../../../../support/index.html" title="Get Support">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="burger"
+                       title="Show Navigation Menu">
+                        <span class="material-icons">menu</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- The burger menu, designed for mobile -->
+    <div id="burger-menu">
+        <ul>
+            <li>
+                <h1>oneAPI Menu</h1>
+                <ul>
+                    <li >
+                        <a href="../../../../home.html"
+                           >Home</a>
+                    </li>
+                    <li  class="selected" >
+                        <a href="../../../../guides/index.html"
+                           >Guides</a>
+                    </li>
+                    <li >
+                        <a href="https://github.com/codeplaysoftware/oneapi-construction-kit"
+                           target="_blank">Repository</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1>Main Menu</h1>
+                <ul>
+                    <li>
+                        <a href="../../../../../../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <h1>Products</h1>
+                        <ul>
+                            <li>
+                                <a href="../../../../../../computecpp/ce/index.html">ComputeCpp CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computecpp/pe/index.html">ComputeCpp PE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/ce/index.html">ComputeSuite for R-Car CE</a>
+                            </li>
+                            <li>
+                                <a href="../../../../../../computesuitercar/pe/index.html">ComputeSuite for R-Car PE</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../../../../../../../cookies.html">Cookie Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://codeplay.com/support/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Main element -->
+<main>
+
+    <!-- File Container -->
+<div class="layout-file guide" id="overview-reference-silicon-driver-interface">
+    <!-- Side Menu -->
+    <div class="sticky file-menu-container styled-scroller">
+       <div class="nav-padding">
+           <!-- Title & Version Selector -->
+           <div class="header">
+               <h1 class="file-container-title">
+                   <span class="material-icons">menu_book</span>Guides
+               </h1>
+               <div>
+                   <!-- Version Selector -->
+                   <div class="version-selector ">
+                       <div><span class="material-icons">history</span>4.0.0</div>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                       <ul>
+                           <li><a href="../../index.html">4.0.0</a></li>
+                           <li><a href="../../../../3.0.0/guides/index.html">3.0.0</a></li>
+                           <li><a href="../../../../2.0.0/guides/index.html">2.0.0</a></li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu -->
+           <ol class="file-menu">
+               <li class=""><a href="../../index-2.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Welcome to oneAPI Construction Kit’s documentation!</a><ol></ol></li>               <li class="selected"><a href="../../overview.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>oneAPI Construction Kit Overview</a><ol><li class=""><a href="../preface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Preface</a><ol></ol></li><li class=""><a href="../introduction.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Introduction</a><ol><li class=""><a href="../introduction/architecture.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit Architecture</a><ol></ol></li><li class=""><a href="../introduction/compiler-view.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler View</a><ol></ol></li></ol></li><li class=""><a href="../hardware.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Mapping ComputeMux to Hardware</a><ol><li class=""><a href="../hardware/memory-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Memory Requirements</a><ol></ol></li><li class=""><a href="../hardware/atomic-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Atomic Requirements</a><ol></ol></li><li class=""><a href="../hardware/floating-point-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Floating-Point Requirements</a><ol></ol></li><li class=""><a href="../hardware/synchronization-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Synchronization Requirements</a><ol></ol></li></ol></li><li class=""><a href="../runtime.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Runtime Information</a><ol><li class=""><a href="../runtime/computemux-runtime.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime</a><ol></ol></li><li class=""><a href="../runtime/driver-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Driver Requirements</a><ol></ol></li><li class=""><a href="../runtime/supported-toolchains.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported Toolchains</a><ol></ol></li></ol></li><li class=""><a href="../compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler Information</a><ol><li class=""><a href="../compiler/computemux-compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler</a><ol></ol></li><li class=""><a href="../compiler/ir.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Intermediate Representation</a><ol></ol></li><li class=""><a href="../compiler/supported-llvm-versions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Supported LLVM Versions</a><ol></ol></li><li class=""><a href="../compiler/non-requirements.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Non-Requirements</a><ol></ol></li></ol></li><li class=""><a href="../example-scenarios.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Example Hardware Feature Scenarios</a><ol><li class=""><a href="../example-scenarios/mapping-custom-instructions-to-builtin-functions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom Instructions To Builtin Functions</a><ol></ol></li><li class=""><a href="../example-scenarios/mapping-custom-ip-blocks-to-builtin-kernels.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Custom IP Blocks To Builtin Kernels</a><ol></ol></li><li class=""><a href="../example-scenarios/how-to-support-large-scratchpad-memories.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How To Support Large Scratchpad Memories</a><ol></ol></li><li class=""><a href="../example-scenarios/mapping-algorithms-to-vector-hardware.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Mapping Algorithms To Vector Hardware</a><ol></ol></li><li class=""><a href="../example-scenarios/refsi-in-kernel-dma.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi In-Kernel DMA for RISC-V</a><ol></ol></li></ol></li><li class=""><a href="../toolkit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>oneAPI Construction Kit</a><ol></ol></li><li class=""><a href="../new-target-quick-start.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Creating a New ComputeMux Target: Quick Start</a><ol></ol></li><li class=""><a href="../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../tutorials/creating-a-new-hal.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New HAL</a><ol><li class=""><a href="../tutorials/creating-new-hal/initial-setup.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Initial Setup</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/kernel-compilation.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Compilation</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/runing-clik-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running clik Tests</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/skeleton-hal-overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview of the Skeleton HAL Code</a><ol></ol></li><li class=""><a href="../tutorials/creating-new-hal/implementing-hal-operations.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Implementing HAL Operations</a><ol></ol></li></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Creating a New ComputeMux Target</a><ol><li class=""><a href="../tutorials/creating-a-new-mux-target/running-new-target-script.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Running the create_target.py Script</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/building-and-running-tests.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Building and Running Tests</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/adapting-target-pass-pipeline.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adapting the Pass Pipeline for the Target</a><ol></ol></li><li class=""><a href="../tutorials/creating-a-new-mux-target/extending-it-further.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extending it Further</a><ol></ol></li></ol></li></ol></li><li class="selected"><a href="../reference-silicon.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Codeplay Reference Silicon</a><ol><li class=""><a href="overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Codeplay Reference Silicon Overview</a><ol></ol></li><li class=""><a href="command-processor.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Command Processor Reference</a><ol></ol></li><li class=""><a href="dma-controller.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Controller Reference</a><ol></ol></li><li class=""><a href="dma-programming-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>DMA Programming Guide</a><ol></ol></li><li class="selected focused"><a href="driver-interface.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RefSi Driver Interface</a><ol></ol></li><li class=""><a href="mapping-opencl-to-refsi.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How The Platform Maps to SYCL and OpenCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../getting-started.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Getting Started</a><ol></ol></li>               <li class=""><a href="../../specifications.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Specifications</a><ol><li class=""><a href="../../specifications/versioning.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Versioning Scheme</a><ol></ol></li><li class=""><a href="../../specifications/mux-runtime-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Runtime Specification</a><ol></ol></li><li class=""><a href="../../specifications/mux-compiler-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ComputeMux Compiler Specification</a><ol></ol></li></ol></li>               <li class=""><a href="../../developer-guide.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Developer Guide</a><ol></ol></li>               <li class=""><a href="../../tutorials.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tutorials</a><ol><li class=""><a href="../../tutorials/adding-a-custom-builtins-extension.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding A Custom Builtins Extension</a><ol></ol></li><li class=""><a href="../../tutorials/custom-lowering-work-item-builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Custom Lowering Work-Item Builtins</a><ol></ol></li><li class=""><a href="../../tutorials/adding-target-specific-metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Adding Target-Specific Metadata</a><ol></ol></li></ol></li>               <li class=""><a href="../../design.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Design</a><ol></ol></li>               <li class=""><a href="../../source/cl.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL</a><ol><li class=""><a href="../../source/cl/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL CMake</a><ol></ol></li><li class=""><a href="../../source/cl/computemux_mapping.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>How OpenCL Concepts Are Mapped Onto ComputeMux</a><ol></ol></li><li class=""><a href="../../source/cl/extension.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>OpenCL Extensions</a><ol><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Debug - cl_codeplay_kernel_debug</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_extra_build_options.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Extra Build Options - cl_codeplay_extra_build_options</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_kernel_exec_info.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Kernel Exec Info - cl_codeplay_kernel_exec_info</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_performance_counters.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Performance Counters - cl_codeplay_performance_counters</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_soft_math.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Soft Math - cl_codeplay_soft_math</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_codeplay_wfv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Whole Function Vectorization - cl_codeplay_wfv</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_unified_shared_memory.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>USM - cl_intel_unified_shared_memory</a><ol></ol></li><li class=""><a href="../../source/cl/extension/cl_intel_required_subgroup_size.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Required subgroup sizes for kernels  - cl_intel_required_subgroup_size</a><ol></ol></li></ol></li><li class=""><a href="../../source/cl/external-extensions.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL External Extensions</a><ol></ol></li><li class=""><a href="../../source/cl/icd-loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL ICD Loader</a><ol></ol></li><li class=""><a href="../../source/cl/intercept.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>OpenCL Intercept Layer</a><ol></ol></li><li class=""><a href="../../source/cl/tools.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Tools</a><ol></ol></li><li class=""><a href="../../source/cl/test.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tests</a><ol><li class=""><a href="../../source/cl/test/unitcl.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>UnitCL</a><ol></ol></li></ol></li></ol></li>               <li class=""><a href="../../source/vk.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vulkan</a><ol></ol></li>               <li class=""><a href="../../modules.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Modules</a><ol><li class=""><a href="../../modules/builtins.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Builtins</a><ol><li class=""><a href="../../modules/builtins/abacus.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Abacus</a><ol></ol></li><li class=""><a href="../../modules/builtins/libimg.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Image Library</a><ol></ol></li></ol></li><li class=""><a href="../../modules/mux.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>ComputeMux</a><ol><li class=""><a href="../../modules/mux/changes.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Change Log</a><ol></ol></li><li class=""><a href="../../modules/mux/compiler.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler</a><ol></ol></li><li class=""><a href="../../modules/mux/cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake</a><ol></ol></li><li class=""><a href="../../modules/mux/bumping-the-spec.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Bumping the Specification Version</a><ol></ol></li></ol></li><li class=""><a href="../../modules/host.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Host CPU</a><ol><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_host_builtins.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_host_builtins</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/extension/cl_codeplay_set_threads.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>cl_codeplay_set_threads</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/lit.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host lit test suite</a><ol></ol></li><li class=""><a href="../../modules/mux/targets/host/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Host Debug Features</a><ol></ol></li></ol></li><li class=""><a href="../../modules/riscv.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>RISC-V</a><ol></ol></li><li class=""><a href="../../modules/compiler.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Compiler</a><ol><li class=""><a href="../../modules/compiler/overview.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Overview</a><ol></ol></li><li class=""><a href="../../modules/compiler/utils.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Compiler Utilities</a><ol></ol></li><li class=""><a href="../../modules/compiler/tools.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Tools</a><ol><li class=""><a href="../../modules/compiler/tools/muxc.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>muxc</a><ol></ol></li></ol></li></ol></li><li class=""><a href="../../modules/loader.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>ELF loader</a><ol></ol></li><li class=""><a href="../../modules/vecz.html"><div class="icon"><span class="icon material-icons">subdirectory_arrow_right</span></div>Vecz</a><ol><li class=""><a href="../../modules/vecz/vecz.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Vecz Documentation</a><ol></ol></li></ol></li><li class=""><a href="../../modules/spirv-ll.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>spirv-ll</a><ol></ol></li><li class=""><a href="../../modules/debug.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Debug Module</a><ol></ol></li><li class=""><a href="../../modules/cargo.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Cargo Module</a><ol></ol></li><li class=""><a href="../../modules/metadata.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Metadata API</a><ol></ol></li></ol></li>               <li class=""><a href="../../cmake.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>CMake Development</a><ol></ol></li>               <li class=""><a href="../../scripts.html"><div class="icon"><span class="icon material-icons">arrow_forward</span></div>Scripts</a><ol></ol></li>           </ol>
+       </div>
+    </div>
+    <!-- Core Content -->
+    <div>
+        <!-- File Content -->
+        <div id="content-container" class="nav-padding">
+            <article class="file-content-container">
+                <header>
+                    <!-- Deprecated Notice -->
+
+                    <div class="title">
+                        <a class="header-link" href="#refsi-driver-interface">
+                            <h1>RefSi Driver Interface</h1>
+                        </a>
+                        <div>
+                            <a href="#rate" title="Rate this guide">
+                                <i class="material-icons">thumb_up</i>
+                            </a>
+
+                            <a target="_blank" href="https://github.com/codeplaysoftware/oneapi-construction-kit/blob/main/doc/overview/reference-silicon/driver-interface.rst" rel="noopener" title="Contribute to this guide">
+                                <i class="material-icons">edit</i>
+                            </a>
+
+                            <a href="mapping-opencl-to-refsi-2.html" title="Goto the next guide">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </header>
+
+                <div class="formatted-text">
+                    <a id="top"></a>
+                    <html><body><div class="document">
+<div>
+<div class="section" id="refsi-driver-interface">
+
+<p>The RefSi virtual device can be controlled by the RefSi device driver, which
+mimics how a real accelerator would be exposed to the system. The driver has a
+C API and can be used to manage memory transfers between the host and simulated
+device as well as enqueue commands (work) onto the device.</p>
+<p>The RefSi driver currently supports two families of accelerators, RefSi M and
+RefSi G. While there are significant differences to how kernels can be executed
+on each kind of accelerator, the driver API is largely the same for both
+families. Functions that can be only used on one or the other will be marked as
+such.</p>
+<div class="section" id="driver-start-up-and-teardown">
+<a class="header-link" href="#driver-start-up-and-teardown"><h2 id="driver-start-up-and-teardown">Driver start-up and teardown</h2><span class="material-icons">link</span></a>
+<p>The <code class="docutils literal notranslate">refsiInitialize</code> function must be called prior to calling any other
+driver function. It allocated global resources needed to manage the virtual
+RefSi device. These resources can and should be freed by calling the
+<code class="docutils literal notranslate">refsiTerminate</code> function prior to the process unloading.</p>
+<pre><code class="language-cpp">/// @brief Initialize the driver. No other driver function can be called prior
+/// to calling this function.
+REFSI_API refsi_result refsiInitialize();
+
+/// @brief Terminate the driver. No driver function other than refsiInitialize
+/// can be called after calling this function.
+REFSI_API refsi_result refsiTerminate();
+</code>
+</pre>
+<p>Once <code class="docutils literal notranslate">refsiInitialize</code> has been called, the <code class="docutils literal notranslate">refsiOpenDevice</code> function can
+be used to establish a connection to a virtual RefSi device where the device
+family is passed as an argument, returning a handle to the device. Calling this
+function multiple times with the same family returns the same handle; multiple
+devices are not created.</p>
+<p><code class="docutils literal notranslate">refsiShutdownDevice</code> can be used to stop a RefSi device using its handle and
+reclaim its resources. Calling <code class="docutils literal notranslate">refsiOpenDevice</code> then results in a new device
+being created.</p>
+<pre><code class="language-cpp">/// @brief Represents the kind of RefSi device to control.
+enum refsi_device_family {
+  REFSI_DEFAULT = 0,
+  REFSI_M = 1,
+  REFSI_G = 2
+};
+
+/// @brief Open the device. This establishes a connection with the device and
+/// ensures that it has been successfully started. Device memory functions, as
+/// well as command buffer execution functions, can only be called after this
+/// function has been called.
+/// @param family Type of RefSi device to open a connection to.
+REFSI_API refsi_device_t refsiOpenDevice(refsi_device_family family);
+
+/// @brief Shut down the device. Any pointer returned by refsiGetMappedAddress
+/// can no longer be used after this function is called.
+REFSI_API refsi_result refsiShutdownDevice(refsi_device_t device);
+</code>
+</pre>
+</div>
+<div class="section" id="device-queries">
+<a class="header-link" href="#device-queries"><h2 id="device-queries">Device queries</h2><span class="material-icons">link</span></a>
+<p>Not unlike real platforms, RefSi virtual devices can have different
+configurations that can be characterized by a number of metrics such as number
+of cores and hardware threads, vector register size, ISA extensions, memory size
+and so on. The <code class="docutils literal notranslate">refsiQueryDeviceInfo</code> function can be used to query a RefSi
+device for a number of these characteristics. It is highly recommended to use
+this function rather than hard-coding device metrics, since they can change
+through build-time configuration or newer RefSi driver releases.</p>
+<pre><code class="language-cpp">/// @brief Provides information about the device.
+typedef struct refsi_device_info {
+  /// @brief Kind of device.
+  refsi_device_family family;
+  /// @brief Number of accelerator cores contained within the device.
+  unsigned num_cores;
+  /// @brief Number of hardware threads contained in each accelerator core.
+  unsigned num_harts_per_core;
+  /// @brief Number of entries in the device's memory map.
+  unsigned num_memory_map_entries;
+  /// @brief String that describes the ISA exposed by the cores.
+  const char *core_isa;
+  /// @brief Width of the cores' vector registers, in bits.
+  unsigned core_vlen;
+  /// @brief Maximum width of an element in a vector register, in bits.
+  unsigned core_elen;
+} refsi_device_info_t;
+
+/// @brief Query information about the device.
+/// @param device Device to query information for.
+/// @param device_info To be filled with information about the device.
+REFSI_API refsi_result refsiQueryDeviceInfo(refsi_device_t device,
+                                            refsi_device_info_t *device_info);
+</code>
+</pre>
+<p>Another aspect of RefSi configuration that can be queried through the RefSi
+driver API is the device’s memory map. The map is simply a list of entries,
+where each entry a kind of memory, its size and the memory address it is mapped
+at. This includes both ‘conventional’ memory kinds like DRAM and TCM as well as
+memory-like regions such as memory-mapped registers (e.g. DMA and performance
+counter registers). The number of entries in this map can be found in the
+<code class="docutils literal notranslate">num_memory_map_entries</code> entries of the struct returned by
+<code class="docutils literal notranslate">refsiQueryDeviceInfo</code>.</p>
+<pre><code class="language-cpp">enum refsi_memory_map_kind {
+  /// @brief The kind of memory for this memory map entry is unknown.
+  UNKNOWN = 0,
+  /// @brief Refers to the area of memory where the device's dedicated memory is
+  /// mapped. DRAM is shared between all device cores.
+  DRAM = 1,
+  /// @brief Refers to the area of memory where the device's entire
+  /// tightly-coupled instruction memory is mapped, for all cores.
+  TCIM = 2,
+  /// @brief Refers to the area of memory where the device's entire
+  /// tightly-coupled data memory is mapped, for all cores.
+  TCDM = 3,
+  /// @brief Refers to the area of memory where each core's tightly-coupled data
+  /// memory is mapped. This range has the same address for all cores, however
+  /// each core will see different contents when accessing it.
+  TCDM_PRIVATE = 4,
+  /// @brief Refers to the area of memory where Kernel DMA registers are mapped
+  /// for all hardware threads.
+  KERNEL_DMA = 5,
+  /// @brief Refers to the area of memory where a hardware thread's Kernel DMA
+  /// registers are mapped. This range has the same address for all hardware
+  /// threads, however each hart will see different contents when accessing it.
+  KERNEL_DMA_PRIVATE = 6,
+  /// @brief Refers to the area of memory where Performance Counter registers
+  /// are mapped. This is divided into a per-hardware-thread area and a global
+  /// area shared between all units in the RefSi device..
+  PERF_COUNTERS = 7,
+};
+
+/// @brief Represents an entry in the device's memory map.
+struct refsi_memory_map_entry {
+  /// @brief Kind of memory this memory range refers to.
+  refsi_memory_map_kind kind;
+  /// @brief Starting address of the memory range in device memory.
+  refsi_addr_t start_addr;
+  /// @brief Size of the memory range in device memory, in bytes.
+  size_t size;
+};
+
+/// @brief Query an entry in the device's memory map.
+/// @param device Device to query memory map info for.
+/// @param index Index of the entry to query.
+/// @param entry To be filled with information about the memory map entry.
+REFSI_API refsi_result refsiQueryDeviceMemoryMap(refsi_device_t device,
+                                                 size_t index,
+                                                 refsi_memory_map_entry *entry);
+</code>
+</pre>
+</div>
+<div class="section" id="device-memory-allocation">
+<a class="header-link" href="#device-memory-allocation"><h2 id="device-memory-allocation">Device memory allocation</h2><span class="material-icons">link</span></a>
+<p>In order to run programs (kernels) on an accelerator, some kind of device
+memory is typically required. The <code class="docutils literal notranslate">refsiAllocDeviceMemory</code> and
+<code class="docutils literal notranslate">refsiFreeDeviceMemory</code> can be used to allocate and free memory for a
+particular RefSi device. The kind <code class="docutils literal notranslate">argument</code> can be used to specify where the
+memory should be allocated, however only <code class="docutils literal notranslate">DRAM</code> allocations are currently
+guaranteed to be supported by the device.</p>
+<pre><code class="language-cpp">/// @brief Allocate device memory.
+/// @param device Device to allocate memory on.
+/// @param size Size of the memory range to allocate, in bytes.
+/// @param alignment Minimum alignment for the returned physical address.
+/// @param kind Kind of memory to allocate, e.g. DRAM, scratchpad.
+REFSI_API refsi_addr_t refsiAllocDeviceMemory(refsi_device_t device,
+                                              size_t size, size_t alignment,
+                                              refsi_memory_map_kind kind);
+
+/// @brief Free device memory allocated with refsiAllocDeviceMemory.
+/// @param device Device to free memory from.
+/// @param phys_addr Device address to free.
+REFSI_API refsi_result refsiFreeDeviceMemory(refsi_device_t device,
+                                             refsi_addr_t phys_addr);
+</code>
+</pre>
+</div>
+<div class="section" id="device-memory-access">
+<a class="header-link" href="#device-memory-access"><h2 id="device-memory-access">Device memory access</h2><span class="material-icons">link</span></a>
+<p>Device memory allocated through <code class="docutils literal notranslate">refsiAllocDeviceMemory</code> can be accessed
+through the host (i.e. using the RefSi driver interface) in one of two ways.</p>
+<p>The first way is through <code class="docutils literal notranslate">memcpy</code>-like functions that can either read from
+or write to device memory, <code class="docutils literal notranslate">refsiReadDeviceMemory</code> and
+<code class="docutils literal notranslate">refsiWriteDeviceMemory</code>. These functions are blocking and only return once
+the operation has been completed. There is also no need to manually control the
+device’s cache(s).</p>
+<p>Note how the <code class="docutils literal notranslate">unit_id</code> parameter can be used to target different kinds of
+memory. For example, different harts can access a particular area of TCDM at the
+same address while seeing different contents (i.e. there is one copy of this
+area for each hart). Passing a hart ID as <code class="docutils literal notranslate">unit_id</code> allows for accessing
+hart-local storage for that specific hart.</p>
+<pre><code class="language-cpp">/// @brief Read data from device memory.
+/// @param device Device to read from.
+/// @param dest Buffer to copy read data to.
+/// @param phys_addr Device address that defines the start of the memory range
+/// to read from.
+/// @param size Size of the memory range to read, in bytes.
+/// @param unit_id UnitID of the execution unit to use when making memory
+/// requests. This is usually 'external' but hart IDs can also be used.
+REFSI_API refsi_result refsiReadDeviceMemory(refsi_device_t device,
+                                             uint8_t *dest,
+                                             refsi_addr_t phys_addr,
+                                             size_t size, uint32_t unit_id);
+
+/// @brief Write data to device memory.
+/// @param device Device to write to.
+/// @param phys_addr Device address that defines the start of the memory range
+/// to write to.
+/// @param source Buffer that contains the data to write to device memory.
+/// @param size Size of the memory range to write, in bytes.
+/// @param unit_id UnitID of the execution unit to use when making memory
+/// requests. This is usually 'external' but hart IDs can also be used.
+REFSI_API refsi_result refsiWriteDeviceMemory(refsi_device_t device,
+                                              refsi_addr_t phys_addr,
+                                              const uint8_t *source,
+                                              size_t size, uint32_t unit_id);
+</code>
+</pre>
+<p>The second way of accessing device memory from the host is through memory
+mapping. The RefSi driver maps all device memory on the host, so that a host
+pointer can be used to access it. The <code class="docutils literal notranslate">refsiGetMappedAddress</code> function can be
+used to retrieve a pointer to a specific device memory address. With this
+pointer, data can be transparently copied to and from the device using functions
+like <code class="docutils literal notranslate">memcpy</code>.</p>
+<p>The <code class="docutils literal notranslate">refsiFlushDeviceMemory</code> and <code class="docutils literal notranslate">refsiInvalidateDeviceMemory</code> are meant
+for controlling the caches between the host and the device. The former should be
+used after writing to a pointer returned from <code class="docutils literal notranslate">refsiGetMappedAddress</code> while
+the latter should be used after the device has potentially written to device
+memory (e.g. by executing a kernel) prior to reading from mapped memory.</p>
+<pre><code class="language-cpp">/// @brief Get a CPU-accessible pointer that maps to the given device address.
+/// Device memory is first mapped when a connection to the device is established
+/// and unmapped when the connection is closed.
+/// @param device Device to retrieve a mapped pointer for.
+/// @param phys_addr Device address to map to a virtual address (CPU pointer).
+/// @param size Size of the memory range to access, in bytes.
+REFSI_API void *refsiGetMappedAddress(refsi_device_t device,
+                                      refsi_addr_t phys_addr, size_t size);
+
+/// @brief Flush any changes to device memory from the CPU cache.
+/// @param device Device to flush data changes to.
+/// @param phys_addr Device address that defines the start of the memory range
+/// to flush from the CPU cache.
+/// @param size Size of the memory range to flush, in bytes.
+REFSI_API refsi_result refsiFlushDeviceMemory(refsi_device_t device,
+                                              refsi_addr_t phys_addr,
+                                              size_t size);
+
+/// @brief Invalidate any cached device data from the CPU cache.
+/// @param device Device to flush data changes from.
+/// @param phys_addr Device address that defines the start of the memory range
+/// to invalidate from the CPU cache.
+/// @param size Size of the memory range to invalidate, in bytes.
+REFSI_API refsi_result refsiInvalidateDeviceMemory(refsi_device_t device,
+                                                   refsi_addr_t phys_addr,
+                                                   size_t size);
+</code>
+</pre>
+</div>
+<div class="section" id="device-execution-refsi-m1">
+<a class="header-link" href="#device-execution-refsi-m1"><h2 id="device-execution-refsi-m1">Device execution (RefSi M1)</h2><span class="material-icons">link</span></a>
+<p>On RefSi M1, executing work is done through the command processor (CMP). The
+CMP executes command buffers, which are simply lists of commands that are stored
+in device memory.</p>
+<div class="section" id="executing-command-buffers">
+<a class="header-link" href="#executing-command-buffers"><h3 id="executing-command-buffers">Executing command buffers</h3><span class="material-icons">link</span></a>
+<p>A command buffer can be enqueued on the device from the host using the
+<code class="docutils literal notranslate">refsiExecuteCommandBuffer</code> function by passing a device address and size of
+the command buffer. This function is asynchronous and will likely return before
+the commands have finished executing. <code class="docutils literal notranslate">refsiWaitForDeviceIdle</code> can be used to
+block the current host thread until previously enqueued commands have been
+executed.</p>
+<pre><code class="language-cpp">/// @brief Asynchronously execute a series of commands on the device.
+/// @param device Device to execute a command buffer on.
+/// @param cb_addr Address of the command buffer in device memory.
+/// @param size Size of the command buffer, in bytes.
+REFSI_API refsi_result refsiExecuteCommandBuffer(refsi_device_t device,
+                                                 refsi_addr_t cb_addr,
+                                                 size_t size);
+
+/// @brief Wait for all previously enqueued command buffers to be finished.
+/// @param device Device to wait for.
+REFSI_API void refsiWaitForDeviceIdle(refsi_device_t device);
+</code>
+</pre>
+</div>
+<div class="section" id="encoding-command-buffers">
+<a class="header-link" href="#encoding-command-buffers"><h3 id="encoding-command-buffers">Encoding command buffers</h3><span class="material-icons">link</span></a>
+<pre><code class="language-cpp">/// @brief Identifies a command that can be executed by the command processor.
+enum refsi_cmp_command_id {
+  CMP_NOP = 0,
+  CMP_FINISH = 1,
+  CMP_WRITE_REG64 = 2,
+  CMP_LOAD_REG64 = 3,
+  CMP_STORE_REG64 = 4,
+  CMP_STORE_IMM64 = 5,
+  CMP_COPY_MEM64 = 6,
+  CMP_RUN_KERNEL_SLICE = 7,
+  CMP_RUN_INSTANCES = 8,
+  CMP_SYNC_CACHE = 9
+};
+
+/// @brief Encode a CMP command header.
+/// @param opcode Command's opcode to encode.
+/// @param chunk_count Command's chunk count to encode.
+/// @param inline_chunk Command's inline chunk to encode.
+REFSI_API uint64_t refsiEncodeCMPCommand(refsi_cmp_command_id opcode,
+                                         uint32_t chunk_count,
+                                         uint32_t inline_chunk);
+
+/// @brief Try to decode a CMP command header.
+/// @param opcode Populated with the command's opcode.
+/// @param chunk_count Populated with the command's chunk count.
+/// @param inline_chunk Populated with the command's inline chunk.
+REFSI_API refsi_result refsiDecodeCMPCommand(uint64_t header,
+                                             refsi_cmp_command_id *opcode,
+                                             uint32_t *chunk_count,
+                                             uint32_t *inline_chunk);
+</code>
+</pre>
+</div>
+</div>
+<div class="section" id="device-execution-refsi-g1">
+<a class="header-link" href="#device-execution-refsi-g1"><h2 id="device-execution-refsi-g1">Device execution (RefSi G1)</h2><span class="material-icons">link</span></a>
+<p>Execution of kernels differs between RefSi G1 and RefSi M1. Unlike M1, G1 does
+not feature a command processor (CMP) and as such the
+<code class="docutils literal notranslate">refsiExecuteCommandBuffer</code> command cannot be used to enqueue work onto the
+device. Executing a kernel can be done using the <code class="docutils literal notranslate">refsiExecuteKernel</code>, which
+boots the RISC-V cores on the given number of harts. A RISC-V bootloader is
+typically used to invoke the kernel.</p>
+<pre><code class="language-cpp">/// @brief Synchronously execute a kernel on the device. Only supported on RefSi
+/// G1 devices.
+REFSI_API refsi_result refsiExecuteKernel(refsi_device_t device,
+                                          refsi_addr_t entry_fn_addr,
+                                          uint32_t num_harts);
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div></body>
+<!-- Mirrored from 127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Sep 2025 18:48:38 GMT -->
+</html>
+                    <a id="bottom"></a>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Rate -->
+                <div id="rate" class="rate collapsed">
+                    <div>
+                        Rate this Guide
+                    </div>
+                    <form action="https://formspree.io/f/xzbypbvl" method="post">
+                        <input type="hidden" name="subject" value="Guide Feedback" />
+                        <input type="hidden" name="product" value="oneAPI" />
+                        <input type="hidden" name="variant" value="Construction Kit" />
+                        <input type="hidden" name="guide" value="http://127.0.0.1/products/oneapi/construction-kit/4.0.0/guides/overview/reference-silicon/driver-interface.html" />
+
+                        <div class="up" title="Thumb up this guide">
+                           <i class="material-icons">thumb_up</i>
+                       </div>
+                        <div class="down" title="Thumb down this guide">
+                            <i class="material-icons">thumb_down</i>
+                        </div>
+                        <div>
+                            <input type="text" name="message"
+                                   required="required"
+                                   minlength="3"
+                                   maxlength="1000"
+                                   placeholder="How can we improve this guide? (press enter to send)" />
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Navigator -->
+                <div id="navigator">
+                    <div>
+                        <a href="dma-programming-guide-2.html#bottom"
+                            >
+                            <div>
+                                <i class="material-icons">navigate_before</i>
+                            </div>
+                            <div>
+                                <h1>DMA Programming Guide</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="mapping-opencl-to-refsi-2.html"
+                            >
+                            <div>
+                                <h1>How The Platform Maps to SYCL and OpenCL</h1>
+                            </div>
+                            <div>
+                                <i class="material-icons">navigate_next</i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Separator -->
+            <div class="separator"></div>
+
+            <!-- Footer Target -->
+            <div id="footer-target"></div>
+        </div>
+
+        <!-- File Jump List -->
+        <div id="jump-list-container" class="sticky styled-scroller">
+            <div class="nav-padding">
+                <div class="jump-list-container">
+                    <h1 class="file-container-title">
+                        <span class="material-icons">assignment</span>Jump to Section
+                    </h1>
+                    <ol class="in-page-jump-list">
+                        <li class="heading-1"><a href="#refsi-driver-interface">RefSi Driver Interface</a></li>
+                        <li class="heading-2"><a href="#driver-start-up-and-teardown">Driver start-up and teardown</a></li>
+                        <li class="heading-2"><a href="#device-queries">Device queries</a></li>
+                        <li class="heading-2"><a href="#device-memory-allocation">Device memory allocation</a></li>
+                        <li class="heading-2"><a href="#device-memory-access">Device memory access</a></li>
+                        <li class="heading-2"><a href="#device-execution-refsi-m1">Device execution (RefSi M1)</a></li>
+                        <li class="heading-2"><a href="#device-execution-refsi-g1">Device execution (RefSi G1)</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Handle layout resizing here to avoid jumping -->
+<script nonce="5790a7aab5392625572ee1f3e25d2066">
+    const resizerCookie = getCookie('CDPRESIZER');
+    if (resizerCookie) {
+        const cookieValue = JSON.parse(resizerCookie);
+
+        for (let [key, value] of Object.entries(cookieValue)) {
+            if (value === null || value === undefined) {
+                continue;
+            }
+
+            key = atob(key);
+            $(':root')[0].style.setProperty('--' + key, value + 'px');
+        }
+    }
+</script>
+
+</main>
+
+<!-- Product Selector-->
+<div id="productSelectorDialog" class="popupDialog">
+    <div class="side-by-side-panel panel">
+        <div id="products">
+            <div>
+                <h1>Select a Product</h1>
+            </div>
+            <ul>
+                <li>
+                    <a class="productSelection oneapi" data-product="oneapi">
+                        oneAPI
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="product-selection">
+            <div id="no-product">
+                Please select a product
+            </div>
+            <div id="product">
+                <div id="product-oneapi" class="product-view">
+                    <h1>
+
+                        oneAPI
+                    </h1>
+                    <p>oneAPI is a cross-industry, open, standards-based unified programming model that delivers a common developer experience across accelerator architecture - for faster application performance, more productivity, and greater innovation.</p>
+                    <ul id="variants">
+                        <li>
+                            <a href="../../../../index.html">
+                                <div>
+                                    Construction Kit
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../amd/index.html">
+                                <div>
+                                    for AMD GPU
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../../../../../nvidia/index.html">
+                                <div>
+                                    for NVIDIA® GPUs
+                                </div>
+                                <div>
+                                    <i class="material-icons">arrow_right</i>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Color Scheme Selector-->
+<div id="colorSchemeDialog" class="popupDialog">
+    <div>
+        <div class="selectDarkMode">
+            <div>
+                <img src="../../../../../../../assets/img/darkmode.png" alt="Dark Mode" />
+            </div>
+            <div>
+                <i class="material-icons">brightness_2</i>
+                <h1>Dark Mode</h1>
+                <p>Light text on a dark background.</p>
+            </div>
+        </div>
+        <div class="selectLightMode">
+            <div>
+                <img src="../../../../../../../assets/img/lightmode.png" alt="Light Mode" />
+            </div>
+            <div>
+                <i class="material-icons">lightbulb_outline</i>
+                <h1>Light Mode</h1>
+                <p>Dark text on a light background.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Site Selector -->
+<div id="siteSelectorDialog" class="popupDialog">
+    <div class="panel" id="profile-panel">
+        <header>
+            <div>
+                <i class="material-icons">public</i>
+            </div>
+            <div>
+                <h1>Also,</h1>
+                <h2>part of our network</h2>
+            </div>
+        </header>
+        <ul>
+            <li>
+                <a href="https://www.codeplay.com/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay.com</h1>
+                    <p>Find out about Codeplay, the latest company news and blog posts.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.sycl.tech/" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>SYCL.tech</h1>
+                    <p>Find out about the latest SYCL news, videos and projects.</p>
+                </a>
+            </li>
+            <li class="selected">
+                <a>
+                    <img src="../../../../../../../assets/img/you-are-here.png" alt="You Are Here Logo" />
+                    <h1>Codeplay Developer</h1>
+                    <p>Get the latest documentation and release packages for ComputeCpp and ComputeSuite</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/codeplaysoftware" target="_blank" rel="nofollow noopener noreferrer">
+                    <h1>Codeplay Open Source</h1>
+                    <p>Browse our open source projects and frameworks on GitHub.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Footer section -->
+<footer class="section-padding">
+    <div class="content-wrapper">
+        <div>
+            <h1>&copy; Codeplay Software Ltd</h1>
+            <div id="copyright"></div>
+        </div>
+        <div>
+            <ul>
+                <li><a href="https://codeplay.com/" target="_blank" rel="noopener">
+                    Visit codeplay.com</a></li>
+                <li><a href="https://codeplay.com/company/privacy/" target="_blank" rel="noopener">
+                    View Our Privacy Policy</a></li>
+                <li><a href="../../../../../../../cookies/index.html">
+                    Read Our Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
